@@ -2,14 +2,16 @@
 //  AppDelegate.m
 //  GripBall
 //
-//  Created by 贾辰 on 2017/9/24.
+//  Created by 贾辰 on 17/9/25.
 //  Copyright © 2017年 贾辰. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic) LoginViewController *viewController;
 @end
 
 @implementation AppDelegate
@@ -17,6 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.viewController = [[LoginViewController alloc] init];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    
+    self.window = [UIWindow new];
+    [self.window makeKeyAndVisible];
+    [self.window setFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
     return YES;
 }
 

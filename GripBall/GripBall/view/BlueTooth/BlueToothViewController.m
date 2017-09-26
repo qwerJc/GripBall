@@ -1,18 +1,34 @@
 //
-//  LoginViewController.m
+//  BlueToothViewController.m
 //  GripBall
 //
-//  Created by 贾辰 on 2017/9/25.
+//  Created by 贾辰 on 17/9/25.
 //  Copyright © 2017年 贾辰. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "BlueToothViewController.h"
 
-@interface LoginViewController ()
+@interface BlueToothViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation BlueToothViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+        [self createUI];
+        
+    }
+    return self;
+}
+
+-(void)createUI
+{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
