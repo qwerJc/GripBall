@@ -8,6 +8,7 @@
 
 #import "SearchResViewController.h"
 #import "ModelLocator.h"
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @interface SearchResViewController ()
 @property (strong, nonatomic) UIView *viewSearch;
@@ -26,7 +27,6 @@
 {
     self = [super init];
     if (self) {
-        [self.view setBackgroundColor:[UIColor whiteColor]];
         
 
         [self createUI];
@@ -35,20 +35,13 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [UIView animateWithDuration:1.f delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        [self.imgView setTransform:CGAffineTransformRotate(self.imgView.transform, 0.2)];
-    } completion:nil];
-}
-
 -(void)createUI
 {
     self.navigationItem.title = @"Search";
     
     // Search View
     self.viewSearch = [[UIView alloc] initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.viewSearch setBackgroundColor:[UIColor whiteColor]];
     self.view = self.viewSearch;
     
     self.imgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50.f, SCREEN_HEIGHT/2 - 50.f, 100.f, 100.f)];
@@ -68,7 +61,7 @@
     self.arrList = arr;
     self.view = self.viewSearchSuccess;
     
-    NSLog(@"%@",self.arrList);
+    NSLog(@"list :%@",self.arrList);
 }
 
 #pragma mark - tableView代理实现
@@ -98,7 +91,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CIdentifier];
     }
-//    cell.textLabel.text = [self.arrList objectAtIndex:indexPath.row].name;
+    CBPeripheral *peripheral = [self.arrList objectAtIndex:indexPath.row];
+    cell.textLabel.text = peripheral.name;
     
     return cell;
         
@@ -119,6 +113,25 @@
             break;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [UIView animateWithDuration:1.f delay:0 options:UIViewAnimationOptionRepeat animations:^{
+        [self.imgView setTransform:CGAffineTransformRotate(self.imgView.transform, 0.2)];
+    } completion:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    
 }
 
 - (void)didReceiveMemoryWarning {

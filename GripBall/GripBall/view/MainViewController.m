@@ -20,7 +20,6 @@
 @property (strong, nonatomic) JCAlertView               *alert;
 @property (strong, nonatomic) NSMutableArray            *arrPeripheralsList;
 
-@property (strong, nonatomic) NSTimer                   *timer;
 @end
 
 @implementation MainViewController
@@ -34,8 +33,6 @@
         self.viewControllerSearchRes = [[SearchResViewController alloc] init];
         self.arrPeripheralsList = [NSMutableArray array];
         
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:5.f target:self selector:@selector(searchFinish) userInfo:nil repeats:NO];
-        [self.timer setFireDate:[NSDate distantFuture]];
         
         [self createUI];
         
@@ -72,6 +69,13 @@
             
             //弹出视图
             [self.navigationController pushViewController:self.viewControllerSearchRes animated:YES];
+            
+            double delayInSeconds = 10.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                //执行事件
+                [self.viewControllerSearchRes showSuccessView:self.arrPeripheralsList];
+            });
         }
             break;
         case CBManagerStatePoweredOff:
@@ -114,14 +118,8 @@
 -(void)clickBtnStart
 {
     self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{@"CBCentralManagerOptionShowPowerAlertKey":@NO}];
-//    [self.timer setFireDate:[NSDate distantPast]];
 }
 
--(void)searchFinish{
-    NSLog(@"zzz");
-//    [self.timer setFireDate:[NSDate distantFuture]];
-//    [self.viewControllerSearchRes showSuccessView:self.arrPeripheralsList];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
