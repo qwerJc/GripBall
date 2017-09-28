@@ -8,28 +8,22 @@
 
 #import "LoginViewController.h"
 #import "ModelLocator.h"
-#import "BlueToothViewController.h"
+#import "MainViewController.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) UIButton *btnLogin;
-@property (strong, nonatomic) BlueToothViewController *viewControllerBlueTooth;
+@property (strong, nonatomic) MainViewController *viewControllerBlueTooth;
 
 @end
 
 @implementation LoginViewController
 
-//- (instancetype)initWithFrame:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//    }
-//    return self;
-//}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.viewControllerBlueTooth = [[BlueToothViewController alloc] init];
+        self.viewControllerBlueTooth = [[MainViewController alloc] init];
         
         [self createUI];
         
@@ -39,7 +33,9 @@
 
 -(void)createUI
 {
-    self.btnLogin = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-60.f, SCREEN_HEIGHT/2, 120.f,40.f)];
+    self.navigationItem.title = @"Login";
+    
+    self.btnLogin = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-60.f, SCREEN_HEIGHT-40.f, 120.f,40.f)];
     [self.btnLogin addTarget:self
                       action:@selector(onClickedLogin)
             forControlEvents:UIControlEventTouchUpInside];

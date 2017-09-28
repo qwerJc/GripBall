@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32081DEA1F7B936300A4B65E /* SearchResViewController.m */; };
+		320FDE201F79FA0300607D5E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FDE1F1F79FA0300607D5E /* MainViewController.m */; };
+		320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FDE231F7A34B100607D5E /* JCAlertView.m */; };
 		322D18821F78AF8700815118 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18811F78AF8700815118 /* main.m */; };
 		322D18851F78AF8700815118 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18841F78AF8700815118 /* AppDelegate.m */; };
 		322D188B1F78AF8800815118 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322D18891F78AF8800815118 /* Main.storyboard */; };
 		322D188D1F78AF8800815118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322D188C1F78AF8800815118 /* Assets.xcassets */; };
 		322D18901F78AF8800815118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322D188E1F78AF8800815118 /* LaunchScreen.storyboard */; };
 		322D189F1F78CCA000815118 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D189E1F78CCA000815118 /* LoginViewController.m */; };
-		322D18A31F78D3E900815118 /* BlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18A21F78D3E900815118 /* BlueToothViewController.m */; };
-		322D18A61F78EBAB00815118 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18A51F78EBAB00815118 /* SearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32081DE91F7B936300A4B65E /* SearchResViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResViewController.h; sourceTree = "<group>"; };
+		32081DEA1F7B936300A4B65E /* SearchResViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResViewController.m; sourceTree = "<group>"; };
+		320FDE1E1F79FA0300607D5E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		320FDE1F1F79FA0300607D5E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		320FDE221F7A34B100607D5E /* JCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertView.h; sourceTree = "<group>"; };
+		320FDE231F7A34B100607D5E /* JCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertView.m; sourceTree = "<group>"; };
 		322D187D1F78AF8700815118 /* GripBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GripBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		322D18811F78AF8700815118 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		322D18831F78AF8700815118 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,10 +36,6 @@
 		322D18991F78B37E00815118 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		322D189D1F78B77B00815118 /* ModelLocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelLocator.h; sourceTree = "<group>"; };
 		322D189E1F78CCA000815118 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		322D18A11F78D3E900815118 /* BlueToothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothViewController.h; sourceTree = "<group>"; };
-		322D18A21F78D3E900815118 /* BlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothViewController.m; sourceTree = "<group>"; };
-		322D18A41F78EBAB00815118 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		322D18A51F78EBAB00815118 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +49,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		320FDE1C1F79F9B400607D5E /* ConnectResult */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ConnectResult;
+			sourceTree = "<group>";
+		};
+		320FDE1D1F79F9B400607D5E /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				32081DE91F7B936300A4B65E /* SearchResViewController.h */,
+				32081DEA1F7B936300A4B65E /* SearchResViewController.m */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		320FDE211F7A32AB00607D5E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				320FDE221F7A34B100607D5E /* JCAlertView.h */,
+				320FDE231F7A34B100607D5E /* JCAlertView.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		322D18741F78AF8700815118 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +97,7 @@
 				322D18841F78AF8700815118 /* AppDelegate.m */,
 				322D189C1F78B75F00815118 /* model */,
 				322D18971F78B37E00815118 /* view */,
+				320FDE211F7A32AB00607D5E /* Tools */,
 				322D18891F78AF8800815118 /* Main.storyboard */,
 				322D188C1F78AF8800815118 /* Assets.xcassets */,
 				322D188E1F78AF8800815118 /* LaunchScreen.storyboard */,
@@ -89,6 +118,8 @@
 		322D18971F78B37E00815118 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				320FDE1E1F79FA0300607D5E /* MainViewController.h */,
+				320FDE1F1F79FA0300607D5E /* MainViewController.m */,
 				322D18981F78B37E00815118 /* Login */,
 				322D18A01F78CF8F00815118 /* BlueTooth */,
 			);
@@ -115,10 +146,8 @@
 		322D18A01F78CF8F00815118 /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
-				322D18A11F78D3E900815118 /* BlueToothViewController.h */,
-				322D18A21F78D3E900815118 /* BlueToothViewController.m */,
-				322D18A41F78EBAB00815118 /* SearchViewController.h */,
-				322D18A51F78EBAB00815118 /* SearchViewController.m */,
+				320FDE1C1F79F9B400607D5E /* ConnectResult */,
+				320FDE1D1F79F9B400607D5E /* SearchResult */,
 			);
 			path = BlueTooth;
 			sourceTree = "<group>";
@@ -196,9 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				322D18851F78AF8700815118 /* AppDelegate.m in Sources */,
-				322D18A31F78D3E900815118 /* BlueToothViewController.m in Sources */,
-				322D18A61F78EBAB00815118 /* SearchViewController.m in Sources */,
+				32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
+				320FDE201F79FA0300607D5E /* MainViewController.m in Sources */,
+				320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */,
 				322D189F1F78CCA000815118 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
