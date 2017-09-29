@@ -70,7 +70,7 @@
             //弹出视图
             [self.navigationController pushViewController:self.viewControllerSearchRes animated:YES];
             
-            double delayInSeconds = 10.0;
+            double delayInSeconds = 2.0;        //默认搜索时间
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 //执行事件
@@ -103,14 +103,20 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    
-//    NSLog(@"peripheral = %@, advertisementData = %@, RSSI = %@", peripheral, advertisementData, RSSI);
-    
     // _dicoveredPeripherals是用来存放已经扫描到的外部设备
     // 如果发现了这个外围设备我就把它添加到这个数组里面
     
-    if(![self.arrPeripheralsList containsObject:peripheral] && peripheral.name != NULL)
+    if(![self.arrPeripheralsList containsObject:peripheral])//peripheral.name != NULL
+    {
+        NSLog(@"now : %@",peripheral.name);
         [self.arrPeripheralsList addObject:peripheral];
+    }
+
+}
+
+-(void)ifExistObject:(CBPeripheral *)peripheral
+{
+    
 }
 
 
@@ -120,6 +126,13 @@
     self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{@"CBCentralManagerOptionShowPowerAlertKey":@NO}];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.arrPeripheralsList removeAllObjects];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.manager stopScan];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

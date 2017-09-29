@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) UIView *viewSearchSuccess;
 @property (strong, nonatomic) NSMutableArray *arrList;
+@property (strong, nonatomic) UITableView *tableview;
 
 @property (strong, nonatomic) UIView *viewSearchFail;
 
@@ -27,7 +28,7 @@
 {
     self = [super init];
     if (self) {
-        
+        [self.view setBackgroundColor:[UIColor grayColor]];
 
         [self createUI];
         
@@ -42,7 +43,8 @@
     // Search View
     self.viewSearch = [[UIView alloc] initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.viewSearch setBackgroundColor:[UIColor whiteColor]];
-    self.view = self.viewSearch;
+    [self.view addSubview:self.viewSearch];
+
     
     self.imgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50.f, SCREEN_HEIGHT/2 - 50.f, 100.f, 100.f)];
     [self.imgView setBackgroundColor:[UIColor purpleColor]];
@@ -50,16 +52,27 @@
     
     self.viewSearchSuccess = [[UIView alloc] initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.viewSearchSuccess setBackgroundColor:[UIColor orangeColor]];
+    [self.viewSearchSuccess setAlpha:0];
+    [self.view addSubview:self.viewSearchSuccess];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2, SCREEN_WIDTH, SCREEN_HEIGHT/2-5.f)];
-    [self.viewSearchSuccess addSubview:tableView];
-    tableView.dataSource = self;
-    tableView.delegate = self;
+    self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT/2, SCREEN_WIDTH, SCREEN_HEIGHT/2-5.f)];
+    [self.viewSearchSuccess addSubview:self.tableview];
+    self.tableview.dataSource = self;
+    self.tableview.delegate = self;
 }
 
 -(void)showSuccessView:(NSMutableArray *)arr{
     self.arrList = arr;
-    self.view = self.viewSearchSuccess;
+
+    [self.tableview reloadData];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.viewSearch setAlpha:0];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.viewSearchSuccess setAlpha:1];
+        }];
+    }];
     
     NSLog(@"list :%@",self.arrList);
 }
@@ -92,7 +105,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CIdentifier];
     }
     CBPeripheral *peripheral = [self.arrList objectAtIndex:indexPath.row];
-    cell.textLabel.text = peripheral.name;
+    if (peripheral.name == NULL) {
+        cell.textLabel.text = @"未知蓝牙信号";
+    }else{
+        cell.textLabel.text = peripheral.name;
+    }
     
     return cell;
         
@@ -121,17 +138,18 @@
 
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [UIView animateWithDuration:1.f delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        [self.imgView setTransform:CGAffineTransformRotate(self.imgView.transform, 0.2)];
+-(void)viewWillAppear:(BOOL)animated{
+    [UIView animateWithDuration:1.f delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionCurveLinear animations:^{
+        [self.imgView setTransform:CGAffineTransformRotate(self.imgView.transform,3.14f)];
     } completion:nil];
 }
+-(void)viewDidAppear:(BOOL)animated{
 
-- (void)viewWillDisappear:(BOOL)animated{
-    
 }
+
 -(void)viewDidDisappear:(BOOL)animated{
-    
+    [self.viewSearch setAlpha:1];
+    [self.viewSearchSuccess setAlpha:0];
 }
 
 - (void)didReceiveMemoryWarning {
