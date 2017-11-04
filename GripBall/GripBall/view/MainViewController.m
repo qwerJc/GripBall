@@ -5,6 +5,8 @@
 //  Created by 贾辰 on 17/9/26.
 //  Copyright © 2017年 贾辰. All rights reserved.
 //
+//  主要的界面，负责蓝牙的搜索、连接、数据接受等
+//
 
 #import "MainViewController.h"
 #import "SearchResViewController.h"
@@ -15,11 +17,14 @@
 @interface MainViewController ()
 @property (strong, nonatomic) SearchResViewController   *viewControllerSearchRes;
 @property (strong, nonatomic) UIButton                  *btnStart;
-@property (strong, nonatomic) CBCentralManager          *manager;
+@property (strong, nonatomic) CBCentralManager          *manager;       // 中心管理者
 @property (strong, nonatomic) CBPeripheral              *peripheral;
 @property (strong, nonatomic) JCAlertView               *alert;
 @property (strong, nonatomic) NSMutableArray            *arrPeripheralsList;
 
+@property (strong, nonatomic) UIImageView               *imgViewState;
+
+@property (strong, nonatomic) NSTimer                   *timeSearch;
 @end
 
 @implementation MainViewController
@@ -28,9 +33,12 @@
 {
     self = [super init];
     if (self) {
+        
         [self.view setBackgroundColor:[UIColor whiteColor]];
         
         self.viewControllerSearchRes = [[SearchResViewController alloc] init];
+        self.viewControllerSearchRes.delegate = self;
+        
         self.arrPeripheralsList = [NSMutableArray array];
         
         
@@ -44,10 +52,32 @@
 -(void)createUI
 {
     self.navigationItem.title = @"Main";
+    [self.view setBackgroundColor:[UIColor blackColor]];
     
-    self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-80, SCREEN_WIDTH, 80.f)];
+    //背景图片
+    UIImageView *imgViewBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    [self.view addSubview:imgViewBG];
+    
+    //头像
+    UIImageView *imgHeadPic = [[UIImageView alloc] initWithFrame:CGRectMake(50.f, 47.5f, 60.f, 60.f)];
+    [imgHeadPic setImage:[UIImage imageNamed:@"connect_head"]];
+    [imgHeadPic.layer setCornerRadius:30.f];
+    [self.view addSubview:imgHeadPic];
+    
+    //蓝牙状态图标
+    self.imgViewState = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80.f, 62.f, 31.f, 31.f)];
+    [self.imgViewState setImage:[UIImage imageNamed:@"connect_state_off"]];
+    [self.view addSubview:self.imgViewState];
+    
+    //中部背景图片
+    UIImageView *imgViewBG2 = [[UIImageView alloc] initWithFrame:CGRectMake(36.f, 141.f, SCREEN_WIDTH-72.f, 105.f)];
+    [imgViewBG2 setImage:[UIImage imageNamed:@"connect_background2"]];
+    [self.view addSubview:imgViewBG2];
+    
+    self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-90, 171, 46.f)];
     [self.btnStart setTitle:@"Start Test" forState:UIControlStateNormal];
-    [self.btnStart setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.btnStart setBackgroundImage:[UIImage imageNamed:@"connect_btn_blue"] forState:UIControlStateNormal];
+    [self.btnStart setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btnStart];
 }
@@ -57,7 +87,19 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)showSearchRes{
+    if (self.arrPeripheralsList.count > 0) {
+        //  搜索成功
+        [self.viewControllerSearchRes showSuccessView:self.arrPeripheralsList];
+    }else{
+        //  搜索失败
+        [self.viewControllerSearchRes showFailView];
+    }
+    [_manager stopScan];    //蓝牙停止搜索
+}
+
 #pragma BlueTooth Delegate
+//  判断当前蓝牙状态
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     switch (central.state) {
@@ -70,17 +112,16 @@
             //弹出视图
             [self.navigationController pushViewController:self.viewControllerSearchRes animated:YES];
             
-            double delayInSeconds = 2.0;        //默认搜索时间
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                //执行事件
-                [self.viewControllerSearchRes showSuccessView:self.arrPeripheralsList];
-            });
+            self.timeSearch =  [NSTimer scheduledTimerWithTimeInterval:5.f
+                                                                target:self
+                                                              selector:@selector(showSearchRes)
+                                                              userInfo:nil
+                                                               repeats:NO];
         }
             break;
         case CBManagerStatePoweredOff:
         {
-            self.alert = [[JCAlertView alloc] initWithTitle:@"1" andDetailTitle:@"蓝牙没有打开,请先打开蓝牙" andBtnTitle:@"确定"];
+            self.alert = [[JCAlertView alloc] initWithTitle:@"蓝牙未打开" andDetailTitle:@"请在 设置-蓝牙 中开启" andBtnTitle:@"我知道了"];
             
             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
             [rootWindow addSubview:self.alert];
@@ -90,12 +131,12 @@
             break;
         default:
         {
-            self.alert = [[JCAlertView alloc] initWithTitle:@"1" andDetailTitle:@"该设备不支持蓝牙功能,请检查系统设置" andBtnTitle:@"确定"];
+            self.alert = [[JCAlertView alloc] initWithTitle:@"" andDetailTitle:@"该设备不支持蓝牙功能,请检查系统设置" andBtnTitle:@"我知道了"];
             
             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
             [rootWindow addSubview:self.alert];
             
-            NSLog(@"该设备不支持蓝牙功能,请检查系统设置");
+            NSLog(@"该设备不支持蓝牙功能");
         }
             break;
     }
@@ -113,12 +154,32 @@
     }
 
 }
-
--(void)ifExistObject:(CBPeripheral *)peripheral
+// 中心管理者连接外设成功
+- (void)centralManager:(CBCentralManager *)central // 中心管理者
+  didConnectPeripheral:(CBPeripheral *)peripheral // 外设
 {
+    NSLog(@"%s, line = %d, %@=连接成功", __FUNCTION__, __LINE__, peripheral.name);
+    // 连接成功之后,可以进行服务和特征的发现
+    
+    [self.imgViewState setImage:[UIImage imageNamed:@"connect_state_on"]];
+    
+    //  设置外设的代理
+    self.peripheral.delegate = self;
+    
+    // 外设发现服务,传nil代表不过滤
+    // 这里会触发外设的代理方法 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
+    [self.peripheral discoverServices:nil];
+}
+// 外设连接失败
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    NSLog(@"%s, line = %d, %@=连接失败", __FUNCTION__, __LINE__, peripheral.name);
+}
+// 断开链接
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
+    NSLog(@">>>外设连接断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
     
 }
-
 
 #pragma Btn Event
 -(void)clickBtnStart
@@ -126,12 +187,33 @@
     self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{@"CBCentralManagerOptionShowPowerAlertKey":@NO}];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [self.arrPeripheralsList removeAllObjects];
+#pragma SearchResult delegate
+//选择连接
+-(void)blueToothConnect:(int)index{
+    NSLog(@"点击的是 ：%d",index);
+    self.peripheral = [self.arrPeripheralsList objectAtIndex:index];
+    [self.manager connectPeripheral:self.peripheral options:nil];
 }
 
+//重新连接
+-(void)reConnect{
+    [self clickBtnStart];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self.arrPeripheralsList removeAllObjects];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    if (self.timeSearch) {
+        [self.timeSearch invalidate];
+        self.timeSearch = nil;
+    }
+    [_manager stopScan];    //蓝牙停止搜索
+}
 -(void)viewDidDisappear:(BOOL)animated{
-    [self.manager stopScan];
+//    [self.manager stopScan];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

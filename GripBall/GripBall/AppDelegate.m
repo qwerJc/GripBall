@@ -22,6 +22,7 @@
     self.viewController = [[LoginViewController alloc] init];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController.navigationBar.hidden = YES;
     
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

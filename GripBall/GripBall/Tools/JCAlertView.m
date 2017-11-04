@@ -15,20 +15,41 @@
 
 @implementation JCAlertView
 
-- (instancetype)initWithTitle:(NSString *)title andDetailTitle:(NSString *)detailTitle andBtnTitle:(NSString *)btnTitle
+- (instancetype)initWithTitle:(NSString *)title andDetailTitle:(NSString *)detailTitle andBtnTitle:(NSString *)singleBtnTitle
 {
     self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     if (self) {
         //Create UI
-        [self setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.6]];
+        UIView *viewBG = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [viewBG setBackgroundColor:[UIColor blackColor]];
+        [viewBG setAlpha:0.6];
+        [self addSubview:viewBG];
         
-        UIView *alertView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-60.f, SCREEN_HEIGHT/2-80.f, 120, 160)];
-        [alertView setBackgroundColor:[UIColor whiteColor]];
+        UIView *alertView = [[UIView alloc] initWithFrame:CGRectMake(45.f, 200.f, SCREEN_WIDTH-90.f, SCREEN_HEIGHT-400.f)];
+        [alertView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:alertView];
         
-        UIButton *btnOK = [[UIButton alloc] initWithFrame:CGRectMake(20, 110, 80, 40)];
-        [btnOK setBackgroundColor:[UIColor grayColor]];
-        [btnOK setTitle:btnTitle forState:UIControlStateNormal];
+        UIImageView *imgViewBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-90.f, SCREEN_HEIGHT-400.f)];
+        [imgViewBG setImage:[UIImage imageNamed:@"connect_rectangle_l"]];
+        [alertView addSubview:imgViewBG];
+        
+        UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(25.f, 62.f,alertView.frame.size.width-50.f, 22.f)];
+        [lblTitle setText:title];
+        [lblTitle setTextColor:[UIColor blackColor]];
+        [lblTitle setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
+        [lblTitle setTextAlignment:NSTextAlignmentCenter];
+        [alertView addSubview:lblTitle];
+        
+        UILabel *lblSubTitle = [[UILabel alloc] initWithFrame:CGRectMake(25.f, 100.f,alertView.frame.size.width-50.f, 22.f)];
+        [lblSubTitle setText:detailTitle];
+        [lblSubTitle setTextColor:[UIColor blackColor]];
+        [lblSubTitle setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
+        [lblSubTitle setTextAlignment:NSTextAlignmentCenter];
+        [alertView addSubview:lblSubTitle];
+        
+        UIButton *btnOK = [[UIButton alloc] initWithFrame:CGRectMake(55.f, 175.f, alertView.frame.size.width-110.f, 48.f)];
+        [btnOK setBackgroundImage:[UIImage imageNamed:@"connect_btn_black"] forState:UIControlStateNormal];
+        [btnOK setTitle:singleBtnTitle forState:UIControlStateNormal];
         [btnOK setTintColor:[UIColor whiteColor]];
         [btnOK addTarget:self action:@selector(clickOK) forControlEvents:UIControlEventTouchUpInside];
         [alertView addSubview:btnOK];

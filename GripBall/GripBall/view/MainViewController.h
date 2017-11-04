@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "SearchResViewController.h"
 
-@interface MainViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface MainViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate,SearchDelegate>
 
 @end

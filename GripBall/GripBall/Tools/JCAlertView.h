@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JCAlertView : UIView
-- (instancetype)initWithTitle:(NSString *)title andDetailTitle:(NSString *)detailTitle andBtnTitle:(NSString *)btnTitle;
+- (instancetype)initWithTitle:(NSString *)title andDetailTitle:(NSString *)detailTitle andBtnTitle:(NSString *)singleBtnTitle;
 @end
