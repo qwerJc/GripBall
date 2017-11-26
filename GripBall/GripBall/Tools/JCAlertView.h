@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface JCAlertView : UIView
+@property (nonatomic,strong)UIButton *btnOK;
+@property (nonatomic,strong)UIButton *btnCancel;
 - (instancetype)initWithTitle:(NSString *)title andDetailTitle:(NSString *)detailTitle andBtnTitle:(NSString *)singleBtnTitle;
+- (instancetype)initWithTitle:(NSString *)title andBtn1Title:(NSString *)btn1Title andBtn2Title:(NSString *)btn2Title;
 @end

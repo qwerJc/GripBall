@@ -68,7 +68,6 @@
     
     //-----------------------------【SearSuccess】---------------------------
     self.viewSearchSuccess = [[UIView alloc] initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH, SCREEN_HEIGHT)];
-//    [self.viewSearchSuccess setBackgroundColor:[UIColor blackColor]];
     [self.viewSearchSuccess setAlpha:0];
     [self.view addSubview:self.viewSearchSuccess];
     
@@ -107,12 +106,12 @@
     UIImageView *searchFailBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewSearchFail addSubview:searchFailBG];
     
-    UILabel *lblTSearchFailitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-48.f, 100.f, 96.f, 25.f)];
-    [lblTSearchFailitle setText:@"搜索失败"];
-    [lblTSearchFailitle setTextColor:[UIColor colorWithRed:164.f/255.f green:164.f/255.f blue:164.f/255.f alpha:1]];
-    [lblTSearchFailitle setFont:[UIFont fontWithName:@"ArialMT" size:20.f]];
-    [lblTSearchFailitle setTextAlignment:NSTextAlignmentCenter];
-    [self.viewSearchFail addSubview:lblTSearchFailitle];
+    UILabel *lblSearchFailitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-48.f, 100.f, 96.f, 25.f)];
+    [lblSearchFailitle setText:@"搜索失败"];
+    [lblSearchFailitle setTextColor:[UIColor colorWithRed:164.f/255.f green:164.f/255.f blue:164.f/255.f alpha:1]];
+    [lblSearchFailitle setFont:[UIFont fontWithName:@"ArialMT" size:20.f]];
+    [lblSearchFailitle setTextAlignment:NSTextAlignmentCenter];
+    [self.viewSearchFail addSubview:lblSearchFailitle];
     
     UIImageView *failIcon = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-45.f, 208.f, 90.f, 90.f)];
     [failIcon setImage:[UIImage imageNamed:@"connect_background3"]];
@@ -223,6 +222,7 @@
     
 }
 
+#pragma mark - SearchFail - Btn
 -(void)clickBtnSearchFail1{
     [self.navigationController popViewControllerAnimated:YES];
     if ([_delegate respondsToSelector:@selector(reConnect)]) { // 如果协议响应了sendValue:方法

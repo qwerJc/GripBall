@@ -9,9 +9,13 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 
+#import "PracticeBeginViewController.h"
+
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) LoginViewController *viewController;
+
+@property (strong, nonatomic) PracticeBeginViewController     *tem;
 @end
 
 @implementation AppDelegate
@@ -19,8 +23,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.viewController = [[LoginViewController alloc] init];
     
+    
+    //-----------------[del]===================
+//    self.tem = [[PracticeBeginViewController alloc] init];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem];
+    //=========================================
+    
+    self.viewController = [[LoginViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     self.navigationController.navigationBar.hidden = YES;
     

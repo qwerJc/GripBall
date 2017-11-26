@@ -12,10 +12,13 @@
 #import "SearchResViewController.h"
 #import "ModelLocator.h"
 #import "JCAlertView.h"
+#import "ConnectResViewController.h"
      
 
 @interface MainViewController ()
 @property (strong, nonatomic) SearchResViewController   *viewControllerSearchRes;
+@property (strong, nonatomic) ConnectResViewController  *viewControllerConnectRes;
+
 @property (strong, nonatomic) UIButton                  *btnStart;
 @property (strong, nonatomic) CBCentralManager          *manager;       // 中心管理者
 @property (strong, nonatomic) CBPeripheral              *peripheral;
@@ -39,6 +42,8 @@
         self.viewControllerSearchRes = [[SearchResViewController alloc] init];
         self.viewControllerSearchRes.delegate = self;
         
+        self.viewControllerConnectRes = [[ConnectResViewController alloc] init];
+        
         self.arrPeripheralsList = [NSMutableArray array];
         
         
@@ -51,7 +56,6 @@
 
 -(void)createUI
 {
-    self.navigationItem.title = @"Main";
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     //背景图片
@@ -158,10 +162,16 @@
 - (void)centralManager:(CBCentralManager *)central // 中心管理者
   didConnectPeripheral:(CBPeripheral *)peripheral // 外设
 {
+    [self.navigationController popViewControllerAnimated:YES];
+    
     NSLog(@"%s, line = %d, %@=连接成功", __FUNCTION__, __LINE__, peripheral.name);
     // 连接成功之后,可以进行服务和特征的发现
     
     [self.imgViewState setImage:[UIImage imageNamed:@"connect_state_on"]];
+    
+    [self.viewControllerConnectRes setLbl2Name:peripheral.name];
+    [self.navigationController pushViewController:self.viewControllerConnectRes animated:YES];
+
     
     //  设置外设的代理
     self.peripheral.delegate = self;
