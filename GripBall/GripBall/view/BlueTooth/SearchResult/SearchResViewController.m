@@ -225,8 +225,8 @@
 #pragma mark - SearchFail - Btn
 -(void)clickBtnSearchFail1{
     [self.navigationController popViewControllerAnimated:YES];
-    if ([_delegate respondsToSelector:@selector(reConnect)]) { // 如果协议响应了sendValue:方法
-        [_delegate reConnect]; // 通知执行协议方法
+    if ([_delegate respondsToSelector:@selector(reSearch)]) { // 如果协议响应了sendValue:方法
+        [_delegate reSearch]; // 通知执行协议方法
     }
 }
 

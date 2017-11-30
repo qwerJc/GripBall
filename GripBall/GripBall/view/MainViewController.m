@@ -28,6 +28,8 @@
 @property (strong, nonatomic) UIImageView               *imgViewState;
 
 @property (strong, nonatomic) NSTimer                   *timeSearch;
+
+@property (assign, nonatomic) BOOL                      isReConnect;
 @end
 
 @implementation MainViewController
@@ -36,6 +38,7 @@
 {
     self = [super init];
     if (self) {
+        self.isReConnect = false;
         
         [self.view setBackgroundColor:[UIColor whiteColor]];
         
@@ -162,23 +165,28 @@
 - (void)centralManager:(CBCentralManager *)central // 中心管理者
   didConnectPeripheral:(CBPeripheral *)peripheral // 外设
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.isReConnect) {         //判断是否为断线重连，如果是则直接不需要再次设置代理
+//        [self.alert setAlert2SuccView];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        NSLog(@"%s, line = %d, %@=连接成功", __FUNCTION__, __LINE__, peripheral.name);
+        // 连接成功之后,可以进行服务和特征的发现
+        
+        [self.imgViewState setImage:[UIImage imageNamed:@"connect_state_on"]];
+        
+        [self.viewControllerConnectRes setLbl2Name:peripheral.name];
+        [self.navigationController pushViewController:self.viewControllerConnectRes animated:YES];
+        
+        
+        //  设置外设的代理
+        self.peripheral.delegate = self;
+        
+        // 外设发现服务,传nil代表不过滤
+        // 这里会触发外设的代理方法 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
+        [self.peripheral discoverServices:nil];
+    }
     
-    NSLog(@"%s, line = %d, %@=连接成功", __FUNCTION__, __LINE__, peripheral.name);
-    // 连接成功之后,可以进行服务和特征的发现
-    
-    [self.imgViewState setImage:[UIImage imageNamed:@"connect_state_on"]];
-    
-    [self.viewControllerConnectRes setLbl2Name:peripheral.name];
-    [self.navigationController pushViewController:self.viewControllerConnectRes animated:YES];
-
-    
-    //  设置外设的代理
-    self.peripheral.delegate = self;
-    
-    // 外设发现服务,传nil代表不过滤
-    // 这里会触发外设的代理方法 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
-    [self.peripheral discoverServices:nil];
 }
 // 外设连接失败
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
@@ -188,7 +196,27 @@
 // 断开链接
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     NSLog(@">>>外设连接断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
-    
+    self.alert = [[JCAlertView alloc] initWithTitle:@"手机与握力球断开连接" andBtn1Title:@"重新连接" andBtn2Title:@"回到首页"];
+    [self.alert.btnCancel setBackgroundImage:[UIImage imageNamed:@"practice_btn3"] forState:UIControlStateNormal];
+    [self.alert.btnOK addTarget:self action:@selector(reConnect) forControlEvents:UIControlEventTouchUpInside];
+    [self.alert.btnCancel addTarget:self action:@selector(backToMain) forControlEvents:UIControlEventTouchUpInside];
+    UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+    [rootWindow addSubview:self.alert];
+}
+//断开连接后的断线重连
+-(void)reConnect{
+    self.isReConnect = true;
+    [self.manager connectPeripheral:self.peripheral options:nil];
+    [self.alert setAlert2WaitView];
+}
+//断开连接后的回到首页
+-(void)backToMain{
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        if ([controller isKindOfClass:[MainViewController class]]) {
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+    }
+    [self.alert removeFromSuperview];
 }
 
 #pragma Btn Event
@@ -205,8 +233,8 @@
     [self.manager connectPeripheral:self.peripheral options:nil];
 }
 
-//重新连接
--(void)reConnect{
+//重新搜索
+-(void)reSearch{
     [self clickBtnStart];
 }
 

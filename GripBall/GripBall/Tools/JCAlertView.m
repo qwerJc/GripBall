@@ -10,6 +10,7 @@
 #import "ModelLocator.h"
 
 @interface JCAlertView()
+
 @end
 
 @implementation JCAlertView
@@ -104,6 +105,12 @@
         [alertView addSubview:_btnCancel];
     }
     return self;
+}
+-(void)setAlert2WaitView{
+    [UIView animateWithDuration:5.f animations:^{
+        [self.alertView setFrame:CGRectMake(20.f, 50.f, 280.f, 270.f)];
+        [self.alertView setBackgroundColor:[UIColor redColor]];
+    }];
 }
 /*
  // Only override drawRect: if you perform custom drawing.

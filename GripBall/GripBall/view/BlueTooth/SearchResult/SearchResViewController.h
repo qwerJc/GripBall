@@ -11,7 +11,7 @@
 // 设置delegate
 @protocol SearchDelegate // 代理传值方法
 - (void)blueToothConnect:(int)index;
-- (void)reConnect;
+- (void)reSearch;
 @end
 
 @interface SearchResViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
