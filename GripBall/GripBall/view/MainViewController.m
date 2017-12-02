@@ -87,7 +87,43 @@
     [self.btnStart setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btnStart];
+    
+    //-----------------[del]===================
+    UIButton *temBtn = [[UIButton alloc] initWithFrame:CGRectMake(50.f, 50.f, 80.f, 40.f)];
+    [temBtn setBackgroundColor:[UIColor redColor]];
+    [temBtn addTarget:self action:@selector(tem) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:temBtn];
+    
+    UIButton *temBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(50.f, 50.f, 80.f, 40.f)];
+    [temBtn2 setBackgroundColor:[UIColor redColor]];
+    [temBtn2 addTarget:self action:@selector(tem2) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:temBtn2];
+    
+    UIButton *temBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(50.f, 50.f, 80.f, 40.f)];
+    [temBtn3 setBackgroundColor:[UIColor redColor]];
+    [temBtn3 addTarget:self action:@selector(tem3) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:temBtn3];
+    //=========================================
 }
+
+//-----------------[del]===================
+-(void)tem{
+    self.alert = [[JCAlertView alloc] initAlert3ReConnectWithTitle:@"手机与握力球断开连接" andBtn1Title:@"重新连接" andBtn2Title:@"回到首页"];
+    [self.alert.btnCancel setBackgroundImage:[UIImage imageNamed:@"practice_btn3"] forState:UIControlStateNormal];
+    [self.alert.btnOK addTarget:self action:@selector(reConnect) forControlEvents:UIControlEventTouchUpInside];
+    [self.alert.btnCancel addTarget:self action:@selector(backToMain) forControlEvents:UIControlEventTouchUpInside];
+    UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+    [rootWindow addSubview:self.alert];
+}
+
+-(void)tem2{
+    [self.alert setAlert3WaitView];
+}
+
+-(void)tem3{
+    [self]
+}
+//=========================================
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -196,7 +232,7 @@
 // 断开链接
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     NSLog(@">>>外设连接断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
-    self.alert = [[JCAlertView alloc] initWithTitle:@"手机与握力球断开连接" andBtn1Title:@"重新连接" andBtn2Title:@"回到首页"];
+    self.alert = [[JCAlertView alloc] initAlert3ReConnectWithTitle:@"手机与握力球断开连接" andBtn1Title:@"重新连接" andBtn2Title:@"回到首页"];
     [self.alert.btnCancel setBackgroundImage:[UIImage imageNamed:@"practice_btn3"] forState:UIControlStateNormal];
     [self.alert.btnOK addTarget:self action:@selector(reConnect) forControlEvents:UIControlEventTouchUpInside];
     [self.alert.btnCancel addTarget:self action:@selector(backToMain) forControlEvents:UIControlEventTouchUpInside];
@@ -207,7 +243,7 @@
 -(void)reConnect{
     self.isReConnect = true;
     [self.manager connectPeripheral:self.peripheral options:nil];
-    [self.alert setAlert2WaitView];
+//    [self.alert setAlert2WaitView];
 }
 //断开连接后的回到首页
 -(void)backToMain{

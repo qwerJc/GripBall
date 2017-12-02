@@ -207,7 +207,7 @@
 
 -(void)clickBtnStartEnd{
     [_timerSecond setFireDate:[NSDate distantFuture]];
-    self.alert = [[JCAlertView alloc] initWithTitle:@"请确认结束练习" andBtn1Title:@"确认" andBtn2Title:@"取消"];
+    self.alert = [[JCAlertView alloc] initAlert2TwoBtnWithTitle:@"请确认结束练习" andBtn1Title:@"确认" andBtn2Title:@"取消"];
     [self.alert.btnOK addTarget:self action:@selector(showResVC) forControlEvents:UIControlEventTouchUpInside];
     [self.alert.btnCancel addTarget:self action:@selector(cancelAlert) forControlEvents:UIControlEventTouchUpInside];
     UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
