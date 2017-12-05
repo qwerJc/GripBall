@@ -23,11 +23,14 @@
 @property (strong, nonatomic) CBCentralManager          *manager;       // 中心管理者
 @property (strong, nonatomic) CBPeripheral              *peripheral;
 @property (strong, nonatomic) JCAlertView               *alert;
+@property (strong, nonatomic) JCAlertView               *alertConnectSucc;
+@property (strong, nonatomic) JCAlertView               *alertConnectFail;
 @property (strong, nonatomic) NSMutableArray            *arrPeripheralsList;
 
 @property (strong, nonatomic) UIImageView               *imgViewState;
 
 @property (strong, nonatomic) NSTimer                   *timeSearch;
+@property (strong, nonatomic) NSTimer                   *timeWaitRecond;//重连等待时间
 
 @property (assign, nonatomic) BOOL                      isReConnect;
 @end
@@ -49,10 +52,7 @@
         
         self.arrPeripheralsList = [NSMutableArray array];
         
-        
         [self createUI];
-        
-        
     }
     return self;
 }
@@ -88,42 +88,7 @@
     [self.btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btnStart];
     
-    //-----------------[del]===================
-    UIButton *temBtn = [[UIButton alloc] initWithFrame:CGRectMake(50.f, 50.f, 80.f, 40.f)];
-    [temBtn setBackgroundColor:[UIColor redColor]];
-    [temBtn addTarget:self action:@selector(tem) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:temBtn];
-    
-    UIButton *temBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(50.f, 50.f, 80.f, 40.f)];
-    [temBtn2 setBackgroundColor:[UIColor redColor]];
-    [temBtn2 addTarget:self action:@selector(tem2) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:temBtn2];
-    
-    UIButton *temBtn3 = [[UIButton alloc] initWithFrame:CGRectMake(50.f, 50.f, 80.f, 40.f)];
-    [temBtn3 setBackgroundColor:[UIColor redColor]];
-    [temBtn3 addTarget:self action:@selector(tem3) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:temBtn3];
-    //=========================================
 }
-
-//-----------------[del]===================
--(void)tem{
-    self.alert = [[JCAlertView alloc] initAlert3ReConnectWithTitle:@"手机与握力球断开连接" andBtn1Title:@"重新连接" andBtn2Title:@"回到首页"];
-    [self.alert.btnCancel setBackgroundImage:[UIImage imageNamed:@"practice_btn3"] forState:UIControlStateNormal];
-    [self.alert.btnOK addTarget:self action:@selector(reConnect) forControlEvents:UIControlEventTouchUpInside];
-    [self.alert.btnCancel addTarget:self action:@selector(backToMain) forControlEvents:UIControlEventTouchUpInside];
-    UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-    [rootWindow addSubview:self.alert];
-}
-
--(void)tem2{
-    [self.alert setAlert3WaitView];
-}
-
--(void)tem3{
-    [self]
-}
-//=========================================
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -202,7 +167,10 @@
   didConnectPeripheral:(CBPeripheral *)peripheral // 外设
 {
     if (self.isReConnect) {         //判断是否为断线重连，如果是则直接不需要再次设置代理
-//        [self.alert setAlert2SuccView];
+        self.alertConnectSucc = [[JCAlertView alloc] initAlert3OneBackBtnAndOneIcon:[UIImage imageNamed:@"practice_Icon1"] andOneTitle:@"连接成功"];
+        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+        [rootWindow addSubview:self.alertConnectSucc];
+        [self.alertConnectFail removeFromSuperview];
     }else{
         [self.navigationController popViewControllerAnimated:YES];
         
@@ -232,28 +200,25 @@
 // 断开链接
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     NSLog(@">>>外设连接断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
-    self.alert = [[JCAlertView alloc] initAlert3ReConnectWithTitle:@"手机与握力球断开连接" andBtn1Title:@"重新连接" andBtn2Title:@"回到首页"];
-    [self.alert.btnCancel setBackgroundImage:[UIImage imageNamed:@"practice_btn3"] forState:UIControlStateNormal];
-    [self.alert.btnOK addTarget:self action:@selector(reConnect) forControlEvents:UIControlEventTouchUpInside];
-    [self.alert.btnCancel addTarget:self action:@selector(backToMain) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.alertConnectFail = [[JCAlertView alloc] initAlert3OneBackBtnAndOneIcon:[UIImage imageNamed:@"practice_icon2"] andOneTitle:@"连接断开，请检查握力球"];
     UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-    [rootWindow addSubview:self.alert];
-}
-//断开连接后的断线重连
--(void)reConnect{
-    self.isReConnect = true;
+    [rootWindow addSubview:self.alertConnectFail];
     [self.manager connectPeripheral:self.peripheral options:nil];
-//    [self.alert setAlert2WaitView];
+    self.isReConnect = true;
 }
-//断开连接后的回到首页
--(void)backToMain{
-    for (UIViewController *controller in self.navigationController.viewControllers) {
-        if ([controller isKindOfClass:[MainViewController class]]) {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
-    [self.alert removeFromSuperview];
-}
+////断开连接后的断线重连
+//-(void)reConnect{
+//
+//    [self.manager connectPeripheral:self.peripheral options:nil];
+//    [self.alertReConnect setAlert3WaitView];
+//
+//    self.timeWaitRecond =  [NSTimer scheduledTimerWithTimeInterval:5.f
+//                                                        target:self
+//                                                      selector:@selector(waitReconnectFail)
+//                                                      userInfo:nil
+//                                                       repeats:NO];
+//}
 
 #pragma Btn Event
 -(void)clickBtnStart

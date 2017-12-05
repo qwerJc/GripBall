@@ -85,6 +85,7 @@
 		32C442D71FADF77800579B99 /* practice_icon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B11FADF77800579B99 /* practice_icon3@3x.png */; };
 		32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B21FADF77800579B99 /* practice_icon4@3x.png */; };
 		32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B31FADF77800579B99 /* practice_icon5@3x.png */; };
+		32E0586E1FD57F0F009AE3A4 /* JCAlertReConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +178,8 @@
 		32C442B11FADF77800579B99 /* practice_icon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon3@3x.png"; sourceTree = "<group>"; };
 		32C442B21FADF77800579B99 /* practice_icon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon4@3x.png"; sourceTree = "<group>"; };
 		32C442B31FADF77800579B99 /* practice_icon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon5@3x.png"; sourceTree = "<group>"; };
+		32E0586C1FD57F0F009AE3A4 /* JCAlertReConnectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlertReConnectView.h; sourceTree = "<group>"; };
+		32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertReConnectView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 			children = (
 				320FDE221F7A34B100607D5E /* JCAlertView.h */,
 				320FDE231F7A34B100607D5E /* JCAlertView.m */,
+				32E0586C1FD57F0F009AE3A4 /* JCAlertReConnectView.h */,
+				32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E0586E1FD57F0F009AE3A4 /* JCAlertReConnectView.m in Sources */,
 				322D18851F78AF8700815118 /* AppDelegate.m in Sources */,
 				32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */,
 				32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */,
