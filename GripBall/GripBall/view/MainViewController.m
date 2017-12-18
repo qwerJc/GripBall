@@ -197,6 +197,43 @@
 {
     NSLog(@"%s, line = %d, %@=连接失败", __FUNCTION__, __LINE__, peripheral.name);
 }
+//已发现服务
+-(void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error{
+    
+    NSLog(@"发现服务.");
+    
+    for (CBService *s in peripheral.services) {
+        NSLog(@"服务 UUID: %@(%@)",s.UUID.data,s.UUID);
+        
+        // 扫描到服务后,根据服务发现特征（然后跳转到监听特征值）
+        [peripheral discoverCharacteristics:nil forService:s];
+        
+    }
+}
+// 发现外设服务里的特征的时候调用的代理方法(这个是比较重要的方法，你在这里可以通过事先知道UUID找到你需要的特征，订阅特征，或者这里写入数据给特征也可以)
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
+{
+    NSLog(@"%s, line = %d", __FUNCTION__, __LINE__);
+    
+    for (CBCharacteristic *cha in service.characteristics) {
+        NSLog(@"%s, line = %d, char = %@", __FUNCTION__, __LINE__, cha);
+        [_peripheral setNotifyValue:YES forCharacteristic:cha];
+    }
+}
+//获取外设发来的数据，不论是read和notify,获取数据都是从这个方法中读取。
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
+{
+    //DFB1为读 DFB2为写
+    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"DFB1"]]) {
+        NSData * data = characteristic.value;
+        Byte * resultByte = (Byte *)[data bytes];
+        
+        NSLog(@"===============================");
+        // 此处的byte数组就是接收到的数据
+        NSLog(@"%s", resultByte);
+    }
+}
+
 // 断开链接
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     NSLog(@">>>外设连接断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
