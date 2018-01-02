@@ -86,6 +86,9 @@
 		32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B21FADF77800579B99 /* practice_icon4@3x.png */; };
 		32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B31FADF77800579B99 /* practice_icon5@3x.png */; };
 		32E0586E1FD57F0F009AE3A4 /* JCAlertReConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */; };
+		32FBB1571FFA4CC100F50236 /* JCManChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FBB1561FFA4CC100F50236 /* JCManChart.m */; };
+		32FBB1591FFA578900F50236 /* chartBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FBB1581FFA578900F50236 /* chartBG@2x.png */; };
+		32FBB15B1FFA579700F50236 /* chartBG@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FBB15A1FFA579700F50236 /* chartBG@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +183,10 @@
 		32C442B31FADF77800579B99 /* practice_icon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon5@3x.png"; sourceTree = "<group>"; };
 		32E0586C1FD57F0F009AE3A4 /* JCAlertReConnectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlertReConnectView.h; sourceTree = "<group>"; };
 		32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertReConnectView.m; sourceTree = "<group>"; };
+		32FBB1551FFA4CC100F50236 /* JCManChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCManChart.h; sourceTree = "<group>"; };
+		32FBB1561FFA4CC100F50236 /* JCManChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCManChart.m; sourceTree = "<group>"; };
+		32FBB1581FFA578900F50236 /* chartBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chartBG@2x.png"; sourceTree = "<group>"; };
+		32FBB15A1FFA579700F50236 /* chartBG@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chartBG@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +227,8 @@
 				321552C91FAF350D0095F55E /* PracticeBeginViewController.m */,
 				321552CB1FAF351F0095F55E /* PracticeFinishViewController.h */,
 				321552CC1FAF351F0095F55E /* PracticeFinishViewController.m */,
+				32FBB1551FFA4CC100F50236 /* JCManChart.h */,
+				32FBB1561FFA4CC100F50236 /* JCManChart.m */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -385,6 +394,7 @@
 		32C4428C1FADF77800579B99 /* @2x */ = {
 			isa = PBXGroup;
 			children = (
+				32FBB1581FFA578900F50236 /* chartBG@2x.png */,
 				32C4428D1FADF77800579B99 /* practice_bg1@2x.png */,
 				32C4428E1FADF77800579B99 /* practice_bg2@2x.png */,
 				32C4428F1FADF77800579B99 /* practice_bg3@2x.png */,
@@ -411,6 +421,7 @@
 		32C442A01FADF77800579B99 /* @3x */ = {
 			isa = PBXGroup;
 			children = (
+				32FBB15A1FFA579700F50236 /* chartBG@3x.png */,
 				32C442A11FADF77800579B99 /* practice_bg1@3x.png */,
 				32C442A21FADF77800579B99 /* practice_bg2@3x.png */,
 				32C442A31FADF77800579B99 /* practice_bg3@3x.png */,
@@ -551,8 +562,10 @@
 				32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */,
 				32C442C31FADF77800579B99 /* practice_icon2@2x.png in Resources */,
 				32678EAD1F9E32C9002BA0DB /* connect_head@2x.png in Resources */,
+				32FBB1591FFA578900F50236 /* chartBG@2x.png in Resources */,
 				32C442B81FADF77800579B99 /* practice_bg5@2x.png in Resources */,
 				32678EB71F9E32C9002BA0DB /* connect_btn_black@3x.png in Resources */,
+				32FBB15B1FFA579700F50236 /* chartBG@3x.png in Resources */,
 				32C442BE1FADF77800579B99 /* practice_btn6@2x.png in Resources */,
 				32C442D01FADF77800579B99 /* practice_btn5@3x.png in Resources */,
 				32678EBD1F9E32C9002BA0DB /* connect_rectangle_l@3x.png in Resources */,
@@ -575,6 +588,7 @@
 				32E0586E1FD57F0F009AE3A4 /* JCAlertReConnectView.m in Sources */,
 				322D18851F78AF8700815118 /* AppDelegate.m in Sources */,
 				32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */,
+				32FBB1571FFA4CC100F50236 /* JCManChart.m in Sources */,
 				32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */,
 				321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
@@ -701,7 +715,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SR4ZEKCW75;
 				INFOPLIST_FILE = GripBall/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-3070302.GripBall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -714,7 +728,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SR4ZEKCW75;
 				INFOPLIST_FILE = GripBall/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-3070302.GripBall";
 				PRODUCT_NAME = "$(TARGET_NAME)";

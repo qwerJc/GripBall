@@ -30,9 +30,9 @@
 @property (strong, nonatomic) UIImageView               *imgViewState;
 
 @property (strong, nonatomic) NSTimer                   *timeSearch;
-@property (strong, nonatomic) NSTimer                   *timeWaitRecond;//重连等待时间
 
 @property (assign, nonatomic) BOOL                      isReConnect;
+@property (assign, nonatomic) int                       choiceModelState;   //进入子View状态 ：－1为未选择；0为练习模式；1为测验模式；2为竞技模式；
 @end
 
 @implementation MainViewController
@@ -51,6 +51,10 @@
         self.viewControllerConnectRes = [[ConnectResViewController alloc] init];
         
         self.arrPeripheralsList = [NSMutableArray array];
+        
+        self.choiceModelState = -1;
+        //注册接收者
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetPracticeBegin) name:@"PracticeModelBegin" object:nil];
         
         [self createUI];
     }
@@ -225,12 +229,24 @@
 {
     //DFB1为读 DFB2为写
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"DFB1"]]) {
-        NSData * data = characteristic.value;
+        NSData *data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
         
-        NSLog(@"===============================");
-        // 此处的byte数组就是接收到的数据
-        NSLog(@"%s", resultByte);
+//        NSLog(@"===============================");
+//        // 此处的byte数组就是接收到的数据
+//        NSLog(@"%s", resultByte);
+        
+        NSString *strSend = [[NSString alloc]initWithData: data encoding:NSUTF8StringEncoding];
+        //判断当前选择模式发送数据
+        switch (self.choiceModelState) {
+            case 0:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SendPracticeData" object:strSend];
+                break;
+            
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -244,18 +260,6 @@
     [self.manager connectPeripheral:self.peripheral options:nil];
     self.isReConnect = true;
 }
-////断开连接后的断线重连
-//-(void)reConnect{
-//
-//    [self.manager connectPeripheral:self.peripheral options:nil];
-//    [self.alertReConnect setAlert3WaitView];
-//
-//    self.timeWaitRecond =  [NSTimer scheduledTimerWithTimeInterval:5.f
-//                                                        target:self
-//                                                      selector:@selector(waitReconnectFail)
-//                                                      userInfo:nil
-//                                                       repeats:NO];
-//}
 
 #pragma Btn Event
 -(void)clickBtnStart
@@ -274,6 +278,12 @@
 //重新搜索
 -(void)reSearch{
     [self clickBtnStart];
+}
+
+#pragma 选择模式后的Notification监听
+-(void)GetPracticeBegin{
+    NSLog(@"进入了 练习模式");
+    self.choiceModelState = 0;
 }
 
 -(void)viewDidAppear:(BOOL)animated{

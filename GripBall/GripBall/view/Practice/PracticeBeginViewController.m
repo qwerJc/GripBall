@@ -6,11 +6,13 @@
 //  Copyright © 2017年 贾辰. All rights reserved.
 //
 //  此页负责联系模式中的准备阶段以及开始测试阶段
+//  Bug：当连续两次窝里一样时，不能判断出握力次数
 
 #import "PracticeBeginViewController.h"
 #import "ModelLocator.h"
 #import "JCAlertView.h"
 #import "PracticeFinishViewController.h"
+#import "JCManChart.h"
 
 @interface PracticeBeginViewController ()
 @property (strong, nonatomic) UIView *viewPrepare;  //准备阶段
@@ -19,11 +21,19 @@
 @property (strong, nonatomic) UILabel *lblStartNumber;      //当前次数标签
 @property (strong, nonatomic) UILabel *lblStartTime;        //当前时间标签
 
-@property (strong, nonatomic) NSString *strStartNumber;     //记录当前的时间
-
 @property (strong, nonatomic) NSTimer *timerSecond;         //通过计时器来累计timeCount，再转换成时间
 @property (assign, nonatomic) int      timeCount;
 @property (strong, nonatomic) JCAlertView *alert;
+
+@property (assign, nonatomic) int        chartState;        //折线图当前状态：0为无，1为男，2为女
+@property (strong, nonatomic) JCManChart *manChart;         //男性折线图
+
+@property (assign, nonatomic) float      startValue;        //三段力，用来判断峰值
+@property (assign, nonatomic) float      midValue;
+@property (assign, nonatomic) float      endValue;
+
+@property (assign, nonatomic) int      practiceNumber;      //练习次数
+@property (assign, nonatomic) int        sumValue;          //总的测力数
 
 @property (strong, nonatomic) PracticeFinishViewController  *viewControllerPracticeFinish;
 
@@ -35,7 +45,7 @@
 {
     self = [super init];
     if (self) {
-        _strStartNumber = @"104";
+
         
         self.viewControllerPracticeFinish = [[PracticeFinishViewController alloc] init];
         
@@ -136,6 +146,9 @@
     [lblStartTitleSub1 setTextAlignment:NSTextAlignmentLeft];
     [self.viewStart addSubview:lblStartTitleSub1];
     
+    self.manChart = [[JCManChart alloc] initWithFrame:CGRectMake(35.f, 170.f, SCREEN_WIDTH-70.f, 122.f)];
+    [self.viewStart addSubview:self.manChart];
+    
     UILabel *lblStartTitleSub2 = [[UILabel alloc] initWithFrame:CGRectMake(37.f,315.f, 130.f, 20.f)];
     [lblStartTitleSub2 setText:@"当前次数"];
     [lblStartTitleSub2 setTextColor:[UIColor colorWithRed:109.f/255.f green:121.f/255.f blue:132.f/255.f alpha:1]];
@@ -148,7 +161,7 @@
     [_lblStartNumber setFont:[UIFont fontWithName:@"ArialMT" size:88.f]];
     [_lblStartNumber setTextAlignment:NSTextAlignmentCenter];
     NSDictionary *dic = @{NSKernAttributeName:@16.f};       //设置字间距
-    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:_strStartNumber attributes:dic];
+    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",self.practiceNumber] attributes:dic];
     [_lblStartNumber setAttributedText:attributeStr];
     [self.viewStart addSubview:_lblStartNumber];
     
@@ -190,6 +203,9 @@
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.25 animations:^{
             [self.viewStart setAlpha:1];
+            
+            //发送 ‘准备开始’通知，以接收数据
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PracticeModelBegin" object:nil];
         }];
     }];
 }
@@ -206,6 +222,9 @@
 }
 
 -(void)clickBtnStartEnd{
+    //取消接收状态，随便加一个数使状态不为1，2即可
+    self.chartState = self.chartState + 20;
+    
     [_timerSecond setFireDate:[NSDate distantFuture]];
     self.alert = [[JCAlertView alloc] initAlert2TwoBtnWithTitle:@"请确认结束练习" andBtn1Title:@"确认" andBtn2Title:@"取消"];
     [self.alert.btnOK addTarget:self action:@selector(showResVC) forControlEvents:UIControlEventTouchUpInside];
@@ -215,21 +234,96 @@
 }
 
 -(void)showResVC{
-    [self.viewControllerPracticeFinish setTime:self.lblStartTime.text andNum:_strStartNumber andAve:@"66"];
+    int aveValue = self.sumValue / self.practiceNumber;
+    
+    [self.viewControllerPracticeFinish setTime:self.lblStartTime.text andNum: [NSString stringWithFormat:@"%d",self.practiceNumber] andAve:[NSString stringWithFormat:@"%d",aveValue]];
     [self.navigationController pushViewController:self.viewControllerPracticeFinish animated:YES];
     [self.alert removeFromSuperview];
 }
 
 -(void)cancelAlert{
+    //恢复接收状态
+    self.chartState = self.chartState - 20;
+    
     [self.alert removeFromSuperview];
     [_timerSecond setFireDate:[NSDate date]];
 }
+
+-(void)getBTData:(NSNotification *)noti{
+    NSLog(@"%@",noti.object);
+    int value = [noti.object intValue];
+    
+    //判断， 如果value ＝＝ end的值 跳过
+    if (self.startValue<0) {
+        self.startValue = value;
+    }else if (self.midValue<0){
+        self.midValue = value;
+    }else if (self.endValue<0){
+        self.endValue = value;
+    }else{
+        //判断
+        if(self.endValue != value){
+            self.startValue = self.midValue;
+            self.midValue = self.endValue;
+            self.endValue = value;
+            
+            if ((self.midValue>self.startValue)&&(self.midValue>self.endValue)) {
+                self.practiceNumber ++ ;
+                
+                //设置次数lbl
+                NSDictionary *dic = @{NSKernAttributeName:@16.f};       //设置字间距
+                NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",self.practiceNumber] attributes:dic];
+                [_lblStartNumber setAttributedText:attributeStr];
+                
+                self.sumValue += self.midValue;
+            }
+        }
+    }
+    
+    //绘制折线图
+    switch (self.chartState) {
+        case 1: //男性
+            value = 120 - value;
+            [self.manChart addLine:value];
+            break;
+        default:
+            break;
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
+//页面完全出现
+-(void)viewDidAppear:(BOOL)animated{
+    //默认chart为男性
+    self.chartState = 1;
+    
+    //将初始值定为－1，这样来判断是否赋值过
+    self.startValue = -1;
+    self.midValue = -1;
+    self.endValue = -1;
+    
+    //初始握力次数为0
+    self.practiceNumber = 0;
+    
+    self.sumValue = 0;
+    
+    //监听MainVC回传的数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBTData:) name:@"SendPracticeData" object:nil];
+}
+
+//页面完全消失
 -(void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"移除Notification监听");
+    
+    [self.viewPrepare setAlpha:1];
+    [self.viewStart setAlpha:0];
+    
     [_lblStartTime setText:@"00:00:00"];
     if (_timerSecond) {
         [_timerSecond invalidate];
