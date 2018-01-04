@@ -85,6 +85,20 @@
 		32C442D71FADF77800579B99 /* practice_icon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B11FADF77800579B99 /* practice_icon3@3x.png */; };
 		32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B21FADF77800579B99 /* practice_icon4@3x.png */; };
 		32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B31FADF77800579B99 /* practice_icon5@3x.png */; };
+		32E5AF5A1FFCF7EA00C7CC53 /* TestStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF591FFCF7EA00C7CC53 /* TestStartViewController.m */; };
+		32E5AF5D1FFCF81A00C7CC53 /* TestLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF5C1FFCF81A00C7CC53 /* TestLHandViewController.m */; };
+		32E5AF601FFCF83100C7CC53 /* TestingLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF5F1FFCF83100C7CC53 /* TestingLHandViewController.m */; };
+		32E5AF631FFCF83D00C7CC53 /* TestRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF621FFCF83D00C7CC53 /* TestRHandViewController.m */; };
+		32E5AF661FFCF84C00C7CC53 /* TestingRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF651FFCF84C00C7CC53 /* TestingRHandViewController.m */; };
+		32E5AF691FFCFA9500C7CC53 /* TestFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF681FFCFA9500C7CC53 /* TestFinishViewController.m */; };
+		32E5AF731FFD1CDE00C7CC53 /* test_Lhand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF6B1FFD1CDE00C7CC53 /* test_Lhand@2x.png */; };
+		32E5AF741FFD1CDE00C7CC53 /* test_Lhand@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF6C1FFD1CDE00C7CC53 /* test_Lhand@3x.png */; };
+		32E5AF751FFD1CDE00C7CC53 /* test_Lhand_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF6D1FFD1CDE00C7CC53 /* test_Lhand_h@2x.png */; };
+		32E5AF761FFD1CDE00C7CC53 /* test_Lhand_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF6E1FFD1CDE00C7CC53 /* test_Lhand_h@3x.png */; };
+		32E5AF771FFD1CDE00C7CC53 /* test_Rhand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF6F1FFD1CDE00C7CC53 /* test_Rhand@2x.png */; };
+		32E5AF781FFD1CDE00C7CC53 /* test_Rhand@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF701FFD1CDE00C7CC53 /* test_Rhand@3x.png */; };
+		32E5AF791FFD1CDE00C7CC53 /* test_Rhand_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF711FFD1CDE00C7CC53 /* test_Rhand_h@2x.png */; };
+		32E5AF7A1FFD1CDE00C7CC53 /* test_Rhand_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF721FFD1CDE00C7CC53 /* test_Rhand_h@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +191,26 @@
 		32C442B11FADF77800579B99 /* practice_icon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon3@3x.png"; sourceTree = "<group>"; };
 		32C442B21FADF77800579B99 /* practice_icon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon4@3x.png"; sourceTree = "<group>"; };
 		32C442B31FADF77800579B99 /* practice_icon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon5@3x.png"; sourceTree = "<group>"; };
+		32E5AF581FFCF7EA00C7CC53 /* TestStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStartViewController.h; sourceTree = "<group>"; };
+		32E5AF591FFCF7EA00C7CC53 /* TestStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStartViewController.m; sourceTree = "<group>"; };
+		32E5AF5B1FFCF81A00C7CC53 /* TestLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLHandViewController.h; sourceTree = "<group>"; };
+		32E5AF5C1FFCF81A00C7CC53 /* TestLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLHandViewController.m; sourceTree = "<group>"; };
+		32E5AF5E1FFCF83100C7CC53 /* TestingLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingLHandViewController.h; sourceTree = "<group>"; };
+		32E5AF5F1FFCF83100C7CC53 /* TestingLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingLHandViewController.m; sourceTree = "<group>"; };
+		32E5AF611FFCF83D00C7CC53 /* TestRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRHandViewController.h; sourceTree = "<group>"; };
+		32E5AF621FFCF83D00C7CC53 /* TestRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRHandViewController.m; sourceTree = "<group>"; };
+		32E5AF641FFCF84C00C7CC53 /* TestingRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingRHandViewController.h; sourceTree = "<group>"; };
+		32E5AF651FFCF84C00C7CC53 /* TestingRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingRHandViewController.m; sourceTree = "<group>"; };
+		32E5AF671FFCFA9500C7CC53 /* TestFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFinishViewController.h; sourceTree = "<group>"; };
+		32E5AF681FFCFA9500C7CC53 /* TestFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFinishViewController.m; sourceTree = "<group>"; };
+		32E5AF6B1FFD1CDE00C7CC53 /* test_Lhand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand@2x.png"; sourceTree = "<group>"; };
+		32E5AF6C1FFD1CDE00C7CC53 /* test_Lhand@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand@3x.png"; sourceTree = "<group>"; };
+		32E5AF6D1FFD1CDE00C7CC53 /* test_Lhand_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand_h@2x.png"; sourceTree = "<group>"; };
+		32E5AF6E1FFD1CDE00C7CC53 /* test_Lhand_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand_h@3x.png"; sourceTree = "<group>"; };
+		32E5AF6F1FFD1CDE00C7CC53 /* test_Rhand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand@2x.png"; sourceTree = "<group>"; };
+		32E5AF701FFD1CDE00C7CC53 /* test_Rhand@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand@3x.png"; sourceTree = "<group>"; };
+		32E5AF711FFD1CDE00C7CC53 /* test_Rhand_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand_h@2x.png"; sourceTree = "<group>"; };
+		32E5AF721FFD1CDE00C7CC53 /* test_Rhand_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand_h@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +303,7 @@
 				320FDE1F1F79FA0300607D5E /* MainViewController.m */,
 				322D18A01F78CF8F00815118 /* BlueTooth */,
 				321552C41FAF322A0095F55E /* Practice */,
+				32E5AF571FFCF73600C7CC53 /* Test */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -302,6 +337,7 @@
 		3237A71F1F9CCBAB00EFC713 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				32E5AF6A1FFD1CDE00C7CC53 /* hands */,
 				3237A7201F9CCBAB00EFC713 /* BTConnect */,
 				32C4428B1FADF77800579B99 /* Practice */,
 			);
@@ -429,6 +465,40 @@
 			path = "@3x";
 			sourceTree = "<group>";
 		};
+		32E5AF571FFCF73600C7CC53 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				32E5AF581FFCF7EA00C7CC53 /* TestStartViewController.h */,
+				32E5AF591FFCF7EA00C7CC53 /* TestStartViewController.m */,
+				32E5AF5B1FFCF81A00C7CC53 /* TestLHandViewController.h */,
+				32E5AF5C1FFCF81A00C7CC53 /* TestLHandViewController.m */,
+				32E5AF5E1FFCF83100C7CC53 /* TestingLHandViewController.h */,
+				32E5AF5F1FFCF83100C7CC53 /* TestingLHandViewController.m */,
+				32E5AF611FFCF83D00C7CC53 /* TestRHandViewController.h */,
+				32E5AF621FFCF83D00C7CC53 /* TestRHandViewController.m */,
+				32E5AF641FFCF84C00C7CC53 /* TestingRHandViewController.h */,
+				32E5AF651FFCF84C00C7CC53 /* TestingRHandViewController.m */,
+				32E5AF671FFCFA9500C7CC53 /* TestFinishViewController.h */,
+				32E5AF681FFCFA9500C7CC53 /* TestFinishViewController.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		32E5AF6A1FFD1CDE00C7CC53 /* hands */ = {
+			isa = PBXGroup;
+			children = (
+				32E5AF6B1FFD1CDE00C7CC53 /* test_Lhand@2x.png */,
+				32E5AF6C1FFD1CDE00C7CC53 /* test_Lhand@3x.png */,
+				32E5AF6D1FFD1CDE00C7CC53 /* test_Lhand_h@2x.png */,
+				32E5AF6E1FFD1CDE00C7CC53 /* test_Lhand_h@3x.png */,
+				32E5AF6F1FFD1CDE00C7CC53 /* test_Rhand@2x.png */,
+				32E5AF701FFD1CDE00C7CC53 /* test_Rhand@3x.png */,
+				32E5AF711FFD1CDE00C7CC53 /* test_Rhand_h@2x.png */,
+				32E5AF721FFD1CDE00C7CC53 /* test_Rhand_h@3x.png */,
+			);
+			path = hands;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -493,6 +563,7 @@
 				32678EB41F9E32C9002BA0DB /* connect_background4@3x.png in Resources */,
 				32C442C11FADF77800579B99 /* practice_btn9@2x.png in Resources */,
 				32C442C51FADF77800579B99 /* practice_icon4@2x.png in Resources */,
+				32E5AF751FFD1CDE00C7CC53 /* test_Lhand_h@2x.png in Resources */,
 				32C442CA1FADF77800579B99 /* practice_bg4@3x.png in Resources */,
 				32678EA61F9E32C9002BA0DB /* connect_background4@2x.png in Resources */,
 				32C442C71FADF77800579B99 /* practice_bg1@3x.png in Resources */,
@@ -503,12 +574,14 @@
 				32C442BC1FADF77800579B99 /* practice_btn4@2x.png in Resources */,
 				322D18901F78AF8800815118 /* LaunchScreen.storyboard in Resources */,
 				32C442B91FADF77800579B99 /* practice_btn1@2x.png in Resources */,
+				32E5AF781FFD1CDE00C7CC53 /* test_Rhand@3x.png in Resources */,
 				32C442D51FADF77800579B99 /* practice_icon1@3x.png in Resources */,
 				32678EBE1F9E32C9002BA0DB /* connect_state_off@3x.png in Resources */,
 				32C442C41FADF77800579B99 /* practice_icon3@2x.png in Resources */,
 				32678EB21F9E32C9002BA0DB /* connect_background2@3x.png in Resources */,
 				322D188D1F78AF8800815118 /* Assets.xcassets in Resources */,
 				32C442C21FADF77800579B99 /* practice_Icon1@2x.png in Resources */,
+				32E5AF761FFD1CDE00C7CC53 /* test_Lhand_h@3x.png in Resources */,
 				32C442C91FADF77800579B99 /* practice_bg3@3x.png in Resources */,
 				32678EA41F9E32C9002BA0DB /* connect_background2@2x.png in Resources */,
 				32C442BA1FADF77800579B99 /* practice_btn2@2x.png in Resources */,
@@ -522,15 +595,18 @@
 				32678EB61F9E32C9002BA0DB /* connect_background@3x.png in Resources */,
 				32C442BF1FADF77800579B99 /* practice_btn7@2x.png in Resources */,
 				32678EB81F9E32C9002BA0DB /* connect_btn_blue@3x.png in Resources */,
+				32E5AF731FFD1CDE00C7CC53 /* test_Lhand@2x.png in Resources */,
 				32678EA51F9E32C9002BA0DB /* connect_background3@2x.png in Resources */,
 				32678EA71F9E32C9002BA0DB /* connect_background5@2x.png in Resources */,
 				32678EBB1F9E32C9002BA0DB /* connect_head@3x.png in Resources */,
 				32678EAB1F9E32C9002BA0DB /* connect_btn_gray@2x.png in Resources */,
 				32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */,
+				32E5AF791FFD1CDE00C7CC53 /* test_Rhand_h@2x.png in Resources */,
 				32C442B71FADF77800579B99 /* practice_bg4@2x.png in Resources */,
 				32C442BD1FADF77800579B99 /* practice_btn5@2x.png in Resources */,
 				32C442C01FADF77800579B99 /* practice_btn8@2x.png in Resources */,
 				32678EAF1F9E32C9002BA0DB /* connect_rectangle_l@2x.png in Resources */,
+				32E5AF741FFD1CDE00C7CC53 /* test_Lhand@3x.png in Resources */,
 				32C442BB1FADF77800579B99 /* practice_btn3@2x.png in Resources */,
 				32678EB01F9E32C9002BA0DB /* connect_state_off@2x.png in Resources */,
 				32678EBC1F9E32C9002BA0DB /* connect_rectangle_h@3x.png in Resources */,
@@ -549,6 +625,7 @@
 				32C442B81FADF77800579B99 /* practice_bg5@2x.png in Resources */,
 				32678EB71F9E32C9002BA0DB /* connect_btn_black@3x.png in Resources */,
 				32C442BE1FADF77800579B99 /* practice_btn6@2x.png in Resources */,
+				32E5AF7A1FFD1CDE00C7CC53 /* test_Rhand_h@3x.png in Resources */,
 				32C442D01FADF77800579B99 /* practice_btn5@3x.png in Resources */,
 				32678EBD1F9E32C9002BA0DB /* connect_rectangle_l@3x.png in Resources */,
 				32678EAC1F9E32C9002BA0DB /* connect_btn_red@2x.png in Resources */,
@@ -556,6 +633,7 @@
 				32678EBF1F9E32C9002BA0DB /* connect_state_on@3x.png in Resources */,
 				32678EB51F9E32C9002BA0DB /* connect_background5@3x.png in Resources */,
 				32C442D11FADF77800579B99 /* practice_btn6@3x.png in Resources */,
+				32E5AF771FFD1CDE00C7CC53 /* test_Rhand@2x.png in Resources */,
 				32678EB11F9E32C9002BA0DB /* connect_state_on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,11 +648,17 @@
 				322D18851F78AF8700815118 /* AppDelegate.m in Sources */,
 				32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */,
 				32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */,
+				32E5AF601FFCF83100C7CC53 /* TestingLHandViewController.m in Sources */,
+				32E5AF5A1FFCF7EA00C7CC53 /* TestStartViewController.m in Sources */,
 				321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
 				320FDE201F79FA0300607D5E /* MainViewController.m in Sources */,
 				320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */,
+				32E5AF661FFCF84C00C7CC53 /* TestingRHandViewController.m in Sources */,
 				321552CD1FAF351F0095F55E /* PracticeFinishViewController.m in Sources */,
+				32E5AF5D1FFCF81A00C7CC53 /* TestLHandViewController.m in Sources */,
+				32E5AF631FFCF83D00C7CC53 /* TestRHandViewController.m in Sources */,
+				32E5AF691FFCFA9500C7CC53 /* TestFinishViewController.m in Sources */,
 				322D189F1F78CCA000815118 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

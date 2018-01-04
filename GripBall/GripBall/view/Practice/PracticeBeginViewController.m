@@ -84,7 +84,7 @@
     UIButton *btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 90.f, 230.f, 180.f, 180.f)];
     [btnStart setBackgroundImage:[UIImage imageNamed:@"practice_icon5"] forState:UIControlStateNormal];
     [btnStart setTitle:@"开 始" forState:UIControlStateNormal];
-    btnStart.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    btnStart.titleLabel.font = [UIFont systemFontOfSize:24.0];
     [btnStart setTitleColor:[UIColor colorWithRed:217.f/255.f green:217.f/255.f blue:217.f/255.f alpha:1] forState:UIControlStateNormal];
     [btnStart.layer setCornerRadius:90.f];
     [btnStart.layer setMasksToBounds:YES];

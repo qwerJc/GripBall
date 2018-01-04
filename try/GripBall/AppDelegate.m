@@ -11,11 +11,13 @@
 
 #import "MainViewController.h"
 
+#import "TestStartViewController.h"
+
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) LoginViewController *viewController;
 
-@property (strong, nonatomic) MainViewController     *tem;
+@property (strong, nonatomic) TestStartViewController     *tem;
 @end
 
 @implementation AppDelegate
@@ -26,7 +28,7 @@
     
     
     //-----------------[del]===================
-    self.tem = [[MainViewController alloc] init];
+    self.tem = [[TestStartViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem];
     //=========================================
     
