@@ -31,9 +31,7 @@
         [self createUI];
         self.isBack = false;
         
-        self.viewControllerPractiveBegin = [[PracticeBeginViewController alloc] init];
-        
-        self.viewControllerTestStart = [[TestStartViewController alloc] init];
+
     }
     return self;
 }
@@ -146,10 +144,13 @@
 #pragma mark - Choise View
 #pragma mark - Btn Delegate
 -(void)clickBtnPractice{
+    self.viewControllerPractiveBegin = [[PracticeBeginViewController alloc] init];
+
     [self.navigationController pushViewController:self.viewControllerPractiveBegin animated:YES];
     self.isBack = true;
 }
 -(void)clickBtnTest{
+    self.viewControllerTestStart = [[TestStartViewController alloc] init];
     [self.navigationController pushViewController:self.viewControllerTestStart animated:YES];
     self.isBack = true;
 }

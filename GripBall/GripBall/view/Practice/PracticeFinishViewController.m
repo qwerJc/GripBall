@@ -8,6 +8,7 @@
 
 #import "PracticeFinishViewController.h"
 #import "ModelLocator.h"
+#import "ConnectResViewController.h"
 
 @interface PracticeFinishViewController ()
 @property (strong, nonatomic)UILabel *lblTimeValue;
@@ -101,8 +102,12 @@
 }
 
 -(void)clickBtnEnd{
-    [self.navigationController popViewControllerAnimated:YES];
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *controllers = self.navigationController.viewControllers;
+    for ( id viewController in controllers) {
+        if ([viewController isKindOfClass:[ConnectResViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+        }
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

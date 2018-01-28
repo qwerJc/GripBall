@@ -109,6 +109,7 @@
     
 }
 
+
 -(void)FinishTest{
     [self.scrollView setContentSize:CGSizeMake(_valueNum*30+20, 0)];
     self.scrollView.scrollEnabled = YES;

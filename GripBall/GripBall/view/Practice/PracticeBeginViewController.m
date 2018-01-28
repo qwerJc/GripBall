@@ -296,6 +296,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+//-(void)viewWillAppear:(BOOL)animated{
+//
+////    [self.manChart clearChart];
+//}
 
 //页面完全出现
 -(void)viewDidAppear:(BOOL)animated{
@@ -320,9 +324,6 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"移除Notification监听");
-    
-    [self.viewPrepare setAlpha:1];
-    [self.viewStart setAlpha:0];
     
     [_lblStartTime setText:@"00:00:00"];
     if (_timerSecond) {
