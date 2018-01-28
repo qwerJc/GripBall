@@ -12,6 +12,7 @@
 
 @interface TestLHandViewController ()
 @property (strong , nonatomic) TestingLHandViewController *viewTestingLHand;
+
 @end
 
 @implementation TestLHandViewController
@@ -97,9 +98,8 @@
     [lblTPrepareText2 setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:lblTPrepareText2];
     
-    
 }
-
+#pragma mark - 页面 Delegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -110,6 +110,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)clickBtnStart{
+    //发送 ‘准备开始’通知，以接收数据
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TestModelBegin" object:nil];
+    
     [self.navigationController pushViewController:self.viewTestingLHand animated:YES];
 }
 

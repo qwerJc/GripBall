@@ -132,12 +132,11 @@
         [lblTitle1 setTextAlignment:NSTextAlignmentCenter];
         [alertView addSubview:lblTitle1];
         
-        UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(55.f, 205.f, alertView.frame.size.width-110.f, 48.f)];
-        [btnCancel setBackgroundImage:[UIImage imageNamed:@"connect_btn_black"] forState:UIControlStateNormal];
-        [btnCancel setTitle:@"确定" forState:UIControlStateNormal];
-        [btnCancel setTintColor:[UIColor whiteColor]];
-        [btnCancel addTarget:self action:@selector(clickCancel) forControlEvents:UIControlEventTouchUpInside];
-        [alertView addSubview:btnCancel];
+        self.btnOK = [[UIButton alloc] initWithFrame:CGRectMake(55.f, 205.f, alertView.frame.size.width-110.f, 48.f)];
+        [self.btnOK setBackgroundImage:[UIImage imageNamed:@"connect_btn_black"] forState:UIControlStateNormal];
+        [self.btnOK setTitle:@"确定" forState:UIControlStateNormal];
+        [self.btnOK setTintColor:[UIColor whiteColor]];
+        [alertView addSubview:self.btnOK];
     }
     return self;
 }

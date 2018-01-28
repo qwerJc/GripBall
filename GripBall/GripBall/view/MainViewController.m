@@ -56,6 +56,8 @@
         //注册接收者
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetPracticeBegin) name:@"PracticeModelBegin" object:nil];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetTestBegin) name:@"TestModelBegin" object:nil];
+        
         [self createUI];
     }
     return self;
@@ -166,15 +168,20 @@
     }
 
 }
+
+
+
 // 中心管理者连接外设成功
 - (void)centralManager:(CBCentralManager *)central // 中心管理者
   didConnectPeripheral:(CBPeripheral *)peripheral // 外设
 {
     if (self.isReConnect) {         //判断是否为断线重连，如果是则直接不需要再次设置代理
         self.alertConnectSucc = [[JCAlertView alloc] initAlert3OneBackBtnAndOneIcon:[UIImage imageNamed:@"practice_Icon1"] andOneTitle:@"连接成功"];
+        [self.alertConnectSucc.btnOK addTarget:self action:@selector(onAlertConnectSucc) forControlEvents:UIControlEventTouchUpInside];
         UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
         [rootWindow addSubview:self.alertConnectSucc];
         [self.alertConnectFail removeFromSuperview];
+        
     }else{
         [self.navigationController popViewControllerAnimated:YES];
         
@@ -230,7 +237,7 @@
     //DFB1为读 DFB2为写
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"DFB1"]]) {
         NSData *data = characteristic.value;
-        Byte * resultByte = (Byte *)[data bytes];
+//        Byte * resultByte = (Byte *)[data bytes];
         
 //        NSLog(@"===============================");
 //        // 此处的byte数组就是接收到的数据
@@ -242,8 +249,10 @@
             case 0:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"SendPracticeData" object:strSend];
                 break;
+            case 1:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SendTestData" object:strSend];
+                break;
             
-                
             default:
                 break;
         }
@@ -255,6 +264,8 @@
     NSLog(@">>>外设连接断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
     
     self.alertConnectFail = [[JCAlertView alloc] initAlert3OneBackBtnAndOneIcon:[UIImage imageNamed:@"practice_icon2"] andOneTitle:@"连接断开，请检查握力球"];
+    [self.alertConnectFail.btnOK addTarget:self action:@selector(onAlertConnectFail) forControlEvents:UIControlEventTouchUpInside];
+    
     UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
     [rootWindow addSubview:self.alertConnectFail];
     [self.manager connectPeripheral:self.peripheral options:nil];
@@ -266,7 +277,13 @@
 {
     self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{@"CBCentralManagerOptionShowPowerAlertKey":@NO}];
 }
-
+-(void)onAlertConnectSucc{
+    [self.peripheral discoverServices:nil];
+    [self.alertConnectSucc removeFromSuperview];
+}
+-(void)onAlertConnectFail{
+    [self.alertConnectFail removeFromSuperview];
+}
 #pragma SearchResult delegate
 //选择连接
 -(void)blueToothConnect:(int)index{
@@ -284,6 +301,11 @@
 -(void)GetPracticeBegin{
     NSLog(@"进入了 练习模式");
     self.choiceModelState = 0;
+}
+
+-(void)GetTestBegin{
+    NSLog(@"进入了 测试模式");
+    self.choiceModelState = 1;
 }
 
 -(void)viewDidAppear:(BOOL)animated{

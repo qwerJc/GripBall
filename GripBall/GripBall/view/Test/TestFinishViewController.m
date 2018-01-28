@@ -9,6 +9,7 @@
 #import "TestFinishViewController.h"
 #import "ModelLocator.h"
 #import "TestStartViewController.h"
+#import "ConnectResViewController.h"
 
 @interface TestFinishViewController ()
 @property (strong, nonatomic) UILabel *lblLStrength;
@@ -53,7 +54,7 @@
     [self.view addSubview:lblLStrengthTitle];
     
     self.lblLStrength = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,205.f, 80.f, 25.f)];
-    [self.lblLStrength setText:@"45"];
+    [self.lblLStrength setText:@"0"];
     [self.lblLStrength setTextColor:[UIColor colorWithRed:85.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
     [self.lblLStrength setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
     [self.lblLStrength setTextAlignment:NSTextAlignmentLeft];
@@ -67,7 +68,7 @@
     [self.view addSubview:lblLScoreTitle];
     
     self.lblLScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,270.f, 80.f, 25.f)];
-    [self.lblLScore setText:@"85"];
+    [self.lblLScore setText:@"0"];
     [self.lblLScore setTextColor:[UIColor colorWithRed:179.f/255.f green:74.f/255.f blue:74.f/255.f alpha:1]];
     [self.lblLScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
     [self.lblLScore setTextAlignment:NSTextAlignmentLeft];
@@ -81,7 +82,7 @@
     [self.view addSubview:lblRStrengthTitle];
     
     self.lblRStrength = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,335.f, 80.f, 25.f)];
-    [self.lblRStrength setText:@"55"];
+    [self.lblRStrength setText:@"0"];
     [self.lblRStrength setTextColor:[UIColor colorWithRed:85.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
     [self.lblRStrength setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
     [self.lblRStrength setTextAlignment:NSTextAlignmentLeft];
@@ -95,7 +96,7 @@
     [self.view addSubview:lblRScoreTitle];
     
     self.lblRScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,400.f, 80.f, 25.f)];
-    [self.lblRScore setText:@"95"];
+    [self.lblRScore setText:@"0"];
     [self.lblRScore setTextColor:[UIColor colorWithRed:179.f/255.f green:74.f/255.f blue:74.f/255.f alpha:1]];
     [self.lblRScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
     [self.lblRScore setTextAlignment:NSTextAlignmentLeft];
@@ -117,6 +118,18 @@
     [btnReTest addTarget:self action:@selector(clickBtnReTest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnReTest];
 }
+-(void)setLeftStrength:(float)sValue{
+    [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",sValue]];
+    //设置评分
+    [self.lblLScore setText:@"95"];
+}
+-(void)setRightStrength:(float)sVlue{
+    [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",sVlue]];
+    
+    //设置评分
+    [self.lblRScore setText:@"95"];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -125,7 +138,12 @@
 
 #pragma mark - Btn Delegate
 -(void)clickBtnEnd{
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *controllers = self.navigationController.viewControllers;
+    for ( id viewController in controllers) {
+        if ([viewController isKindOfClass:[ConnectResViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+        }
+    }
 }
 
 -(void)clickBtnReTest{
@@ -135,9 +153,8 @@
             [self.navigationController popToViewController:viewController animated:YES];
         }
     }
-    
-    
 }
+
 
 /*
 #pragma mark - Navigation

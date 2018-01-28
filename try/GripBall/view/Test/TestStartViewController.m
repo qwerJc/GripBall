@@ -48,7 +48,7 @@
     [lblTPrepareTitle setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:lblTPrepareTitle];
     
-    UIImageView *imgVState = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80.f, 62.f, 31.f, 31.f)];
+    UIImageView *imgVState = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80.f, 67.f, 31.f, 31.f)];
     [imgVState setImage:[UIImage imageNamed:@"connect_state_on"]];
     [self.view addSubview:imgVState];
     

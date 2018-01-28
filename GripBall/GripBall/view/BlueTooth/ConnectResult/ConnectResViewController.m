@@ -9,6 +9,7 @@
 #import "ConnectResViewController.h"
 #import "ModelLocator.h"
 #import "PracticeBeginViewController.h"
+#import "TestStartViewController.h"
 
 @interface ConnectResViewController ()
 @property (strong, nonatomic) UIView *viewConnectSucc;
@@ -19,6 +20,7 @@
 
 //下面是三种模式对应的VC
 @property (strong, nonatomic) PracticeBeginViewController   *viewControllerPractiveBegin;
+@property (strong, nonatomic) TestStartViewController *viewControllerTestStart;
 @end
 
 @implementation ConnectResViewController
@@ -30,6 +32,8 @@
         self.isBack = false;
         
         self.viewControllerPractiveBegin = [[PracticeBeginViewController alloc] init];
+        
+        self.viewControllerTestStart = [[TestStartViewController alloc] init];
     }
     return self;
 }
@@ -146,7 +150,8 @@
     self.isBack = true;
 }
 -(void)clickBtnTest{
-    
+    [self.navigationController pushViewController:self.viewControllerTestStart animated:YES];
+    self.isBack = true;
 }
 -(void)clickBtnMatch{
     

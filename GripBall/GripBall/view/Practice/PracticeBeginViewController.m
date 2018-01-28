@@ -220,7 +220,7 @@
         [_lblStartTime setText:[NSString stringWithFormat:@"00:%02d:%02d",_timeCount/60,_timeCount%60]];
     }
 }
-
+#pragma mark - Btn
 -(void)clickBtnStartEnd{
     //取消接收状态，随便加一个数使状态不为1，2即可
     self.chartState = self.chartState + 20;

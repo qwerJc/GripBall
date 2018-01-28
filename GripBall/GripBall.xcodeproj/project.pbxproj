@@ -46,40 +46,30 @@
 		32678EBD1F9E32C9002BA0DB /* connect_rectangle_l@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32678EA11F9E32C8002BA0DB /* connect_rectangle_l@3x.png */; };
 		32678EBE1F9E32C9002BA0DB /* connect_state_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32678EA21F9E32C8002BA0DB /* connect_state_off@3x.png */; };
 		32678EBF1F9E32C9002BA0DB /* connect_state_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32678EA31F9E32C8002BA0DB /* connect_state_on@3x.png */; };
-		326F75631FFBD08F00F48104 /* Group 2 Copy 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75401FFBD08F00F48104 /* Group 2 Copy 2@2x.png */; };
-		326F75641FFBD08F00F48104 /* Group 3 Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75411FFBD08F00F48104 /* Group 3 Copy@2x.png */; };
-		326F75651FFBD08F00F48104 /* Group Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75421FFBD08F00F48104 /* Group Copy@2x.png */; };
-		326F75661FFBD08F00F48104 /* Oval 7 Copy 2按下@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75431FFBD08F00F48104 /* Oval 7 Copy 2按下@2x.png */; };
-		326F75671FFBD08F00F48104 /* Oval 7 Copy默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75441FFBD08F00F48104 /* Oval 7 Copy默认@2x.png */; };
-		326F75681FFBD08F00F48104 /* Oval 8 Copy 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75451FFBD08F00F48104 /* Oval 8 Copy 3@2x.png */; };
-		326F75691FFBD08F00F48104 /* Oval 8 Copy 3@2x的副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75461FFBD08F00F48104 /* Oval 8 Copy 3@2x的副本.png */; };
-		326F756A1FFBD08F00F48104 /* Rectangle 11 Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75471FFBD08F00F48104 /* Rectangle 11 Copy@2x.png */; };
-		326F756B1FFBD08F00F48104 /* Rectangle 2 Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75481FFBD08F00F48104 /* Rectangle 2 Copy@2x.png */; };
-		326F756C1FFBD08F00F48104 /* Rectangle 4 Copy 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75491FFBD08F00F48104 /* Rectangle 4 Copy 2@2x.png */; };
-		326F756D1FFBD08F00F48104 /* Rectangle Copy 4按下@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F754A1FFBD08F00F48104 /* Rectangle Copy 4按下@2x.png */; };
-		326F756E1FFBD08F00F48104 /* Rectangle Copy 4默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F754B1FFBD08F00F48104 /* Rectangle Copy 4默认@2x.png */; };
-		326F756F1FFBD08F00F48104 /* Rectangle Copy 6按下@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F754C1FFBD08F00F48104 /* Rectangle Copy 6按下@2x.png */; };
-		326F75701FFBD08F00F48104 /* Rectangle Copy 6默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F754D1FFBD08F00F48104 /* Rectangle Copy 6默认@2x.png */; };
-		326F75711FFBD08F00F48104 /* Rectangle Copy 8@2x默认.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F754E1FFBD08F00F48104 /* Rectangle Copy 8@2x默认.png */; };
-		326F75721FFBD08F00F48104 /* Rectangle Copy 8按下@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F754F1FFBD08F00F48104 /* Rectangle Copy 8按下@2x.png */; };
-		326F75731FFBD08F00F48104 /* Group 2 Copy 2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75511FFBD08F00F48104 /* Group 2 Copy 2@3x.png */; };
-		326F75741FFBD08F00F48104 /* Group 3 Copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75521FFBD08F00F48104 /* Group 3 Copy@3x.png */; };
-		326F75751FFBD08F00F48104 /* Group 9@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75531FFBD08F00F48104 /* Group 9@3x.png */; };
-		326F75761FFBD08F00F48104 /* Group Copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75541FFBD08F00F48104 /* Group Copy@3x.png */; };
-		326F75771FFBD08F00F48104 /* Oval 4 Copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75551FFBD08F00F48104 /* Oval 4 Copy@3x.png */; };
-		326F75781FFBD08F00F48104 /* Oval 7 默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75561FFBD08F00F48104 /* Oval 7 默认@3x.png */; };
-		326F75791FFBD08F00F48104 /* Oval 7按下@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75571FFBD08F00F48104 /* Oval 7按下@3x.png */; };
-		326F757A1FFBD08F00F48104 /* Oval 8 Copy 3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75581FFBD08F00F48104 /* Oval 8 Copy 3@3x.png */; };
-		326F757B1FFBD08F00F48104 /* Oval 8 Copy 3@3x的副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75591FFBD08F00F48104 /* Oval 8 Copy 3@3x的副本.png */; };
-		326F757C1FFBD08F00F48104 /* Rectangle 11 Copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F755A1FFBD08F00F48104 /* Rectangle 11 Copy@3x.png */; };
-		326F757D1FFBD08F00F48104 /* Rectangle 2 Copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F755B1FFBD08F00F48104 /* Rectangle 2 Copy@3x.png */; };
-		326F757E1FFBD08F00F48104 /* Rectangle 4 Copy 2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F755C1FFBD08F00F48104 /* Rectangle 4 Copy 2@3x.png */; };
-		326F757F1FFBD08F00F48104 /* Rectangle Copy 10按下@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F755D1FFBD08F00F48104 /* Rectangle Copy 10按下@3x.png */; };
-		326F75801FFBD08F00F48104 /* Rectangle Copy 8按下@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F755E1FFBD08F00F48104 /* Rectangle Copy 8按下@3x.png */; };
-		326F75811FFBD08F00F48104 /* Rectangle Copy 8默认@3x的副本 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F755F1FFBD08F00F48104 /* Rectangle Copy 8默认@3x的副本 2.png */; };
-		326F75821FFBD08F00F48104 /* Rectangle Copy10默认@3x的副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75601FFBD08F00F48104 /* Rectangle Copy10默认@3x的副本.png */; };
-		326F75831FFBD08F00F48104 /* Rectangle按下@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75611FFBD08F00F48104 /* Rectangle按下@3x.png */; };
-		326F75841FFBD08F00F48104 /* Rectangle默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326F75621FFBD08F00F48104 /* Rectangle默认@3x.png */; };
+		32806F482002235B0096F2F3 /* test_btn_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F352002235B0096F2F3 /* test_btn_red@2x.png */; };
+		32806F492002235B0096F2F3 /* test_Chosen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F362002235B0096F2F3 /* test_Chosen@2x.png */; };
+		32806F4A2002235B0096F2F3 /* test_Lhand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F372002235B0096F2F3 /* test_Lhand@2x.png */; };
+		32806F4B2002235B0096F2F3 /* test_Lhand_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F382002235B0096F2F3 /* test_Lhand_h@2x.png */; };
+		32806F4C2002235B0096F2F3 /* test_Rhand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F392002235B0096F2F3 /* test_Rhand@2x.png */; };
+		32806F4D2002235B0096F2F3 /* test_Rhand_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F3A2002235B0096F2F3 /* test_Rhand_h@2x.png */; };
+		32806F4E2002235B0096F2F3 /* test_strengValue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F3B2002235B0096F2F3 /* test_strengValue@2x.png */; };
+		32806F4F2002235B0096F2F3 /* test_strengValueMax@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F3C2002235B0096F2F3 /* test_strengValueMax@2x.png */; };
+		32806F502002235B0096F2F3 /* test_unChosen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F3D2002235B0096F2F3 /* test_unChosen@2x.png */; };
+		32806F512002235B0096F2F3 /* test_btn_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F3F2002235B0096F2F3 /* test_btn_red@3x.png */; };
+		32806F522002235B0096F2F3 /* test_Chosen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F402002235B0096F2F3 /* test_Chosen@3x.png */; };
+		32806F532002235B0096F2F3 /* test_Lhand@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F412002235B0096F2F3 /* test_Lhand@3x.png */; };
+		32806F542002235B0096F2F3 /* test_Lhand_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F422002235B0096F2F3 /* test_Lhand_h@3x.png */; };
+		32806F552002235B0096F2F3 /* test_Rhand@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F432002235B0096F2F3 /* test_Rhand@3x.png */; };
+		32806F562002235B0096F2F3 /* test_Rhand_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F442002235B0096F2F3 /* test_Rhand_h@3x.png */; };
+		32806F572002235B0096F2F3 /* test_strengValue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F452002235B0096F2F3 /* test_strengValue@3x.png */; };
+		32806F582002235B0096F2F3 /* test_strengValueMax@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F462002235B0096F2F3 /* test_strengValueMax@3x.png */; };
+		32806F592002235B0096F2F3 /* test_unChosen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32806F472002235B0096F2F3 /* test_unChosen@3x.png */; };
+		32806F67200224D00096F2F3 /* TestFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32806F5C200224D00096F2F3 /* TestFinishViewController.m */; };
+		32806F68200224D00096F2F3 /* TestingLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32806F5E200224D00096F2F3 /* TestingLHandViewController.m */; };
+		32806F69200224D00096F2F3 /* TestingRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32806F60200224D00096F2F3 /* TestingRHandViewController.m */; };
+		32806F6A200224D00096F2F3 /* TestLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32806F62200224D00096F2F3 /* TestLHandViewController.m */; };
+		32806F6B200224D00096F2F3 /* TestRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32806F64200224D00096F2F3 /* TestRHandViewController.m */; };
+		32806F6C200224D00096F2F3 /* TestStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32806F66200224D00096F2F3 /* TestStartViewController.m */; };
 		32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C442891FADB23C00579B99 /* ConnectResViewController.m */; };
 		32C442B41FADF77800579B99 /* practice_bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C4428D1FADF77800579B99 /* practice_bg1@2x.png */; };
 		32C442B51FADF77800579B99 /* practice_bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C4428E1FADF77800579B99 /* practice_bg2@2x.png */; };
@@ -119,6 +109,10 @@
 		32C442D71FADF77800579B99 /* practice_icon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B11FADF77800579B99 /* practice_icon3@3x.png */; };
 		32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B21FADF77800579B99 /* practice_icon4@3x.png */; };
 		32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B31FADF77800579B99 /* practice_icon5@3x.png */; };
+		32C9A489201D7D6500E5D14F /* JCManValueChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C9A488201D7D6500E5D14F /* JCManValueChart.m */; };
+		32C9A48B201D814F00E5D14F /* test_strengValueBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A48A201D814F00E5D14F /* test_strengValueBG@2x.png */; };
+		32C9A48D201D815D00E5D14F /* test_strengValueBG@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A48C201D815D00E5D14F /* test_strengValueBG@3x.png */; };
+		32C9A490201D9A3400E5D14F /* JCAlertTestExit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C9A48F201D9A3400E5D14F /* JCAlertTestExit.m */; };
 		32E0586E1FD57F0F009AE3A4 /* JCAlertReConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */; };
 		32FBB1571FFA4CC100F50236 /* JCManChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FBB1561FFA4CC100F50236 /* JCManChart.m */; };
 		32FBB1591FFA578900F50236 /* chartBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FBB1581FFA578900F50236 /* chartBG@2x.png */; };
@@ -175,40 +169,36 @@
 		32678EA11F9E32C8002BA0DB /* connect_rectangle_l@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect_rectangle_l@3x.png"; sourceTree = "<group>"; };
 		32678EA21F9E32C8002BA0DB /* connect_state_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect_state_off@3x.png"; sourceTree = "<group>"; };
 		32678EA31F9E32C8002BA0DB /* connect_state_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect_state_on@3x.png"; sourceTree = "<group>"; };
-		326F75401FFBD08F00F48104 /* Group 2 Copy 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 2 Copy 2@2x.png"; sourceTree = "<group>"; };
-		326F75411FFBD08F00F48104 /* Group 3 Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 3 Copy@2x.png"; sourceTree = "<group>"; };
-		326F75421FFBD08F00F48104 /* Group Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group Copy@2x.png"; sourceTree = "<group>"; };
-		326F75431FFBD08F00F48104 /* Oval 7 Copy 2按下@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 7 Copy 2按下@2x.png"; sourceTree = "<group>"; };
-		326F75441FFBD08F00F48104 /* Oval 7 Copy默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 7 Copy默认@2x.png"; sourceTree = "<group>"; };
-		326F75451FFBD08F00F48104 /* Oval 8 Copy 3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 8 Copy 3@2x.png"; sourceTree = "<group>"; };
-		326F75461FFBD08F00F48104 /* Oval 8 Copy 3@2x的副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 8 Copy 3@2x的副本.png"; sourceTree = "<group>"; };
-		326F75471FFBD08F00F48104 /* Rectangle 11 Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 11 Copy@2x.png"; sourceTree = "<group>"; };
-		326F75481FFBD08F00F48104 /* Rectangle 2 Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 2 Copy@2x.png"; sourceTree = "<group>"; };
-		326F75491FFBD08F00F48104 /* Rectangle 4 Copy 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 4 Copy 2@2x.png"; sourceTree = "<group>"; };
-		326F754A1FFBD08F00F48104 /* Rectangle Copy 4按下@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 4按下@2x.png"; sourceTree = "<group>"; };
-		326F754B1FFBD08F00F48104 /* Rectangle Copy 4默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 4默认@2x.png"; sourceTree = "<group>"; };
-		326F754C1FFBD08F00F48104 /* Rectangle Copy 6按下@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 6按下@2x.png"; sourceTree = "<group>"; };
-		326F754D1FFBD08F00F48104 /* Rectangle Copy 6默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 6默认@2x.png"; sourceTree = "<group>"; };
-		326F754E1FFBD08F00F48104 /* Rectangle Copy 8@2x默认.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 8@2x默认.png"; sourceTree = "<group>"; };
-		326F754F1FFBD08F00F48104 /* Rectangle Copy 8按下@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 8按下@2x.png"; sourceTree = "<group>"; };
-		326F75511FFBD08F00F48104 /* Group 2 Copy 2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 2 Copy 2@3x.png"; sourceTree = "<group>"; };
-		326F75521FFBD08F00F48104 /* Group 3 Copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 3 Copy@3x.png"; sourceTree = "<group>"; };
-		326F75531FFBD08F00F48104 /* Group 9@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 9@3x.png"; sourceTree = "<group>"; };
-		326F75541FFBD08F00F48104 /* Group Copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group Copy@3x.png"; sourceTree = "<group>"; };
-		326F75551FFBD08F00F48104 /* Oval 4 Copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 4 Copy@3x.png"; sourceTree = "<group>"; };
-		326F75561FFBD08F00F48104 /* Oval 7 默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 7 默认@3x.png"; sourceTree = "<group>"; };
-		326F75571FFBD08F00F48104 /* Oval 7按下@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 7按下@3x.png"; sourceTree = "<group>"; };
-		326F75581FFBD08F00F48104 /* Oval 8 Copy 3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 8 Copy 3@3x.png"; sourceTree = "<group>"; };
-		326F75591FFBD08F00F48104 /* Oval 8 Copy 3@3x的副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 8 Copy 3@3x的副本.png"; sourceTree = "<group>"; };
-		326F755A1FFBD08F00F48104 /* Rectangle 11 Copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 11 Copy@3x.png"; sourceTree = "<group>"; };
-		326F755B1FFBD08F00F48104 /* Rectangle 2 Copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 2 Copy@3x.png"; sourceTree = "<group>"; };
-		326F755C1FFBD08F00F48104 /* Rectangle 4 Copy 2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 4 Copy 2@3x.png"; sourceTree = "<group>"; };
-		326F755D1FFBD08F00F48104 /* Rectangle Copy 10按下@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 10按下@3x.png"; sourceTree = "<group>"; };
-		326F755E1FFBD08F00F48104 /* Rectangle Copy 8按下@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 8按下@3x.png"; sourceTree = "<group>"; };
-		326F755F1FFBD08F00F48104 /* Rectangle Copy 8默认@3x的副本 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy 8默认@3x的副本 2.png"; sourceTree = "<group>"; };
-		326F75601FFBD08F00F48104 /* Rectangle Copy10默认@3x的副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle Copy10默认@3x的副本.png"; sourceTree = "<group>"; };
-		326F75611FFBD08F00F48104 /* Rectangle按下@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle按下@3x.png"; sourceTree = "<group>"; };
-		326F75621FFBD08F00F48104 /* Rectangle默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle默认@3x.png"; sourceTree = "<group>"; };
+		32806F352002235B0096F2F3 /* test_btn_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_btn_red@2x.png"; sourceTree = "<group>"; };
+		32806F362002235B0096F2F3 /* test_Chosen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Chosen@2x.png"; sourceTree = "<group>"; };
+		32806F372002235B0096F2F3 /* test_Lhand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand@2x.png"; sourceTree = "<group>"; };
+		32806F382002235B0096F2F3 /* test_Lhand_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand_h@2x.png"; sourceTree = "<group>"; };
+		32806F392002235B0096F2F3 /* test_Rhand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand@2x.png"; sourceTree = "<group>"; };
+		32806F3A2002235B0096F2F3 /* test_Rhand_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand_h@2x.png"; sourceTree = "<group>"; };
+		32806F3B2002235B0096F2F3 /* test_strengValue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_strengValue@2x.png"; sourceTree = "<group>"; };
+		32806F3C2002235B0096F2F3 /* test_strengValueMax@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_strengValueMax@2x.png"; sourceTree = "<group>"; };
+		32806F3D2002235B0096F2F3 /* test_unChosen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_unChosen@2x.png"; sourceTree = "<group>"; };
+		32806F3F2002235B0096F2F3 /* test_btn_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_btn_red@3x.png"; sourceTree = "<group>"; };
+		32806F402002235B0096F2F3 /* test_Chosen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Chosen@3x.png"; sourceTree = "<group>"; };
+		32806F412002235B0096F2F3 /* test_Lhand@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand@3x.png"; sourceTree = "<group>"; };
+		32806F422002235B0096F2F3 /* test_Lhand_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Lhand_h@3x.png"; sourceTree = "<group>"; };
+		32806F432002235B0096F2F3 /* test_Rhand@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand@3x.png"; sourceTree = "<group>"; };
+		32806F442002235B0096F2F3 /* test_Rhand_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand_h@3x.png"; sourceTree = "<group>"; };
+		32806F452002235B0096F2F3 /* test_strengValue@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_strengValue@3x.png"; sourceTree = "<group>"; };
+		32806F462002235B0096F2F3 /* test_strengValueMax@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_strengValueMax@3x.png"; sourceTree = "<group>"; };
+		32806F472002235B0096F2F3 /* test_unChosen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_unChosen@3x.png"; sourceTree = "<group>"; };
+		32806F5B200224D00096F2F3 /* TestFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFinishViewController.h; sourceTree = "<group>"; };
+		32806F5C200224D00096F2F3 /* TestFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFinishViewController.m; sourceTree = "<group>"; };
+		32806F5D200224D00096F2F3 /* TestingLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingLHandViewController.h; sourceTree = "<group>"; };
+		32806F5E200224D00096F2F3 /* TestingLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingLHandViewController.m; sourceTree = "<group>"; };
+		32806F5F200224D00096F2F3 /* TestingRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingRHandViewController.h; sourceTree = "<group>"; };
+		32806F60200224D00096F2F3 /* TestingRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingRHandViewController.m; sourceTree = "<group>"; };
+		32806F61200224D00096F2F3 /* TestLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLHandViewController.h; sourceTree = "<group>"; };
+		32806F62200224D00096F2F3 /* TestLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLHandViewController.m; sourceTree = "<group>"; };
+		32806F63200224D00096F2F3 /* TestRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRHandViewController.h; sourceTree = "<group>"; };
+		32806F64200224D00096F2F3 /* TestRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRHandViewController.m; sourceTree = "<group>"; };
+		32806F65200224D00096F2F3 /* TestStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStartViewController.h; sourceTree = "<group>"; };
+		32806F66200224D00096F2F3 /* TestStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStartViewController.m; sourceTree = "<group>"; };
 		32C442881FADB23C00579B99 /* ConnectResViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectResViewController.h; sourceTree = "<group>"; };
 		32C442891FADB23C00579B99 /* ConnectResViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectResViewController.m; sourceTree = "<group>"; };
 		32C4428D1FADF77800579B99 /* practice_bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_bg1@2x.png"; sourceTree = "<group>"; };
@@ -249,6 +239,12 @@
 		32C442B11FADF77800579B99 /* practice_icon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon3@3x.png"; sourceTree = "<group>"; };
 		32C442B21FADF77800579B99 /* practice_icon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon4@3x.png"; sourceTree = "<group>"; };
 		32C442B31FADF77800579B99 /* practice_icon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon5@3x.png"; sourceTree = "<group>"; };
+		32C9A487201D7D6500E5D14F /* JCManValueChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCManValueChart.h; sourceTree = "<group>"; };
+		32C9A488201D7D6500E5D14F /* JCManValueChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCManValueChart.m; sourceTree = "<group>"; };
+		32C9A48A201D814F00E5D14F /* test_strengValueBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_strengValueBG@2x.png"; sourceTree = "<group>"; };
+		32C9A48C201D815D00E5D14F /* test_strengValueBG@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_strengValueBG@3x.png"; sourceTree = "<group>"; };
+		32C9A48E201D9A3400E5D14F /* JCAlertTestExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertTestExit.h; sourceTree = "<group>"; };
+		32C9A48F201D9A3400E5D14F /* JCAlertTestExit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertTestExit.m; sourceTree = "<group>"; };
 		32E0586C1FD57F0F009AE3A4 /* JCAlertReConnectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlertReConnectView.h; sourceTree = "<group>"; };
 		32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertReConnectView.m; sourceTree = "<group>"; };
 		32FBB1551FFA4CC100F50236 /* JCManChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCManChart.h; sourceTree = "<group>"; };
@@ -284,6 +280,8 @@
 				320FDE231F7A34B100607D5E /* JCAlertView.m */,
 				32E0586C1FD57F0F009AE3A4 /* JCAlertReConnectView.h */,
 				32E0586D1FD57F0F009AE3A4 /* JCAlertReConnectView.m */,
+				32C9A48E201D9A3400E5D14F /* JCAlertTestExit.h */,
+				32C9A48F201D9A3400E5D14F /* JCAlertTestExit.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -351,6 +349,7 @@
 				320FDE1F1F79FA0300607D5E /* MainViewController.m */,
 				322D18A01F78CF8F00815118 /* BlueTooth */,
 				321552C41FAF322A0095F55E /* Practice */,
+				32806F5A200224D00096F2F3 /* Test */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -384,7 +383,7 @@
 		3237A71F1F9CCBAB00EFC713 /* icon */ = {
 			isa = PBXGroup;
 			children = (
-				326F753E1FFBD08F00F48104 /* TestMode */,
+				32806F332002235B0096F2F3 /* TestMode */,
 				3237A7201F9CCBAB00EFC713 /* BTConnect */,
 				32C4428B1FADF77800579B99 /* Practice */,
 			);
@@ -442,61 +441,68 @@
 			path = "@3x";
 			sourceTree = "<group>";
 		};
-		326F753E1FFBD08F00F48104 /* TestMode */ = {
+		32806F332002235B0096F2F3 /* TestMode */ = {
 			isa = PBXGroup;
 			children = (
-				326F753F1FFBD08F00F48104 /* @2x */,
-				326F75501FFBD08F00F48104 /* @3x */,
+				32806F342002235B0096F2F3 /* @2x */,
+				32806F3E2002235B0096F2F3 /* @3x */,
 			);
 			path = TestMode;
 			sourceTree = "<group>";
 		};
-		326F753F1FFBD08F00F48104 /* @2x */ = {
+		32806F342002235B0096F2F3 /* @2x */ = {
 			isa = PBXGroup;
 			children = (
-				326F75401FFBD08F00F48104 /* Group 2 Copy 2@2x.png */,
-				326F75411FFBD08F00F48104 /* Group 3 Copy@2x.png */,
-				326F75421FFBD08F00F48104 /* Group Copy@2x.png */,
-				326F75431FFBD08F00F48104 /* Oval 7 Copy 2按下@2x.png */,
-				326F75441FFBD08F00F48104 /* Oval 7 Copy默认@2x.png */,
-				326F75451FFBD08F00F48104 /* Oval 8 Copy 3@2x.png */,
-				326F75461FFBD08F00F48104 /* Oval 8 Copy 3@2x的副本.png */,
-				326F75471FFBD08F00F48104 /* Rectangle 11 Copy@2x.png */,
-				326F75481FFBD08F00F48104 /* Rectangle 2 Copy@2x.png */,
-				326F75491FFBD08F00F48104 /* Rectangle 4 Copy 2@2x.png */,
-				326F754A1FFBD08F00F48104 /* Rectangle Copy 4按下@2x.png */,
-				326F754B1FFBD08F00F48104 /* Rectangle Copy 4默认@2x.png */,
-				326F754C1FFBD08F00F48104 /* Rectangle Copy 6按下@2x.png */,
-				326F754D1FFBD08F00F48104 /* Rectangle Copy 6默认@2x.png */,
-				326F754E1FFBD08F00F48104 /* Rectangle Copy 8@2x默认.png */,
-				326F754F1FFBD08F00F48104 /* Rectangle Copy 8按下@2x.png */,
+				32806F352002235B0096F2F3 /* test_btn_red@2x.png */,
+				32806F362002235B0096F2F3 /* test_Chosen@2x.png */,
+				32806F372002235B0096F2F3 /* test_Lhand@2x.png */,
+				32806F382002235B0096F2F3 /* test_Lhand_h@2x.png */,
+				32806F392002235B0096F2F3 /* test_Rhand@2x.png */,
+				32806F3A2002235B0096F2F3 /* test_Rhand_h@2x.png */,
+				32806F3B2002235B0096F2F3 /* test_strengValue@2x.png */,
+				32C9A48A201D814F00E5D14F /* test_strengValueBG@2x.png */,
+				32806F3C2002235B0096F2F3 /* test_strengValueMax@2x.png */,
+				32806F3D2002235B0096F2F3 /* test_unChosen@2x.png */,
 			);
 			path = "@2x";
 			sourceTree = "<group>";
 		};
-		326F75501FFBD08F00F48104 /* @3x */ = {
+		32806F3E2002235B0096F2F3 /* @3x */ = {
 			isa = PBXGroup;
 			children = (
-				326F75511FFBD08F00F48104 /* Group 2 Copy 2@3x.png */,
-				326F75521FFBD08F00F48104 /* Group 3 Copy@3x.png */,
-				326F75531FFBD08F00F48104 /* Group 9@3x.png */,
-				326F75541FFBD08F00F48104 /* Group Copy@3x.png */,
-				326F75551FFBD08F00F48104 /* Oval 4 Copy@3x.png */,
-				326F75561FFBD08F00F48104 /* Oval 7 默认@3x.png */,
-				326F75571FFBD08F00F48104 /* Oval 7按下@3x.png */,
-				326F75581FFBD08F00F48104 /* Oval 8 Copy 3@3x.png */,
-				326F75591FFBD08F00F48104 /* Oval 8 Copy 3@3x的副本.png */,
-				326F755A1FFBD08F00F48104 /* Rectangle 11 Copy@3x.png */,
-				326F755B1FFBD08F00F48104 /* Rectangle 2 Copy@3x.png */,
-				326F755C1FFBD08F00F48104 /* Rectangle 4 Copy 2@3x.png */,
-				326F755D1FFBD08F00F48104 /* Rectangle Copy 10按下@3x.png */,
-				326F755E1FFBD08F00F48104 /* Rectangle Copy 8按下@3x.png */,
-				326F755F1FFBD08F00F48104 /* Rectangle Copy 8默认@3x的副本 2.png */,
-				326F75601FFBD08F00F48104 /* Rectangle Copy10默认@3x的副本.png */,
-				326F75611FFBD08F00F48104 /* Rectangle按下@3x.png */,
-				326F75621FFBD08F00F48104 /* Rectangle默认@3x.png */,
+				32806F3F2002235B0096F2F3 /* test_btn_red@3x.png */,
+				32806F402002235B0096F2F3 /* test_Chosen@3x.png */,
+				32806F412002235B0096F2F3 /* test_Lhand@3x.png */,
+				32806F422002235B0096F2F3 /* test_Lhand_h@3x.png */,
+				32806F432002235B0096F2F3 /* test_Rhand@3x.png */,
+				32806F442002235B0096F2F3 /* test_Rhand_h@3x.png */,
+				32806F452002235B0096F2F3 /* test_strengValue@3x.png */,
+				32C9A48C201D815D00E5D14F /* test_strengValueBG@3x.png */,
+				32806F462002235B0096F2F3 /* test_strengValueMax@3x.png */,
+				32806F472002235B0096F2F3 /* test_unChosen@3x.png */,
 			);
 			path = "@3x";
+			sourceTree = "<group>";
+		};
+		32806F5A200224D00096F2F3 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				32806F65200224D00096F2F3 /* TestStartViewController.h */,
+				32806F66200224D00096F2F3 /* TestStartViewController.m */,
+				32806F61200224D00096F2F3 /* TestLHandViewController.h */,
+				32806F62200224D00096F2F3 /* TestLHandViewController.m */,
+				32806F5D200224D00096F2F3 /* TestingLHandViewController.h */,
+				32806F5E200224D00096F2F3 /* TestingLHandViewController.m */,
+				32806F63200224D00096F2F3 /* TestRHandViewController.h */,
+				32806F64200224D00096F2F3 /* TestRHandViewController.m */,
+				32806F5F200224D00096F2F3 /* TestingRHandViewController.h */,
+				32806F60200224D00096F2F3 /* TestingRHandViewController.m */,
+				32806F5B200224D00096F2F3 /* TestFinishViewController.h */,
+				32806F5C200224D00096F2F3 /* TestFinishViewController.m */,
+				32C9A487201D7D6500E5D14F /* JCManValueChart.h */,
+				32C9A488201D7D6500E5D14F /* JCManValueChart.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		32C442871FADB21D00579B99 /* ConnectResult */ = {
@@ -630,90 +636,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326F75791FFBD08F00F48104 /* Oval 7按下@3x.png in Resources */,
 				32C442D61FADF77800579B99 /* practice_icon2@3x.png in Resources */,
-				326F756E1FFBD08F00F48104 /* Rectangle Copy 4默认@2x.png in Resources */,
+				32806F522002235B0096F2F3 /* test_Chosen@3x.png in Resources */,
 				32678EA91F9E32C9002BA0DB /* connect_btn_black@2x.png in Resources */,
 				32678EB41F9E32C9002BA0DB /* connect_background4@3x.png in Resources */,
 				32C442C11FADF77800579B99 /* practice_btn9@2x.png in Resources */,
-				326F757A1FFBD08F00F48104 /* Oval 8 Copy 3@3x.png in Resources */,
 				32C442C51FADF77800579B99 /* practice_icon4@2x.png in Resources */,
 				32C442CA1FADF77800579B99 /* practice_bg4@3x.png in Resources */,
+				32806F4C2002235B0096F2F3 /* test_Rhand@2x.png in Resources */,
 				32678EA61F9E32C9002BA0DB /* connect_background4@2x.png in Resources */,
 				32C442C71FADF77800579B99 /* practice_bg1@3x.png in Resources */,
 				32C442CD1FADF77800579B99 /* practice_btn2.png in Resources */,
-				326F756A1FFBD08F00F48104 /* Rectangle 11 Copy@2x.png in Resources */,
 				32C442CF1FADF77800579B99 /* practice_btn4@3x.png in Resources */,
+				32C9A48B201D814F00E5D14F /* test_strengValueBG@2x.png in Resources */,
 				32C442C81FADF77800579B99 /* practice_bg2@3x.png in Resources */,
-				326F756D1FFBD08F00F48104 /* Rectangle Copy 4按下@2x.png in Resources */,
-				326F75691FFBD08F00F48104 /* Oval 8 Copy 3@2x的副本.png in Resources */,
 				32C442CE1FADF77800579B99 /* practice_btn3@3x.png in Resources */,
 				32C442BC1FADF77800579B99 /* practice_btn4@2x.png in Resources */,
 				322D18901F78AF8800815118 /* LaunchScreen.storyboard in Resources */,
+				32806F592002235B0096F2F3 /* test_unChosen@3x.png in Resources */,
 				32C442B91FADF77800579B99 /* practice_btn1@2x.png in Resources */,
+				32806F4D2002235B0096F2F3 /* test_Rhand_h@2x.png in Resources */,
+				32806F492002235B0096F2F3 /* test_Chosen@2x.png in Resources */,
 				32C442D51FADF77800579B99 /* practice_icon1@3x.png in Resources */,
-				326F756F1FFBD08F00F48104 /* Rectangle Copy 6按下@2x.png in Resources */,
+				32806F502002235B0096F2F3 /* test_unChosen@2x.png in Resources */,
+				32806F572002235B0096F2F3 /* test_strengValue@3x.png in Resources */,
 				32678EBE1F9E32C9002BA0DB /* connect_state_off@3x.png in Resources */,
 				32C442C41FADF77800579B99 /* practice_icon3@2x.png in Resources */,
 				32678EB21F9E32C9002BA0DB /* connect_background2@3x.png in Resources */,
-				326F75751FFBD08F00F48104 /* Group 9@3x.png in Resources */,
 				322D188D1F78AF8800815118 /* Assets.xcassets in Resources */,
-				326F757E1FFBD08F00F48104 /* Rectangle 4 Copy 2@3x.png in Resources */,
 				32C442C21FADF77800579B99 /* practice_Icon1@2x.png in Resources */,
+				32806F542002235B0096F2F3 /* test_Lhand_h@3x.png in Resources */,
 				32C442C91FADF77800579B99 /* practice_bg3@3x.png in Resources */,
 				32678EA41F9E32C9002BA0DB /* connect_background2@2x.png in Resources */,
 				32C442BA1FADF77800579B99 /* practice_btn2@2x.png in Resources */,
-				326F75841FFBD08F00F48104 /* Rectangle默认@3x.png in Resources */,
-				326F75661FFBD08F00F48104 /* Oval 7 Copy 2按下@2x.png in Resources */,
 				32678EB91F9E32C9002BA0DB /* connect_btn_gray@3x.png in Resources */,
-				326F75731FFBD08F00F48104 /* Group 2 Copy 2@3x.png in Resources */,
 				32678EB31F9E32C9002BA0DB /* connect_background3@3x.png in Resources */,
 				32C442B61FADF77800579B99 /* practice_bg3@2x.png in Resources */,
 				32C442D41FADF77800579B99 /* practice_btn9@3x.png in Resources */,
 				32C442D31FADF77800579B99 /* practice_btn8@3x.png in Resources */,
 				32C442D21FADF77800579B99 /* practice_btn7@3x.png in Resources */,
-				326F757F1FFBD08F00F48104 /* Rectangle Copy 10按下@3x.png in Resources */,
 				32C442D71FADF77800579B99 /* practice_icon3@3x.png in Resources */,
-				326F75761FFBD08F00F48104 /* Group Copy@3x.png in Resources */,
+				32806F4A2002235B0096F2F3 /* test_Lhand@2x.png in Resources */,
 				32678EB61F9E32C9002BA0DB /* connect_background@3x.png in Resources */,
 				32C442BF1FADF77800579B99 /* practice_btn7@2x.png in Resources */,
-				326F757B1FFBD08F00F48104 /* Oval 8 Copy 3@3x的副本.png in Resources */,
 				32678EB81F9E32C9002BA0DB /* connect_btn_blue@3x.png in Resources */,
 				32678EA51F9E32C9002BA0DB /* connect_background3@2x.png in Resources */,
-				326F75831FFBD08F00F48104 /* Rectangle按下@3x.png in Resources */,
+				32C9A48D201D815D00E5D14F /* test_strengValueBG@3x.png in Resources */,
 				32678EA71F9E32C9002BA0DB /* connect_background5@2x.png in Resources */,
 				32678EBB1F9E32C9002BA0DB /* connect_head@3x.png in Resources */,
+				32806F532002235B0096F2F3 /* test_Lhand@3x.png in Resources */,
 				32678EAB1F9E32C9002BA0DB /* connect_btn_gray@2x.png in Resources */,
-				326F75711FFBD08F00F48104 /* Rectangle Copy 8@2x默认.png in Resources */,
 				32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */,
+				32806F4E2002235B0096F2F3 /* test_strengValue@2x.png in Resources */,
 				32C442B71FADF77800579B99 /* practice_bg4@2x.png in Resources */,
-				326F75671FFBD08F00F48104 /* Oval 7 Copy默认@2x.png in Resources */,
 				32C442BD1FADF77800579B99 /* practice_btn5@2x.png in Resources */,
 				32C442C01FADF77800579B99 /* practice_btn8@2x.png in Resources */,
+				32806F4B2002235B0096F2F3 /* test_Lhand_h@2x.png in Resources */,
+				32806F582002235B0096F2F3 /* test_strengValueMax@3x.png in Resources */,
 				32678EAF1F9E32C9002BA0DB /* connect_rectangle_l@2x.png in Resources */,
-				326F75781FFBD08F00F48104 /* Oval 7 默认@3x.png in Resources */,
 				32C442BB1FADF77800579B99 /* practice_btn3@2x.png in Resources */,
-				326F757D1FFBD08F00F48104 /* Rectangle 2 Copy@3x.png in Resources */,
 				32678EB01F9E32C9002BA0DB /* connect_state_off@2x.png in Resources */,
-				326F75741FFBD08F00F48104 /* Group 3 Copy@3x.png in Resources */,
-				326F75771FFBD08F00F48104 /* Oval 4 Copy@3x.png in Resources */,
 				32678EBC1F9E32C9002BA0DB /* connect_rectangle_h@3x.png in Resources */,
 				322D188B1F78AF8800815118 /* Main.storyboard in Resources */,
-				326F75801FFBD08F00F48104 /* Rectangle Copy 8按下@3x.png in Resources */,
 				32C442B41FADF77800579B99 /* practice_bg1@2x.png in Resources */,
 				32C442B51FADF77800579B99 /* practice_bg2@2x.png in Resources */,
-				326F75641FFBD08F00F48104 /* Group 3 Copy@2x.png in Resources */,
-				326F75701FFBD08F00F48104 /* Rectangle Copy 6默认@2x.png in Resources */,
-				326F75681FFBD08F00F48104 /* Oval 8 Copy 3@2x.png in Resources */,
 				32678EBA1F9E32C9002BA0DB /* connect_btn_red@3x.png in Resources */,
 				32678EAA1F9E32C9002BA0DB /* connect_btn_blue@2x.png in Resources */,
-				326F75811FFBD08F00F48104 /* Rectangle Copy 8默认@3x的副本 2.png in Resources */,
-				326F75651FFBD08F00F48104 /* Group Copy@2x.png in Resources */,
-				326F75821FFBD08F00F48104 /* Rectangle Copy10默认@3x的副本.png in Resources */,
+				32806F552002235B0096F2F3 /* test_Rhand@3x.png in Resources */,
+				32806F562002235B0096F2F3 /* test_Rhand_h@3x.png in Resources */,
+				32806F512002235B0096F2F3 /* test_btn_red@3x.png in Resources */,
 				32C442CC1FADF77800579B99 /* practice_btn1@3x.png in Resources */,
 				32678EAE1F9E32C9002BA0DB /* connect_rectangle_h@2x.png in Resources */,
 				32C442CB1FADF77800579B99 /* practice_bg5@3x.png in Resources */,
-				326F75631FFBD08F00F48104 /* Group 2 Copy 2@2x.png in Resources */,
 				32C442C61FADF77800579B99 /* practice_icon5@2x.png in Resources */,
 				32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */,
 				32C442C31FADF77800579B99 /* practice_icon2@2x.png in Resources */,
@@ -721,17 +715,15 @@
 				32FBB1591FFA578900F50236 /* chartBG@2x.png in Resources */,
 				32C442B81FADF77800579B99 /* practice_bg5@2x.png in Resources */,
 				32678EB71F9E32C9002BA0DB /* connect_btn_black@3x.png in Resources */,
+				32806F482002235B0096F2F3 /* test_btn_red@2x.png in Resources */,
 				32FBB15B1FFA579700F50236 /* chartBG@3x.png in Resources */,
-				326F757C1FFBD08F00F48104 /* Rectangle 11 Copy@3x.png in Resources */,
-				326F756B1FFBD08F00F48104 /* Rectangle 2 Copy@2x.png in Resources */,
 				32C442BE1FADF77800579B99 /* practice_btn6@2x.png in Resources */,
 				32C442D01FADF77800579B99 /* practice_btn5@3x.png in Resources */,
-				326F756C1FFBD08F00F48104 /* Rectangle 4 Copy 2@2x.png in Resources */,
+				32806F4F2002235B0096F2F3 /* test_strengValueMax@2x.png in Resources */,
 				32678EBD1F9E32C9002BA0DB /* connect_rectangle_l@3x.png in Resources */,
 				32678EAC1F9E32C9002BA0DB /* connect_btn_red@2x.png in Resources */,
 				32678EA81F9E32C9002BA0DB /* connect_background@2x.png in Resources */,
 				32678EBF1F9E32C9002BA0DB /* connect_state_on@3x.png in Resources */,
-				326F75721FFBD08F00F48104 /* Rectangle Copy 8按下@2x.png in Resources */,
 				32678EB51F9E32C9002BA0DB /* connect_background5@3x.png in Resources */,
 				32C442D11FADF77800579B99 /* practice_btn6@3x.png in Resources */,
 				32678EB11F9E32C9002BA0DB /* connect_state_on@2x.png in Resources */,
@@ -745,17 +737,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C9A489201D7D6500E5D14F /* JCManValueChart.m in Sources */,
+				32806F6B200224D00096F2F3 /* TestRHandViewController.m in Sources */,
+				32C9A490201D9A3400E5D14F /* JCAlertTestExit.m in Sources */,
 				32E0586E1FD57F0F009AE3A4 /* JCAlertReConnectView.m in Sources */,
+				32806F67200224D00096F2F3 /* TestFinishViewController.m in Sources */,
+				32806F68200224D00096F2F3 /* TestingLHandViewController.m in Sources */,
 				322D18851F78AF8700815118 /* AppDelegate.m in Sources */,
 				32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */,
 				32FBB1571FFA4CC100F50236 /* JCManChart.m in Sources */,
 				32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */,
 				321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
+				32806F69200224D00096F2F3 /* TestingRHandViewController.m in Sources */,
 				320FDE201F79FA0300607D5E /* MainViewController.m in Sources */,
 				320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */,
 				321552CD1FAF351F0095F55E /* PracticeFinishViewController.m in Sources */,
 				322D189F1F78CCA000815118 /* LoginViewController.m in Sources */,
+				32806F6A200224D00096F2F3 /* TestLHandViewController.m in Sources */,
+				32806F6C200224D00096F2F3 /* TestStartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

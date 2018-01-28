@@ -1,27 +1,30 @@
 //
-//  TestLHandViewController.m
+//  TestRHandViewController.m
 //  GripBall
 //
 //  Created by 贾辰 on 18/1/3.
 //  Copyright © 2018年 贾辰. All rights reserved.
 //
 
-#import "TestLHandViewController.h"
+#import "TestRHandViewController.h"
 #import "ModelLocator.h"
-#import "TestingLHandViewController.h"
+#import "TestingRHandViewController.h"
 
-@interface TestLHandViewController ()
-@property (strong , nonatomic) TestingLHandViewController *viewTestingLHand;
+@interface TestRHandViewController ()
+@property (strong, nonatomic) TestingRHandViewController *viewTestingRHand;
+
+@property (assign, nonatomic) float                     leftHandValue;
 @end
 
-@implementation TestLHandViewController
+@implementation TestRHandViewController
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         [self.view setBackgroundColor:[UIColor grayColor]];
         
-        self.viewTestingLHand = [[TestingLHandViewController alloc] init];
+        self.viewTestingRHand = [[TestingRHandViewController alloc] init];
         
         [self createUI];
         
@@ -66,7 +69,7 @@
     [lblTBtnStartName1 setTextAlignment:NSTextAlignmentCenter];
     //设置字间距
     NSDictionary *dic = @{NSKernAttributeName:@4.3f};
-    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:@"左手" attributes:dic];
+    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:@"右手" attributes:dic];
     [lblTBtnStartName1 setAttributedText:attributeStr];
     [self.view addSubview:lblTBtnStartName1];
     
@@ -81,14 +84,14 @@
     [self.view addSubview:lblTBtnStartName2];
     
     UIImageView *imgVLhand = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-53.f, SCREEN_HEIGHT - 230.f, 42.f, 75.f)];
-    [imgVLhand setImage:[UIImage imageNamed:@"test_Lhand_h"]];
+    [imgVLhand setImage:[UIImage imageNamed:@"test_Lhand"]];
     [self.view addSubview:imgVLhand];
     
     UIImageView *imgVRhand = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+11.f, SCREEN_HEIGHT - 230.f, 42.f, 75.f)];
-    [imgVRhand setImage:[UIImage imageNamed:@"test_Rhand"]];
+    [imgVRhand setImage:[UIImage imageNamed:@"test_Rhand_h"]];
     [self.view addSubview:imgVRhand];
     
-
+    
     
     UILabel *lblTPrepareText2 = [[UILabel alloc] initWithFrame:CGRectMake(50.f,SCREEN_HEIGHT-130.f, SCREEN_WIDTH - 80.f, 20.f)];
     [lblTPrepareText2 setText:@"测试过程中，将抓握三次，取最大值"];
@@ -105,14 +108,17 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)setLeftHandStrengthValue:(float)sValue{
+    self.leftHandValue = sValue;
+}
 #pragma mark - Btn Delegate
 -(void)clickBtnBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)clickBtnStart{
-    [self.navigationController pushViewController:self.viewTestingLHand animated:YES];
+    [self.viewTestingRHand setLeftHandStrengthValue:self.leftHandValue];
+    [self.navigationController pushViewController:self.viewTestingRHand animated:YES];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
