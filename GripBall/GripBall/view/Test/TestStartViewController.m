@@ -33,7 +33,8 @@
 -(void)createUI
 {
     // BGImage
-    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVPrepareBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.view addSubview:imgVPrepareBG];
     
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];
@@ -62,14 +63,14 @@
     [btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnStart];
     
-    UILabel *lblTPrepareText1 = [[UILabel alloc] initWithFrame:CGRectMake(50.f,SCREEN_HEIGHT - 170.f, 60.f, 20.f)];
+    UILabel *lblTPrepareText1 = [[UILabel alloc] initWithFrame:CGRectMake(9.f,SCREEN_HEIGHT - 170.f, 60.f, 20.f)];
     [lblTPrepareText1 setText:@"规则："];
     [lblTPrepareText1 setTextColor:[UIColor colorWithRed:180.f/255.f green:180.f/255.f blue:180.f/255.f alpha:1]];
     [lblTPrepareText1 setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
     [lblTPrepareText1 setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblTPrepareText1];
     
-    UILabel *lblTPrepareText2 = [[UILabel alloc] initWithFrame:CGRectMake(50.f,lblTPrepareText1.frame.origin.y + 20.f + 6.f, SCREEN_WIDTH - 80.f, 20.f)];
+    UILabel *lblTPrepareText2 = [[UILabel alloc] initWithFrame:CGRectMake(90.f,lblTPrepareText1.frame.origin.y + 20.f + 6.f, SCREEN_WIDTH - 80.f, 20.f)];
     [lblTPrepareText2 setText:@"测试单次抓握过程中的最大力"];
     [lblTPrepareText2 setTextColor:[UIColor colorWithRed:180.f/255.f green:180.f/255.f blue:180.f/255.f alpha:1]];
     [lblTPrepareText2 setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];

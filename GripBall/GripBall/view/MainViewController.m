@@ -12,6 +12,9 @@
 #import "SearchResViewController.h"
 #import "ModelLocator.h"
 #import "JCAlertView.h"
+
+#import "ShowAllUserViewController.h"
+
 #import "ConnectResViewController.h"
      
 
@@ -20,6 +23,8 @@
 @property (strong, nonatomic) ConnectResViewController  *viewControllerConnectRes;
 
 @property (strong, nonatomic) UIButton                  *btnStart;
+@property (strong, nonatomic) UIButton                  *btnChangeUser;
+
 @property (strong, nonatomic) CBCentralManager          *manager;       // 中心管理者
 @property (strong, nonatomic) CBPeripheral              *peripheral;
 @property (strong, nonatomic) JCAlertView               *alert;
@@ -32,7 +37,7 @@
 @property (strong, nonatomic) NSTimer                   *timeSearch;
 
 @property (assign, nonatomic) BOOL                      isReConnect;
-@property (assign, nonatomic) int                       choiceModelState;   //进入子View状态 ：－1为未选择；0为练习模式；1为测验模式；2为竞技模式；
+@property (assign, nonatomic) int                       choiceModelState;   //进入子View状态 ：－1为未选择；0为练习模式；1为测验模式；2为竞技－爆发力模式；3为竞技－耐力模式
 @end
 
 @implementation MainViewController
@@ -58,6 +63,8 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetTestBegin) name:@"TestModelBegin" object:nil];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetEnduranceBegin) name:@"EnduranceModelBegin" object:nil];
+        
         [self createUI];
     }
     return self;
@@ -68,14 +75,23 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     //背景图片
-    UIImageView *imgViewBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
-    [self.view addSubview:imgViewBG];
+    UIImageView *imgVBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVBG setImage:[UIImage imageNamed:@"connect_background"]];
+    [self.view addSubview:imgVBG];
+
     
     //头像
     UIImageView *imgHeadPic = [[UIImageView alloc] initWithFrame:CGRectMake(50.f, 47.5f, 60.f, 60.f)];
     [imgHeadPic setImage:[UIImage imageNamed:@"connect_head"]];
     [imgHeadPic.layer setCornerRadius:30.f];
     [self.view addSubview:imgHeadPic];
+    
+    _btnChangeUser = [[UIButton alloc] initWithFrame:imgHeadPic.frame];
+    [_btnChangeUser.layer setCornerRadius:30.f];
+    [_btnChangeUser.layer masksToBounds];
+    [_btnChangeUser setBackgroundColor:[UIColor redColor]];
+    [_btnChangeUser addTarget:self action:@selector(onBtnChangeUserAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_btnChangeUser];
     
     //蓝牙状态图标
     self.imgViewState = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80.f, 62.f, 31.f, 31.f)];
@@ -252,7 +268,9 @@
             case 1:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"SendTestData" object:strSend];
                 break;
-            
+            case 2:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SendEnduranceData" object:strSend];
+                break;
             default:
                 break;
         }
@@ -272,7 +290,13 @@
     self.isReConnect = true;
 }
 
-#pragma Btn Event
+#pragma mark - Btn Event
+-(void)onBtnChangeUserAction{
+    ShowAllUserViewController *viewControllerShow = [[ShowAllUserViewController alloc] init];
+    viewControllerShow.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+    [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController:viewControllerShow animated:YES completion:nil];
+}
 -(void)clickBtnStart
 {
     self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{@"CBCentralManagerOptionShowPowerAlertKey":@NO}];
@@ -284,7 +308,7 @@
 -(void)onAlertConnectFail{
     [self.alertConnectFail removeFromSuperview];
 }
-#pragma SearchResult delegate
+#pragma mark - SearchResult delegate
 //选择连接
 -(void)blueToothConnect:(int)index{
     NSLog(@"点击的是 ：%d",index);
@@ -297,7 +321,7 @@
     [self clickBtnStart];
 }
 
-#pragma 选择模式后的Notification监听
+#pragma mark - 选择模式后的Notification监听
 -(void)GetPracticeBegin{
     NSLog(@"进入了 练习模式");
     self.choiceModelState = 0;
@@ -308,6 +332,10 @@
     self.choiceModelState = 1;
 }
 
+-(void)GetEnduranceBegin{
+    NSLog(@"进入了 爆发力模式");
+    self.choiceModelState = 2;
+}
 -(void)viewDidAppear:(BOOL)animated{
     [self.arrPeripheralsList removeAllObjects];
 

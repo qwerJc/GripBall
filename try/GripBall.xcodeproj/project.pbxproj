@@ -12,6 +12,12 @@
 		320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FDE231F7A34B100607D5E /* JCAlertView.m */; };
 		321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321552C91FAF350D0095F55E /* PracticeBeginViewController.m */; };
 		321552CD1FAF351F0095F55E /* PracticeFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321552CC1FAF351F0095F55E /* PracticeFinishViewController.m */; };
+		3224EC8D201F485B00DBB503 /* ExplodeStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224EC8C201F485B00DBB503 /* ExplodeStartViewController.m */; };
+		3224EC90201F4D1900DBB503 /* ExplodeLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224EC8F201F4D1900DBB503 /* ExplodeLHandViewController.m */; };
+		3224EC93201F4D2D00DBB503 /* ExplodeTestingLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224EC92201F4D2D00DBB503 /* ExplodeTestingLHandViewController.m */; };
+		3224EC96201F4D3C00DBB503 /* ExplodeRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224EC95201F4D3C00DBB503 /* ExplodeRHandViewController.m */; };
+		3224EC99201F4D4C00DBB503 /* ExplodeTestingRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224EC98201F4D4C00DBB503 /* ExplodeTestingRHandViewController.m */; };
+		3224EC9C201F4D6200DBB503 /* ExplodeFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224EC9B201F4D6200DBB503 /* ExplodeFinishViewController.m */; };
 		322D18821F78AF8700815118 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18811F78AF8700815118 /* main.m */; };
 		322D18851F78AF8700815118 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18841F78AF8700815118 /* AppDelegate.m */; };
 		322D188B1F78AF8800815118 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322D18891F78AF8800815118 /* Main.storyboard */; };
@@ -95,6 +101,14 @@
 		32C442D71FADF77800579B99 /* practice_icon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B11FADF77800579B99 /* practice_icon3@3x.png */; };
 		32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B21FADF77800579B99 /* practice_icon4@3x.png */; };
 		32C442D91FADF77800579B99 /* practice_icon5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C442B31FADF77800579B99 /* practice_icon5@3x.png */; };
+		32C9A494201DE4B000E5D14F /* CompetitionStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C9A493201DE4B000E5D14F /* CompetitionStartViewController.m */; };
+		32C9A499201DEC1900E5D14F /* EnduranceStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C9A498201DEC1900E5D14F /* EnduranceStartViewController.m */; };
+		32C9A49F201DFFDE00E5D14F /* competition_btn_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A49B201DFFDE00E5D14F /* competition_btn_black@2x.png */; };
+		32C9A4A0201DFFDE00E5D14F /* competition_btn_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A49C201DFFDE00E5D14F /* competition_btn_black@3x.png */; };
+		32C9A4A1201DFFDE00E5D14F /* competition_btn_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A49D201DFFDE00E5D14F /* competition_btn_list@2x.png */; };
+		32C9A4A2201DFFDE00E5D14F /* competition_btn_list@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A49E201DFFDE00E5D14F /* competition_btn_list@3x.png */; };
+		32C9A4A5201E009900E5D14F /* competition_btn_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A4A3201E009900E5D14F /* competition_btn_gray@2x.png */; };
+		32C9A4A6201E009900E5D14F /* competition_btn_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C9A4A4201E009900E5D14F /* competition_btn_gray@3x.png */; };
 		32E5AF5A1FFCF7EA00C7CC53 /* TestStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF591FFCF7EA00C7CC53 /* TestStartViewController.m */; };
 		32E5AF5D1FFCF81A00C7CC53 /* TestLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF5C1FFCF81A00C7CC53 /* TestLHandViewController.m */; };
 		32E5AF601FFCF83100C7CC53 /* TestingLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E5AF5F1FFCF83100C7CC53 /* TestingLHandViewController.m */; };
@@ -109,6 +123,13 @@
 		32E5AF781FFD1CDE00C7CC53 /* test_Rhand@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF701FFD1CDE00C7CC53 /* test_Rhand@3x.png */; };
 		32E5AF791FFD1CDE00C7CC53 /* test_Rhand_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF711FFD1CDE00C7CC53 /* test_Rhand_h@2x.png */; };
 		32E5AF7A1FFD1CDE00C7CC53 /* test_Rhand_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E5AF721FFD1CDE00C7CC53 /* test_Rhand_h@3x.png */; };
+		32EA9466204D756A0075B9DD /* CompetitionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA9465204D756A0075B9DD /* CompetitionListCell.m */; };
+		32EA946C204D786B0075B9DD /* CompetitionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA946B204D786B0075B9DD /* CompetitionListViewController.m */; };
+		32EA946F204D9C890075B9DD /* EnduranceLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA946E204D9C890075B9DD /* EnduranceLHandViewController.m */; };
+		32EA9472204D9C9A0075B9DD /* EnduranceTestingLHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA9471204D9C9A0075B9DD /* EnduranceTestingLHandViewController.m */; };
+		32EA9475204D9CB30075B9DD /* EnduranceRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA9474204D9CB30075B9DD /* EnduranceRHandViewController.m */; };
+		32EA9478204D9CE80075B9DD /* EnduranceTestingRHandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA9477204D9CE80075B9DD /* EnduranceTestingRHandViewController.m */; };
+		32EA947B204D9D220075B9DD /* EnduranceFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EA947A204D9D220075B9DD /* EnduranceFinishViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +143,18 @@
 		321552C91FAF350D0095F55E /* PracticeBeginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeBeginViewController.m; sourceTree = "<group>"; };
 		321552CB1FAF351F0095F55E /* PracticeFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeFinishViewController.h; sourceTree = "<group>"; };
 		321552CC1FAF351F0095F55E /* PracticeFinishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeFinishViewController.m; sourceTree = "<group>"; };
+		3224EC8B201F485B00DBB503 /* ExplodeStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeStartViewController.h; sourceTree = "<group>"; };
+		3224EC8C201F485B00DBB503 /* ExplodeStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeStartViewController.m; sourceTree = "<group>"; };
+		3224EC8E201F4D1900DBB503 /* ExplodeLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeLHandViewController.h; sourceTree = "<group>"; };
+		3224EC8F201F4D1900DBB503 /* ExplodeLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeLHandViewController.m; sourceTree = "<group>"; };
+		3224EC91201F4D2D00DBB503 /* ExplodeTestingLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeTestingLHandViewController.h; sourceTree = "<group>"; };
+		3224EC92201F4D2D00DBB503 /* ExplodeTestingLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeTestingLHandViewController.m; sourceTree = "<group>"; };
+		3224EC94201F4D3C00DBB503 /* ExplodeRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeRHandViewController.h; sourceTree = "<group>"; };
+		3224EC95201F4D3C00DBB503 /* ExplodeRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeRHandViewController.m; sourceTree = "<group>"; };
+		3224EC97201F4D4C00DBB503 /* ExplodeTestingRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeTestingRHandViewController.h; sourceTree = "<group>"; };
+		3224EC98201F4D4C00DBB503 /* ExplodeTestingRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeTestingRHandViewController.m; sourceTree = "<group>"; };
+		3224EC9A201F4D6200DBB503 /* ExplodeFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeFinishViewController.h; sourceTree = "<group>"; };
+		3224EC9B201F4D6200DBB503 /* ExplodeFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplodeFinishViewController.m; sourceTree = "<group>"; };
 		322D187D1F78AF8700815118 /* GripBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GripBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		322D18811F78AF8700815118 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		322D18831F78AF8700815118 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -211,6 +244,16 @@
 		32C442B11FADF77800579B99 /* practice_icon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon3@3x.png"; sourceTree = "<group>"; };
 		32C442B21FADF77800579B99 /* practice_icon4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon4@3x.png"; sourceTree = "<group>"; };
 		32C442B31FADF77800579B99 /* practice_icon5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_icon5@3x.png"; sourceTree = "<group>"; };
+		32C9A492201DE4B000E5D14F /* CompetitionStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionStartViewController.h; sourceTree = "<group>"; };
+		32C9A493201DE4B000E5D14F /* CompetitionStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionStartViewController.m; sourceTree = "<group>"; };
+		32C9A497201DEC1900E5D14F /* EnduranceStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnduranceStartViewController.h; sourceTree = "<group>"; };
+		32C9A498201DEC1900E5D14F /* EnduranceStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnduranceStartViewController.m; sourceTree = "<group>"; };
+		32C9A49B201DFFDE00E5D14F /* competition_btn_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "competition_btn_black@2x.png"; sourceTree = "<group>"; };
+		32C9A49C201DFFDE00E5D14F /* competition_btn_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "competition_btn_black@3x.png"; sourceTree = "<group>"; };
+		32C9A49D201DFFDE00E5D14F /* competition_btn_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "competition_btn_list@2x.png"; sourceTree = "<group>"; };
+		32C9A49E201DFFDE00E5D14F /* competition_btn_list@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "competition_btn_list@3x.png"; sourceTree = "<group>"; };
+		32C9A4A3201E009900E5D14F /* competition_btn_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "competition_btn_gray@2x.png"; sourceTree = "<group>"; };
+		32C9A4A4201E009900E5D14F /* competition_btn_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "competition_btn_gray@3x.png"; sourceTree = "<group>"; };
 		32E5AF581FFCF7EA00C7CC53 /* TestStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStartViewController.h; sourceTree = "<group>"; };
 		32E5AF591FFCF7EA00C7CC53 /* TestStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStartViewController.m; sourceTree = "<group>"; };
 		32E5AF5B1FFCF81A00C7CC53 /* TestLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLHandViewController.h; sourceTree = "<group>"; };
@@ -231,6 +274,20 @@
 		32E5AF701FFD1CDE00C7CC53 /* test_Rhand@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand@3x.png"; sourceTree = "<group>"; };
 		32E5AF711FFD1CDE00C7CC53 /* test_Rhand_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand_h@2x.png"; sourceTree = "<group>"; };
 		32E5AF721FFD1CDE00C7CC53 /* test_Rhand_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_Rhand_h@3x.png"; sourceTree = "<group>"; };
+		32EA9464204D756A0075B9DD /* CompetitionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionListCell.h; sourceTree = "<group>"; };
+		32EA9465204D756A0075B9DD /* CompetitionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionListCell.m; sourceTree = "<group>"; };
+		32EA946A204D786B0075B9DD /* CompetitionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionListViewController.h; sourceTree = "<group>"; };
+		32EA946B204D786B0075B9DD /* CompetitionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionListViewController.m; sourceTree = "<group>"; };
+		32EA946D204D9C890075B9DD /* EnduranceLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnduranceLHandViewController.h; sourceTree = "<group>"; };
+		32EA946E204D9C890075B9DD /* EnduranceLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnduranceLHandViewController.m; sourceTree = "<group>"; };
+		32EA9470204D9C9A0075B9DD /* EnduranceTestingLHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnduranceTestingLHandViewController.h; sourceTree = "<group>"; };
+		32EA9471204D9C9A0075B9DD /* EnduranceTestingLHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnduranceTestingLHandViewController.m; sourceTree = "<group>"; };
+		32EA9473204D9CB30075B9DD /* EnduranceRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnduranceRHandViewController.h; sourceTree = "<group>"; };
+		32EA9474204D9CB30075B9DD /* EnduranceRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnduranceRHandViewController.m; sourceTree = "<group>"; };
+		32EA9476204D9CE80075B9DD /* EnduranceTestingRHandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnduranceTestingRHandViewController.h; sourceTree = "<group>"; };
+		32EA9477204D9CE80075B9DD /* EnduranceTestingRHandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnduranceTestingRHandViewController.m; sourceTree = "<group>"; };
+		32EA9479204D9D220075B9DD /* EnduranceFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnduranceFinishViewController.h; sourceTree = "<group>"; };
+		32EA947A204D9D220075B9DD /* EnduranceFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnduranceFinishViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +381,7 @@
 				322D18A01F78CF8F00815118 /* BlueTooth */,
 				321552C41FAF322A0095F55E /* Practice */,
 				32E5AF571FFCF73600C7CC53 /* Test */,
+				32C9A491201DE41A00E5D14F /* Competition */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -357,6 +415,7 @@
 		3237A71F1F9CCBAB00EFC713 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				32C9A49A201DFFDE00E5D14F /* Competition */,
 				32E5AF6A1FFD1CDE00C7CC53 /* hands */,
 				3237A7201F9CCBAB00EFC713 /* BTConnect */,
 				32C4428B1FADF77800579B99 /* Practice */,
@@ -485,6 +544,72 @@
 			path = "@3x";
 			sourceTree = "<group>";
 		};
+		32C9A491201DE41A00E5D14F /* Competition */ = {
+			isa = PBXGroup;
+			children = (
+				32C9A492201DE4B000E5D14F /* CompetitionStartViewController.h */,
+				32C9A493201DE4B000E5D14F /* CompetitionStartViewController.m */,
+				32C9A496201DEBD600E5D14F /* Explode */,
+				32C9A495201DEBD600E5D14F /* Endurance */,
+				32EA946A204D786B0075B9DD /* CompetitionListViewController.h */,
+				32EA946B204D786B0075B9DD /* CompetitionListViewController.m */,
+				32EA9464204D756A0075B9DD /* CompetitionListCell.h */,
+				32EA9465204D756A0075B9DD /* CompetitionListCell.m */,
+			);
+			path = Competition;
+			sourceTree = "<group>";
+		};
+		32C9A495201DEBD600E5D14F /* Endurance */ = {
+			isa = PBXGroup;
+			children = (
+				32C9A497201DEC1900E5D14F /* EnduranceStartViewController.h */,
+				32C9A498201DEC1900E5D14F /* EnduranceStartViewController.m */,
+				32EA946D204D9C890075B9DD /* EnduranceLHandViewController.h */,
+				32EA946E204D9C890075B9DD /* EnduranceLHandViewController.m */,
+				32EA9470204D9C9A0075B9DD /* EnduranceTestingLHandViewController.h */,
+				32EA9471204D9C9A0075B9DD /* EnduranceTestingLHandViewController.m */,
+				32EA9473204D9CB30075B9DD /* EnduranceRHandViewController.h */,
+				32EA9474204D9CB30075B9DD /* EnduranceRHandViewController.m */,
+				32EA9476204D9CE80075B9DD /* EnduranceTestingRHandViewController.h */,
+				32EA9477204D9CE80075B9DD /* EnduranceTestingRHandViewController.m */,
+				32EA9479204D9D220075B9DD /* EnduranceFinishViewController.h */,
+				32EA947A204D9D220075B9DD /* EnduranceFinishViewController.m */,
+			);
+			path = Endurance;
+			sourceTree = "<group>";
+		};
+		32C9A496201DEBD600E5D14F /* Explode */ = {
+			isa = PBXGroup;
+			children = (
+				3224EC8B201F485B00DBB503 /* ExplodeStartViewController.h */,
+				3224EC8C201F485B00DBB503 /* ExplodeStartViewController.m */,
+				3224EC8E201F4D1900DBB503 /* ExplodeLHandViewController.h */,
+				3224EC8F201F4D1900DBB503 /* ExplodeLHandViewController.m */,
+				3224EC91201F4D2D00DBB503 /* ExplodeTestingLHandViewController.h */,
+				3224EC92201F4D2D00DBB503 /* ExplodeTestingLHandViewController.m */,
+				3224EC94201F4D3C00DBB503 /* ExplodeRHandViewController.h */,
+				3224EC95201F4D3C00DBB503 /* ExplodeRHandViewController.m */,
+				3224EC97201F4D4C00DBB503 /* ExplodeTestingRHandViewController.h */,
+				3224EC98201F4D4C00DBB503 /* ExplodeTestingRHandViewController.m */,
+				3224EC9A201F4D6200DBB503 /* ExplodeFinishViewController.h */,
+				3224EC9B201F4D6200DBB503 /* ExplodeFinishViewController.m */,
+			);
+			path = Explode;
+			sourceTree = "<group>";
+		};
+		32C9A49A201DFFDE00E5D14F /* Competition */ = {
+			isa = PBXGroup;
+			children = (
+				32C9A4A3201E009900E5D14F /* competition_btn_gray@2x.png */,
+				32C9A4A4201E009900E5D14F /* competition_btn_gray@3x.png */,
+				32C9A49B201DFFDE00E5D14F /* competition_btn_black@2x.png */,
+				32C9A49C201DFFDE00E5D14F /* competition_btn_black@3x.png */,
+				32C9A49D201DFFDE00E5D14F /* competition_btn_list@2x.png */,
+				32C9A49E201DFFDE00E5D14F /* competition_btn_list@3x.png */,
+			);
+			path = Competition;
+			sourceTree = "<group>";
+		};
 		32E5AF571FFCF73600C7CC53 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +724,7 @@
 				32C442C51FADF77800579B99 /* practice_icon4@2x.png in Resources */,
 				32E5AF751FFD1CDE00C7CC53 /* test_Lhand_h@2x.png in Resources */,
 				32C442CA1FADF77800579B99 /* practice_bg4@3x.png in Resources */,
+				32C9A4A2201DFFDE00E5D14F /* competition_btn_list@3x.png in Resources */,
 				32678EA61F9E32C9002BA0DB /* connect_background4@2x.png in Resources */,
 				32C442C71FADF77800579B99 /* practice_bg1@3x.png in Resources */,
 				32C442CD1FADF77800579B99 /* practice_btn2.png in Resources */,
@@ -614,7 +740,10 @@
 				32E5AF781FFD1CDE00C7CC53 /* test_Rhand@3x.png in Resources */,
 				32806F252000A71C0096F2F3 /* test_Chosen@3x.png in Resources */,
 				32C442D51FADF77800579B99 /* practice_icon1@3x.png in Resources */,
+				32C9A4A6201E009900E5D14F /* competition_btn_gray@3x.png in Resources */,
+				32C9A4A0201DFFDE00E5D14F /* competition_btn_black@3x.png in Resources */,
 				32678EBE1F9E32C9002BA0DB /* connect_state_off@3x.png in Resources */,
+				32C9A49F201DFFDE00E5D14F /* competition_btn_black@2x.png in Resources */,
 				32C442C41FADF77800579B99 /* practice_icon3@2x.png in Resources */,
 				32678EB21F9E32C9002BA0DB /* connect_background2@3x.png in Resources */,
 				322D188D1F78AF8800815118 /* Assets.xcassets in Resources */,
@@ -657,6 +786,7 @@
 				32678EAA1F9E32C9002BA0DB /* connect_btn_blue@2x.png in Resources */,
 				32C442CC1FADF77800579B99 /* practice_btn1@3x.png in Resources */,
 				32678EAE1F9E32C9002BA0DB /* connect_rectangle_h@2x.png in Resources */,
+				32C9A4A5201E009900E5D14F /* competition_btn_gray@2x.png in Resources */,
 				32C442CB1FADF77800579B99 /* practice_bg5@3x.png in Resources */,
 				32C442C61FADF77800579B99 /* practice_icon5@2x.png in Resources */,
 				32C442D81FADF77800579B99 /* practice_icon4@3x.png in Resources */,
@@ -673,6 +803,7 @@
 				32678EBF1F9E32C9002BA0DB /* connect_state_on@3x.png in Resources */,
 				32678EB51F9E32C9002BA0DB /* connect_background5@3x.png in Resources */,
 				32C442D11FADF77800579B99 /* practice_btn6@3x.png in Resources */,
+				32C9A4A1201DFFDE00E5D14F /* competition_btn_list@2x.png in Resources */,
 				32E5AF771FFD1CDE00C7CC53 /* test_Rhand@2x.png in Resources */,
 				32678EB11F9E32C9002BA0DB /* connect_state_on@2x.png in Resources */,
 			);
@@ -686,20 +817,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				322D18851F78AF8700815118 /* AppDelegate.m in Sources */,
+				32EA9478204D9CE80075B9DD /* EnduranceTestingRHandViewController.m in Sources */,
 				32081DEB1F7B936300A4B65E /* SearchResViewController.m in Sources */,
 				32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */,
+				3224EC9C201F4D6200DBB503 /* ExplodeFinishViewController.m in Sources */,
 				32E5AF601FFCF83100C7CC53 /* TestingLHandViewController.m in Sources */,
 				32E5AF5A1FFCF7EA00C7CC53 /* TestStartViewController.m in Sources */,
+				32EA946F204D9C890075B9DD /* EnduranceLHandViewController.m in Sources */,
 				321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */,
+				3224EC96201F4D3C00DBB503 /* ExplodeRHandViewController.m in Sources */,
+				32C9A494201DE4B000E5D14F /* CompetitionStartViewController.m in Sources */,
+				3224EC93201F4D2D00DBB503 /* ExplodeTestingLHandViewController.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
 				320FDE201F79FA0300607D5E /* MainViewController.m in Sources */,
+				32C9A499201DEC1900E5D14F /* EnduranceStartViewController.m in Sources */,
 				320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */,
+				3224EC8D201F485B00DBB503 /* ExplodeStartViewController.m in Sources */,
+				32EA946C204D786B0075B9DD /* CompetitionListViewController.m in Sources */,
+				32EA9472204D9C9A0075B9DD /* EnduranceTestingLHandViewController.m in Sources */,
+				32EA947B204D9D220075B9DD /* EnduranceFinishViewController.m in Sources */,
+				32EA9475204D9CB30075B9DD /* EnduranceRHandViewController.m in Sources */,
 				32E5AF661FFCF84C00C7CC53 /* TestingRHandViewController.m in Sources */,
 				321552CD1FAF351F0095F55E /* PracticeFinishViewController.m in Sources */,
 				32E5AF5D1FFCF81A00C7CC53 /* TestLHandViewController.m in Sources */,
 				32E5AF631FFCF83D00C7CC53 /* TestRHandViewController.m in Sources */,
 				32E5AF691FFCFA9500C7CC53 /* TestFinishViewController.m in Sources */,
 				322D189F1F78CCA000815118 /* LoginViewController.m in Sources */,
+				3224EC90201F4D1900DBB503 /* ExplodeLHandViewController.m in Sources */,
+				32EA9466204D756A0075B9DD /* CompetitionListCell.m in Sources */,
+				3224EC99201F4D4C00DBB503 /* ExplodeTestingRHandViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

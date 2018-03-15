@@ -35,7 +35,8 @@
 -(void)createUI
 {
     // BGImage
-    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVPrepareBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.view addSubview:imgVPrepareBG];
     
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];

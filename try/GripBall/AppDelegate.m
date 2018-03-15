@@ -13,11 +13,14 @@
 
 #import "TestStartViewController.h"
 
+#import "CompetitionStartViewController.h"
+
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) LoginViewController *viewController;
 
 @property (strong, nonatomic) TestStartViewController     *tem;
+@property (strong, nonatomic) CompetitionStartViewController *tem2;
 @end
 
 @implementation AppDelegate
@@ -28,8 +31,8 @@
     
     
     //-----------------[del]===================
-    self.tem = [[TestStartViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem];
+    self.tem2 = [[CompetitionStartViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem2];
     //=========================================
     
 //    self.viewController = [[LoginViewController alloc] init];

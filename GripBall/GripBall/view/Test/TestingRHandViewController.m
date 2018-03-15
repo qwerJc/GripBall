@@ -54,7 +54,8 @@
 -(void)createUI
 {
     // BGImage
-    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVPrepareBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.view addSubview:imgVPrepareBG];
     
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];
@@ -81,15 +82,15 @@
     self.jcManChart = [[JCManValueChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40.f, 170.f, 80.f, 80.f)];
     [self.view addSubview:self.jcManChart];
     
-    self.imgvTestState1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-47, 480.f, 18.f, 18.f)];
+    self.imgvTestState1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-47, SCREEN_HEIGHT-200.f, 18.f, 18.f)];
     [self.imgvTestState1 setImage:[UIImage imageNamed:@"test_unChosen"]];
     [self.view addSubview:self.imgvTestState1];
     
-    self.imgvTestState2 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-9, 480.f, 18.f, 18.f)];
+    self.imgvTestState2 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-9, SCREEN_HEIGHT-200.f, 18.f, 18.f)];
     [self.imgvTestState2 setImage:[UIImage imageNamed:@"test_unChosen"]];
     [self.view addSubview:self.imgvTestState2];
     
-    self.imgvTestState3 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+29, 480.f, 18.f, 18.f)];
+    self.imgvTestState3 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+29, SCREEN_HEIGHT-200.f, 18.f, 18.f)];
     [self.imgvTestState3 setImage:[UIImage imageNamed:@"test_unChosen"]];
     [self.view addSubview:self.imgvTestState3];
     

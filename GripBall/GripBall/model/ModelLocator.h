@@ -13,5 +13,7 @@
 
 #define SCREEN_HEIGHT [UIScreen mainScreen].nativeBounds.size.height / [UIScreen mainScreen].nativeScale
 
+#define ONE_PIXEL_WIDTH 1/[UIScreen mainScreen].nativeScale
+
 #endif /* ModelLocator_h */
 
