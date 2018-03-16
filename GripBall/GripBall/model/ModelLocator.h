@@ -15,5 +15,7 @@
 
 #define ONE_PIXEL_WIDTH 1/[UIScreen mainScreen].nativeScale
 
+#define SERVER_IP @"http://120.79.133.38:8089"
+
 #endif /* ModelLocator_h */
 

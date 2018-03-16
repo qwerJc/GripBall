@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 
 #import "PracticeBeginViewController.h"
+#import "HTTPModel.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
@@ -28,6 +29,10 @@
     //-----------------[del]===================
 //    self.tem = [[PracticeBeginViewController alloc] init];
 //    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem];
+//    [HTTPModel getVcodeWithTelNum:@"18701459239" Completion:nil error:nil];
+//    [HTTPModel registerWithTelNum:@"18701459239" andVCode:@"53686" Completion:nil error:nil];
+    [HTTPModel logInWithTelNum:@"18701459239" andPwd:@"qwer" Completion:nil error:nil];
+    
     //=========================================
     
     self.viewController = [[LoginViewController alloc] init];
