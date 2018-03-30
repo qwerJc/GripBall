@@ -11,7 +11,18 @@
 
 
 @implementation HTTPModel
-+(void)getVcodeWithTelNum:(NSString *)telNum
++(HTTPModel *)shareHttpModel{
+    static dispatch_once_t onceToken;
+    static HTTPModel *assistant = nil;
+    if (assistant == nil) {
+        dispatch_once(&onceToken, ^{
+            assistant = [[HTTPModel alloc] init];
+        });
+    }
+    return assistant;
+}
+
+-(void)getVcodeWithTelNum:(NSString *)telNum
                Completion:(void (^)(void))completionBlock
                     error:(void (^)(NSError *))errorBlock{
     
@@ -49,12 +60,9 @@
              
          }];
 }
-//Post
-// NSDictionary *params = @{@"name" :telNum};
-// [manager POST:url parameters:params progress:nil
-//
 
-+(void)registerWithTelNum:(NSString *)telNum
+
+-(void)registerWithTelNum:(NSString *)telNum
                andVCode:(NSString *)vcode
              Completion:(void (^)(void))completionBlock
                   error:(void (^)(NSError *))errorBlock{
@@ -92,7 +100,49 @@
          }];
 }
 
-+(void)logInWithTelNum:(NSString *)telNum
+//mei ce
+-(void)setPassWordWith:(NSString *)uid
+                andPwd:(NSString *)pwd
+            Completion:(void (^)(void))completionBlock
+                 error:(void (^)(NSError *))errorBlock
+{
+    /** 设置密码
+     *  地址： /stressapp/api/reset_pwd
+     *  Post：
+     *  uid
+     *  pwd
+     *  completionBlock        请求成功的回调
+     *  errorBlock             请求失败的回调
+     */
+    //Post
+     NSDictionary *params = @{
+                              @"uid" :uid,
+                              @"pwd":pwd
+                              };
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *url = [NSString stringWithFormat:@"%@//stressapp/api/reset_pwd", SERVER_IP];
+    
+    [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSError *error;
+        NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSString *code = (NSString *)[listDic objectForKey:@"code"];
+        if([code isEqualToString:@"1"]){
+            completionBlock();
+        }else{
+            errorBlock(error);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        errorBlock(error);
+    }];
+    
+}
+
+-(void)logInWithTelNum:(NSString *)telNum
                 andPwd:(NSString *)pwd
             Completion:(void (^)(void))completionBlock
                  error:(void (^)(NSError *,int))errorBlock{
@@ -140,6 +190,28 @@
          }];
     
 }
+//完善信息
+-(void)completeInformationWithUid:(NSString *)uid
+                          andName:(NSString *)name
+                           andSex:(NSString *)sex
+                      andBirthday:(NSString *)birthday
+                        andHeight:(NSString *)height
+                        andWeight:(NSString *)weight
+                        andTelNum:(NSString *)telNum
+{
+    
+}
 
+//更改信息
+-(void)changeInformationWithUid:(NSString *)uid
+                        andName:(NSString *)name
+                         andSex:(NSString *)sex
+                    andBirthday:(NSString *)birthday
+                      andHeight:(NSString *)height
+                      andWeight:(NSString *)weight
+                      andTelNum:(NSString *)telNum
+{
+    
+}
 
 @end

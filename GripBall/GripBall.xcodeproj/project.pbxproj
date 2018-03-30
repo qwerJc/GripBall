@@ -179,6 +179,7 @@
 		32FBB1571FFA4CC100F50236 /* JCManChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FBB1561FFA4CC100F50236 /* JCManChart.m */; };
 		32FBB1591FFA578900F50236 /* chartBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FBB1581FFA578900F50236 /* chartBG@2x.png */; };
 		32FBB15B1FFA579700F50236 /* chartBG@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FBB15A1FFA579700F50236 /* chartBG@3x.png */; };
+		32FD035E206B949500E72CBD /* GBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FD035D206B949500E72CBD /* GBModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +405,8 @@
 		32FBB1561FFA4CC100F50236 /* JCManChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCManChart.m; sourceTree = "<group>"; };
 		32FBB1581FFA578900F50236 /* chartBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chartBG@2x.png"; sourceTree = "<group>"; };
 		32FBB15A1FFA579700F50236 /* chartBG@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chartBG@3x.png"; sourceTree = "<group>"; };
+		32FD035C206B949500E72CBD /* GBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBModel.h; sourceTree = "<group>"; };
+		32FD035D206B949500E72CBD /* GBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -476,8 +479,6 @@
 				3237A71F1F9CCBAB00EFC713 /* icon */,
 				322D18831F78AF8700815118 /* AppDelegate.h */,
 				322D18841F78AF8700815118 /* AppDelegate.m */,
-				32A9D3A8205B675500A4E864 /* HTTPModel.h */,
-				32A9D3A9205B675500A4E864 /* HTTPModel.m */,
 				322D189C1F78B75F00815118 /* model */,
 				322D18971F78B37E00815118 /* view */,
 				320FDE211F7A32AB00607D5E /* Tools */,
@@ -532,7 +533,11 @@
 		322D189C1F78B75F00815118 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				32FD035C206B949500E72CBD /* GBModel.h */,
+				32FD035D206B949500E72CBD /* GBModel.m */,
 				322D189D1F78B77B00815118 /* ModelLocator.h */,
+				32A9D3A8205B675500A4E864 /* HTTPModel.h */,
+				32A9D3A9205B675500A4E864 /* HTTPModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1103,6 +1108,7 @@
 				32754CC4204ECB8700A96D2A /* EnduranceTestingLHandViewController.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
 				32754CC9204ECB8700A96D2A /* ExplodeStartViewController.m in Sources */,
+				32FD035E206B949500E72CBD /* GBModel.m in Sources */,
 				32A9D3AA205B675500A4E864 /* HTTPModel.m in Sources */,
 				32CFBB2E2055034B00F052C2 /* LoginInformationViewController.m in Sources */,
 				32806F69200224D00096F2F3 /* TestingRHandViewController.m in Sources */,
