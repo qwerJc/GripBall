@@ -59,6 +59,8 @@
         
         self.choiceModelState = -1;
         //注册接收者
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SignOut) name:@"SignOut" object:nil];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetPracticeBegin) name:@"PracticeModelBegin" object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GetTestBegin) name:@"TestModelBegin" object:nil];
@@ -89,7 +91,7 @@
     _btnChangeUser = [[UIButton alloc] initWithFrame:imgHeadPic.frame];
     [_btnChangeUser.layer setCornerRadius:30.f];
     [_btnChangeUser.layer masksToBounds];
-    [_btnChangeUser setBackgroundColor:[UIColor redColor]];
+//    [_btnChangeUser setBackgroundColor:[UIColor redColor]];
     [_btnChangeUser addTarget:self action:@selector(onBtnChangeUserAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnChangeUser];
     
@@ -322,6 +324,11 @@
 }
 
 #pragma mark - 选择模式后的Notification监听
+-(void)SignOut{
+    NSLog(@"退出登录111");
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)GetPracticeBegin{
     NSLog(@"进入了 练习模式");
     self.choiceModelState = 0;
@@ -350,6 +357,7 @@
 }
 -(void)viewDidDisappear:(BOOL)animated{
 //    [self.manager stopScan];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

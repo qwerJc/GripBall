@@ -12,6 +12,8 @@
 
 @interface ExplodeRHandViewController ()
 @property (strong, nonatomic)ExplodeTestingRHandViewController *viewControllerTesting;
+
+@property (strong, nonatomic) NSString                     *leftHandValue;
 @end
 
 @implementation ExplodeRHandViewController
@@ -20,7 +22,7 @@
     self = [super init];
     if (self) {
         [self.view setBackgroundColor:[UIColor grayColor]];
-        self.viewControllerTesting = [[ExplodeTestingRHandViewController alloc] init];
+        
         
         [self createUI];
         
@@ -34,7 +36,7 @@
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];
     [btnBack setBackgroundImage:[UIImage imageNamed:@"practice_btn1"] forState:UIControlStateNormal];
     [btnBack addTarget:self action:@selector(clickBtnBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnBack];
+//    [self.view addSubview:btnBack];
     
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 55.f,70.f, 110.f, 25.f)];
     [lblTitle setText:@"爆发力比拼"];
@@ -95,8 +97,13 @@
     [self.view addSubview:lblTPrepareText2];
 }
 
+-(void)setLeftHandValue:(NSString *)value{
+    _leftHandValue = value;
+}
 #pragma mark - Btn Delegate
 -(void)clickBtnStart{
+    self.viewControllerTesting = [[ExplodeTestingRHandViewController alloc] init];
+    [self.viewControllerTesting setLeftHandValue:_leftHandValue];
     [self.navigationController pushViewController:self.viewControllerTesting animated:YES];
 }
 -(void)clickBtnBack{

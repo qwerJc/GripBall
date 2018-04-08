@@ -8,6 +8,8 @@
 
 #import "ExplodeFinishViewController.h"
 #import "CompetitionListViewController.h"
+#import "ExplodeStartViewController.h"
+#import "ConnectResViewController.h"
 
 @interface ExplodeFinishViewController ()
 @property (strong, nonatomic) CompetitionListViewController *viewControllerList;
@@ -53,12 +55,19 @@
     [lblLHandScoreTitle setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblLHandScoreTitle];
     
-    self.lblLHandScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,230.f, 80.f, 25.f)];
+    self.lblLHandScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-160.f,230.f, 80.f, 25.f)];
     [self.lblLHandScore setText:@"0"];
     [self.lblLHandScore setTextColor:[UIColor colorWithRed:82.f/255.f green:152.f/255.f blue:188.f/255.f alpha:1]];
     [self.lblLHandScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
     [self.lblLHandScore setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:self.lblLHandScore];
+    
+    UILabel *lblLScoreUnit = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-100.f,230.f, 80.f, 25.f)];
+    [lblLScoreUnit setText:@"N/S"];
+    [lblLScoreUnit setTextColor:[UIColor colorWithRed:173.f/255.f green:173.f/255.f blue:173.f/255.f alpha:1]];
+    [lblLScoreUnit setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
+    [lblLScoreUnit setTextAlignment:NSTextAlignmentLeft];
+    [self.view addSubview:lblLScoreUnit];
     
     UILabel *lblRHandScoreTitle = [[UILabel alloc] initWithFrame:CGRectMake(80.f,300.f, 80.f, 25.f)];
     [lblRHandScoreTitle setText:@"右手"];
@@ -67,7 +76,14 @@
     [lblRHandScoreTitle setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblRHandScoreTitle];
     
-    self.lblRHandScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,300.f, 80.f, 25.f)];
+    UILabel *lblRScoreUnit = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-100.f,300.f, 80.f, 25.f)];
+    [lblRScoreUnit setText:@"N/S"];
+    [lblRScoreUnit setTextColor:[UIColor colorWithRed:173.f/255.f green:173.f/255.f blue:173.f/255.f alpha:1]];
+    [lblRScoreUnit setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
+    [lblRScoreUnit setTextAlignment:NSTextAlignmentLeft];
+    [self.view addSubview:lblRScoreUnit];
+    
+    self.lblRHandScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-160.f,300.f, 80.f, 25.f)];
     [self.lblRHandScore setText:@"0"];
     [self.lblRHandScore setTextColor:[UIColor colorWithRed:82.f/255.f green:152.f/255.f blue:188.f/255.f alpha:1]];
     [self.lblRHandScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
@@ -99,14 +115,30 @@
     [self.view addSubview:btnReTest];
     
 }
-
+-(void)setLeftValue:(NSString *)lvalue andRightValue:(NSString *)rValue{
+    [self.lblLHandScore setText:lvalue];
+    [self.lblRHandScore setText:rValue];
+}
 #pragma mark - Btn Delegate
 -(void)clickBtnList{
     [self.viewControllerList setTitle:@"爆发力竞技排行榜"];
     [self.navigationController pushViewController:self.viewControllerList animated:YES];
 }
--(void)clickBtnExit{
-    
+-(void)clickBtnEnd{
+    NSArray *controllers = self.navigationController.viewControllers;
+    for ( id viewController in controllers) {
+        if ([viewController isKindOfClass:[ConnectResViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+        }
+    }
+}
+-(void)clickBtnReTest{
+    NSArray *controllers = self.navigationController.viewControllers;
+    for ( id viewController in controllers) {
+        if ([viewController isKindOfClass:[ExplodeStartViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+        }
+    }
 }
 
 - (void)viewDidLoad {

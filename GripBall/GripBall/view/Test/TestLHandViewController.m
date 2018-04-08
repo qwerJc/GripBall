@@ -22,7 +22,7 @@
     if (self) {
         [self.view setBackgroundColor:[UIColor grayColor]];
         
-        self.viewTestingLHand = [[TestingLHandViewController alloc] init];
+        
         
         [self createUI];
         
@@ -114,6 +114,7 @@
     //发送 ‘准备开始’通知，以接收数据
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TestModelBegin" object:nil];
     
+    self.viewTestingLHand = [[TestingLHandViewController alloc] init];
     [self.navigationController pushViewController:self.viewTestingLHand animated:YES];
 }
 

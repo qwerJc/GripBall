@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ExplodeFinishViewController : UIViewController
-
+-(void)setLeftValue:(NSString *)lvalue andRightValue:(NSString *)rValue;
 @end

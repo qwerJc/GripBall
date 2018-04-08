@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EnduranceTestingRHandViewController : UIViewController
-
+-(void)setLeftHandTime:(NSString *)lTime;
 @end

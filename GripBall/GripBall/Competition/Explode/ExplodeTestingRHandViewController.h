@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ExplodeTestingRHandViewController : UIViewController
-
+-(void)setLeftHandValue:(NSString *)value;
 @end

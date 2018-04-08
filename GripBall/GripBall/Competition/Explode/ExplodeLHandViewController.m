@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         [self.view setBackgroundColor:[UIColor grayColor]];
-        self.viewControllerTestingLHand = [[ExplodeTestingLHandViewController alloc] init];
+        
         
         [self createUI];
         
@@ -98,6 +98,10 @@
 
 #pragma mark - Btn Delegate
 -(void)clickBtnStart{
+    //给蓝牙中心（MainViewController）发送 ‘准备开始’通知，以接收数据 EnduranceModelBegin
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EnduranceModelBegin" object:nil];
+    
+    self.viewControllerTestingLHand = [[ExplodeTestingLHandViewController alloc] init];
     [self.navigationController pushViewController:self.viewControllerTestingLHand animated:YES];
 }
 

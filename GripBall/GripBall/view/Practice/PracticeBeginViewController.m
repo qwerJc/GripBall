@@ -250,7 +250,7 @@
 }
 
 -(void)getBTData:(NSNotification *)noti{
-    NSLog(@"%@",noti.object);
+    NSLog(@"练习 %@",noti.object);
     int value = [noti.object intValue];
     
     //判断， 如果value ＝＝ end的值 跳过

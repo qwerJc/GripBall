@@ -43,7 +43,7 @@
     [self.view addSubview:btnBack];
     
     UILabel *lblTPrepareTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 43.f,70.f, 86.f, 25.f)];
-    [lblTPrepareTitle setText:@"练习模式"];
+    [lblTPrepareTitle setText:@"测验模式"];
     [lblTPrepareTitle setTextColor:[UIColor colorWithRed:217.f/255.f green:217.f/255.f blue:217.f/255.f alpha:1]];
     [lblTPrepareTitle setFont:[UIFont fontWithName:@"ArialMT" size:20.f]];
     [lblTPrepareTitle setTextAlignment:NSTextAlignmentCenter];
@@ -63,7 +63,7 @@
     [btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnStart];
     
-    UILabel *lblTPrepareText1 = [[UILabel alloc] initWithFrame:CGRectMake(9.f,SCREEN_HEIGHT - 170.f, 60.f, 20.f)];
+    UILabel *lblTPrepareText1 = [[UILabel alloc] initWithFrame:CGRectMake(90.f,SCREEN_HEIGHT - 170.f, 60.f, 20.f)];
     [lblTPrepareText1 setText:@"规则："];
     [lblTPrepareText1 setTextColor:[UIColor colorWithRed:180.f/255.f green:180.f/255.f blue:180.f/255.f alpha:1]];
     [lblTPrepareText1 setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];

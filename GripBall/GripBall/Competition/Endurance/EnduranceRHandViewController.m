@@ -12,6 +12,8 @@
 
 @interface EnduranceRHandViewController ()
 @property (strong ,nonatomic)EnduranceTestingRHandViewController *viewControllerTesting;
+
+@property (strong, nonatomic)NSString *leftHandTime;
 @end
 
 @implementation EnduranceRHandViewController
@@ -19,7 +21,7 @@
 {
     self = [super init];
     if (self) {
-        self.viewControllerTesting = [[EnduranceTestingRHandViewController alloc] init];
+        
         
         [self createUI];
         
@@ -34,7 +36,7 @@
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];
     [btnBack setBackgroundImage:[UIImage imageNamed:@"practice_btn1"] forState:UIControlStateNormal];
     [btnBack addTarget:self action:@selector(clickBtnBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnBack];
+//    [self.view addSubview:btnBack];
     
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 55.f,70.f, 110.f, 25.f)];
     [lblTitle setText:@"耐力比拼"];
@@ -95,8 +97,13 @@
     [self.view addSubview:lblTPrepareText2];
 }
 
+-(void)setLeftHandValue:(NSString *)value{
+    _leftHandTime = value;
+}
 #pragma mark - Btn Delegate
 -(void)clickBtnStart{
+    self.viewControllerTesting = [[EnduranceTestingRHandViewController alloc] init];
+    [self.viewControllerTesting setLeftHandTime:_leftHandTime];
     [self.navigationController pushViewController:self.viewControllerTesting animated:YES];
 }
 -(void)clickBtnBack{

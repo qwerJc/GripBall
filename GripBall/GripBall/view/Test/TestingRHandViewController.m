@@ -47,6 +47,10 @@
         
         [self createUI];
         
+        self.startValue = -1;
+        self.midValue = -1;
+        self.endValue = -1;
+        
     }
     return self;
 }
@@ -158,7 +162,7 @@
 }
 #pragma mark - BlueTooth
 -(void)getBTData:(NSNotification *)noti{
-    NSLog(@"%@",noti.object);
+    NSLog(@"测验 %@",noti.object);
     float value = [noti.object floatValue];
     
     //判断， 如果value ＝＝ end的值 跳过
@@ -207,6 +211,9 @@
                         [self.navigationController pushViewController:self.viewTestFinish animated:YES];
                     });
                 }
+                self.startValue = -1;
+                self.midValue = -1;
+                self.endValue = -1;
             }
         }
     }

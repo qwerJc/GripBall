@@ -88,7 +88,7 @@
     // 填充颜色
     layer.fillColor = [UIColor clearColor].CGColor;
     // 绘制颜色
-    layer.strokeColor = [UIColor greenColor].CGColor;
+    layer.strokeColor = [UIColor colorWithRed:82.f/255.f green:152.f/255.f blue:188.f/255.f alpha:1].CGColor;
     layer.lineCap = kCALineCapRound;
     layer.lineJoin = kCALineJoinRound;
     layer.lineWidth = 4;

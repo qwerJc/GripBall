@@ -50,7 +50,7 @@ UINavigationControllerDelegate
 
 @property (strong, nonatomic) JCAlertLogin       *alert;
 
-@property(nonatomic,strong) UIImagePickerController *imagePicker;
+@property(nonatomic,strong) UIImagePickerController *imagePicker;   //相册图片控制器
 @end
 
 @implementation LoginInformationViewController

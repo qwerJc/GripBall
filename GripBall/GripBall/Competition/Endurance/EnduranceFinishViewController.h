@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EnduranceFinishViewController : UIViewController
-
+-(void)setLTime:(NSString *)lTime andRTime:(NSString *)rTime;
 @end

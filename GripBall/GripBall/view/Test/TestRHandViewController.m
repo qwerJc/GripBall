@@ -24,7 +24,7 @@
     if (self) {
         [self.view setBackgroundColor:[UIColor grayColor]];
         
-        self.viewTestingRHand = [[TestingRHandViewController alloc] init];
+        
         
         [self createUI];
         
@@ -42,7 +42,7 @@
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];
     [btnBack setBackgroundImage:[UIImage imageNamed:@"practice_btn1"] forState:UIControlStateNormal];
     [btnBack addTarget:self action:@selector(clickBtnBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnBack];
+//    [self.view addSubview:btnBack];
     
     UILabel *lblTPrepareTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 43.f,70.f, 86.f, 25.f)];
     [lblTPrepareTitle setText:@"测验模式"];
@@ -117,6 +117,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)clickBtnStart{
+    self.viewTestingRHand = [[TestingRHandViewController alloc] init];
     [self.viewTestingRHand setLeftHandStrengthValue:self.leftHandValue];
     [self.navigationController pushViewController:self.viewTestingRHand animated:YES];
 }

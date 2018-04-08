@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EnduranceRHandViewController : UIViewController
-
+-(void)setLeftHandValue:(NSString *)value;
 @end

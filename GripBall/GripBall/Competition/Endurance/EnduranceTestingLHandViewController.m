@@ -9,18 +9,30 @@
 #import "EnduranceTestingLHandViewController.h"
 #import "ModelLocator.h"
 #import "EnduranceRHandViewController.h"
+#import "JCManValueChart.h"
+#import "JCAlertTestExit.h"
+#import "ConnectResViewController.h"
 
 @interface EnduranceTestingLHandViewController ()
 @property (strong, nonatomic)EnduranceRHandViewController *viewControllerRHand;
+@property (strong, nonatomic) JCManValueChart *jcManChart;
 
 @property (strong, nonatomic) UIImageView *imgvTestState1;
 @property (strong, nonatomic) UIImageView *imgvTestState2;
 @property (strong, nonatomic) UIImageView *imgvTestState3;
 
-@property (assign, nonatomic) long *timeStart;
-@property (assign, nonatomic) long *timeFirstEnd;
-@property (assign, nonatomic) long *timeSecondEnd;
-@property (assign, nonatomic) long *timeThirdEnd;
+@property (strong, nonatomic) JCAlertTestExit *alert;
+
+@property (assign, nonatomic) long long startTime;
+@property (assign, nonatomic) long long nowTime;
+
+@property (assign, nonatomic) BOOL comWillStart;
+
+@property (assign, nonatomic) float maxTime;
+@property (assign, nonatomic) float maxValue;
+
+@property (assign, nonatomic) int        practiceNumber;      //练习次数
+//@property (assign, nonatomic) float      maxValue;          //最大比值
 
 //@property (strong, nonatomic) 
 @end
@@ -30,7 +42,10 @@
 {
     self = [super init];
     if (self) {
-        self.viewControllerRHand = [[EnduranceRHandViewController alloc] init];
+        
+        
+        self.practiceNumber = 0;
+        self.maxValue = 0.0f;
         
         [self createUI];
         
@@ -57,8 +72,8 @@
     [lblTPrepareTitle setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:lblTPrepareTitle];
     
-    //    self.jcManChart = [[JCManValueChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40.f, 170.f, 80.f, 280.f)];
-    //    [self.view addSubview:self.jcManChart];
+    self.jcManChart = [[JCManValueChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40.f, 170.f, 80.f, 280.f)];
+    [self.view addSubview:self.jcManChart];
     
     self.imgvTestState1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-47, SCREEN_HEIGHT-200.f, 18.f, 18.f)];
     [self.imgvTestState1 setImage:[UIImage imageNamed:@"test_unChosen"]];
@@ -84,16 +99,142 @@
 
 #pragma mark - Btn Delegate
 -(void)clickBtnExit{
-    [self.navigationController pushViewController:self.viewControllerRHand animated:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"移除Notification监听");
+    
+    self.alert = [[JCAlertTestExit alloc] initJCAlertTestExit];
+    [self.alert.btnOK addTarget:self action:@selector(onAlertBtnOK) forControlEvents:UIControlEventTouchUpInside];
+    [self.alert.btnCancel addTarget:self action:@selector(onAlertBtnCancel) forControlEvents:UIControlEventTouchUpInside];
+    UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+    [rootWindow addSubview:self.alert];
+
 }
 -(void)clickBtnBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)onAlertBtnOK{
+    NSArray *controllers = self.navigationController.viewControllers;
+    for ( id viewController in controllers) {
+        if ([viewController isKindOfClass:[ConnectResViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+        }
+    }
+    [self.alert removeFromSuperview];
+}
+-(void)onAlertBtnCancel{
+    NSLog(@"重新添加Notification监听");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBTData:) name:@"SendTestData" object:nil];
+    [self.alert removeFromSuperview];
+}
 
+#pragma mark - 页面 Delegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
+-(void)viewWillAppear:(BOOL)animated{
+    self.practiceNumber = 0;
+    self.maxValue = 0.0f;
+    self.comWillStart = true;
+    self.maxTime = 0;
+    
+    [self.imgvTestState1 setImage:[UIImage imageNamed:@"test_unChosen"]];
+    [self.imgvTestState2 setImage:[UIImage imageNamed:@"test_unChosen"]];
+    [self.imgvTestState3 setImage:[UIImage imageNamed:@"test_unChosen"]];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBTData:) name:@"SendEnduranceData" object:nil];
+    
+}
+//页面完全消失
+-(void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"移除Notification监听");
+}
+
+#pragma mark - BlueTooth
+-(void)getBTData:(NSNotification *)noti{
+    NSLog(@"耐力测试 ： %@",noti.object);
+    float value = [noti.object floatValue];
+    [self.jcManChart setManValue:value];
+    
+    if (value >0&&self.comWillStart) {
+        NSLog(@"开始测力");
+        NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
+        _startTime = [[NSNumber numberWithDouble:nowtime] longLongValue];
+        
+        _maxValue = value;
+        
+        self.comWillStart = false;
+    }else{
+        if (value>_maxValue) {
+            NSLog(@"更新最大值为:%f",value);
+            _maxValue = value;
+        }else{
+            if (_maxValue > value*1.4) {
+                self.practiceNumber ++;
+                NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
+                long long nowTimeStamp = [[NSNumber numberWithDouble:nowtime] longLongValue];
+                
+                float diffTime = (nowTimeStamp - _startTime)/10;
+                
+                NSLog(@"最大力为：%f 并且坚持最长为：%d",_maxValue,(int)diffTime);
+                
+                if (diffTime > _maxTime) {
+                    _maxTime = diffTime;
+                }
+                
+                switch (self.practiceNumber) {
+                    case 1:
+                        [self.imgvTestState1 setImage:[UIImage imageNamed:@"test_Chosen"]];
+                        break;
+                    case 2:
+                        [self.imgvTestState2 setImage:[UIImage imageNamed:@"test_Chosen"]];
+                        break;
+                    case 3:
+                        [self.imgvTestState3 setImage:[UIImage imageNamed:@"test_Chosen"]];
+                        break;
+                    default:
+                        break;
+                }
+                
+                if (self.practiceNumber == 3) {
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5/*延迟执行时间*/ * NSEC_PER_SEC));
+                    //移除监听
+                    [[NSNotificationCenter defaultCenter] removeObserver:self];
+                    
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        
+                        self.viewControllerRHand = [[EnduranceRHandViewController alloc] init];
+                        [self.viewControllerRHand setLeftHandValue:[NSString stringWithFormat:@"%d",(int)self.maxTime]];
+                        [self.navigationController pushViewController:self.viewControllerRHand animated:YES];
+                    });
+                }else{
+                    self.comWillStart = true;
+                    _maxValue = 0;
+                    [self.jcManChart setManValue:0];
+                    
+                    
+                    [[NSNotificationCenter defaultCenter] removeObserver:self];
+                    NSLog(@"移除Notification监听");
+                    
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1/*延迟执行时间*/ * NSEC_PER_SEC));
+                    
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        NSLog(@"重新添加监听");
+                        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBTData:) name:@"SendEnduranceData" object:nil];
+                    });
+                }
+            }
+            
+        }
+    }
+
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

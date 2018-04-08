@@ -10,6 +10,7 @@
 #import "ModelLocator.h"
 #import "PracticeBeginViewController.h"
 #import "TestStartViewController.h"
+#import "CompetitionStartViewController.h"
 
 @interface ConnectResViewController ()
 @property (strong, nonatomic) UIView *viewConnectSucc;
@@ -21,6 +22,7 @@
 //下面是三种模式对应的VC
 @property (strong, nonatomic) PracticeBeginViewController   *viewControllerPractiveBegin;
 @property (strong, nonatomic) TestStartViewController *viewControllerTestStart;
+@property (strong, nonatomic) CompetitionStartViewController *viewControllerCompetition;
 @end
 
 @implementation ConnectResViewController
@@ -155,6 +157,9 @@
     self.isBack = true;
 }
 -(void)clickBtnMatch{
+    self.viewControllerCompetition = [[CompetitionStartViewController alloc] init];
+    [self.navigationController pushViewController:self.viewControllerCompetition animated:YES];
+    self.isBack = true;
     
 }
 -(void)clickBtnBackToMain{

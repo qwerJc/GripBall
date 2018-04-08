@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         [self.view setBackgroundColor:[UIColor grayColor]];
-        self.viewControllerTestingLHand = [[EnduranceTestingLHandViewController alloc] init];
+        
         
         [self createUI];
         
@@ -39,7 +39,7 @@
     [self.view addSubview:btnBack];
     
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 55.f,70.f, 110.f, 25.f)];
-    [lblTitle setText:@"爆发力比拼"];
+    [lblTitle setText:@"耐力比拼"];
     [lblTitle setTextColor:[UIColor colorWithRed:217.f/255.f green:217.f/255.f blue:217.f/255.f alpha:1]];
     [lblTitle setFont:[UIFont fontWithName:@"ArialMT" size:20.f]];
     [lblTitle setTextAlignment:NSTextAlignmentCenter];
@@ -99,9 +99,10 @@
 
 #pragma mark - Btn Delegate
 -(void)clickBtnStart{
-    //给蓝牙中心（MainViewController）发送 ‘准备开始’通知，以接收数据
+    //给蓝牙中心（MainViewController）发送 ‘准备开始’通知，以接收数据 EnduranceModelBegin
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EnduranceModelBegin" object:nil];
 
+    self.viewControllerTestingLHand = [[EnduranceTestingLHandViewController alloc] init];
     [self.navigationController pushViewController:self.viewControllerTestingLHand animated:YES];
 }
 

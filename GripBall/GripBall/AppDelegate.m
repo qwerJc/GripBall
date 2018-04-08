@@ -29,14 +29,19 @@
     //-----------------[del]===================
 //    self.tem = [[PracticeBeginViewController alloc] init];
 //    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem];
+    
 //    [HTTPModel getVcodeWithTelNum:@"18701459239" Completion:nil error:nil];
 //    [HTTPModel registerWithTelNum:@"18701459239" andVCode:@"53686" Completion:nil error:nil];
-    [HTTPModel logInWithTelNum:@"18701459239" andPwd:@"qwer" Completion:nil error:nil];
-    
+//    [HTTPModel logInWithTelNum:@"18701459239" andPwd:@"qwer" Completion:nil error:nil];
+    NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
+    long long theTime = [[NSNumber numberWithDouble:nowtime] longLongValue];
+    NSString *curTime = [NSString stringWithFormat:@"%llu",theTime];
+    NSLog(@"%@",curTime);
     //=========================================
     
     self.viewController = [[LoginViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     self.navigationController.navigationBar.hidden = YES;
     
     self.window = [UIWindow new];

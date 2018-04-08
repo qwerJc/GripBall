@@ -124,6 +124,7 @@
 -(void)onClickedSignUP{
     self.viewControllerLoginTel = [[LoginTelphoneViewController alloc] init];
     [self.navigationController pushViewController:self.viewControllerLoginTel animated:YES];
+    
 }
 
 

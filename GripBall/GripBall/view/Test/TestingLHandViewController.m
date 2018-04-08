@@ -48,6 +48,10 @@
         
         [self createUI];
         
+        self.startValue = -1;
+        self.midValue = -1;
+        self.endValue = -1;
+        
     }
     return self;
 }
@@ -151,9 +155,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBTData:) name:@"SendTestData" object:nil];
     [self.alert removeFromSuperview];
 }
+//100 120 100 这样的第一次可能不算
 #pragma mark - BlueTooth
 -(void)getBTData:(NSNotification *)noti{
-    NSLog(@"%@",noti.object);
+    NSLog(@"测验%@",noti.object);
     float value = [noti.object floatValue];
     
     //判断， 如果value ＝＝ end的值 跳过
@@ -201,6 +206,10 @@
                         [self.navigationController pushViewController:self.viewTestRHand animated:YES];
                     });
                 }
+                
+                self.startValue = -1;
+                self.midValue = -1;
+                self.endValue = -1;
             }
         }
     }
