@@ -12,6 +12,8 @@
 		320FDE241F7A34B100607D5E /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FDE231F7A34B100607D5E /* JCAlertView.m */; };
 		321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321552C91FAF350D0095F55E /* PracticeBeginViewController.m */; };
 		321552CD1FAF351F0095F55E /* PracticeFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321552CC1FAF351F0095F55E /* PracticeFinishViewController.m */; };
+		322CCA9B207B1C0E0034AFF8 /* GBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 322CCA97207B1C0E0034AFF8 /* GBModel.m */; };
+		322CCA9C207B1C0E0034AFF8 /* HTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 322CCA99207B1C0E0034AFF8 /* HTTPModel.m */; };
 		322D18821F78AF8700815118 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18811F78AF8700815118 /* main.m */; };
 		322D18851F78AF8700815118 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D18841F78AF8700815118 /* AppDelegate.m */; };
 		322D188B1F78AF8800815118 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322D18891F78AF8800815118 /* Main.storyboard */; };
@@ -116,7 +118,6 @@
 		32A9D3A5205B59B400A4E864 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9D39D205B59B400A4E864 /* AFURLRequestSerialization.m */; };
 		32A9D3A6205B59B400A4E864 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9D39F205B59B400A4E864 /* AFURLResponseSerialization.m */; };
 		32A9D3A7205B59B400A4E864 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9D3A1205B59B400A4E864 /* AFURLSessionManager.m */; };
-		32A9D3AA205B675500A4E864 /* HTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9D3A9205B675500A4E864 /* HTTPModel.m */; };
 		32C4428A1FADB23C00579B99 /* ConnectResViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C442891FADB23C00579B99 /* ConnectResViewController.m */; };
 		32C442B41FADF77800579B99 /* practice_bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C4428D1FADF77800579B99 /* practice_bg1@2x.png */; };
 		32C442B51FADF77800579B99 /* practice_bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C4428E1FADF77800579B99 /* practice_bg2@2x.png */; };
@@ -218,6 +219,11 @@
 		321552C91FAF350D0095F55E /* PracticeBeginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeBeginViewController.m; sourceTree = "<group>"; };
 		321552CB1FAF351F0095F55E /* PracticeFinishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeFinishViewController.h; sourceTree = "<group>"; };
 		321552CC1FAF351F0095F55E /* PracticeFinishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeFinishViewController.m; sourceTree = "<group>"; };
+		322CCA96207B1C0E0034AFF8 /* GBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBModel.h; sourceTree = "<group>"; };
+		322CCA97207B1C0E0034AFF8 /* GBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBModel.m; sourceTree = "<group>"; };
+		322CCA98207B1C0E0034AFF8 /* HTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPModel.h; sourceTree = "<group>"; };
+		322CCA99207B1C0E0034AFF8 /* HTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPModel.m; sourceTree = "<group>"; };
+		322CCA9A207B1C0E0034AFF8 /* ModelLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLocator.h; sourceTree = "<group>"; };
 		322D187D1F78AF8700815118 /* GripBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GripBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		322D18811F78AF8700815118 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		322D18831F78AF8700815118 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -227,7 +233,6 @@
 		322D188F1F78AF8800815118 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		322D18911F78AF8800815118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322D18991F78B37E00815118 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		322D189D1F78B77B00815118 /* ModelLocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelLocator.h; sourceTree = "<group>"; };
 		322D189E1F78CCA000815118 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		324734EA205E7BE400819AD4 /* Change_btn_back2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Change_btn_back2@2x.png"; sourceTree = "<group>"; };
 		324734EB205E7BE400819AD4 /* Change_btn_back2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Change_btn_back2@3x.png"; sourceTree = "<group>"; };
@@ -356,8 +361,6 @@
 		32A9D39F205B59B400A4E864 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		32A9D3A0205B59B400A4E864 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		32A9D3A1205B59B400A4E864 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		32A9D3A8205B675500A4E864 /* HTTPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPModel.h; sourceTree = "<group>"; };
-		32A9D3A9205B675500A4E864 /* HTTPModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPModel.m; sourceTree = "<group>"; };
 		32C442881FADB23C00579B99 /* ConnectResViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectResViewController.h; sourceTree = "<group>"; };
 		32C442891FADB23C00579B99 /* ConnectResViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectResViewController.m; sourceTree = "<group>"; };
 		32C4428D1FADF77800579B99 /* practice_bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "practice_bg1@2x.png"; sourceTree = "<group>"; };
@@ -508,6 +511,18 @@
 			path = Practice;
 			sourceTree = "<group>";
 		};
+		322CCA95207B1C0E0034AFF8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				322CCA96207B1C0E0034AFF8 /* GBModel.h */,
+				322CCA97207B1C0E0034AFF8 /* GBModel.m */,
+				322CCA98207B1C0E0034AFF8 /* HTTPModel.h */,
+				322CCA99207B1C0E0034AFF8 /* HTTPModel.m */,
+				322CCA9A207B1C0E0034AFF8 /* ModelLocator.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		322D18741F78AF8700815118 = {
 			isa = PBXGroup;
 			children = (
@@ -530,9 +545,7 @@
 				3237A71F1F9CCBAB00EFC713 /* icon */,
 				322D18831F78AF8700815118 /* AppDelegate.h */,
 				322D18841F78AF8700815118 /* AppDelegate.m */,
-				32A9D3A8205B675500A4E864 /* HTTPModel.h */,
-				32A9D3A9205B675500A4E864 /* HTTPModel.m */,
-				322D189C1F78B75F00815118 /* model */,
+				322CCA95207B1C0E0034AFF8 /* model */,
 				322D18971F78B37E00815118 /* view */,
 				320FDE211F7A32AB00607D5E /* Tools */,
 				32A9D394205B59B400A4E864 /* AFNetworking */,
@@ -581,14 +594,6 @@
 				32CFBB2D2055034B00F052C2 /* LoginInformationViewController.m */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		322D189C1F78B75F00815118 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				322D189D1F78B77B00815118 /* ModelLocator.h */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		322D18A01F78CF8F00815118 /* BlueTooth */ = {
@@ -1216,9 +1221,10 @@
 				32754CC0204ECB8700A96D2A /* EnduranceFinishViewController.m in Sources */,
 				321552CA1FAF350D0095F55E /* PracticeBeginViewController.m in Sources */,
 				32754CC4204ECB8700A96D2A /* EnduranceTestingLHandViewController.m in Sources */,
+				322CCA9C207B1C0E0034AFF8 /* HTTPModel.m in Sources */,
+				322CCA9B207B1C0E0034AFF8 /* GBModel.m in Sources */,
 				322D18821F78AF8700815118 /* main.m in Sources */,
 				32754CC9204ECB8700A96D2A /* ExplodeStartViewController.m in Sources */,
-				32A9D3AA205B675500A4E864 /* HTTPModel.m in Sources */,
 				32CFBB2E2055034B00F052C2 /* LoginInformationViewController.m in Sources */,
 				32806F69200224D00096F2F3 /* TestingRHandViewController.m in Sources */,
 				32CFBB4B2056CFCE00F052C2 /* ShowAllUserViewController.m in Sources */,

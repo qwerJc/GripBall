@@ -10,7 +10,7 @@
 #import "LoginViewController.h"
 
 #import "PracticeBeginViewController.h"
-#import "HTTPModel.h"
+#import "ModelLocator.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
@@ -27,16 +27,14 @@
     
     
     //-----------------[del]===================
-//    self.tem = [[PracticeBeginViewController alloc] init];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tem];
-    
-//    [HTTPModel getVcodeWithTelNum:@"18701459239" Completion:nil error:nil];
-//    [HTTPModel registerWithTelNum:@"18701459239" andVCode:@"53686" Completion:nil error:nil];
-//    [HTTPModel logInWithTelNum:@"18701459239" andPwd:@"qwer" Completion:nil error:nil];
-    NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
-    long long theTime = [[NSNumber numberWithDouble:nowtime] longLongValue];
-    NSString *curTime = [NSString stringWithFormat:@"%llu",theTime];
-    NSLog(@"%@",curTime);
+//    [self getVCode];
+//    [self regist];
+//    [self login];
+//    [self changeInfo];
+    [model setUid:[NSNumber numberWithInt:11]];
+//    [self getAllUser];
+    [self changeInfo];
+
     //=========================================
     
     self.viewController = [[LoginViewController alloc] init];
@@ -50,7 +48,108 @@
     self.window.rootViewController = self.navigationController;
     return YES;
 }
+//--------------------------------------
+-(void)getVCode{
+    [httpModel getVcodeWithTelNum:@"18701459239" Completion:^{
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2) {
+            NSLog(@"已注册");
+        }else if(num == 3){
+            NSLog(@"未知错误");
+        }else{
+            NSLog(@"请检查当前网络");
+        }
+    }];
+}
+-(void)regist{
+    [httpModel registerWithTelNum:@"18701459239" andVCode:@"60311" Completion:^() {
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2) {
+            NSLog(@"已注册");
+        }else if(num == 3){
+            NSLog(@"验证码错误");
+        }else if(num == 4){
+            NSLog(@"验证码过期");
+        }else if (num == 5){
+            NSLog(@"未知错误");
+        }else{
+            NSLog(@"请检查当前网络");
+        }
+    }];
+}
+-(void)setPwd{
+    [httpModel setPassWordWithPwd:@"12345" Completion:^{
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2) {
+            NSLog(@"设置失败");
+        }else{
+            NSLog(@"请检查当前网络");
+        }
+    }];
+}
+-(void)login{
+    [model setTelephone:@"15755396353"];
+    [httpModel logInWithTelNum:[model telephone]
+                        andPwd:@"666"
+                    Completion:^{
+                        
+                        NSLog(@"登陆成功");
+                    }
+                         error:^(NSError *error, int num) {
+                             if (num == 2 ) {
+                                 NSLog(@"账户不存在或密码错误");
+                             }else if(num == 3){
+                                 NSLog(@"未知错误");
+                             }else{
+                                 NSLog(@"请检查当前网络");
+                             }
+                         }];
+}
+-(void)completeInfo{
+    [httpModel completeInformationWithName:@"try1"
+                                   andSex:@"nan"
+                              andBirthday:@"1990/01/01"
+                                andHeight:@"173"
+                                andWeight:@"83"
+                                andTelNum:@"15755396353"
+                               Completion:^{
+                                   NSLog(@"成功");
+                               } error:^(NSError *error, int num) {
+                                   if (num == 2 ) {
+                                       NSLog(@"完善失败");
+                                   }else{
+                                       NSLog(@"请检查当前网络");
+                                   }
+                               }];
+}
+-(void)changeInfo{
+    [httpModel changeInformationWithName:@"try1"
+                                 andSex:@"nan"
+                            andBirthday:@"1900/01/01"
+                              andHeight:@"173"
+                              andWeight:@"83"
+                              andTelNum:[model telephone]
+                             Completion:^{
+                                    NSLog(@"成功");
+                                } error:^(NSError *error, int num) {
+                                    if (num == 2 ) {
+                                        NSLog(@"修改失败");
+                                    }else{
+                                        NSLog(@"请检查当前网络 changeInformation");
+                                    }
+                                }];
+}
 
+-(void)getAllUser{
+    [httpModel getUserListWithCompletion:^(NSArray *arr) {
+        NSLog(@"获取列表成功");
+    } error:^(NSError *error, int num) {
+        NSLog(@"请检查当前网络");
+    }];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

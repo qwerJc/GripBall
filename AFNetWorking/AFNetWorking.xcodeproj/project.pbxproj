@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324E140D207C9806002F9D6C /* HTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 324E140C207C9806002F9D6C /* HTTPModel.m */; };
+		324E1410207C98F6002F9D6C /* GBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 324E140F207C98F6002F9D6C /* GBModel.m */; };
 		32CFBB472056A2FD00F052C2 /* Group Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CFBB462056A2FD00F052C2 /* Group Copy@2x.png */; };
 		32D0274F2003AA8F00726FB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0274E2003AA8F00726FB5 /* main.m */; };
 		32D027522003AA8F00726FB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D027512003AA8F00726FB5 /* AppDelegate.m */; };
@@ -42,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		324E140B207C9806002F9D6C /* HTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPModel.h; path = ../../GripBall/GripBall/model/HTTPModel.h; sourceTree = "<group>"; };
+		324E140C207C9806002F9D6C /* HTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPModel.m; path = ../../GripBall/GripBall/model/HTTPModel.m; sourceTree = "<group>"; };
+		324E140E207C98F6002F9D6C /* GBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBModel.h; path = ../../GripBall/GripBall/model/GBModel.h; sourceTree = "<group>"; };
+		324E140F207C98F6002F9D6C /* GBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBModel.m; path = ../../GripBall/GripBall/model/GBModel.m; sourceTree = "<group>"; };
+		324E1411207C98FE002F9D6C /* ModelLocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ModelLocator.h; path = ../../GripBall/GripBall/model/ModelLocator.h; sourceTree = "<group>"; };
 		32CFBB462056A2FD00F052C2 /* Group Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group Copy@2x.png"; sourceTree = "<group>"; };
 		32D0274A2003AA8F00726FB5 /* AFNetWorking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFNetWorking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D0274E2003AA8F00726FB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +135,11 @@
 				32D027532003AA8F00726FB5 /* ViewController.h */,
 				32D027542003AA8F00726FB5 /* ViewController.m */,
 				32CFBB462056A2FD00F052C2 /* Group Copy@2x.png */,
+				324E140B207C9806002F9D6C /* HTTPModel.h */,
+				324E140C207C9806002F9D6C /* HTTPModel.m */,
+				324E140E207C98F6002F9D6C /* GBModel.h */,
+				324E140F207C98F6002F9D6C /* GBModel.m */,
+				324E1411207C98FE002F9D6C /* ModelLocator.h */,
 				32D027562003AA8F00726FB5 /* Main.storyboard */,
 				32D027592003AA9000726FB5 /* Assets.xcassets */,
 				32D0275B2003AA9000726FB5 /* LaunchScreen.storyboard */,
@@ -321,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D027932003AAFA00726FB5 /* AFURLSessionManager.m in Sources */,
+				324E1410207C98F6002F9D6C /* GBModel.m in Sources */,
 				32D027552003AA8F00726FB5 /* ViewController.m in Sources */,
 				32D027522003AA8F00726FB5 /* AppDelegate.m in Sources */,
 				32D0278F2003AAFA00726FB5 /* AFNetworkReachabilityManager.m in Sources */,
@@ -329,6 +342,7 @@
 				32D027912003AAFA00726FB5 /* AFURLRequestSerialization.m in Sources */,
 				32D027922003AAFA00726FB5 /* AFURLResponseSerialization.m in Sources */,
 				32D0278E2003AAFA00726FB5 /* AFHTTPSessionManager.m in Sources */,
+				324E140D207C9806002F9D6C /* HTTPModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

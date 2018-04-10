@@ -7,7 +7,9 @@
 //
 
 #ifndef ModelLocator_h
-#define ModelLocator_h
+
+#import "GBModel.h"
+#import "HTTPModel.h"
 
 #define SCREEN_WIDTH [UIScreen mainScreen].nativeBounds.size.width / [UIScreen mainScreen].nativeScale
 
@@ -15,7 +17,11 @@
 
 #define ONE_PIXEL_WIDTH 1/[UIScreen mainScreen].nativeScale
 
-#define SERVER_IP @"http://120.79.133.38:8089"
+#define model [GBModel shareModel]
+
+#define httpModel [HTTPModel shareHttpModel]
+
+
 
 #endif /* ModelLocator_h */
 
