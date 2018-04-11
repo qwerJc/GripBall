@@ -57,12 +57,12 @@
             andHeight:(NSString *)height
             andWeight:(NSString *)weight
            Completion:(void (^)(void))completionBlock
-                error:(void (^)(NSError *))errorBlock;
+                error:(void (^)(NSError *,int))errorBlock;
 //05-切换角色 
--(void)changeUserWithUid:(NSNumber *)uid
-                  andRid:(NSNumber *)rid
-              Completion:(void (^)(NSArray *arr))completionBlock
-                   error:(void (^)(NSError *))errorBlock;
+-(void)changeUserWithUid:(NSString *)uid
+                  andRid:(NSString *)rid
+              Completion:(void (^)(void))completionBlock
+                   error:(void (^)(NSError *,int))errorBlock;
 
 //07-获取角色列表 arr:所有用户的信息(不包括测力成绩)
 -(void)getUserListWithCompletion:(void (^)(NSArray *arr))completionBlock

@@ -221,7 +221,6 @@ UINavigationControllerDelegate
     [_btnHeight setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     [_btnHeight setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 15)];
     [viewContainer addSubview:_btnHeight];
-    //    [_btnHeight setBackgroundColor:[UIColor redColor]];
     
     UIImageView *triangleHeight = [[UIImageView alloc] initWithFrame:CGRectMake(viewContainer.frame.size.width-35, 376, 8, 8)];
     [triangleHeight setImage:[UIImage imageNamed:@"Login_icon_Triangle"]];

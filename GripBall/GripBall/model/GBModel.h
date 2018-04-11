@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserInfoModel.h"
 
 @interface GBModel : NSObject
 @property (strong ,nonatomic) NSString *telephone;
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) NSArray *testList;
 @property (strong, nonatomic) NSArray *explodeList;
 @property (strong, nonatomic) NSArray *enduranceList;
+@property (strong, nonatomic) UserInfoModel *userInfo;
 +(GBModel *)shareModel;
 
 @end

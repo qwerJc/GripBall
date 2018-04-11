@@ -57,7 +57,7 @@ UINavigationControllerDelegate
         
         _arrSex = [NSArray arrayWithObjects:@"男",@"女",nil];
         _arrYear = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =1930; i<2030; i++) {
+        for (int i =1930; i<2018; i++) {
             [_arrYear addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
@@ -354,7 +354,6 @@ UINavigationControllerDelegate
                 }else{
                     return 30;
                 }
-                
             }
         }
     }else if (pickerView == self.pickerHeight){
@@ -378,7 +377,7 @@ UINavigationControllerDelegate
         }else if (component == 2){
             _strDay = [_arrDay objectAtIndex:row];
         }
-        
+        [self.pickerBirth reloadComponent:2];
         [_btnBirth setTitle:[_strYear stringByAppendingFormat:@"年%@月%@日",_strMonth,_strDay] forState:UIControlStateNormal];
     }else if (pickerView == self.pickerHeight){
         [_btnHeight setTitle:[_arrHeight objectAtIndex:row] forState:UIControlStateNormal];
@@ -490,9 +489,26 @@ UINavigationControllerDelegate
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)onBtnFinish{
-    //    if (_btnBirth.titleLabel.text.length) {
-    //        <#statements#>
-    //    }
+    [httpModel addUserWithName:_txfName.text
+                        andSex:_btnSex.titleLabel.text
+                   andBirthday:_btnBirth.titleLabel.text
+                     andHeight:_btnHeight.titleLabel.text
+                     andWeight:_btnWeight.titleLabel.text
+                    Completion:^{
+                        NSLog(@"成功");
+                    }
+                         error:^(NSError *error,int num) {
+                             if (num == 2 ) {
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"添加失败" andDetailTitle:@""];
+                                 UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                 [rootWindow addSubview:self.alert];
+                             }else{
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+                                 UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                 [rootWindow addSubview:self.alert];
+                             }
+                             
+                         }];
 }
 
 -(void)onBtnHeadPic{

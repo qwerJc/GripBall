@@ -8,6 +8,7 @@
 
 #import "HTTPModel.h"
 #import "ModelLocator.h"
+#import "UserInfoModel.h"
 
 #define SERVER_IP @"http://120.79.133.38:8089"
 
@@ -38,7 +39,6 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    NSString *getVersionURL = [REACT_NATIVE_HOTUPDATE_ROOTURL stringByAppendingString:@"/ReactNatieWallPage/GetVersion.php"];
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/get_verification_code?phone=%@", SERVER_IP, telNum];
     
@@ -190,20 +190,29 @@
                  [model setUid:uid];
                  [model setRid:rid];
                  
-                 NSArray *userInfo = [listDic objectForKey:@"role"];
+                 NSDictionary *dicUserInfo = [listDic objectForKey:@"role"];
+                 UserInfoModel *userModel = [[UserInfoModel alloc] initWithDic:dicUserInfo];
+                 [model setUserInfo:userModel];
                  
-                 NSString *sDay = [userInfo objectAtIndex:4];
-                 NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-                 fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
-                 NSDate *someDay = [fmt dateFromString:sDay];
-                 NSLog(@"someDay : %@", someDay);
-                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                 // 设置日期格式
-                 [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
-                 NSString *currentDateString = [formatter stringFromDate:someDay];
-                 NSLog(@"%@",currentDateString);
+//                 NSArray *arrExplode = [listDic objectForKey:@"explosive"];
+//                 NSArray *arrPractice = [listDic objectForKey:@"practice"];
+//                 NSArray *arrEndurance = [listDic objectForKey:@"stamina"];
+//                 NSArray *arrTest = [listDic objectForKey:@"test"];
                  
-                 NSLog(@"info :%@", userInfo);
+                 
+                 
+//                 NSString *sDay = [userInfo objectAtIndex:4];
+//                 NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+//                 fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+//                 NSDate *someDay = [fmt dateFromString:sDay];
+//                 NSLog(@"someDay : %@", someDay);
+//                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//                 // 设置日期格式
+//                 [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+//                 NSString *currentDateString = [formatter stringFromDate:someDay];
+//                 NSLog(@"%@",currentDateString);
+//
+//                 NSLog(@"info :%@", userInfo);
                  
                  completionBlock();
              }else if([code isEqualToString:@"2"]){
@@ -305,7 +314,7 @@
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
     
-    NSDictionary *params = @{@"uid" :[NSNumber numberWithInt:11],
+    NSDictionary *params = @{@"uid" :[model uid],
                              @"name":name,
                              @"sex":[NSNumber numberWithInt:1],
                              @"birthday":birthday,
@@ -348,27 +357,39 @@
             andHeight:(NSString *)height
             andWeight:(NSString *)weight
            Completion:(void (^)(void))completionBlock
-                error:(void (^)(NSError *))errorBlock
+                error:(void (^)(NSError *,int))errorBlock
 {
     
     /** 添加角色
      *  地址： /stressapp/api/add_new_role
      *  Post
      */
+    NSNumber *numSex ;
+    if ([sex isEqualToString:@"男"]) {
+        numSex = [NSNumber numberWithInt:0];
+    }else{
+        numSex = [NSNumber numberWithInt:1];
+    }
+    
+    //string 转 number的格式
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *params = @{
                              @"uid" :[model uid],
                              @"name":name,
-                             @"sex":sex,
+                             @"sex":numSex,
                              @"birthday":birthday,
-                             @"height":height,
-                             @"weight":weight,
-
+                             @"height":[numberFormatter numberFromString:height],
+                             @"weight":[numberFormatter numberFromString:height],
+                             @"headimg":@"",
+                             @"phone":[model telephone]
                              };
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//申明返回的结果是json类型
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];      //申明请求的数据是json类型
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/add_new_role", SERVER_IP];
     
@@ -381,11 +402,11 @@
         if([code isEqualToString:@"1"]){
             completionBlock();
         }else{
-            errorBlock(error);
+            errorBlock(error,2);
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        errorBlock(error);
+        errorBlock(error,-1);
     }];
 }
 
@@ -393,13 +414,45 @@
 //05 - 切换角色
 -(void)changeUserWithUid:(NSString *)uid
                   andRid:(NSString *)rid
-              Completion:(void (^)(NSArray *))completionBlock
-                   error:(void (^)(NSError *))errorBlock
+              Completion:(void (^)(void))completionBlock
+                   error:(void (^)(NSError *,int))errorBlock
 {
     /** 切换角色
      *  地址： /stressapp/api/switch_role
      *  Post
      */
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSDictionary *params = @{
+                             @"uid" :[numberFormatter numberFromString:uid],
+                             @"name":[numberFormatter numberFromString:rid],
+                             };
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/switch_role", SERVER_IP];
+    
+    [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
+        if([code isEqualToString:@"1"]){
+            completionBlock();
+        }else if([code isEqualToString:@"2"]){
+            errorBlock(error,2);
+        }else{
+            errorBlock(error,3);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        errorBlock(error,-1);
+    }];
 }
 
 //07 - 获取角色列表 （数据中仅含用户信息列表）
@@ -427,7 +480,7 @@
              NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
              
              if ([code isEqualToString:@"1"]) {
-                 NSArray *arrAllRole = [listDic objectForKey:@"allrole"];
+                 NSArray *arrAllRole = [listDic objectForKey:@"roles"];
                  NSLog(@"role:%@",arrAllRole);
                  completionBlock(arrAllRole);
              }else{
@@ -580,4 +633,85 @@
         errorBlock(error,-1);
     }];
 }
+
+//012-删除角色
+-(void)deleteRoleWith:(NSNumber *)uid andRid:(NSNumber *)rid Completion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+    NSDictionary *params = @{
+                             @"uid" :uid,
+                             @"name":rid,
+                             };
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/delete_role", SERVER_IP];
+    
+    [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
+        if([code isEqualToString:@"1"]){
+            completionBlock();
+        }else{
+            errorBlock(error,2);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        errorBlock(error,-1);
+    }];
+}
+
+//013-获取爆发力排行榜
+-(void)getExplodeListWithCompletion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/get_ranklist_explosive", SERVER_IP];
+    
+    [manager POST:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
+        if([code isEqualToString:@"1"]){
+            completionBlock();
+        }else{
+            errorBlock(error,2);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        errorBlock(error,-1);
+    }];
+}
+//014-获取耐力排行榜
+-(void)getEnduranceListWithCompletion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/get_ranklist_stamina", SERVER_IP];
+    
+    [manager POST:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
+        if([code isEqualToString:@"1"]){
+            completionBlock();
+        }else{
+            errorBlock(error,2);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        errorBlock(error,-1);
+    }];
+}
+
 @end

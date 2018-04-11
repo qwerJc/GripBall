@@ -131,6 +131,23 @@
     [self.lblRScore setText:@"95"];
 }
 
+//-(NSString *)getScore:(float)value{
+//    if ([[[model userInfo] getSex] isEqualToString:@"男"]) {
+//        //男
+//        int years = 2018 - [[model userInfo] getYears];
+//        if (years<20) {
+//            return @"1";
+//        }else if(years <24){
+//            if (<#condition#>) {
+//                <#statements#>
+//            }
+//        }
+//
+//    }else{
+//        //女
+//
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

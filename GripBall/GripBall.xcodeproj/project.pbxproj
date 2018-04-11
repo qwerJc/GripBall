@@ -20,6 +20,7 @@
 		322D188D1F78AF8800815118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322D188C1F78AF8800815118 /* Assets.xcassets */; };
 		322D18901F78AF8800815118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322D188E1F78AF8800815118 /* LaunchScreen.storyboard */; };
 		322D189F1F78CCA000815118 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D189E1F78CCA000815118 /* LoginViewController.m */; };
+		3237DBCC207DAFF900871756 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237DBCB207DAFF900871756 /* UserInfoModel.m */; };
 		32473502205E7BE400819AD4 /* Change_btn_back2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 324734EA205E7BE400819AD4 /* Change_btn_back2@2x.png */; };
 		32473503205E7BE400819AD4 /* Change_btn_back2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 324734EB205E7BE400819AD4 /* Change_btn_back2@3x.png */; };
 		32473504205E7BE400819AD4 /* Change_btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 324734EC205E7BE400819AD4 /* Change_btn_back@2x.png */; };
@@ -234,6 +235,8 @@
 		322D18911F78AF8800815118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322D18991F78B37E00815118 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		322D189E1F78CCA000815118 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3237DBCA207DAFF900871756 /* UserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		3237DBCB207DAFF900871756 /* UserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		324734EA205E7BE400819AD4 /* Change_btn_back2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Change_btn_back2@2x.png"; sourceTree = "<group>"; };
 		324734EB205E7BE400819AD4 /* Change_btn_back2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Change_btn_back2@3x.png"; sourceTree = "<group>"; };
 		324734EC205E7BE400819AD4 /* Change_btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Change_btn_back@2x.png"; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 				322CCA97207B1C0E0034AFF8 /* GBModel.m */,
 				322CCA98207B1C0E0034AFF8 /* HTTPModel.h */,
 				322CCA99207B1C0E0034AFF8 /* HTTPModel.m */,
+				3237DBCA207DAFF900871756 /* UserInfoModel.h */,
+				3237DBCB207DAFF900871756 /* UserInfoModel.m */,
 				322CCA9A207B1C0E0034AFF8 /* ModelLocator.h */,
 			);
 			path = model;
@@ -1236,6 +1241,7 @@
 				32A9D3A2205B59B400A4E864 /* AFHTTPSessionManager.m in Sources */,
 				321552CD1FAF351F0095F55E /* PracticeFinishViewController.m in Sources */,
 				3247351C205E7E8A00819AD4 /* AddUserViewController.m in Sources */,
+				3237DBCC207DAFF900871756 /* UserInfoModel.m in Sources */,
 				32CFBB2B2054F5C400F052C2 /* LoginPasswordViewController.m in Sources */,
 				322D189F1F78CCA000815118 /* LoginViewController.m in Sources */,
 				32806F6A200224D00096F2F3 /* TestLHandViewController.m in Sources */,

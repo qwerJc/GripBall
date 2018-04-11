@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3237DBCF207DB00500871756 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237DBCD207DB00500871756 /* UserInfoModel.m */; };
 		324E140D207C9806002F9D6C /* HTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 324E140C207C9806002F9D6C /* HTTPModel.m */; };
 		324E1410207C98F6002F9D6C /* GBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 324E140F207C98F6002F9D6C /* GBModel.m */; };
 		32CFBB472056A2FD00F052C2 /* Group Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CFBB462056A2FD00F052C2 /* Group Copy@2x.png */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3237DBCD207DB00500871756 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = ../../GripBall/GripBall/model/UserInfoModel.m; sourceTree = "<group>"; };
+		3237DBCE207DB00500871756 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = ../../GripBall/GripBall/model/UserInfoModel.h; sourceTree = "<group>"; };
 		324E140B207C9806002F9D6C /* HTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPModel.h; path = ../../GripBall/GripBall/model/HTTPModel.h; sourceTree = "<group>"; };
 		324E140C207C9806002F9D6C /* HTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPModel.m; path = ../../GripBall/GripBall/model/HTTPModel.m; sourceTree = "<group>"; };
 		324E140E207C98F6002F9D6C /* GBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBModel.h; path = ../../GripBall/GripBall/model/GBModel.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				324E140C207C9806002F9D6C /* HTTPModel.m */,
 				324E140E207C98F6002F9D6C /* GBModel.h */,
 				324E140F207C98F6002F9D6C /* GBModel.m */,
+				3237DBCE207DB00500871756 /* UserInfoModel.h */,
+				3237DBCD207DB00500871756 /* UserInfoModel.m */,
 				324E1411207C98FE002F9D6C /* ModelLocator.h */,
 				32D027562003AA8F00726FB5 /* Main.storyboard */,
 				32D027592003AA9000726FB5 /* Assets.xcassets */,
@@ -334,6 +339,7 @@
 			files = (
 				32D027932003AAFA00726FB5 /* AFURLSessionManager.m in Sources */,
 				324E1410207C98F6002F9D6C /* GBModel.m in Sources */,
+				3237DBCF207DB00500871756 /* UserInfoModel.m in Sources */,
 				32D027552003AA8F00726FB5 /* ViewController.m in Sources */,
 				32D027522003AA8F00726FB5 /* AppDelegate.m in Sources */,
 				32D0278F2003AAFA00726FB5 /* AFNetworkReachabilityManager.m in Sources */,

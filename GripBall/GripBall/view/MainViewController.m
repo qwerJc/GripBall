@@ -12,6 +12,7 @@
 #import "SearchResViewController.h"
 #import "ModelLocator.h"
 #import "JCAlertView.h"
+#import "JCAlertLogin.h"
 
 #import "ShowAllUserViewController.h"
 
@@ -27,6 +28,7 @@
 
 @property (strong, nonatomic) CBCentralManager          *manager;       // 中心管理者
 @property (strong, nonatomic) CBPeripheral              *peripheral;
+@property (strong, nonatomic) JCAlertLogin              *alertLogin;
 @property (strong, nonatomic) JCAlertView               *alert;
 @property (strong, nonatomic) JCAlertView               *alertConnectSucc;
 @property (strong, nonatomic) JCAlertView               *alertConnectFail;
@@ -293,11 +295,23 @@
 }
 
 #pragma mark - Btn Event
+//显示所有用户
 -(void)onBtnChangeUserAction{
     ShowAllUserViewController *viewControllerShow = [[ShowAllUserViewController alloc] init];
     viewControllerShow.modalPresentationStyle=UIModalPresentationOverCurrentContext;
     [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController:viewControllerShow animated:YES completion:nil];
+    
+    [httpModel getUserListWithCompletion:^(NSArray *arr) {
+        NSLog(@"获取列表成功");
+        [viewControllerShow setRoleList:arr];
+        [self presentViewController:viewControllerShow animated:YES completion:nil];
+    } error:^(NSError *error, int num) {
+        self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+        [rootWindow addSubview:self.alertLogin];
+//        NSLog(@"请检查当前网络");
+    }];
+//    [self presentViewController:viewControllerShow animated:YES completion:nil];
 }
 -(void)clickBtnStart
 {

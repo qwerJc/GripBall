@@ -15,6 +15,7 @@
 @interface ShowAllUserViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong , nonatomic) UIImageView *imvHead;
 @property (strong , nonatomic) UILabel     *lblName;
+@property (strong , nonatomic) NSArray     *arrRoleList;
 @end
 
 @implementation ShowAllUserViewController
@@ -83,6 +84,10 @@
     [viewContainer addSubview:btnAddUser];
 }
 
+-(void)setRoleList:(NSArray *)arr{
+    _arrRoleList = [[NSArray alloc] initWithArray:arr];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -136,7 +141,7 @@
 //Num of Cell
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {   //每个节点有几行
-    return 20;
+    return [_arrRoleList count];
 }
 //cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,7 +151,7 @@
     if (cell == nil) {
         cell = [[ListUserCell alloc]initWithStyle:UITableViewCellStyleSubtitle   reuseIdentifier:CIdentifier];
     }
-    [cell setName:@"qwersd"];
+    [cell setName:[[self.arrRoleList objectAtIndex:indexPath.row] objectForKey:@"name"]];
     return cell;
 }
 

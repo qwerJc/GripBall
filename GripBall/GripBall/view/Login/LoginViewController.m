@@ -110,15 +110,43 @@
 #pragma mark - btnEvent
 -(void)onClickedSignIn
 {
-    if (1) {
-        self.viewControllerBlueTooth = [[MainViewController alloc] init];
-        [self.navigationController pushViewController:self.viewControllerBlueTooth animated:YES];
-    }else{
-        self.alert = [[JCAlertLogin alloc] initWithTitle:@"账号或密码错误" andDetailTitle:@"请重新输入"];
-        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-        [rootWindow addSubview:self.alert];
-
-    }
+    [model setTelephone:@"15755396353"];
+    [httpModel logInWithTelNum:[model telephone]
+                        andPwd:@"666888"
+                    Completion:^{
+                        NSLog(@"登陆成功");
+                        self.viewControllerBlueTooth = [[MainViewController alloc] init];
+                        [self.navigationController pushViewController:self.viewControllerBlueTooth animated:YES];
+                    }
+                         error:^(NSError *error, int num) {
+                             if (num == 2 ) {
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"账户不存在或密码错误" andDetailTitle:@"请重新输入"];
+                                 UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                 [rootWindow addSubview:self.alert];
+                             }else if(num == 3){
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"未知错误" andDetailTitle:@"请联系后台人员"];
+                                 UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                 [rootWindow addSubview:self.alert];
+                             }else{
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+                                 UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                 [rootWindow addSubview:self.alert];
+                             }
+                         }];
+    
+    //*************************************************************************************************************************
+//    self.viewControllerBlueTooth = [[MainViewController alloc] init];
+//    [self.navigationController pushViewController:self.viewControllerBlueTooth animated:YES];
+    
+//    if (1) {
+//        self.viewControllerBlueTooth = [[MainViewController alloc] init];
+//        [self.navigationController pushViewController:self.viewControllerBlueTooth animated:YES];
+//    }else{
+//        self.alert = [[JCAlertLogin alloc] initWithTitle:@"账号或密码错误" andDetailTitle:@"请重新输入"];
+//        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+//        [rootWindow addSubview:self.alert];
+//
+//    }
     
 }
 -(void)onClickedSignUP{

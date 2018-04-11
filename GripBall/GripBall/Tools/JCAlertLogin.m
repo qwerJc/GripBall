@@ -23,7 +23,7 @@
         [self addSubview:alertView];
         
         UIImageView *imgViewBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-90.f, 250.f)];
-        [imgViewBG setImage:[UIImage imageNamed:@"Login_White_BG_short"]];
+        [imgViewBG setImage:[UIImage imageNamed:@"Login_white_BG_short"]];
         [alertView addSubview:imgViewBG];
         
         UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(60.f, 20.f,alertView.frame.size.width-120.f, 22.f)];

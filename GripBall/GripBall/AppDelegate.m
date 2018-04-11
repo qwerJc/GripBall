@@ -31,9 +31,10 @@
 //    [self regist];
 //    [self login];
 //    [self changeInfo];
-    [model setUid:[NSNumber numberWithInt:11]];
+//    [model setUid:[NSNumber numberWithInt:11]];
 //    [self getAllUser];
-    [self changeInfo];
+//    [self changeInfo];
+
 
     //=========================================
     
@@ -93,9 +94,9 @@
 -(void)login{
     [model setTelephone:@"15755396353"];
     [httpModel logInWithTelNum:[model telephone]
-                        andPwd:@"666"
+                        andPwd:@"666888"
                     Completion:^{
-                        
+//                        [self addUser];
                         NSLog(@"登陆成功");
                     }
                          error:^(NSError *error, int num) {
@@ -130,7 +131,7 @@
                                  andSex:@"nan"
                             andBirthday:@"1900/01/01"
                               andHeight:@"173"
-                              andWeight:@"83"
+                              andWeight:@"173"
                               andTelNum:[model telephone]
                              Completion:^{
                                     NSLog(@"成功");
@@ -142,8 +143,21 @@
                                     }
                                 }];
 }
+-(void)addUser{
+    [httpModel addUserWithName:@"try1"
+                        andSex:@"nan"
+                   andBirthday:@"1900/01/01"
+                     andHeight:@"173"
+                     andWeight:@"173"
+                    Completion:^{
+                        NSLog(@"成功");
+                    }
+                         error:^(NSError *error,int num) {
+                             NSLog(@"失败");
+                         }];
+}
 
--(void)getAllUser{
+-(void)getAllUser{ //ok
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
         NSLog(@"获取列表成功");
     } error:^(NSError *error, int num) {

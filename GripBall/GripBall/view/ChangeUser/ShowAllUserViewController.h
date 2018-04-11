@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShowAllUserViewController : UIViewController
-
+-(void)setRoleList:(NSArray *)arr;
 @end
