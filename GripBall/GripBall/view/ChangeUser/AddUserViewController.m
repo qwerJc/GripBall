@@ -57,7 +57,7 @@ UINavigationControllerDelegate
         
         _arrSex = [NSArray arrayWithObjects:@"男",@"女",nil];
         _arrYear = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =1930; i<2018; i++) {
+        for (int i =1930; i<2017; i++) {
             [_arrYear addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
@@ -72,12 +72,12 @@ UINavigationControllerDelegate
         }
         
         _arrHeight = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =0; i<231; i++) {
+        for (int i =1; i<231; i++) {
             [_arrHeight addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
         _arrWidth = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =0; i<300; i++) {
+        for (int i =1; i<300; i++) {
             [_arrWidth addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
@@ -496,14 +496,15 @@ UINavigationControllerDelegate
                      andWeight:_btnWeight.titleLabel.text
                     Completion:^{
                         NSLog(@"成功");
+                        [self dismissViewControllerAnimated:YES completion:nil];
                     }
                          error:^(NSError *error,int num) {
                              if (num == 2 ) {
-                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"添加失败" andDetailTitle:@""];
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"添加失败"];
                                  UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
                                  [rootWindow addSubview:self.alert];
                              }else{
-                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+                                 self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
                                  UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
                                  [rootWindow addSubview:self.alert];
                              }

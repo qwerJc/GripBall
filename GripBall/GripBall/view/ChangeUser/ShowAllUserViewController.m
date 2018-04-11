@@ -167,6 +167,16 @@
     ShowInfoViewController *viewControllerShowInfo = [[ShowInfoViewController alloc] init];
     viewControllerShowInfo.modalPresentationStyle=UIModalPresentationOverCurrentContext;
     [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+        
+    [viewControllerShowInfo setHeadPic:nil
+                               andName:[[model userInfo] getName]
+                                andSex:[[model userInfo] getSex]
+                           andBirthday:[[model userInfo] getStrBirthday]
+                             andHeight:[[model userInfo] getHeight]
+                             andWeight:[[model userInfo] getWeight]
+                              andPhone:[[model userInfo] getPhone]
+     ];
+    
     [self presentViewController:viewControllerShowInfo animated:YES completion:nil];
 }
 

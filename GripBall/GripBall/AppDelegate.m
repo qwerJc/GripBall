@@ -115,7 +115,7 @@
                               andBirthday:@"1990/01/01"
                                 andHeight:@"173"
                                 andWeight:@"83"
-                                andTelNum:@"15755396353"
+                                andTelNum:@"zzz"
                                Completion:^{
                                    NSLog(@"成功");
                                } error:^(NSError *error, int num) {
@@ -132,7 +132,6 @@
                             andBirthday:@"1900/01/01"
                               andHeight:@"173"
                               andWeight:@"173"
-                              andTelNum:[model telephone]
                              Completion:^{
                                     NSLog(@"成功");
                                 } error:^(NSError *error, int num) {

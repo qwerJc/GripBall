@@ -9,8 +9,8 @@
 #import "UserInfoModel.h"
 @interface UserInfoModel()
 @property (strong, nonatomic)NSDate *birthday;
-@property (strong, nonatomic)NSString *height;
-@property (strong, nonatomic)NSString *weight;
+@property (strong, nonatomic)NSNumber *height;
+@property (strong, nonatomic)NSNumber *weight;
 @property (strong, nonatomic)NSString *name;
 @property (strong, nonatomic)NSNumber *sex;
 @property (strong, nonatomic)NSString *phone;
@@ -49,15 +49,16 @@
     return _phone;
 }
 -(NSString *)getHeight{
-    return _height;
+    return [_height stringValue];
 }
 -(NSString *)getWeight{
-    return _weight;
+    return [_weight stringValue];
 }
 -(NSString *)getStrBirthday{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // 设置日期格式
-    [formatter setDateFormat:@"yyyy/mm/dd"];
+    [formatter setDateFormat:@"yyyy年mm月dd日"];
+//    [formatter setDateFormat:@"yyyy-mm-dd"];
     NSString *strBirthday = [formatter stringFromDate:_birthday];
     return strBirthday;
 }
@@ -69,7 +70,7 @@
     return [year intValue];
 }
 -(NSString *)getSex{
-    if (_sex == 0) {
+    if ([_sex isEqualToNumber:[NSNumber numberWithInt:0]]) {
         return @"男";
     }else{
         return @"女";

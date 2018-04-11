@@ -36,27 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545133692.259648"
+            timestampString = "545146078.696974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-changeInformationWithName:andSex:andBirthday:andHeight:andWeight:andTelNum:Completion:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545133692.259868"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-addUserWithName:andSex:andBirthday:andHeight:andWeight:Completion:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -67,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545133692.260028"
+            filePath = "GripBall/model/UserInfoModel.m"
+            timestampString = "545148662.095778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
-            landmarkName = "-addUserWithName:andSex:andBirthday:andHeight:andWeight:Completion:error:"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-getStrBirthday"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

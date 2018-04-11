@@ -66,7 +66,7 @@ UINavigationControllerDelegate
         
         _arrSex = [NSArray arrayWithObjects:@"男",@"女",nil];
         _arrYear = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =1930; i<2030; i++) {
+        for (int i =1930; i<2017; i++) {
             [_arrYear addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
@@ -81,12 +81,12 @@ UINavigationControllerDelegate
         }
         
         _arrHeight = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =0; i<231; i++) {
+        for (int i =1; i<231; i++) {
             [_arrHeight addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
         _arrWidth = [[NSMutableArray alloc]initWithCapacity:1];
-        for (int i =0; i<300; i++) {
+        for (int i =1; i<300; i++) {
             [_arrWidth addObject:[NSString stringWithFormat:@"%d",i]];
         }
         
@@ -313,8 +313,11 @@ UINavigationControllerDelegate
 }
 
 -(void)setHeadPic:(UIImage *)img andName:(NSString *)name andSex:(NSString *)sex andBirthday:(NSString *)birthday andHeight:(NSString *)height andWeight:(NSString *)weight andPhone:(NSString *)phone{
-    [self.btnHeadPic setBackgroundImage:img forState:UIControlStateNormal];
-    self.imgHead = img;
+    
+//    [self.btnHeadPic setBackgroundImage:img forState:UIControlStateNormal];
+    
+//    self.imgHead = img;
+    
     [self.lblName setText:name];
     [self.btnSex setTitle:sex forState:UIControlStateNormal];
     [self.btnBirth setTitle:birthday forState:UIControlStateNormal];
@@ -412,7 +415,7 @@ UINavigationControllerDelegate
         }else if (component == 2){
             _strDay = [_arrDay objectAtIndex:row];
         }
-        
+        [self.pickerBirth reloadComponent:2];
         [_btnBirth setTitle:[_strYear stringByAppendingFormat:@"年%@月%@日",_strMonth,_strDay] forState:UIControlStateNormal];
     }else if (pickerView == self.pickerHeight){
         [_btnHeight setTitle:[_arrHeight objectAtIndex:row] forState:UIControlStateNormal];
@@ -523,9 +526,25 @@ UINavigationControllerDelegate
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)onBtnFinish{
-    //    if (_btnBirth.titleLabel.text.length) {
-    //        <#statements#>
-    //    }
+    
+    [httpModel changeInformationWithName:[[model userInfo] getName]
+                                  andSex:_btnSex.titleLabel.text
+                             andBirthday:_btnBirth.titleLabel.text
+                               andHeight:_btnHeight.titleLabel.text
+                               andWeight:_btnWeight.titleLabel.text
+                              Completion:^{
+                                  NSLog(@"成功");
+                              } error:^(NSError *error, int num) {
+                                  if (num == 2 ) {
+                                      self.alert = [[JCAlertLogin alloc] initWithTitle:@"添加失败" andDetailTitle:@""];
+                                      UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                      [rootWindow addSubview:self.alert];
+                                  }else{
+                                      self.alert = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+                                      UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                      [rootWindow addSubview:self.alert];
+                                  }
+                              }];
 }
 -(void)onBtnSignOut{
     [self.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:^{

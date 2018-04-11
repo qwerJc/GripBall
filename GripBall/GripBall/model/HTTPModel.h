@@ -47,7 +47,6 @@
                     andBirthday:(NSString *)birthday
                       andHeight:(NSString *)height
                       andWeight:(NSString *)weight
-                      andTelNum:(NSString *)telNum
                      Completion:(void (^)(void))completionBlock
                           error:(void (^)(NSError *,int))errorBlock;
 //04-新建角色(ok)

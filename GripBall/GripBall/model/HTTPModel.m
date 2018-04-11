@@ -117,7 +117,7 @@
 }
 
 //mei ce
--(void)setPassWordWitPwd:(NSString *)pwd
+-(void)setPassWordWithPwd:(NSString *)pwd
             Completion:(void (^)(void))completionBlock
                  error:(void (^)(NSError *,int))errorBlock
 {
@@ -294,7 +294,6 @@
                     andBirthday:(NSString *)birthday
                       andHeight:(NSString *)height
                       andWeight:(NSString *)weight
-                      andTelNum:(NSString *)telNum
                      Completion:(void (^)(void))completionBlock
                           error:(void (^)(NSError *,int))errorBlock
 {
@@ -314,14 +313,14 @@
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
     
-    NSDictionary *params = @{@"uid" :[model uid],
+    NSDictionary *params = @{@"rid" :[model rid],
                              @"name":name,
-                             @"sex":[NSNumber numberWithInt:1],
+                             @"sex":numSex,
                              @"birthday":birthday,
-                             @"height":[NSNumber numberWithInt:1],
-                             @"weight":[NSNumber numberWithInt:1],
+                             @"height":[numberFormatter numberFromString:height],
+                             @"weight":[numberFormatter numberFromString:height],
                              @"headimg":@"",
-                             @"phone":@"18989494827"
+                             @"phone":[model telephone]
                              };
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
