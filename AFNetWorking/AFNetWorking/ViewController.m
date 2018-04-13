@@ -339,6 +339,7 @@
     }];
     //list - 耐力
 }
+
 -(void)btn15{
     [httpModel deleteRoleWithUid:@"8" andRid:@"13" Completion:^{
         NSLog(@"成功");
@@ -350,6 +351,7 @@
         }
     }];
 }
+
 -(void)btn16{
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
         NSLog(@"所有用户列表：%@",arr);

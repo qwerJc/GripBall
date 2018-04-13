@@ -14,6 +14,8 @@
 #import "PracticeBeginViewController.h"
 #import "ModelLocator.h"
 
+#import "TendencyViewController.h"
+
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) LoginViewController *viewController;
@@ -37,13 +39,16 @@
 //    [self getAllUser];
 //    [self changeInfo];
 
-
-    //=========================================
-    
-    self.viewController = [[LoginViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    TendencyViewController *viewController = [[TendencyViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     self.navigationController.navigationBar.hidden = YES;
+    //=========================================
+    
+//    self.viewController = [[LoginViewController alloc] init];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    self.navigationController.navigationBar.hidden = YES;
     
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

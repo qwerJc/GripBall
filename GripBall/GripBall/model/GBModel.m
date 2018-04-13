@@ -7,6 +7,10 @@
 //
 
 #import "GBModel.h"
+#import "TestModel.h"
+#import "ExplodeModel.h"
+#import "EnduranceModel.h"
+
 @interface GBModel()
 
 @end
@@ -26,13 +30,46 @@
     NSMutableArray *arr = [NSMutableArray array];
     for (int i = 0; i<[_allUserList count]; i++) {
         UserInfoModel *userModel = [[UserInfoModel alloc] initWithDic:[_allUserList objectAtIndex:i]];
-//        NSNumber* num1 = [NSNumber numberWithInt:23];
-//        NSNumber* num2 = [NSNumber numberWithFloat:23.0f];
-//        BOOL b = [num1 isEqualToNumber:num2];
         if (![[userModel getRid] isEqualToNumber:mainRid]) {
               [arr addObject:userModel];
         }
 
+    }
+    return arr;
+}
+
+//-(NSMutableArray *)getPracticeList{
+//    NSMutableArray *arr = [NSMutableArray array];
+//    for (int i = 0; i<[_practiceList count]; i++) {
+//        PracticeModel *model = [[PracticeModel alloc] initWithDic:[_practiceList objectAtIndex:i]];
+//        [arr addObject:model];
+//    }
+//    return arr;
+//}
+
+-(NSMutableArray *)getTestList{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i<[_testList count]; i++) {
+        TestModel *model = [[TestModel alloc] initWithDic:[_testList objectAtIndex:i]];
+        [arr addObject:model];
+    }
+    return arr;
+}
+
+-(NSMutableArray *)getExplodeList{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i<[_explodeList count]; i++) {
+        ExplodeModel *model = [[ExplodeModel alloc] initWithDic:[_explodeList objectAtIndex:i]];
+        [arr addObject:model];
+    }
+    return arr;
+}
+
+-(NSMutableArray *)getEnduranceList{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i<[_enduranceList count]; i++) {
+        EnduranceModel *model = [[EnduranceModel alloc] initWithDic:[_enduranceList objectAtIndex:i]];
+        [arr addObject:model];
     }
     return arr;
 }

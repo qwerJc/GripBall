@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "UserInfoModel.h"
+#import "TestModel.h"
+#import "ExplodeModel.h"
+#import "EnduranceModel.h"
 
 @interface GBModel : NSObject
 @property (strong ,nonatomic) NSString *telephone;
@@ -21,4 +24,8 @@
 @property (strong, nonatomic) UserInfoModel *userInfo;
 +(GBModel *)shareModel;
 -(NSMutableArray *)getElseUserList:(NSNumber *)mainRid;
+//-(NSMutableArray *)getPracticeList;
+-(NSMutableArray *)getTestList;
+-(NSMutableArray *)getExplodeList;
+-(NSMutableArray *)getEnduranceList;
 @end

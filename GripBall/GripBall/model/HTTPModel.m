@@ -203,7 +203,10 @@
 //                 NSArray *arrExplode = [listDic objectForKey:@"explosive"];
 //                 NSArray *arrPractice = [listDic objectForKey:@"practice"];
 //                 NSArray *arrEndurance = [listDic objectForKey:@"stamina"];
-//                 NSArray *arrTest = [listDic objectForKey:@"test"];
+                 
+                 NSArray *arrTest = [listDic objectForKey:@"test"];
+                 [model setTestList:arrTest];
+//                 NSLog(@"list :%@",[[[model getTestList] objectAtIndex:1] getLeftScore]);
                  
                  
                  
@@ -464,7 +467,7 @@
 -(void)getUserListWithCompletion:(void (^)(NSArray *))completionBlock
              error:(void (^)(NSError *,int))errorBlock
 {
-    /** 切换角色
+    /** 获取角色列表
      *  地址： /stressapp/api/get_role_list?uid=
      *  Get
      *  code:

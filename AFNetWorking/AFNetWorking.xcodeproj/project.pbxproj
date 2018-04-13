@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3237DBCF207DB00500871756 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237DBCD207DB00500871756 /* UserInfoModel.m */; };
+		3246DAF12080913400E7B58E /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246DAEB2080913300E7B58E /* TestModel.m */; };
+		3246DAF22080913400E7B58E /* EnduranceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246DAEC2080913300E7B58E /* EnduranceModel.m */; };
+		3246DAF32080913400E7B58E /* ExplodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246DAED2080913300E7B58E /* ExplodeModel.m */; };
 		324E140D207C9806002F9D6C /* HTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 324E140C207C9806002F9D6C /* HTTPModel.m */; };
 		324E1410207C98F6002F9D6C /* GBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 324E140F207C98F6002F9D6C /* GBModel.m */; };
 		32CFBB472056A2FD00F052C2 /* Group Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CFBB462056A2FD00F052C2 /* Group Copy@2x.png */; };
@@ -47,6 +50,12 @@
 /* Begin PBXFileReference section */
 		3237DBCD207DB00500871756 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = ../../GripBall/GripBall/model/UserInfoModel.m; sourceTree = "<group>"; };
 		3237DBCE207DB00500871756 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = ../../GripBall/GripBall/model/UserInfoModel.h; sourceTree = "<group>"; };
+		3246DAEB2080913300E7B58E /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestModel.m; path = ../../GripBall/GripBall/model/TestModel.m; sourceTree = "<group>"; };
+		3246DAEC2080913300E7B58E /* EnduranceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnduranceModel.m; path = ../../GripBall/GripBall/model/EnduranceModel.m; sourceTree = "<group>"; };
+		3246DAED2080913300E7B58E /* ExplodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplodeModel.m; path = ../../GripBall/GripBall/model/ExplodeModel.m; sourceTree = "<group>"; };
+		3246DAEE2080913300E7B58E /* ExplodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeModel.h; path = ../../GripBall/GripBall/model/ExplodeModel.h; sourceTree = "<group>"; };
+		3246DAEF2080913400E7B58E /* EnduranceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnduranceModel.h; path = ../../GripBall/GripBall/model/EnduranceModel.h; sourceTree = "<group>"; };
+		3246DAF02080913400E7B58E /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestModel.h; path = ../../GripBall/GripBall/model/TestModel.h; sourceTree = "<group>"; };
 		324E140B207C9806002F9D6C /* HTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPModel.h; path = ../../GripBall/GripBall/model/HTTPModel.h; sourceTree = "<group>"; };
 		324E140C207C9806002F9D6C /* HTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPModel.m; path = ../../GripBall/GripBall/model/HTTPModel.m; sourceTree = "<group>"; };
 		324E140E207C98F6002F9D6C /* GBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBModel.h; path = ../../GripBall/GripBall/model/GBModel.h; sourceTree = "<group>"; };
@@ -142,6 +151,12 @@
 				324E140C207C9806002F9D6C /* HTTPModel.m */,
 				324E140E207C98F6002F9D6C /* GBModel.h */,
 				324E140F207C98F6002F9D6C /* GBModel.m */,
+				3246DAEF2080913400E7B58E /* EnduranceModel.h */,
+				3246DAEC2080913300E7B58E /* EnduranceModel.m */,
+				3246DAEE2080913300E7B58E /* ExplodeModel.h */,
+				3246DAED2080913300E7B58E /* ExplodeModel.m */,
+				3246DAF02080913400E7B58E /* TestModel.h */,
+				3246DAEB2080913300E7B58E /* TestModel.m */,
 				3237DBCE207DB00500871756 /* UserInfoModel.h */,
 				3237DBCD207DB00500871756 /* UserInfoModel.m */,
 				324E1411207C98FE002F9D6C /* ModelLocator.h */,
@@ -267,7 +282,6 @@
 				TargetAttributes = {
 					32D027492003AA8F00726FB5 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SR4ZEKCW75;
 						ProvisioningStyle = Automatic;
 					};
 					32D027622003AA9000726FB5 = {
@@ -337,6 +351,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3246DAF12080913400E7B58E /* TestModel.m in Sources */,
+				3246DAF22080913400E7B58E /* EnduranceModel.m in Sources */,
 				32D027932003AAFA00726FB5 /* AFURLSessionManager.m in Sources */,
 				324E1410207C98F6002F9D6C /* GBModel.m in Sources */,
 				3237DBCF207DB00500871756 /* UserInfoModel.m in Sources */,
@@ -347,6 +363,7 @@
 				32D027902003AAFA00726FB5 /* AFSecurityPolicy.m in Sources */,
 				32D027912003AAFA00726FB5 /* AFURLRequestSerialization.m in Sources */,
 				32D027922003AAFA00726FB5 /* AFURLResponseSerialization.m in Sources */,
+				3246DAF32080913400E7B58E /* ExplodeModel.m in Sources */,
 				32D0278E2003AAFA00726FB5 /* AFHTTPSessionManager.m in Sources */,
 				324E140D207C9806002F9D6C /* HTTPModel.m in Sources */,
 			);
@@ -497,8 +514,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SR4ZEKCW75;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AFNetWorking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JC.AFNetWorking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,8 +527,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SR4ZEKCW75;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AFNetWorking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JC.AFNetWorking;
 				PRODUCT_NAME = "$(TARGET_NAME)";

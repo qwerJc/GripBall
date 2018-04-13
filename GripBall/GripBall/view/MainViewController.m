@@ -13,6 +13,7 @@
 #import "ModelLocator.h"
 #import "JCAlertView.h"
 #import "JCAlertLogin.h"
+#import "TendencyViewController.h"
 
 #import "ShowAllUserViewController.h"
 
@@ -82,7 +83,6 @@
     UIImageView *imgVBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [imgVBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.view addSubview:imgVBG];
-
     
     //头像
     UIImageView *imgHeadPic = [[UIImageView alloc] initWithFrame:CGRectMake(50.f, 47.5f, 60.f, 60.f)];
@@ -107,6 +107,11 @@
     [imgViewBG2 setImage:[UIImage imageNamed:@"connect_background2"]];
     [self.view addSubview:imgViewBG2];
     
+    UIButton *btnShowTendency = [[UIButton alloc] initWithFrame:CGRectMake(36.f, 141.f, SCREEN_WIDTH-72.f, 105.f)];
+    [btnShowTendency setBackgroundColor:[UIColor clearColor]];
+    [btnShowTendency addTarget:self action:@selector(onBtnShowTendency) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnShowTendency];
+
     self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-90, 171, 46.f)];
     [self.btnStart setTitle:@"Start Test" forState:UIControlStateNormal];
     [self.btnStart setBackgroundImage:[UIImage imageNamed:@"connect_btn_blue"] forState:UIControlStateNormal];
@@ -312,9 +317,12 @@
         self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
         UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
         [rootWindow addSubview:self.alertLogin];
-//        NSLog(@"请检查当前网络");
     }];
 //    [self presentViewController:viewControllerShow animated:YES completion:nil];
+}
+-(void)onBtnShowTendency{
+    TendencyViewController *viewControllerTendency = [[TendencyViewController alloc] init];
+    [self.navigationController pushViewController:viewControllerTendency animated:YES];
 }
 -(void)clickBtnStart
 {
