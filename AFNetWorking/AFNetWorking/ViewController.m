@@ -66,35 +66,35 @@
     UIButton *btn7 = [[UIButton alloc] initWithFrame:CGRectMake(10, 160, 80, 20)];
     [btn7 setBackgroundColor:[UIColor redColor]];
     [btn7 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn7 setTitle:@"+角色" forState:UIControlStateNormal];
+    [btn7 setTitle:@"get列表" forState:UIControlStateNormal];
     [btn7 addTarget:self action:@selector(btn7) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn7];
     
     UIButton *btn8 = [[UIButton alloc] initWithFrame:CGRectMake(100, 160, 80, 20)];
     [btn8 setBackgroundColor:[UIColor redColor]];
     [btn8 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn8 setTitle:@"获取角色" forState:UIControlStateNormal];
+    [btn8 setTitle:@"切换角色" forState:UIControlStateNormal];
     [btn8 addTarget:self action:@selector(btn8) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn8];
     
     UIButton *btn9 = [[UIButton alloc] initWithFrame:CGRectMake(10, 200, 80, 20)];
     [btn9 setBackgroundColor:[UIColor redColor]];
     [btn9 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn9 setTitle:@"练习纪录" forState:UIControlStateNormal];
+    [btn9 setTitle:@"练习" forState:UIControlStateNormal];
     [btn9 addTarget:self action:@selector(btn9) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn9];
     
     UIButton *btn10 = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 80, 20)];
     [btn10 setBackgroundColor:[UIColor redColor]];
     [btn10 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn10 setTitle:@"测试纪录" forState:UIControlStateNormal];
+    [btn10 setTitle:@"测试" forState:UIControlStateNormal];
     [btn10 addTarget:self action:@selector(btn10) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn10];
     
     UIButton *btn11 = [[UIButton alloc] initWithFrame:CGRectMake(10, 240, 80, 20)];
     [btn11 setBackgroundColor:[UIColor redColor]];
     [btn11 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn11 setTitle:@"爆发力" forState:UIControlStateNormal];
+    [btn11 setTitle:@"爆发" forState:UIControlStateNormal];
     [btn11 addTarget:self action:@selector(btn11) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn11];
     
@@ -104,6 +104,34 @@
     [btn12 setTitle:@"耐力" forState:UIControlStateNormal];
     [btn12 addTarget:self action:@selector(btn12) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn12];
+    
+    UIButton *btn13 = [[UIButton alloc] initWithFrame:CGRectMake(10, 280, 80, 20)];
+    [btn13 setBackgroundColor:[UIColor redColor]];
+    [btn13 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn13 setTitle:@"爆发排行" forState:UIControlStateNormal];
+    [btn13 addTarget:self action:@selector(btn13) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn13];
+    
+    UIButton *btn14 = [[UIButton alloc] initWithFrame:CGRectMake(100, 280, 80, 20)];
+    [btn14 setBackgroundColor:[UIColor redColor]];
+    [btn14 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn14 setTitle:@"耐力排行" forState:UIControlStateNormal];
+    [btn14 addTarget:self action:@selector(btn14) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn14];
+    
+    UIButton *btn15 = [[UIButton alloc] initWithFrame:CGRectMake(10, 320, 80, 20)];
+    [btn15 setBackgroundColor:[UIColor redColor]];
+    [btn15 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn15 setTitle:@"del" forState:UIControlStateNormal];
+    [btn15 addTarget:self action:@selector(btn15) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn15];
+    
+    UIButton *btn16 = [[UIButton alloc] initWithFrame:CGRectMake(100, 320, 180, 20)];
+    [btn16 setBackgroundColor:[UIColor redColor]];
+    [btn16 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn16 setTitle:@"获取排行榜" forState:UIControlStateNormal];
+    [btn16 addTarget:self action:@selector(btn16) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn16];
     
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -189,30 +217,151 @@
 
 //修改信息
 -(void)btn6{
-    [httpModel changeInformationWithName:@"try1"
-                                  andSex:@"nan"
-                             andBirthday:@"1900/01/01"
-                               andHeight:@"173"
-                               andWeight:@"83"
-                               andTelNum:[model telephone]
-                              Completion:^{
-                                  NSLog(@"成功");
-                              } error:^(NSError *error, int num) {
-                                  if (num == 2 ) {
-                                      NSLog(@"修改失败");
-                                  }else{
-                                      NSLog(@"请检查当前网络 changeInformation");
-                                  }
-                              }];
+    [httpModel changeInformationWithName:@"try5" andSex:@"男" andBirthday:@"1900年1月1日" andHeight:@"173" andWeight:@"83" Completion:^{
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"修改失败");
+        }else{
+            NSLog(@"请检查当前网络 changeInformation");
+        }
+    }];
+    
+//    [httpModel changeInformationWithName:@"try1"
+//                                  andSex:@"nan"
+//                             andBirthday:@"1900/01/01"
+//                               andHeight:@"173"
+//                               andWeight:@"83"
+//                               andTelNum:[model telephone]
+//                              Completion:^{
+//                                  NSLog(@"成功");
+//                              } error:^(NSError *error, int num) {
+//                                  if (num == 2 ) {
+//                                      NSLog(@"修改失败");
+//                                  }else{
+//                                      NSLog(@"请检查当前网络 changeInformation");
+//                                  }
+//                              }];
 }
 //获取角色列表
 -(void)btn7{
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
-        NSLog(@"获取列表成功");
+        NSLog(@"获取列表成功：");
     } error:^(NSError *error, int num) {
         NSLog(@"请检查当前网络");
     }];
 }
+
+//切换角色
+-(void)btn8{
+    //main 8 8| 8 11
+    [httpModel changeUserWithUid:@"8" andRid:@"8" Completion:^{
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        NSLog(@"请检查当前网络");
+    }];
+}
+
+-(void)btn9{
+    [httpModel postPracticeRecordWithTimecost:@"1" andCount:@"1" andValue:@"1" Completion:^{
+        NSLog(@"练习模式 上传成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"修改失败");
+        }else{
+            NSLog(@"请检查当前网络 Practice");
+        }
+    }];
+    
+    
+}
+
+-(void)btn10{
+    //测试
+    [httpModel postTestRecordWithLeftHandValue:@"1" andLeftHandScore:@"1" andRightHandValue:@"1" andRightHandScore:@"1" Completion:^{
+        NSLog(@"测试 上传成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"修改失败");
+        }else{
+            NSLog(@"请检查当前网络 Practice");
+        }
+    }];
+}
+
+-(void)btn11{
+    //爆发
+    [httpModel postExplodeWithLeftHandValue:@"1" andLeftHandCostTime:@"1.1" andRightHandValue:@"1" andRightHandCostTime:@"1.1" Completion:^{
+        NSLog(@"爆发 上传成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"修改失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
+
+-(void)btn12{
+    //耐力
+    [httpModel postEnduranceWithLeftHandValue:@"1" andLeftHandCostTime:@"1" andRightHandValue:@"1" andRightHandCostTime:@"1" Completion:^{
+        NSLog(@"耐力 上传成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"修改失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
+
+-(void)btn13{
+    //list - 爆发
+    [httpModel getExplodeListWithCompletion:^(NSArray *list) {
+        NSLog(@"成功:%@",list);
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"获取失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
+-(void)btn14{
+    [httpModel getEnduranceListWithCompletion:^(NSArray *list) {
+        NSLog(@"成功:%@",list);
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"获取失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+    //list - 耐力
+}
+-(void)btn15{
+    [httpModel deleteRoleWithUid:@"8" andRid:@"13" Completion:^{
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"获取失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
+-(void)btn16{
+    [httpModel getUserListWithCompletion:^(NSArray *arr) {
+        NSLog(@"所有用户列表：%@",arr);
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"获取失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
+
 //////////////////////////////////////////////////////////////////////////////
     //普通的get方法
 -(void)clickBtn1{
@@ -242,7 +391,6 @@
              NSLog(@"%@",error);  //这里打印错误信息
              
          }];
-    
 }
 
 -(void)clickBtn2{

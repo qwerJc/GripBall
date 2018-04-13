@@ -10,6 +10,7 @@
 #import "ModelLocator.h"
 #import "MainViewController.h"
 #import "JCAlertLogin.h"
+#import "LoginViewController.h"
 
 @interface LoginInformationViewController ()
 <
@@ -95,6 +96,8 @@ UINavigationControllerDelegate
         _strYear = [_arrYear objectAtIndex:0];
         _strMonth = [_arrMonth objectAtIndex:0];
         _strDay  = [_arrDay objectAtIndex:0];
+        
+        [_tel setText:[model telephone]];
     }
     return self;
 }
@@ -510,14 +513,32 @@ UINavigationControllerDelegate
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)onBtnFinish{
-//    if (_btnBirth.titleLabel.text.length) {
-//        <#statements#>
-//    }
-    NSLog(@"%lu",_txfName.text.length);
-    NSLog(@"%lu",_btnSex.titleLabel.text.length);
-    NSLog(@"%lu",_btnBirth.titleLabel.text.length);
-    NSLog(@"%lu",_btnHeight.titleLabel.text.length);
-    NSLog(@"%lu",_btnWeight.titleLabel.text.length);
+    [httpModel completeInformationWithName:_txfName.text
+                                    andSex:_btnSex.titleLabel.text
+                               andBirthday:_btnBirth.titleLabel.text
+                                 andHeight:_btnHeight.titleLabel.text
+                                 andWeight:_btnWeight.titleLabel.text
+                                 andTelNum:[model telephone]
+                                Completion:^{
+                                     NSLog(@"成功");
+                                    NSArray *controllers = self.navigationController.viewControllers;
+                                    for ( id viewController in controllers) {
+                                        if ([viewController isKindOfClass:[LoginViewController class]]) {
+                                            [self.navigationController popToViewController:viewController animated:YES];
+                                        }
+                                    }
+                                }
+                                     error:^(NSError *error, int num) {
+                                         if (num == 2 ) {
+                                             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"添加失败"];
+                                             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                             [rootWindow addSubview:self.alert];
+                                         }else{
+                                             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+                                             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                             [rootWindow addSubview:self.alert];
+                                         }
+                                     }];
 }
 -(void)onBtnHeadPic{
     self.alert = [[JCAlertLogin alloc] initWithThreeBtn];

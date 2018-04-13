@@ -20,5 +20,5 @@
 @property (strong, nonatomic) NSArray *enduranceList;
 @property (strong, nonatomic) UserInfoModel *userInfo;
 +(GBModel *)shareModel;
-
+-(NSMutableArray *)getElseUserList:(NSNumber *)mainRid;
 @end

@@ -98,14 +98,14 @@
                  Completion:(void (^)(void))completionBlock
                       error:(void (^)(NSError *,int))errorBlock;
 //删除角色
--(void)deleteRoleWith:(NSNumber *)uid
-               andRid:(NSNumber *)rid
+-(void)deleteRoleWithUid:(NSString *)uid
+               andRid:(NSString *)rid
            Completion:(void (^)(void))completionBlock
                 error:(void (^)(NSError *,int))errorBlock;
 //获取爆发力排行榜
--(void)getExplodeListWithCompletion:(void (^)(void))completionBlock
+-(void)getExplodeListWithCompletion:(void (^)(NSArray *))completionBlock
                               error:(void (^)(NSError *,int))errorBlock;
 //获取耐力排行榜
--(void)getEnduranceListWithCompletion:(void (^)(void))completionBlock
+-(void)getEnduranceListWithCompletion:(void (^)(NSArray *))completionBlock
                               error:(void (^)(NSError *,int))errorBlock;
 @end

@@ -16,7 +16,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+//    NSString *sDay = @"2010-02-02 00:00:00 +0000";
+//    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+////    fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+//    fmt.dateFormat = @"yyyy-mm-dd HH:mm:ss Z";
+//    NSDate *someDay = [fmt dateFromString:sDay];
+//    NSLog(@"someDay : %@", someDay);
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//
+//    // 设置日期格式
+//    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSString *currentDateString = [formatter stringFromDate:someDay];
+//    NSLog(@"%@",currentDateString);
+//
+    
     return YES;
 }
 

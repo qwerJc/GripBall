@@ -1010,7 +1010,7 @@
 				TargetAttributes = {
 					322D187C1F78AF8700815118 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SR4ZEKCW75;
+						DevelopmentTeam = X795N87KCK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1365,7 +1365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SR4ZEKCW75;
+				DEVELOPMENT_TEAM = X795N87KCK;
 				INFOPLIST_FILE = GripBall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1378,7 +1378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SR4ZEKCW75;
+				DEVELOPMENT_TEAM = X795N87KCK;
 				INFOPLIST_FILE = GripBall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

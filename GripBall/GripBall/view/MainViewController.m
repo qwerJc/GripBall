@@ -303,7 +303,10 @@
     
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
         NSLog(@"获取列表成功");
-        [viewControllerShow setRoleList:arr];
+        [model setAllUserList:arr];
+        
+        [viewControllerShow setRoleList:[model getElseUserList:[[model userInfo] getRid]]];
+        
         [self presentViewController:viewControllerShow animated:YES completion:nil];
     } error:^(NSError *error, int num) {
         self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];

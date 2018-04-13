@@ -21,7 +21,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self setBackgroundColor:[UIColor clearColor]];
+//        [self setBackgroundColor:[UIColor clearColor]];
+        [self setBackgroundColor:[UIColor greenColor]];
         
         self.imvHead = [[UIImageView alloc] initWithFrame:CGRectMake(14, 9, 60, 60)];
         [self.imvHead.layer setCornerRadius:30.f];

@@ -57,7 +57,7 @@
 -(NSString *)getStrBirthday{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // 设置日期格式
-    [formatter setDateFormat:@"yyyy年mm月dd日"];
+    [formatter setDateFormat:@"yyyy年MM月dd日"];
 //    [formatter setDateFormat:@"yyyy-mm-dd"];
     NSString *strBirthday = [formatter stringFromDate:_birthday];
     return strBirthday;

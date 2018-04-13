@@ -103,23 +103,35 @@
 -(void)onBtnCertain
 {
     //＊＊＊＊＊＊＊＊＊＊＊＊＊正式版需要取消注视，注释为判断输入的密码是否合法
-//    if (_txvPwd.text.length<6||_txvPwd.text.length>16||_txvPwd2.text.length<6||_txvPwd2.text.length>16) {
-//        self.alert = [[JCAlertLogin alloc] initWithTitle:@"请输入6-16位密码" andDetailTitle:@""];
-//        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-//        [rootWindow addSubview:self.alert];
-//    }else if (_txvPwd.text != _txvPwd2.text) {
-//        self.alert = [[JCAlertLogin alloc] initWithTitle:@"两次密码不一致" andDetailTitle:@"请重新输入"];
-//        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-//        [rootWindow addSubview:self.alert];
-//    }else{
-//        self.viewControllerInfo = [[LoginInformationViewController alloc] init];
-//        [self.viewControllerInfo setTelephone:@"18701459239"];
-//        [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
-//    }
+    if (_txvPwd.text.length<6||_txvPwd.text.length>16||_txvPwd2.text.length<6||_txvPwd2.text.length>16) {
+        self.alert = [[JCAlertLogin alloc] initWithTitle:@"请输入6-16位密码" andDetailTitle:@""];
+        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+        [rootWindow addSubview:self.alert];
+    }else if (_txvPwd.text != _txvPwd2.text) {
+        self.alert = [[JCAlertLogin alloc] initWithTitle:@"两次密码不一致" andDetailTitle:@"请重新输入"];
+        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+        [rootWindow addSubview:self.alert];
+    }else{
+        //合法
+        [httpModel setPassWordWithPwd:_txvPwd.text Completion:^{
+            //成功
+            self.viewControllerInfo = [[LoginInformationViewController alloc] init];
+            [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
+        } error:^(NSError *error, int num) {
+            if (num == 2 ) {
+                NSLog(@"完善失败");
+            }else{
+                NSLog(@"请检查当前网络");
+            }
+        }];
+        
+        
+    }
     
-    self.viewControllerInfo = [[LoginInformationViewController alloc] init];
-    [self.viewControllerInfo setTelephone:@"18701459239"];
-    [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
+    //*************************************************************************
+//    self.viewControllerInfo = [[LoginInformationViewController alloc] init];
+//    [self.viewControllerInfo setTelephone:@"18701459239"];
+//    [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
 }
 
 - (void)viewDidLoad {

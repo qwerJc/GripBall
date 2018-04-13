@@ -9,6 +9,7 @@
 #import "LoginTelphoneViewController.h"
 #import "ModelLocator.h"
 #import "LoginPasswordViewController.h"
+#import "JCAlertLogin.h"
 
 @interface LoginTelphoneViewController ()
 @property (strong ,nonatomic) UITextField *txvTel;
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) UIButton *btnBackLogin;
 
 @property (strong, nonatomic) LoginPasswordViewController *viewControllerPwd;
+@property (strong, nonatomic) JCAlertLogin *alert;
 @end
 
 @implementation LoginTelphoneViewController
@@ -66,15 +68,14 @@
     
     self.txvVcoed = [[UITextField alloc] initWithFrame:CGRectMake(120, 390,SCREEN_WIDTH-300, 30)];
 //    [self.txvVcoed setPlaceholder:@"输入验证码"];
-//    [self.txvVcoed setBackgroundColor:[UIColor redColor]];
     self.txvVcoed.keyboardType = UIKeyboardTypeNumberPad;
     [self.view addSubview:self.txvVcoed];
     
     UIButton *btnGetVCode = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-165, 390, 90, 30)];
-//    [btnGetVCode setBackgroundColor:[UIColor redColor]];
+    [btnGetVCode setBackgroundColor:[UIColor redColor]];
     [btnGetVCode setTitle:@"获取验证码" forState:UIControlStateNormal];
     [btnGetVCode setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
-    [self.btnSignUP addTarget:self
+    [btnGetVCode addTarget:self
                        action:@selector(onBtnGetVCode)
              forControlEvents:UIControlEventTouchUpInside];
     [btnGetVCode.titleLabel setFont:[UIFont fontWithName:@"ArialMT" size:15.f]];
@@ -113,11 +114,47 @@
 
 #pragma mark - btnEvent
 -(void)onBtnGetVCode{
-    
+    [httpModel getVcodeWithTelNum:self.txvTel.text Completion:^{
+        NSLog(@"成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2) {
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"已注册"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+            NSLog(@"已注册");
+        }else if(num == 3){
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"未知错误"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+            NSLog(@"未知错误");
+        }else{
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+            NSLog(@"请检查当前网络");
+        }
+    }];
 }
 -(void)onBtnSignUP
 {
-    [self.navigationController pushViewController:self.viewControllerPwd animated:YES];
+    [model setTelephone:self.txvTel.text];
+    
+    [httpModel registerWithTelNum:self.txvTel.text andVCode:self.txvVcoed.text Completion:^() {
+        NSLog(@"成功");
+        [self.navigationController pushViewController:self.viewControllerPwd animated:YES];
+    } error:^(NSError *error, int num) {
+        if (num == 2) {
+            NSLog(@"已注册");
+        }else if(num == 3){
+            NSLog(@"验证码错误");
+        }else if(num == 4){
+            NSLog(@"验证码过期");
+        }else if (num == 5){
+            NSLog(@"未知错误");
+        }else{
+            NSLog(@"请检查当前网络");
+        }
+    }];
 }
 -(void)onBtnBackLogin{
     [self.navigationController popViewControllerAnimated:YES];

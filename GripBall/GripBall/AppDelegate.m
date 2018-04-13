@@ -5,6 +5,8 @@
 //  Created by 贾辰 on 17/9/25.
 //  Copyright © 2017年 贾辰. All rights reserved.
 //
+//  账号：@"15755396353"
+//  密码：@"666888"
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"

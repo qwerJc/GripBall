@@ -98,6 +98,9 @@
     [self.btnSignUP setTitleColor:[UIColor colorWithRed:206.f/255.f green:206.f/255.f blue:206.f/255.f alpha:1] forState:UIControlStateNormal];
     [self.view addSubview:self.btnSignUP];
 
+    /////
+    [self.txvTel setText:@"15755396353"];
+    [self.txvPwd setText:@"666888"];
 }
 
 #pragma mark - TouchEvent
@@ -110,9 +113,10 @@
 #pragma mark - btnEvent
 -(void)onClickedSignIn
 {
-    [model setTelephone:@"15755396353"];
+    [model setTelephone:self.txvTel.text];
+    
     [httpModel logInWithTelNum:[model telephone]
-                        andPwd:@"666888"
+                        andPwd:self.txvPwd.text
                     Completion:^{
                         NSLog(@"登陆成功");
                         self.viewControllerBlueTooth = [[MainViewController alloc] init];

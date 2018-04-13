@@ -303,7 +303,7 @@ UINavigationControllerDelegate
     [self.view addSubview:_pickerWeight];
     [_pickerWeight setHidden:YES];
     
-    UIButton *btnSignOut = [[UIButton alloc] initWithFrame:CGRectMake(viewContainer.frame.size.width/2-85.5f, viewContainer.frame.size.height-130, 171, 46.f)];
+    UIButton *btnSignOut = [[UIButton alloc] initWithFrame:CGRectMake(viewContainer.frame.size.width/2-85.5f, 500, 171, 46.f)];
     [btnSignOut setTitle:@"退出登录" forState:UIControlStateNormal];
     btnSignOut.titleLabel.font = [UIFont systemFontOfSize:18.0];
     [btnSignOut setBackgroundImage:[UIImage imageNamed:@"Change_btn_gray"] forState:UIControlStateNormal];

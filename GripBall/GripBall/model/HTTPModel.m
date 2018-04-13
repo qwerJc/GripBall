@@ -134,8 +134,12 @@
                               @"uid" :[model uid],
                               @"pwd":pwd
                               };
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/reset_pwd", SERVER_IP];
     
@@ -144,7 +148,7 @@
         NSError *error;
         NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
         
-        NSString *code = (NSString *)[listDic objectForKey:@"code"];
+        NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
         if([code isEqualToString:@"1"]){
             completionBlock();
         }else{
@@ -152,6 +156,7 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);  //这里打印错误信息
         errorBlock(error,-1);
     }];
     
@@ -180,7 +185,8 @@
              NSError *error;
              NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
              
-//             NSLog(@"Dic :%@", listDic);
+             NSLog(@"Dic :%@", listDic);
+             
              NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
 
              if ([code isEqualToString:@"1"]) {
@@ -426,7 +432,7 @@
     
     NSDictionary *params = @{
                              @"uid" :[numberFormatter numberFromString:uid],
-                             @"name":[numberFormatter numberFromString:rid],
+                             @"rid":[numberFormatter numberFromString:rid],
                              };
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -480,7 +486,7 @@
              
              if ([code isEqualToString:@"1"]) {
                  NSArray *arrAllRole = [listDic objectForKey:@"roles"];
-                 NSLog(@"role:%@",arrAllRole);
+//                 NSLog(@"role:%@",arrAllRole);
                  completionBlock(arrAllRole);
              }else{
                  errorBlock(nil,2);
@@ -499,14 +505,21 @@
                       Completion:(void (^)(void))completionBlock
                            error:(void (^)(NSError *, int))errorBlock
 {
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     NSDictionary *params = @{
                              @"rid" :[model rid],
-                             @"timecost":usedTime,
-                             @"times":count,
-                             @"meanvalue":value,
+                             @"timecost":[numberFormatter numberFromString:usedTime],
+                             @"times":[numberFormatter numberFromString:count],
+                             @"meanvalue":[numberFormatter numberFromString:value],
                              };
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/upload/practice_record", SERVER_IP];
     
@@ -522,6 +535,7 @@
             errorBlock(error,2);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error :%@",error);
         errorBlock(error,-1);
     }];
 }
@@ -534,15 +548,21 @@
                   Completion:(void (^)(void))completionBlock
                        error:(void (^)(NSError *, int))errorBlock
 {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     NSDictionary *params = @{
                              @"rid" :[model rid],
-                             @"lefthand_value":lHandValue,
-                             @"lefthand_score":lHandScore,
-                             @"righthand_value":rHandValue,
-                             @"righthand_score":rHandScore,
+                             @"lefthand_value":[numberFormatter numberFromString:lHandValue],
+                             @"lefthand_score":[numberFormatter numberFromString:lHandScore],
+                             @"righthand_value":[numberFormatter numberFromString:rHandValue],
+                             @"righthand_score":[numberFormatter numberFromString:rHandScore],
                              };
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/upload/test_record", SERVER_IP];
     
@@ -570,15 +590,20 @@
                Completion:(void (^)(void))completionBlock
                     error:(void (^)(NSError *, int))errorBlock
 {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     NSDictionary *params = @{
                              @"rid" :[model rid],
-                             @"explosive_lefthand_val":lHandValue,
-                             @"explosive_lefthand_timecost":lHandCostTime,
-                             @"explosive_righthand_val":rHandValue,
-                             @"explosive_righthand_timecost":rHandCostTime,
+                             @"explosive_lefthand_val":[numberFormatter numberFromString:lHandValue],
+                             @"explosive_lefthand_timecost":[numberFormatter numberFromString:lHandCostTime],
+                             @"explosive_righthand_val":[numberFormatter numberFromString:rHandValue],
+                             @"explosive_righthand_timecost":[numberFormatter numberFromString:rHandCostTime],
                              };
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/upload/explosive_record", SERVER_IP];
     
@@ -605,15 +630,20 @@
                  Completion:(void (^)(void))completionBlock
                       error:(void (^)(NSError *, int))errorBlock
 {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     NSDictionary *params = @{
                              @"rid" :[model rid],
-//                             @"stamina_lefthand_val":lHandValue,
-                             @"stamina_lefthand_duration":lHandCostTime,
-//                             @"stamina_righthand_val":rHandValue,
-                             @"stamina_righthand_duration":rHandCostTime,
+                             @"stamina_lefthand_val":[numberFormatter numberFromString:lHandValue],
+                             @"stamina_lefthand_duration":[numberFormatter numberFromString:lHandCostTime],
+                             @"stamina_righthand_val":[numberFormatter numberFromString:rHandValue],
+                             @"stamina_righthand_duration":[numberFormatter numberFromString:rHandCostTime],
                              };
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     
     NSString *url = [NSString stringWithFormat:@"%@/stressapp/api/upload/stamina_record", SERVER_IP];
     
@@ -634,10 +664,14 @@
 }
 
 //012-删除角色
--(void)deleteRoleWith:(NSNumber *)uid andRid:(NSNumber *)rid Completion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+-(void)deleteRoleWithUid:(NSString *)uid andRid:(NSString *)rid Completion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
     NSDictionary *params = @{
-                             @"uid" :uid,
-                             @"name":rid,
+                             @"uid" :[numberFormatter numberFromString:uid],
+                             @"rid":[numberFormatter numberFromString:rid],
                              };
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -664,7 +698,7 @@
 }
 
 //013-获取爆发力排行榜
--(void)getExplodeListWithCompletion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+-(void)getExplodeListWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *, int))errorBlock{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
@@ -678,8 +712,10 @@
         NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
         
         NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
+        
+        NSArray *list = [listDic objectForKey:@"list"];
         if([code isEqualToString:@"1"]){
-            completionBlock();
+            completionBlock(list);
         }else{
             errorBlock(error,2);
         }
@@ -689,7 +725,7 @@
     }];
 }
 //014-获取耐力排行榜
--(void)getEnduranceListWithCompletion:(void (^)(void))completionBlock error:(void (^)(NSError *, int))errorBlock{
+-(void)getEnduranceListWithCompletion:(void (^)(NSArray *))completionBlock error:(void (^)(NSError *, int))errorBlock{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
@@ -702,8 +738,10 @@
         NSDictionary *listDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
         
         NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
+        NSArray *list = [listDic objectForKey:@"list"];
+        
         if([code isEqualToString:@"1"]){
-            completionBlock();
+            completionBlock(list);
         }else{
             errorBlock(error,2);
         }

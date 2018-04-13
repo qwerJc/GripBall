@@ -51,7 +51,7 @@
     [viewContainer addSubview:_imvHead];
     
     _lblName = [[UILabel alloc] initWithFrame:CGRectMake(90, 34, 100, 20)];
-    [_lblName setText:@"Michale"];
+    [_lblName setText:[[model userInfo] getName]];
     [_lblName setTextColor:[UIColor colorWithRed:100.f/255.f green:100.f/255.f blue:100.f/255.f alpha:1]];
     [_lblName setFont:[UIFont fontWithName:@"ArialMT" size:15.f]];
     [_lblName setTextAlignment:NSTextAlignmentLeft];
@@ -64,8 +64,16 @@
     UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(1,90,viewContainer.frame.size.width-2,viewContainer.frame.size.height-190) style:UITableViewStyleGrouped];
     tableview.dataSource=self;
     tableview.delegate = self;
-    [tableview setBackgroundColor:[UIColor clearColor]];
+//    [tableview setBackgroundColor:[UIColor clearColor]];
+    [tableview setBackgroundColor:[UIColor redColor]];
     [viewContainer addSubview:tableview];
+    
+    if (@available(iOS 11.0, *)) {
+        tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(1, viewContainer.frame.size.height-101, viewContainer.frame.size.width-2, 1)];
     [line2 setBackgroundColor:[UIColor lightGrayColor]];
@@ -84,8 +92,8 @@
     [viewContainer addSubview:btnAddUser];
 }
 
--(void)setRoleList:(NSArray *)arr{
-    _arrRoleList = [[NSArray alloc] initWithArray:arr];
+-(void)setRoleList:(NSMutableArray *)arr{
+    _arrRoleList = [[NSMutableArray alloc] initWithArray:arr];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -104,6 +112,7 @@
         
         tableView.editing = NO;
         //删除数组，刷新列表
+        
         //数据源删除对应元素要在tableview删除对应的cell之前
 //         [callRecordsArrremoveObjectAtIndex:indexPath.row];
         //当左滑按钮执行的操作涉及数据源和页面的更新时，要先更新数据源，在更新视图，否则会出现无响应的情况
@@ -138,6 +147,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.01;
 }
+
 //Num of Cell
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {   //每个节点有几行
@@ -151,7 +161,7 @@
     if (cell == nil) {
         cell = [[ListUserCell alloc]initWithStyle:UITableViewCellStyleSubtitle   reuseIdentifier:CIdentifier];
     }
-    [cell setName:[[self.arrRoleList objectAtIndex:indexPath.row] objectForKey:@"name"]];
+    [cell setName:[[self.arrRoleList objectAtIndex:indexPath.row] getName]];
     return cell;
 }
 
