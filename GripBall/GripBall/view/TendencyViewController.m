@@ -11,6 +11,15 @@
 
 @interface TendencyViewController ()
 @property (strong ,nonatomic)NSMutableArray *listData;
+
+@property (strong, nonatomic)UIButton *btnTestHand;
+@property (strong, nonatomic)UIButton *btnExplodeHand;
+@property (strong, nonatomic)UIButton *btnEnduranceHand;
+
+@property (strong, nonatomic)UILabel *lblTestTitle;
+@property (strong, nonatomic)UILabel *lblExplodeTitle;
+@property (strong, nonatomic)UILabel *lblEnduranceTitle;
+
 @end
 
 @implementation TendencyViewController
@@ -69,10 +78,12 @@
     [self.view addSubview:btnBack];
     
     //上下滚动条
-    UIScrollView *scrollContainer = [[UIScrollView alloc] initWithFrame:CGRectMake(0,100, SCREEN_WIDTH, SCREEN_HEIGHT-100)];
+    UIScrollView *scrollContainer = [[UIScrollView alloc] initWithFrame:CGRectMake(0,100, SCREEN_WIDTH, SCREEN_HEIGHT-150)];
     [scrollContainer setBackgroundColor:[UIColor clearColor]];
-    scrollContainer.contentSize = CGSizeMake(SCREEN_WIDTH, 1000);
+    scrollContainer.contentSize = CGSizeMake(SCREEN_WIDTH, 810);
     [self.view addSubview:scrollContainer];
+//    [scrollContainer setBackgroundColor:[UIColor redColor]];
+//    [scrollContainer.layer setMasksToBounds:YES];
     
     UIImageView *imgvTestBG = [[UIImageView alloc] initWithFrame:CGRectMake(45.f,0.f , 85.f, 30.f)];
     [imgvTestBG setImage:[UIImage imageNamed:@"Change_BG2"]];
@@ -85,22 +96,93 @@
     [lblTest setTextAlignment:NSTextAlignmentCenter];
     [scrollContainer addSubview:lblTest];
     
-//    UIImageView *MonthBG = [[UIImageView alloc] initWithFrame:CGRectMake(45.f,90.f , 24.f, 24.f)];
-//    [MonthBG setImage:[UIImage imageNamed:@"Change_Title_BG"]];
-//    [scrollContainer addSubview:MonthBG];
+    _btnTestHand = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 90, 0.f, 46, 25)];
+    [_btnTestHand setTag:0];
+    [_btnTestHand setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
+    [_btnTestHand addTarget:self action:@selector(onBtnTestHand:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollContainer addSubview:_btnTestHand];
+    
+    _lblTestTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
+    [_lblTestTitle setText:@"左"];
+    [_lblTestTitle setTextColor:[UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1]];
+    [_lblTestTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+//    [_lblTestTitle setBackgroundColor:[UIColor redColor]];
+    [_lblTestTitle setTextAlignment:NSTextAlignmentCenter];
+    
+    [scrollContainer addSubview:_lblTestTitle];
     
     UIImageView *imgBG = [[UIImageView alloc] initWithFrame:CGRectMake(40, 50,SCREEN_WIDTH-80, 200)];
     [imgBG setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
     [scrollContainer addSubview:imgBG];
     
-    UIScrollView *scrollViewTest = [[UIScrollView alloc] initWithFrame:CGRectMake(45,100, SCREEN_WIDTH-90,300)];
+    //测试模式 横向滚动条
+    UIScrollView *scrollViewTest = [[UIScrollView alloc] initWithFrame:CGRectMake(45,50, SCREEN_WIDTH-80,200)];
     [scrollViewTest setBackgroundColor:[UIColor orangeColor]];
-    scrollViewTest.contentSize = CGSizeMake(SCREEN_WIDTH*2, 300);
+    scrollViewTest.contentSize = CGSizeMake(SCREEN_WIDTH*2, 200);
+    [scrollViewTest setBackgroundColor:[UIColor redColor]];
     [scrollContainer addSubview:scrollViewTest];
+//    [self addTestView:scrollViewTest];
     
-
     
-    [self addTestView:scrollViewTest];
+    //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊［ 爆发力 ］＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    UIImageView *imgvExplodeBG = [[UIImageView alloc] initWithFrame:CGRectMake(45.f,270.f , 85.f, 30.f)];
+    [imgvExplodeBG setImage:[UIImage imageNamed:@"Change_BG2"]];
+    [scrollContainer addSubview:imgvExplodeBG];
+    
+    UILabel *lblExplode = [[UILabel alloc] initWithFrame:CGRectMake(45.f,270.f , 85.f, 30.f)];
+    [lblExplode setText:@"爆发力"];
+    [lblExplode setTextColor:[UIColor colorWithRed:213.f/255.f green:213.f/255.f blue:213.f/255.f alpha:1]];
+    [lblExplode setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
+    [lblExplode setTextAlignment:NSTextAlignmentCenter];
+    [scrollContainer addSubview:lblExplode];
+    
+    _btnExplodeHand = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 90, 270.f, 46, 25)];
+    [_btnExplodeHand setTag:0];
+    [_btnExplodeHand setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
+    [_btnExplodeHand addTarget:self action:@selector(onBtnExplodeHand:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollContainer addSubview:_btnExplodeHand];
+    
+    _lblExplodeTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 88, 270.f, 23, 25)];
+    [_lblExplodeTitle setText:@"左"];
+    [_lblExplodeTitle setTextColor:[UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1]];
+    [_lblExplodeTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+    [_lblExplodeTitle setTextAlignment:NSTextAlignmentCenter];
+    [scrollContainer addSubview:_lblExplodeTitle];
+    
+    UIImageView *imgBG2 = [[UIImageView alloc] initWithFrame:CGRectMake(40, 320,SCREEN_WIDTH-80, 200)];
+    [imgBG2 setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
+    [scrollContainer addSubview:imgBG2];
+    
+    
+    //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊［ 爆发力 ］＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    UIImageView *imgvEnduranceBG = [[UIImageView alloc] initWithFrame:CGRectMake(45.f,540.f , 85.f, 30.f)];
+    [imgvEnduranceBG setImage:[UIImage imageNamed:@"Change_BG2"]];
+    [scrollContainer addSubview:imgvEnduranceBG];
+    
+    UILabel *lblEndurance = [[UILabel alloc] initWithFrame:CGRectMake(45.f,540.f , 85.f, 30.f)];
+    [lblEndurance setText:@"耐力"];
+    [lblEndurance setTextColor:[UIColor colorWithRed:213.f/255.f green:213.f/255.f blue:213.f/255.f alpha:1]];
+    [lblEndurance setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
+    [lblEndurance setTextAlignment:NSTextAlignmentCenter];
+    [scrollContainer addSubview:lblEndurance];
+    
+    _btnEnduranceHand = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 90, 540.f, 46, 25)];
+    [_btnEnduranceHand setTag:0];
+    [_btnEnduranceHand setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
+    [_btnEnduranceHand addTarget:self action:@selector(onBtnEnduranceHand:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollContainer addSubview:_btnEnduranceHand];
+    
+    _lblEnduranceTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 88, 540.f, 23, 25)];
+    [_lblEnduranceTitle setText:@"左"];
+    [_lblEnduranceTitle setTextColor:[UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1]];
+    [_lblEnduranceTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+    [_lblEnduranceTitle setTextAlignment:NSTextAlignmentCenter];
+    [scrollContainer addSubview:_lblEnduranceTitle];
+    
+    UIImageView *imgBG3 = [[UIImageView alloc] initWithFrame:CGRectMake(40, 590,SCREEN_WIDTH-80, 200)];
+    [imgBG3 setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
+    [scrollContainer addSubview:imgBG3];
+    
 }
 
 -(void)addTestView:(UIScrollView *)container{
@@ -111,6 +193,55 @@
     }
 }
 
+
+-(void)onBtnTestHand:(UIButton *)btn{
+    if (btn.tag == 0) {
+        [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Rhand"] forState:UIControlStateNormal];
+        btn.tag = 1;
+        
+        [_lblTestTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 0.f, 23, 25)];
+        [_lblTestTitle setText:@"右"];
+    }else{
+        [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
+        btn.tag = 0;
+        
+        [_lblTestTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
+        [_lblTestTitle setText:@"左"];
+    }
+    NSLog(@"%ld",(long)btn.tag);
+}
+
+-(void)onBtnExplodeHand:(UIButton *)btn{
+    if (btn.tag == 0) {
+        [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Rhand"] forState:UIControlStateNormal];
+        btn.tag = 1;
+        
+        [_lblExplodeTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 0.f, 23, 25)];
+        [_lblExplodeTitle setText:@"右"];
+    }else{
+        [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
+        btn.tag = 0;
+        
+        [_lblExplodeTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
+        [_lblExplodeTitle setText:@"左"];
+    }
+}
+-(void)onBtnEnduranceHand:(UIButton *)btn{
+    if (btn.tag == 0) {
+        [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Rhand"] forState:UIControlStateNormal];
+        btn.tag = 1;
+        
+        [_lblEnduranceTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 0.f, 23, 25)];
+        [_lblEnduranceTitle setText:@"右"];
+    }else{
+        [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
+        btn.tag = 0;
+        
+        [_lblEnduranceTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
+        [_lblEnduranceTitle setText:@"左"];
+    }
+    NSLog(@"%ld",(long)btn.tag);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

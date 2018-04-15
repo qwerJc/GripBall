@@ -68,12 +68,12 @@
     [tableview setBackgroundColor:[UIColor redColor]];
     [viewContainer addSubview:tableview];
     
-    if (@available(iOS 11.0, *)) {
-        tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+//    if (@available(iOS 11.0, *)) {
+//        tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }else {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }
     
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(1, viewContainer.frame.size.height-101, viewContainer.frame.size.width-2, 1)];
     [line2 setBackgroundColor:[UIColor lightGrayColor]];

@@ -133,6 +133,19 @@
     [btn16 addTarget:self action:@selector(btn16) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn16];
     
+    UIButton *btn17 = [[UIButton alloc] initWithFrame:CGRectMake(10, 320, 80, 20)];
+    [btn17 setBackgroundColor:[UIColor redColor]];
+    [btn17 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn17 setTitle:@"del" forState:UIControlStateNormal];
+    [btn17 addTarget:self action:@selector(btn15) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn17];
+    
+    UIButton *btn18 = [[UIButton alloc] initWithFrame:CGRectMake(100, 320, 180, 20)];
+    [btn18 setBackgroundColor:[UIColor redColor]];
+    [btn18 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn18 setTitle:@"获取排行榜" forState:UIControlStateNormal];
+    [btn18 addTarget:self action:@selector(btn16) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn18];
 }
 //////////////////////////////////////////////////////////////////////////////
 -(void)btn1{
@@ -255,7 +268,7 @@
 //切换角色
 -(void)btn8{
     //main 8 8| 8 11
-    [httpModel changeUserWithUid:@"8" andRid:@"8" Completion:^{
+    [httpModel changeUserWithUid:@"8" andRid:@"11" Completion:^{
         NSLog(@"成功");
     } error:^(NSError *error, int num) {
         NSLog(@"请检查当前网络");
@@ -291,7 +304,7 @@
 
 -(void)btn11{
     //爆发
-    [httpModel postExplodeWithLeftHandValue:@"1" andLeftHandCostTime:@"1.1" andRightHandValue:@"1" andRightHandCostTime:@"1.1" Completion:^{
+    [httpModel postExplodeWithLeftHandValue:@"15" andLeftHandCostTime:@"15.1" andRightHandValue:@"1" andRightHandCostTime:@"1.1" Completion:^{
         NSLog(@"爆发 上传成功");
     } error:^(NSError *error, int num) {
         if (num == 2 ) {

@@ -597,7 +597,8 @@
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSDictionary *params = @{
-                             @"rid" :[model rid],
+//                             @"rid" :[model rid],
+                             @"rid":[NSNumber numberWithInt:13],
                              @"explosive_lefthand_val":[numberFormatter numberFromString:lHandValue],
                              @"explosive_lefthand_timecost":[numberFormatter numberFromString:lHandCostTime],
                              @"explosive_righthand_val":[numberFormatter numberFromString:rHandValue],
