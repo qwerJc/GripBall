@@ -18,28 +18,48 @@
                     error:(void (^)(NSError *,int))errorBlock;
 
 //01-注册 (set uid)
--(void)registerWithTelNum:(NSString *)telNum
-               andVCode:(NSString *)vcode
+//-(void)registerWithTelNum:(NSString *)telNum
+//               andVCode:(NSString *)vcode
+//               Completion:(void (^)(void))completionBlock
+//                    error:(void (^)(NSError *,int))errorBlock;
+
+////06-设置密码
+//-(void)setPassWordWithPwd:(NSString *)pwd
+//            Completion:(void (^)(void))completionBlock
+//                 error:(void (^)(NSError *,int))errorBlock;
+
+////03-完善信息
+//-(void)completeInformationWithName:(NSString *)name
+//                            andSex:(NSString *)sex
+//                       andBirthday:(NSString *)birthday
+//                         andHeight:(NSString *)height
+//                         andWeight:(NSString *)weight
+//                         andTelNum:(NSString *)telNum
+//                        Completion:(void (^)(void))completionBlock
+//                             error:(void (^)(NSError *,int))errorBlock;
+
+//验证 验证码
+-(void)checkVcodeWithvcode:(NSString *)vcode
+                  andPhone:(NSString *)phone
                Completion:(void (^)(void))completionBlock
                     error:(void (^)(NSError *,int))errorBlock;
-//06-设置密码
--(void)setPassWordWithPwd:(NSString *)pwd
-            Completion:(void (^)(void))completionBlock
-                 error:(void (^)(NSError *,int))errorBlock;
+
+-(void)registerWithPhone:(NSString *)phone
+                  andPwd:(NSString *)pwd
+                 andName:(NSString *)name
+                  andSex:(NSString *)sex
+             andBirthday:(NSString *)birthday
+               andHeight:(NSString *)height
+               andWeight:(NSString *)weight
+              Completion:(void (^)(void))completionBlock
+                   error:(void (^)(NSError *,int))errorBlock;
+
 //02-登陆(ok) (返回 uid,rid)
 -(void)logInWithTelNum:(NSString *)telNum
                 andPwd:(NSString *)pwd
             Completion:(void (^)(void))completionBlock
                  error:(void (^)(NSError *,int))errorBlock;
-//03-完善信息
--(void)completeInformationWithName:(NSString *)name
-                           andSex:(NSString *)sex
-                      andBirthday:(NSString *)birthday
-                        andHeight:(NSString *)height
-                        andWeight:(NSString *)weight
-                        andTelNum:(NSString *)telNum
-                       Completion:(void (^)(void))completionBlock
-                            error:(void (^)(NSError *,int))errorBlock;
+
 
 //03-更改信息
 -(void)changeInformationWithName:(NSString *)name
@@ -108,4 +128,10 @@
 //获取耐力排行榜
 -(void)getEnduranceListWithCompletion:(void (^)(NSArray *))completionBlock
                               error:(void (^)(NSError *,int))errorBlock;
+//获取最近的30条纪录
+-(void)getLastestRecordWithCompletion:(void (^)(NSArray *))completionBlock
+                                error:(void (^)(NSError *, int))errorBlock;
+//获取三种趋势
+-(void)getTendencyWithCompletion:(void (^)(NSArray *testArr,NSArray *explodeArr,NSArray *enduranceArr))completion
+                           error:(void (^)(NSError *, int))errorBlock;
 @end

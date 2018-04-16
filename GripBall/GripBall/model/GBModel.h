@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSArray *explodeList;
 @property (strong, nonatomic) NSArray *enduranceList;
 @property (strong, nonatomic) UserInfoModel *userInfo;
+@property (strong, nonatomic) NSArray *newestListData;
 +(GBModel *)shareModel;
 -(NSMutableArray *)getElseUserList:(NSNumber *)mainRid;
 //-(NSMutableArray *)getPracticeList;

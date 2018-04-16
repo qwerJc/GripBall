@@ -19,4 +19,6 @@
 -(NSString *)getSex;
 -(NSNumber *)getRid;
 -(NSNumber *)getUid;
+
+-(void)setHeight:(NSString *)height andWeight:(NSString *)weight andBirth:(NSString *)birth andSex:(NSString *)sex;
 @end

@@ -72,7 +72,7 @@
     [self.view addSubview:self.txvVcoed];
     
     UIButton *btnGetVCode = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-165, 390, 90, 30)];
-    [btnGetVCode setBackgroundColor:[UIColor redColor]];
+//    [btnGetVCode setBackgroundColor:[UIColor redColor]];
     [btnGetVCode setTitle:@"获取验证码" forState:UIControlStateNormal];
     [btnGetVCode setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
     [btnGetVCode addTarget:self
@@ -136,25 +136,44 @@
     }];
 }
 -(void)onBtnSignUP
-{
-    [model setTelephone:self.txvTel.text];
-    
-    [httpModel registerWithTelNum:self.txvTel.text andVCode:self.txvVcoed.text Completion:^() {
+{//
+    [httpModel checkVcodeWithvcode:self.txvVcoed.text andPhone:self.txvTel.text Completion:^{
         NSLog(@"成功");
+        [model setTelephone:self.txvTel.text];
+        
         [self.navigationController pushViewController:self.viewControllerPwd animated:YES];
     } error:^(NSError *error, int num) {
         if (num == 2) {
-            NSLog(@"已注册");
-        }else if(num == 3){
-            NSLog(@"验证码错误");
-        }else if(num == 4){
-            NSLog(@"验证码过期");
-        }else if (num == 5){
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"未知错误"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
             NSLog(@"未知错误");
         }else{
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+//            NSLog(@"未知错误");
             NSLog(@"请检查当前网络");
         }
     }];
+    
+    
+//    [httpModel registerWithTelNum:self.txvTel.text andVCode:self.txvVcoed.text Completion:^() {
+//        NSLog(@"成功");
+//        [self.navigationController pushViewController:self.viewControllerPwd animated:YES];
+//    } error:^(NSError *error, int num) {
+//        if (num == 2) {
+//            NSLog(@"已注册");
+//        }else if(num == 3){
+//            NSLog(@"验证码错误");
+//        }else if(num == 4){
+//            NSLog(@"验证码过期");
+//        }else if (num == 5){
+//            NSLog(@"未知错误");
+//        }else{
+//            NSLog(@"请检查当前网络");
+//        }
+//    }];
 }
 -(void)onBtnBackLogin{
     [self.navigationController popViewControllerAnimated:YES];

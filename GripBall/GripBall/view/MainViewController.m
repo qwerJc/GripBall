@@ -18,6 +18,8 @@
 #import "ShowAllUserViewController.h"
 
 #import "ConnectResViewController.h"
+
+#import "MainViewListCell.h"
      
 
 @interface MainViewController ()
@@ -41,6 +43,7 @@
 
 @property (assign, nonatomic) BOOL                      isReConnect;
 @property (assign, nonatomic) int                       choiceModelState;   //进入子View状态 ：－1为未选择；0为练习模式；1为测验模式；2为竞技－爆发力模式；3为竞技－耐力模式
+
 @end
 
 @implementation MainViewController
@@ -111,6 +114,13 @@
     [btnShowTendency setBackgroundColor:[UIColor clearColor]];
     [btnShowTendency addTarget:self action:@selector(onBtnShowTendency) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnShowTendency];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(36.f,260.f, SCREEN_WIDTH-72.f,150)];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [tableView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:tableView];
 
     self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-90, 171, 46.f)];
     [self.btnStart setTitle:@"Start Test" forState:UIControlStateNormal];
@@ -118,12 +128,35 @@
     [self.btnStart setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btnStart];
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+#pragma tableView Delegate
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[model newestListData] count];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CIdentifier = @"CellIdentifier";
+    
+    MainViewListCell *cell = [tableView dequeueReusableCellWithIdentifier:CIdentifier];
+    if (cell == nil) {
+        cell = [[MainViewListCell alloc]initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:CIdentifier];
+    }
+    [cell setDataDic:[[[model newestListData] objectAtIndex:indexPath.row] objectAtIndex:1]];
+    return cell;
+    
 }
 
 -(void)showSearchRes{
@@ -307,7 +340,7 @@
     [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
-        NSLog(@"获取列表成功");
+//        NSLog(@"获取列表成功");
         [model setAllUserList:arr];
         
         [viewControllerShow setRoleList:[model getElseUserList:[[model userInfo] getRid]]];

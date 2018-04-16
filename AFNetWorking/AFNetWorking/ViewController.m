@@ -28,19 +28,19 @@
     [btn1 addTarget:self action:@selector(btn1) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn1];
     
-    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 40, 80, 20)];
-    [btn2 setBackgroundColor:[UIColor redColor]];
-    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn2 setTitle:@"注册" forState:UIControlStateNormal];
-    [btn2 addTarget:self action:@selector(btn2) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn2];
-    
-    UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 80, 20)];
-    [btn3 setBackgroundColor:[UIColor redColor]];
-    [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn3 setTitle:@"设密码" forState:UIControlStateNormal];
-    [btn3 addTarget:self action:@selector(btn3) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn3];
+//    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 40, 80, 20)];
+//    [btn2 setBackgroundColor:[UIColor redColor]];
+//    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [btn2 setTitle:@"注册" forState:UIControlStateNormal];
+//    [btn2 addTarget:self action:@selector(btn2) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn2];
+//    
+//    UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 80, 20)];
+//    [btn3 setBackgroundColor:[UIColor redColor]];
+//    [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [btn3 setTitle:@"设密码" forState:UIControlStateNormal];
+//    [btn3 addTarget:self action:@selector(btn3) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn3];
     
     UIButton *btn4 = [[UIButton alloc] initWithFrame:CGRectMake(100, 80, 80, 20)];
     [btn4 setBackgroundColor:[UIColor redColor]];
@@ -49,12 +49,12 @@
     [btn4 addTarget:self action:@selector(btn4) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn4];
     
-    UIButton *btn5 = [[UIButton alloc] initWithFrame:CGRectMake(10, 120, 80, 20)];
-    [btn5 setBackgroundColor:[UIColor redColor]];
-    [btn5 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn5 setTitle:@"完善信息" forState:UIControlStateNormal];
-    [btn5 addTarget:self action:@selector(btn5) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn5];
+//    UIButton *btn5 = [[UIButton alloc] initWithFrame:CGRectMake(10, 120, 80, 20)];
+//    [btn5 setBackgroundColor:[UIColor redColor]];
+//    [btn5 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [btn5 setTitle:@"完善信息" forState:UIControlStateNormal];
+//    [btn5 addTarget:self action:@selector(btn5) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn5];
     
     UIButton *btn6 = [[UIButton alloc] initWithFrame:CGRectMake(100, 120, 80, 20)];
     [btn6 setBackgroundColor:[UIColor redColor]];
@@ -133,19 +133,33 @@
     [btn16 addTarget:self action:@selector(btn16) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn16];
     
-    UIButton *btn17 = [[UIButton alloc] initWithFrame:CGRectMake(10, 320, 80, 20)];
+    UIButton *btn17 = [[UIButton alloc] initWithFrame:CGRectMake(10, 360, 80, 20)];
     [btn17 setBackgroundColor:[UIColor redColor]];
     [btn17 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn17 setTitle:@"del" forState:UIControlStateNormal];
-    [btn17 addTarget:self action:@selector(btn15) forControlEvents:UIControlEventTouchUpInside];
+    [btn17 addTarget:self action:@selector(btn17) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn17];
     
-    UIButton *btn18 = [[UIButton alloc] initWithFrame:CGRectMake(100, 320, 180, 20)];
+    UIButton *btn18 = [[UIButton alloc] initWithFrame:CGRectMake(100, 360, 180, 20)];
     [btn18 setBackgroundColor:[UIColor redColor]];
     [btn18 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn18 setTitle:@"获取排行榜" forState:UIControlStateNormal];
-    [btn18 addTarget:self action:@selector(btn16) forControlEvents:UIControlEventTouchUpInside];
+    [btn18 addTarget:self action:@selector(btn18) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn18];
+    
+    UIButton *btn19 = [[UIButton alloc] initWithFrame:CGRectMake(10, 400, 80, 20)];
+    [btn19 setBackgroundColor:[UIColor redColor]];
+    [btn19 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn19 setTitle:@"tendency" forState:UIControlStateNormal];
+    [btn19 addTarget:self action:@selector(btn19) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn19];
+    
+    UIButton *btn20 = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 180, 20)];
+    [btn20 setBackgroundColor:[UIColor redColor]];
+    [btn20 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn20 setTitle:@"daily" forState:UIControlStateNormal];
+    [btn20 addTarget:self action:@selector(btn20) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn20];
 }
 //////////////////////////////////////////////////////////////////////////////
 -(void)btn1{
@@ -163,32 +177,32 @@
 }
 
 -(void)btn2{
-    [httpModel registerWithTelNum:@"18701459239" andVCode:@"60311" Completion:^() {
-        NSLog(@"成功");
-    } error:^(NSError *error, int num) {
-        if (num == 2) {
-            NSLog(@"已注册");
-        }else if(num == 3){
-            NSLog(@"验证码错误");
-        }else if(num == 4){
-            NSLog(@"验证码过期");
-        }else if (num == 5){
-            NSLog(@"未知错误");
-        }else{
-            NSLog(@"请检查当前网络");
-        }
-    }];
+//    [httpModel registerWithTelNum:@"18701459239" andVCode:@"60311" Completion:^() {
+//        NSLog(@"成功");
+//    } error:^(NSError *error, int num) {
+//        if (num == 2) {
+//            NSLog(@"已注册");
+//        }else if(num == 3){
+//            NSLog(@"验证码错误");
+//        }else if(num == 4){
+//            NSLog(@"验证码过期");
+//        }else if (num == 5){
+//            NSLog(@"未知错误");
+//        }else{
+//            NSLog(@"请检查当前网络");
+//        }
+//    }];
 }
 -(void)btn3{
-    [httpModel setPassWordWithPwd:@"12345" Completion:^{
-        NSLog(@"成功");
-    } error:^(NSError *error, int num) {
-        if (num == 2) {
-            NSLog(@"设置失败");
-        }else{
-            NSLog(@"请检查当前网络");
-        }
-    }];
+//    [httpModel setPassWordWithPwd:@"12345" Completion:^{
+//        NSLog(@"成功");
+//    } error:^(NSError *error, int num) {
+//        if (num == 2) {
+//            NSLog(@"设置失败");
+//        }else{
+//            NSLog(@"请检查当前网络");
+//        }
+//    }];
 }
 //login
 -(void)btn4{
@@ -211,21 +225,21 @@
 }
 //完善信息
 -(void)btn5{
-    [httpModel completeInformationWithName:@"try1"
-                                    andSex:@"nan"
-                               andBirthday:@"1990/01/01"
-                                 andHeight:@"173"
-                                 andWeight:@"83"
-                                 andTelNum:@"15755396353"
-                                Completion:^{
-                                    NSLog(@"成功");
-                                } error:^(NSError *error, int num) {
-                                    if (num == 2 ) {
-                                        NSLog(@"完善失败");
-                                    }else{
-                                        NSLog(@"请检查当前网络");
-                                    }
-                                }];
+//    [httpModel completeInformationWithName:@"try1"
+//                                    andSex:@"nan"
+//                               andBirthday:@"1990/01/01"
+//                                 andHeight:@"173"
+//                                 andWeight:@"83"
+//                                 andTelNum:@"15755396353"
+//                                Completion:^{
+//                                    NSLog(@"成功");
+//                                } error:^(NSError *error, int num) {
+//                                    if (num == 2 ) {
+//                                        NSLog(@"完善失败");
+//                                    }else{
+//                                        NSLog(@"请检查当前网络");
+//                                    }
+//                                }];
 }
 
 //修改信息
@@ -239,23 +253,8 @@
             NSLog(@"请检查当前网络 changeInformation");
         }
     }];
-    
-//    [httpModel changeInformationWithName:@"try1"
-//                                  andSex:@"nan"
-//                             andBirthday:@"1900/01/01"
-//                               andHeight:@"173"
-//                               andWeight:@"83"
-//                               andTelNum:[model telephone]
-//                              Completion:^{
-//                                  NSLog(@"成功");
-//                              } error:^(NSError *error, int num) {
-//                                  if (num == 2 ) {
-//                                      NSLog(@"修改失败");
-//                                  }else{
-//                                      NSLog(@"请检查当前网络 changeInformation");
-//                                  }
-//                              }];
 }
+
 //获取角色列表
 -(void)btn7{
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
@@ -268,7 +267,7 @@
 //切换角色
 -(void)btn8{
     //main 8 8| 8 11
-    [httpModel changeUserWithUid:@"8" andRid:@"11" Completion:^{
+    [httpModel changeUserWithUid:@"8" andRid:@"8" Completion:^{
         NSLog(@"成功");
     } error:^(NSError *error, int num) {
         NSLog(@"请检查当前网络");
@@ -377,6 +376,34 @@
     }];
 }
 
+-(void)btn19{
+    
+    NSLog(@"111");
+    
+    [httpModel getLastestRecordWithCompletion:^(NSArray *arr) {
+        NSLog(@"所有用户列表：%@",arr);
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"获取失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
+
+-(void)btn20{
+    NSLog(@"111");
+    
+    [httpModel getTendencyWithCompletion:^(NSArray *testArr, NSArray *explodeArr, NSArray *enduranceArr) {
+        NSLog(@"所有用户列表：%@",testArr);
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            NSLog(@"获取失败");
+        }else{
+            NSLog(@"请检查当前网络 爆发");
+        }
+    }];
+}
 //////////////////////////////////////////////////////////////////////////////
     //普通的get方法
 -(void)clickBtn1{

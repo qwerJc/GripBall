@@ -115,8 +115,12 @@ UINavigationControllerDelegate
     [imvBG setImage:[UIImage imageNamed:@"Login_white_BG_long"]];
     [viewContainer addSubview:imvBG];
     
-    UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(20.f, 30.f, 10.f, 20.f)];
-    [btnBack setBackgroundImage:[UIImage imageNamed:@"Change_btn_back2"] forState:UIControlStateNormal];
+    UIImageView *imgv = [[UIImageView alloc] initWithFrame:CGRectMake(20.f, 30.f, 10.f, 20.f)];
+    [imgv setImage:[UIImage imageNamed:@"Change_btn_back2"]];
+    [viewContainer addSubview:imgv];
+    
+    UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(10.f, 10.f, 60.f, 60.f)];
+    [btnBack setBackgroundColor:[UIColor clearColor]];
     [btnBack addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
     [viewContainer addSubview:btnBack];
     
@@ -159,7 +163,7 @@ UINavigationControllerDelegate
     [viewContainer addSubview:lblSex];
     
     _btnSex = [[UIButton alloc] initWithFrame:CGRectMake(viewContainer.frame.size.width-150.f, 290.f, 125.f, 20.f)];
-    [_btnSex setTitleColor:[UIColor colorWithRed:154.f/255.f green:155.f/255.f blue:157.f/255.f alpha:1] forState:UIControlStateNormal];
+    [_btnSex setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
     [_btnSex.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15.f]];
     [_btnSex addTarget:self
                 action:@selector(onBtnSex)
@@ -186,7 +190,7 @@ UINavigationControllerDelegate
     [viewContainer addSubview:lblBirth];
     
     _btnBirth = [[UIButton alloc] initWithFrame:CGRectMake(viewContainer.frame.size.width-175.f, 330.f, 150.f, 20.f)];
-    [_btnBirth setTitleColor:[UIColor colorWithRed:154.f/255.f green:155.f/255.f blue:157.f/255.f alpha:1] forState:UIControlStateNormal];
+    [_btnBirth setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
     [_btnBirth.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15.f]];
     [_btnBirth addTarget:self
                   action:@selector(onBtnBirth)
@@ -526,7 +530,6 @@ UINavigationControllerDelegate
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)onBtnFinish{
-    
     [httpModel changeInformationWithName:[[model userInfo] getName]
                                   andSex:_btnSex.titleLabel.text
                              andBirthday:_btnBirth.titleLabel.text
@@ -534,6 +537,14 @@ UINavigationControllerDelegate
                                andWeight:_btnWeight.titleLabel.text
                               Completion:^{
                                   NSLog(@"成功");
+                                  
+                                  [[model userInfo] setHeight:_btnHeight.titleLabel.text
+                                                    andWeight:_btnWeight.titleLabel.text
+                                                     andBirth:_btnBirth.titleLabel.text
+                                                       andSex:_btnSex.titleLabel.text];
+                                  
+                                      [self.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+                                  
                               } error:^(NSError *error, int num) {
                                   if (num == 2 ) {
                                       self.alert = [[JCAlertLogin alloc] initWithTitle:@"添加失败" andDetailTitle:@""];

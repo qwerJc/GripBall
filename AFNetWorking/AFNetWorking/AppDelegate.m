@@ -16,6 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+//    NSString *z = @"wer";
+//    [jash setABC:z];
 
 //    NSString *sDay = @"2010-02-02 00:00:00 +0000";
 //    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];

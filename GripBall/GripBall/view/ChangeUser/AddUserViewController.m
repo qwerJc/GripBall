@@ -106,8 +106,12 @@ UINavigationControllerDelegate
     [imvBG setImage:[UIImage imageNamed:@"Login_white_BG_long"]];
     [viewContainer addSubview:imvBG];
     
-    UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(20.f, 30.f, 10.f, 20.f)];
-    [btnBack setBackgroundImage:[UIImage imageNamed:@"Change_btn_back2"] forState:UIControlStateNormal];
+    UIImageView *imgv = [[UIImageView alloc] initWithFrame:CGRectMake(20.f, 30.f, 10.f, 20.f)];
+    [imgv setImage:[UIImage imageNamed:@"Change_btn_back2"]];
+    [viewContainer addSubview:imgv];
+    
+    UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(10.f, 10.f, 60.f, 60.f)];
+    [btnBack setBackgroundColor:[UIColor clearColor]];
     [btnBack addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
     [viewContainer addSubview:btnBack];
     
@@ -487,6 +491,7 @@ UINavigationControllerDelegate
 #pragma mark - Btn Delegate
 -(void)onBtnBack{
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 -(void)onBtnFinish{
     [httpModel addUserWithName:_txfName.text
@@ -496,7 +501,8 @@ UINavigationControllerDelegate
                      andWeight:_btnWeight.titleLabel.text
                     Completion:^{
                         NSLog(@"成功");
-                        [self dismissViewControllerAnimated:YES completion:nil];
+                        
+                        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
                     }
                          error:^(NSError *error,int num) {
                              if (num == 2 ) {

@@ -22,6 +22,7 @@ UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate
 >
+@property (strong, nonatomic) NSString *passWord;
 @property (strong, nonatomic) UILabel     *tel;
 @property (strong, nonatomic) UITextField *txfName;
 
@@ -316,8 +317,9 @@ UINavigationControllerDelegate
 
 }
 
--(void)setTelephone:(NSString *)str{
+-(void)setTelephone:(NSString *)str andPwd:(NSString *)pwd{
     [_tel setText:str];
+    self.passWord = pwd;
 }
 #pragma mark - TouchEvent
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -513,32 +515,60 @@ UINavigationControllerDelegate
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)onBtnFinish{
-    [httpModel completeInformationWithName:_txfName.text
-                                    andSex:_btnSex.titleLabel.text
-                               andBirthday:_btnBirth.titleLabel.text
-                                 andHeight:_btnHeight.titleLabel.text
-                                 andWeight:_btnWeight.titleLabel.text
-                                 andTelNum:[model telephone]
-                                Completion:^{
-                                     NSLog(@"成功");
-                                    NSArray *controllers = self.navigationController.viewControllers;
-                                    for ( id viewController in controllers) {
-                                        if ([viewController isKindOfClass:[LoginViewController class]]) {
-                                            [self.navigationController popToViewController:viewController animated:YES];
-                                        }
-                                    }
-                                }
-                                     error:^(NSError *error, int num) {
-                                         if (num == 2 ) {
-                                             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"添加失败"];
-                                             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-                                             [rootWindow addSubview:self.alert];
-                                         }else{
-                                             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
-                                             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-                                             [rootWindow addSubview:self.alert];
-                                         }
-                                     }];
+    [httpModel registerWithPhone:_tel.text
+                          andPwd:_passWord
+                         andName:_txfName.text
+                          andSex:_btnSex.titleLabel.text
+                     andBirthday:_btnBirth.titleLabel.text
+                       andHeight:_btnHeight.titleLabel.text
+                       andWeight:_btnWeight.titleLabel.text
+                      Completion:^{
+                          NSLog(@"成功");
+                          NSArray *controllers = self.navigationController.viewControllers;
+                          for ( id viewController in controllers) {
+                              if ([viewController isKindOfClass:[LoginViewController class]]) {
+                                  [self.navigationController popToViewController:viewController animated:YES];
+                              }
+                          }
+                      }
+                           error:^(NSError *error, int num) {
+                               if (num == 2 ) {
+                                   self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"添加失败"];
+                                   UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                   [rootWindow addSubview:self.alert];
+                               }else{
+                                   self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+                                   UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                   [rootWindow addSubview:self.alert];
+                               }
+                           }];
+    
+//    [httpModel completeInformationWithName:_txfName.text
+//                                    andSex:_btnSex.titleLabel.text
+//                               andBirthday:_btnBirth.titleLabel.text
+//                                 andHeight:_btnHeight.titleLabel.text
+//                                 andWeight:_btnWeight.titleLabel.text
+//                                 andTelNum:[model telephone]
+//                                Completion:^{
+//                                     NSLog(@"成功");
+//                                    NSArray *controllers = self.navigationController.viewControllers;
+//                                    for ( id viewController in controllers) {
+//                                        if ([viewController isKindOfClass:[LoginViewController class]]) {
+//                                            [self.navigationController popToViewController:viewController animated:YES];
+//                                        }
+//                                    }
+//                                }
+//                                     error:^(NSError *error, int num) {
+//                                         if (num == 2 ) {
+//                                             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"添加失败"];
+//                                             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+//                                             [rootWindow addSubview:self.alert];
+//                                         }else{
+//                                             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+//                                             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+//                                             [rootWindow addSubview:self.alert];
+//                                         }
+//                                     }];
 }
 -(void)onBtnHeadPic{
     self.alert = [[JCAlertLogin alloc] initWithThreeBtn];

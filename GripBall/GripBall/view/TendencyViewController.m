@@ -8,6 +8,7 @@
 
 #import "TendencyViewController.h"
 #import "ModelLocator.h"
+#import "TendencyListCell.h"
 
 @interface TendencyViewController ()
 @property (strong ,nonatomic)NSMutableArray *listData;
@@ -28,8 +29,7 @@
     self = [super init];
     if (self) {
         
-        
-        [self createUI];
+        [self createUI2];
         
         [self temGetDate];
 
@@ -38,22 +38,58 @@
 }
 
 -(void)temGetDate{
-//    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"张三", @"name", @"40/5", @"score", @"左", @"hand", nil];
-//    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"五湖四海", @"name", @"50/4", @"score", @"左", @"hand",nil];
-//    NSDictionary *dic3 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-//    NSDictionary *dic4 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-//    NSDictionary *dic5 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
-//    NSDictionary *dic6 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-//    NSDictionary *dic7 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-//    NSDictionary *dic8 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
-//    NSDictionary *dic9 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-//    NSDictionary *dic10 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-//    self.listData = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9,dic10,nil];
+//    date = "Fri, 13 Apr 2018 10:17:37 GMT";
+//    id = 4;
+//    meanvalue = 1;
+//    mode = practice;
+//    timecost = 1;
+//    times = 1;
     
-//    for (int i = 0; i<NUM_TEST; i++) {
-//        <#statements#>
-//    }
-    self.listData = [model getTestList];
+//    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"meanvalue", @"practice",@"mode", @"1", @"timecost", @"1",@"times", nil];
+    
+    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
+    
+    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"10", @"lval", @"15", @"rval",nil];
+    NSDictionary *dic3 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"20", @"lval", @"15", @"rval",nil];
+    NSDictionary *dic4 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"30", @"lval", @"15", @"rval",nil];
+    
+    NSDictionary *dic5 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"40", @"lval", @"15", @"rval",nil];
+    NSDictionary *dic6 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
+    NSDictionary *dic7 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
+    
+    NSDictionary *dic8 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
+    NSDictionary *dic9 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
+    self.listData = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9,nil];
+    
+    
+//    self.listData = [model getTestList];
+}
+
+-(void)createUI2{
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    //上下滚动条
+    UIScrollView *scrollContainer = [[UIScrollView alloc] initWithFrame:CGRectMake(0,100, SCREEN_WIDTH, SCREEN_HEIGHT-150)];
+    [scrollContainer setBackgroundColor:[UIColor clearColor]];
+    scrollContainer.contentSize = CGSizeMake(SCREEN_WIDTH, 810);
+    [self.view addSubview:scrollContainer];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,50,200,SCREEN_WIDTH-80)];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [tableView setBackgroundColor:[UIColor redColor]];
+    tableView.transform = CGAffineTransformMakeRotation(M_PI / 2);
+    [scrollContainer addSubview:tableView];
+//    40, 320,SCREEN_WIDTH-80, 200
+    
+    UITableView *tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,320,200,SCREEN_WIDTH-80)];
+    tableView2.dataSource = self;
+    tableView2.delegate = self;
+    tableView2.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [tableView2 setBackgroundColor:[UIColor redColor]];
+    tableView2.transform = CGAffineTransformMakeRotation(M_PI / 2);
+    [scrollContainer addSubview:tableView2];
 }
 
 -(void)createUI
@@ -82,8 +118,6 @@
     [scrollContainer setBackgroundColor:[UIColor clearColor]];
     scrollContainer.contentSize = CGSizeMake(SCREEN_WIDTH, 810);
     [self.view addSubview:scrollContainer];
-//    [scrollContainer setBackgroundColor:[UIColor redColor]];
-//    [scrollContainer.layer setMasksToBounds:YES];
     
     UIImageView *imgvTestBG = [[UIImageView alloc] initWithFrame:CGRectMake(45.f,0.f , 85.f, 30.f)];
     [imgvTestBG setImage:[UIImage imageNamed:@"Change_BG2"]];
@@ -116,12 +150,20 @@
     [scrollContainer addSubview:imgBG];
     
     //测试模式 横向滚动条
-    UIScrollView *scrollViewTest = [[UIScrollView alloc] initWithFrame:CGRectMake(45,50, SCREEN_WIDTH-80,200)];
-    [scrollViewTest setBackgroundColor:[UIColor orangeColor]];
-    scrollViewTest.contentSize = CGSizeMake(SCREEN_WIDTH*2, 200);
-    [scrollViewTest setBackgroundColor:[UIColor redColor]];
-    [scrollContainer addSubview:scrollViewTest];
+//    UIScrollView *scrollViewTest = [[UIScrollView alloc] initWithFrame:CGRectMake(45,50, SCREEN_WIDTH-80,200)];
+//    [scrollViewTest setBackgroundColor:[UIColor orangeColor]];
+//    scrollViewTest.contentSize = CGSizeMake(SCREEN_WIDTH*2, 200);
+//    [scrollViewTest setBackgroundColor:[UIColor redColor]];
+//    [scrollContainer addSubview:scrollViewTest];
 //    [self addTestView:scrollViewTest];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(45,50, SCREEN_WIDTH-80,200)];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [tableView setBackgroundColor:[UIColor redColor]];
+    tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    [scrollContainer addSubview:tableView];
     
     
     //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊［ 爆发力 ］＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
@@ -242,6 +284,35 @@
     }
     NSLog(@"%ld",(long)btn.tag);
 }
+
+#pragma mark - TableView Delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.listData.count > 20) {
+        return 20;
+    }else{
+        return [self.listData count];
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CIdentifier = @"CellIdentifier";
+    
+    TendencyListCell *cell = [tableView dequeueReusableCellWithIdentifier:CIdentifier];
+    if (cell == nil) {
+        cell = [[TendencyListCell alloc]initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:CIdentifier];
+        cell.contentView.transform = CGAffineTransformMakeRotation(M_PI/2);
+    }
+    [cell setvalue:nil withTag:nil];
+//    [cell.textLabel setText:@"zzz"];
+    return cell;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

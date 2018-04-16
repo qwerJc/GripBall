@@ -82,6 +82,8 @@
 		32678EBD1F9E32C9002BA0DB /* connect_rectangle_l@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32678EA11F9E32C8002BA0DB /* connect_rectangle_l@3x.png */; };
 		32678EBE1F9E32C9002BA0DB /* connect_state_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32678EA21F9E32C8002BA0DB /* connect_state_off@3x.png */; };
 		32678EBF1F9E32C9002BA0DB /* connect_state_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32678EA31F9E32C8002BA0DB /* connect_state_on@3x.png */; };
+		326F639620844E9400E5FE5F /* TendencyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 326F639520844E9400E5FE5F /* TendencyListCell.m */; };
+		326F63992084939D00E5FE5F /* MainViewListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 326F63982084939D00E5FE5F /* MainViewListCell.m */; };
 		32754CBD204ECB8700A96D2A /* CompetitionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32754C9E204ECB8700A96D2A /* CompetitionListCell.m */; };
 		32754CBE204ECB8700A96D2A /* CompetitionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32754CA0204ECB8700A96D2A /* CompetitionListViewController.m */; };
 		32754CBF204ECB8700A96D2A /* CompetitionStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32754CA2204ECB8700A96D2A /* CompetitionStartViewController.m */; };
@@ -311,6 +313,10 @@
 		32678EA11F9E32C8002BA0DB /* connect_rectangle_l@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect_rectangle_l@3x.png"; sourceTree = "<group>"; };
 		32678EA21F9E32C8002BA0DB /* connect_state_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect_state_off@3x.png"; sourceTree = "<group>"; };
 		32678EA31F9E32C8002BA0DB /* connect_state_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect_state_on@3x.png"; sourceTree = "<group>"; };
+		326F639420844E9400E5FE5F /* TendencyListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TendencyListCell.h; sourceTree = "<group>"; };
+		326F639520844E9400E5FE5F /* TendencyListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TendencyListCell.m; sourceTree = "<group>"; };
+		326F63972084939D00E5FE5F /* MainViewListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewListCell.h; sourceTree = "<group>"; };
+		326F63982084939D00E5FE5F /* MainViewListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewListCell.m; sourceTree = "<group>"; };
 		32754C9D204ECB8700A96D2A /* CompetitionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionListCell.h; sourceTree = "<group>"; };
 		32754C9E204ECB8700A96D2A /* CompetitionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionListCell.m; sourceTree = "<group>"; };
 		32754C9F204ECB8700A96D2A /* CompetitionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionListViewController.h; sourceTree = "<group>"; };
@@ -603,8 +609,12 @@
 				322D18981F78B37E00815118 /* Login */,
 				320FDE1E1F79FA0300607D5E /* MainViewController.h */,
 				320FDE1F1F79FA0300607D5E /* MainViewController.m */,
+				326F63972084939D00E5FE5F /* MainViewListCell.h */,
+				326F63982084939D00E5FE5F /* MainViewListCell.m */,
 				3246DA922080428B00E7B58E /* TendencyViewController.h */,
 				3246DA932080428B00E7B58E /* TendencyViewController.m */,
+				326F639420844E9400E5FE5F /* TendencyListCell.h */,
+				326F639520844E9400E5FE5F /* TendencyListCell.m */,
 				32CFBB482056CEB400F052C2 /* ChangeUser */,
 				322D18A01F78CF8F00815118 /* BlueTooth */,
 				321552C41FAF322A0095F55E /* Practice */,
@@ -1236,6 +1246,7 @@
 				32754CBF204ECB8700A96D2A /* CompetitionStartViewController.m in Sources */,
 				3246DAA020804DA900E7B58E /* EnduranceModel.m in Sources */,
 				32C9A489201D7D6500E5D14F /* JCManValueChart.m in Sources */,
+				326F639620844E9400E5FE5F /* TendencyListCell.m in Sources */,
 				32806F6B200224D00096F2F3 /* TestRHandViewController.m in Sources */,
 				32C9A490201D9A3400E5D14F /* JCAlertTestExit.m in Sources */,
 				32CFBB4E20582EEC00F052C2 /* ListUserCell.m in Sources */,
@@ -1270,6 +1281,7 @@
 				3246DA9A20804D0900E7B58E /* TestModel.m in Sources */,
 				32CFBB2E2055034B00F052C2 /* LoginInformationViewController.m in Sources */,
 				32806F69200224D00096F2F3 /* TestingRHandViewController.m in Sources */,
+				326F63992084939D00E5FE5F /* MainViewListCell.m in Sources */,
 				32CFBB4B2056CFCE00F052C2 /* ShowAllUserViewController.m in Sources */,
 				32754CCA204ECB8700A96D2A /* ExplodeTestingLHandViewController.m in Sources */,
 				32754CC3204ECB8700A96D2A /* EnduranceStartViewController.m in Sources */,

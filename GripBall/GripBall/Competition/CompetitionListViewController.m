@@ -114,7 +114,6 @@
 }
 
 #pragma mark - TableView Delegate
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.listData.count > 20) {

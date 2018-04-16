@@ -38,17 +38,29 @@
 //    [model setUid:[NSNumber numberWithInt:11]];
 //    [self getAllUser];
 //    [self changeInfo];
-
-    TendencyViewController *viewController = [[TendencyViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    self.navigationController.navigationBar.hidden = YES;
-    //=========================================
     
-//    self.viewController = [[LoginViewController alloc] init];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+//    NSString *sDay = @"1930年01月06日";
+//    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+//    fmt.dateFormat = @"yyyy年MM月dd日";
+////    fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+//    NSDate *someDay = [fmt dateFromString:sDay];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    NSLog(@"%@",someDay);
+//    // 设置日期格式
+//    [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+//    NSString *currentDateString = [formatter stringFromDate:someDay];
+//    NSLog(@"%@",currentDateString);
+
+//    TendencyViewController *viewController = [[TendencyViewController alloc] init];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
 //    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 //    self.navigationController.navigationBar.hidden = YES;
+    //=========================================
+    
+    self.viewController = [[LoginViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationController.navigationBar.hidden = YES;
     
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];
@@ -70,34 +82,34 @@
         }
     }];
 }
--(void)regist{
-    [httpModel registerWithTelNum:@"18701459239" andVCode:@"60311" Completion:^() {
-        NSLog(@"成功");
-    } error:^(NSError *error, int num) {
-        if (num == 2) {
-            NSLog(@"已注册");
-        }else if(num == 3){
-            NSLog(@"验证码错误");
-        }else if(num == 4){
-            NSLog(@"验证码过期");
-        }else if (num == 5){
-            NSLog(@"未知错误");
-        }else{
-            NSLog(@"请检查当前网络");
-        }
-    }];
-}
--(void)setPwd{
-    [httpModel setPassWordWithPwd:@"12345" Completion:^{
-        NSLog(@"成功");
-    } error:^(NSError *error, int num) {
-        if (num == 2) {
-            NSLog(@"设置失败");
-        }else{
-            NSLog(@"请检查当前网络");
-        }
-    }];
-}
+//-(void)regist{
+//    [httpModel registerWithTelNum:@"18701459239" andVCode:@"60311" Completion:^() {
+//        NSLog(@"成功");
+//    } error:^(NSError *error, int num) {
+//        if (num == 2) {
+//            NSLog(@"已注册");
+//        }else if(num == 3){
+//            NSLog(@"验证码错误");
+//        }else if(num == 4){
+//            NSLog(@"验证码过期");
+//        }else if (num == 5){
+//            NSLog(@"未知错误");
+//        }else{
+//            NSLog(@"请检查当前网络");
+//        }
+//    }];
+//}
+//-(void)setPwd{
+//    [httpModel setPassWordWithPwd:@"12345" Completion:^{
+//        NSLog(@"成功");
+//    } error:^(NSError *error, int num) {
+//        if (num == 2) {
+//            NSLog(@"设置失败");
+//        }else{
+//            NSLog(@"请检查当前网络");
+//        }
+//    }];
+//}
 -(void)login{
     [model setTelephone:@"15755396353"];
     [httpModel logInWithTelNum:[model telephone]
@@ -117,21 +129,21 @@
                          }];
 }
 -(void)completeInfo{
-    [httpModel completeInformationWithName:@"try1"
-                                   andSex:@"nan"
-                              andBirthday:@"1990/01/01"
-                                andHeight:@"173"
-                                andWeight:@"83"
-                                andTelNum:@"zzz"
-                               Completion:^{
-                                   NSLog(@"成功");
-                               } error:^(NSError *error, int num) {
-                                   if (num == 2 ) {
-                                       NSLog(@"完善失败");
-                                   }else{
-                                       NSLog(@"请检查当前网络");
-                                   }
-                               }];
+//    [httpModel completeInformationWithName:@"try1"
+//                                   andSex:@"nan"
+//                              andBirthday:@"1990/01/01"
+//                                andHeight:@"173"
+//                                andWeight:@"83"
+//                                andTelNum:@"zzz"
+//                               Completion:^{
+//                                   NSLog(@"成功");
+//                               } error:^(NSError *error, int num) {
+//                                   if (num == 2 ) {
+//                                       NSLog(@"完善失败");
+//                                   }else{
+//                                       NSLog(@"请检查当前网络");
+//                                   }
+//                               }];
 }
 -(void)changeInfo{
     [httpModel changeInformationWithName:@"try1"

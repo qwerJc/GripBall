@@ -82,4 +82,22 @@
 -(NSNumber *)getUid{
     return _uid;
 }
+-(void)setHeight:(NSString *)height andWeight:(NSString *)weight andBirth:(NSString *)birth andSex:(NSString *)sex{
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    _height = [numberFormatter numberFromString:height];
+    _weight = [numberFormatter numberFromString:weight];
+    
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy年MM月dd日";
+    _birthday = [fmt dateFromString:birth];
+    
+    if ([sex isEqualToString:@"男"]) {
+        _sex = [NSNumber numberWithInt:0];
+    }else{
+        _sex = [NSNumber numberWithInt:1];
+    }
+    
+}
 @end

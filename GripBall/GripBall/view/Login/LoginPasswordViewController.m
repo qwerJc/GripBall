@@ -112,18 +112,23 @@
         UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
         [rootWindow addSubview:self.alert];
     }else{
-        //合法
-        [httpModel setPassWordWithPwd:_txvPwd.text Completion:^{
-            //成功
-            self.viewControllerInfo = [[LoginInformationViewController alloc] init];
-            [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
-        } error:^(NSError *error, int num) {
-            if (num == 2 ) {
-                NSLog(@"完善失败");
-            }else{
-                NSLog(@"请检查当前网络");
-            }
-        }];
+        
+        self.viewControllerInfo = [[LoginInformationViewController alloc] init];
+        [self.viewControllerInfo setTelephone:[model telephone] andPwd:_txvPwd.text];
+        [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
+        
+//        //合法
+//        [httpModel setPassWordWithPwd:_txvPwd.text Completion:^{
+//            //成功
+//            self.viewControllerInfo = [[LoginInformationViewController alloc] init];
+//            [self.navigationController pushViewController:self.viewControllerInfo animated:YES];
+//        } error:^(NSError *error, int num) {
+//            if (num == 2 ) {
+//                NSLog(@"完善失败");
+//            }else{
+//                NSLog(@"请检查当前网络");
+//            }
+//        }];
         
         
     }

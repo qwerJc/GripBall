@@ -1,4 +1,4 @@
-//
+ //
 //  GBModel.m
 //  GripBall
 //

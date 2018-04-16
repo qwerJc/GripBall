@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginInformationViewController : UIViewController
--(void)setTelephone:(NSString *)str;
+-(void)setTelephone:(NSString *)str andPwd:(NSString *)pwd;
 @end

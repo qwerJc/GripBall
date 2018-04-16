@@ -11,11 +11,14 @@
 #import "ListUserCell.h"
 #import "AddUserViewController.h"
 #import "ShowInfoViewController.h"
+#import "JCAlertLogin.h"
 
 @interface ShowAllUserViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong , nonatomic) UIImageView *imvHead;
 @property (strong , nonatomic) UILabel     *lblName;
-@property (strong , nonatomic) NSArray     *arrRoleList;
+@property (strong , nonatomic) NSMutableArray     *arrRoleList;
+
+@property (strong, nonatomic) JCAlertLogin       *alert;
 @end
 
 @implementation ShowAllUserViewController
@@ -64,8 +67,10 @@
     UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(1,90,viewContainer.frame.size.width-2,viewContainer.frame.size.height-190) style:UITableViewStyleGrouped];
     tableview.dataSource=self;
     tableview.delegate = self;
-//    [tableview setBackgroundColor:[UIColor clearColor]];
-    [tableview setBackgroundColor:[UIColor redColor]];
+    [tableview setBackgroundColor:[UIColor clearColor]];
+    tableview.estimatedRowHeight = 0;
+    tableview.estimatedSectionHeaderHeight = 0;
+    tableview.estimatedSectionFooterHeight = 0;
     [viewContainer addSubview:tableview];
     
 //    if (@available(iOS 11.0, *)) {
@@ -113,6 +118,23 @@
         tableView.editing = NO;
         //删除数组，刷新列表
         
+        [httpModel deleteRoleWithUid:[[[_arrRoleList objectAtIndex:indexPath.row] getUid] stringValue] andRid:[[[_arrRoleList objectAtIndex:indexPath.row] getRid] stringValue] Completion:^{
+            NSLog(@"删除成功");
+            [_arrRoleList removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+        } error:^(NSError *error, int num) {
+            if (num == 2 ) {
+                self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"删除失败"];
+                UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                [rootWindow addSubview:self.alert];
+            }else{
+                self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+                UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                [rootWindow addSubview:self.alert];
+            }
+        }];
+        
         //数据源删除对应元素要在tableview删除对应的cell之前
 //         [callRecordsArrremoveObjectAtIndex:indexPath.row];
         //当左滑按钮执行的操作涉及数据源和页面的更新时，要先更新数据源，在更新视图，否则会出现无响应的情况
@@ -120,18 +142,15 @@
     }];
     action0.backgroundColor = [UIColor colorWithRed:189.f/255.f green:189.f/255.f blue:189.f/255.f alpha:1.0];
 
-    
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"取消" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
                 // 收回左滑出现的按钮(退出编辑模式)
         tableView.editing = NO;
     }];
     action1.backgroundColor = [UIColor colorWithRed:210.f/255.f green:210.f/255.f blue:210.f/255.f alpha:1.0];
 
-    
     return @[action1, action0];
     
 }
-
 //删除所做的动作
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Deleate!");
@@ -152,6 +171,24 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {   //每个节点有几行
     return [_arrRoleList count];
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"name :%@ andSex: %@",[[_arrRoleList objectAtIndex:indexPath.row] getName],[[_arrRoleList objectAtIndex:indexPath.row] getSex]);
+    
+    [httpModel changeUserWithUid:[[[_arrRoleList objectAtIndex:indexPath.row] getUid] stringValue] andRid:[[[_arrRoleList objectAtIndex:indexPath.row] getRid] stringValue] Completion:^{
+        NSLog(@"成功:%@",[model userInfo]);
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"切换失败"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }else{
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }
+    }];
 }
 //cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TendencyViewController : UIViewController
+@interface TendencyViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end

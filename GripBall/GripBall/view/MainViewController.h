@@ -10,6 +10,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "SearchResViewController.h"
 
-@interface MainViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate,SearchDelegate>
+@interface MainViewController : UIViewController<CBCentralManagerDelegate, CBPeripheralDelegate,SearchDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end

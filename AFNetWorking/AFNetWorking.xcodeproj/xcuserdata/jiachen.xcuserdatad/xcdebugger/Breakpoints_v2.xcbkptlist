@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AFNetWorking/ViewController.m"
-            timestampString = "545472595.0177341"
+            timestampString = "545552733.086256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "-clickBtn1"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,13 +36,90 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.704937"
+            timestampString = "545552733.086951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
             landmarkName = "-postPracticeRecordWithTimecost:andCount:andValue:Completion:error:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HTTPModel postExplodeWithLeftHandValue:andLeftHandCostTime:andRightHandValue:andRightHandCostTime:Completion:error:]"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.65795"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "631"
+                  endingLineNumber = "631"
+                  offsetFromSymbolStart = "1400">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__118-[HTTPModel postExplodeWithLeftHandValue:andLeftHandCostTime:andRightHandValue:andRightHandCostTime:Completion:error:]_block_invoke"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.659914"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "631"
+                  endingLineNumber = "631"
+                  offsetFromSymbolStart = "394">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.236"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.661743"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "631"
+                  endingLineNumber = "631"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.237"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.663499"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "631"
+                  endingLineNumber = "631"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__118-[HTTPModel postExplodeWithLeftHandValue:andLeftHandCostTime:andRightHandValue:andRightHandCostTime:Completion:error:]_block_invoke.239"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.665393"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "631"
+                  endingLineNumber = "631"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -52,75 +129,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.705047"
+            timestampString = "545552733.08742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-completeInformationWithName:andSex:andBirthday:andHeight:andWeight:andTelNum:Completion:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.705139"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-registerWithTelNum:andVCode:Completion:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.705219"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-registerWithTelNum:andVCode:Completion:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.705359"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-setPassWordWithPwd:Completion:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.705511"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "451"
-            endingLineNumber = "451"
+            startingLineNumber = "539"
+            endingLineNumber = "539"
             landmarkName = "-changeUserWithUid:andRid:Completion:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,12 +145,155 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../GripBall/GripBall/model/HTTPModel.m"
-            timestampString = "545296703.705762"
+            timestampString = "545552733.087576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
             landmarkName = "-changeUserWithUid:andRid:Completion:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../GripBall/GripBall/model/HTTPModel.m"
+            timestampString = "545552733.087734"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "861"
+            endingLineNumber = "861"
+            landmarkName = "-getLastestRecordWithCompletion:error:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[HTTPModel getTendencyWithCompletion:error:]_block_invoke"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.691717"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "862"
+                  endingLineNumber = "862"
+                  offsetFromSymbolStart = "579">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.308"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.6934429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "862"
+                  endingLineNumber = "862"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.309"
+                  moduleName = "AFNetWorking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiachen/Desktop/GripBall/GripBall/GripBall/model/HTTPModel.m"
+                  timestampString = "545552735.695389"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "862"
+                  endingLineNumber = "862"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../GripBall/GripBall/model/HTTPModel.m"
+            timestampString = "545552733.087873"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "928"
+            endingLineNumber = "928"
+            landmarkName = "-getTendencyWithCompletion:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AFNetWorking/ViewController.m"
+            timestampString = "545552733.088016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
+            landmarkName = "-btn19"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AFNetWorking/ViewController.m"
+            timestampString = "545552733.0881391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "-btn20"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../GripBall/GripBall/model/HTTPModel.m"
+            timestampString = "545552733.088239"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "853"
+            endingLineNumber = "853"
+            landmarkName = "-getLastestRecordWithCompletion:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../GripBall/GripBall/model/HTTPModel.m"
+            timestampString = "545552733.088339"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "937"
+            endingLineNumber = "937"
+            landmarkName = "-getTendencyWithCompletion:error:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
