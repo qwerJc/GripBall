@@ -38,28 +38,53 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setBackgroundColor:[UIColor clearColor]];
         
-        self.modelTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,15.f, 90.f, 20.f)];
-        [self.modelTitle setTextColor:[UIColor colorWithRed:82.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
-        [self.modelTitle setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-        [self.modelTitle setTextAlignment:NSTextAlignmentCenter];
+        self.modelTitle = [[UILabel alloc] initWithFrame:CGRectMake(20.f,15.f, 120.f, 20.f)];
+        [self.modelTitle setTextColor:[UIColor colorWithRed:52.f/255.f green:52.f/255.f blue:52.f/255.f alpha:1]];
+        [self.modelTitle setTextColor:[UIColor blackColor]];
+        [self.modelTitle setFont:[UIFont fontWithName:@"ArialMT" size:20.f]];
+        [self.modelTitle setTextAlignment:NSTextAlignmentLeft];
         [self addSubview:self.modelTitle];
         
-        self.lblDate = [[UILabel alloc] initWithFrame:CGRectMake(20,45.f, 40.f, 20.f)];
-        [self.lblDate setTextColor:[UIColor colorWithRed:82.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
-        [self.lblDate setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-        [self.lblDate setTextAlignment:NSTextAlignmentCenter];
-        [self.lblDate setBackgroundColor:[UIColor redColor]];
+        self.lblDate = [[UILabel alloc] initWithFrame:CGRectMake(21,42.f, 40.f, 20.f)];
+        [self.lblDate setTextColor:[UIColor colorWithRed:172.f/255.f green:173.f/255.f blue:174.f/255.f alpha:1]];
+        [self.lblDate setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+        [self.lblDate setTextAlignment:NSTextAlignmentLeft];
         [self addSubview:self.lblDate];
         
-        self.lblTime = [[UILabel alloc] initWithFrame:CGRectMake(70,45.f, 40.f, 20.f)];
-        [self.lblTime setTextColor:[UIColor colorWithRed:82.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
-        [self.lblTime setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-        [self.lblTime setTextAlignment:NSTextAlignmentCenter];
+        self.lblTime = [[UILabel alloc] initWithFrame:CGRectMake(60,42.f, 40.f, 20.f)];
+        [self.lblTime setTextColor:[UIColor colorWithRed:172.f/255.f green:173.f/255.f blue:174.f/255.f alpha:1]];
+        [self.lblTime setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+        [self.lblTime setTextAlignment:NSTextAlignmentRight];
         [self addSubview:self.lblTime];
         
-//        self.valueBG = [[UIView alloc] initWithFrame:CGRectMake(50,10.f,240.f, 20.f)];
-//        [self addSubview:self.valueBG];
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(20, 69, SCREEN_WIDTH-122, 1)];
+        [line setBackgroundColor:[UIColor colorWithRed:208.f/255.f green:206.f/255.f blue:206.f/255.f alpha:1]];
+        [self addSubview:line];
         
+        //////////////////////////////////////////////
+        self.viewPractice = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-210, 0, 110, 70)];
+        [self.viewPractice setBackgroundColor:[UIColor greenColor]];
+        [self addSubview:self.viewPractice];
+        
+        self.lblPracticeCount = [[UILabel alloc] initWithFrame:CGRectMake(32,42.f, 60.f, 20.f)];
+        [self.lblPracticeCount setTextColor:[UIColor colorWithRed:75.f/255.f green:76.f/255.f blue:78.f/255.f alpha:1]];
+        [self.lblPracticeCount setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+        [self.lblPracticeCount setTextAlignment:NSTextAlignmentLeft];
+        [self.lblPracticeCount setBackgroundColor:[UIColor redColor]];
+        [self addSubview:self.lblPracticeCount];
+        
+        self.lblPrcaticeValue = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-152,42.f, 50.f, 20.f)];
+        [self.lblPrcaticeValue setTextColor:[UIColor colorWithRed:75.f/255.f green:76.f/255.f blue:78.f/255.f alpha:1]];
+        [self.lblPrcaticeValue setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
+        [self.lblPrcaticeValue setTextAlignment:NSTextAlignmentLeft];
+        [self.lblPrcaticeValue setBackgroundColor:[UIColor redColor]];
+        [self addSubview:self.lblPrcaticeValue];
+        
+        ////////////////////////////////////////////
+        self.viewTest = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-190, 0, 110, 70)];
+        [self.viewTest setBackgroundColor:[UIColor greenColor]];
+        [self.viewTest setHidden:YES];
+        [self addSubview:_viewTest];
     }
     return self;
 }
@@ -82,6 +107,20 @@
         [_viewEndurance setHidden:YES];
         
         [_modelTitle setText:@"测试模式"];
+    }else if ([mode isEqualToString:@"explosive"]){
+        [_viewPractice setHidden:YES];
+        [_viewTest setHidden:YES];
+        [_viewExplode setHidden:NO];
+        [_viewEndurance setHidden:YES];
+        
+        [_modelTitle setText:@"爆发力模式"];
+    }else if ([mode isEqualToString:@"stamina"]){
+        [_viewPractice setHidden:YES];
+        [_viewTest setHidden:YES];
+        [_viewExplode setHidden:YES];
+        [_viewEndurance setHidden:NO];
+        
+        [_modelTitle setText:@"耐力模式"];
     }
     
     // 设置日期格式
@@ -90,7 +129,7 @@
     NSDate *someDay = [fmt dateFromString:[dic objectForKey:@"date"]];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM.dd"];
+    [formatter setDateFormat:@"M-dd"];
     [self.lblDate setText:[formatter stringFromDate:someDay]];
     
     [formatter setDateFormat:@"HH:mm"];

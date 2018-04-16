@@ -106,7 +106,7 @@
     [self.view addSubview:self.imgViewState];
     
     //中部背景图片
-    UIImageView *imgViewBG2 = [[UIImageView alloc] initWithFrame:CGRectMake(36.f, 141.f, SCREEN_WIDTH-72.f, 105.f)];
+    UIImageView *imgViewBG2 = [[UIImageView alloc] initWithFrame:CGRectMake(24.f, 141.f, SCREEN_WIDTH-48.f, 105.f)];
     [imgViewBG2 setImage:[UIImage imageNamed:@"connect_background2"]];
     [self.view addSubview:imgViewBG2];
     
@@ -115,13 +115,26 @@
     [btnShowTendency addTarget:self action:@selector(onBtnShowTendency) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnShowTendency];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(36.f,260.f, SCREEN_WIDTH-72.f,150)];
+    UIImageView *imgViewBGTableView = [[UIImageView alloc] initWithFrame:CGRectMake(40.f,260.f, SCREEN_WIDTH-80.f, SCREEN_HEIGHT-400)];
+    [imgViewBGTableView setImage:[UIImage imageNamed:@"Login_white_BG_short"]];
+    [self.view addSubview:imgViewBGTableView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(21,12.f, 60.f, 20.f)];
+    [label setTextColor:[UIColor colorWithRed:75.f/255.f green:76.f/255.f blue:78.f/255.f alpha:1]];
+//    [label setTextColor:[UIColor blackColor]];
+    [label setText:@"使用记录"];
+    [label setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
+    [label setTextAlignment:NSTextAlignmentLeft];
+    [imgViewBGTableView addSubview:label];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(42,295.f, SCREEN_WIDTH-82.f, SCREEN_HEIGHT-445)];
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    [tableView setBackgroundColor:[UIColor redColor]];
+    [tableView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:tableView];
-
+    
     self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-90, 171, 46.f)];
     [self.btnStart setTitle:@"Start Test" forState:UIControlStateNormal];
     [self.btnStart setBackgroundImage:[UIImage imageNamed:@"connect_btn_blue"] forState:UIControlStateNormal];
@@ -143,7 +156,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 70;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
