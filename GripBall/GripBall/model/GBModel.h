@@ -26,7 +26,4 @@
 +(GBModel *)shareModel;
 -(NSMutableArray *)getElseUserList:(NSNumber *)mainRid;
 //-(NSMutableArray *)getPracticeList;
--(NSMutableArray *)getTestList;
--(NSMutableArray *)getExplodeList;
--(NSMutableArray *)getEnduranceList;
 @end

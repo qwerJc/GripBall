@@ -122,32 +122,251 @@
 -(void)setLeftStrength:(float)sValue{
     [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",sValue]];
     //设置评分
-    [self.lblLScore setText:@"95"];
+    [self.lblLScore setText:[self getScore:sValue]];
 }
 -(void)setRightStrength:(float)sVlue{
     [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",sVlue]];
     
     //设置评分
-    [self.lblRScore setText:@"95"];
+    [self.lblRScore setText:[self getScore:sVlue]];
 }
 
-//-(NSString *)getScore:(float)value{
-//    if ([[[model userInfo] getSex] isEqualToString:@"男"]) {
-//        //男
-//        int years = 2018 - [[model userInfo] getYears];
-//        if (years<20) {
-//            return @"1";
-//        }else if(years <24){
-//            if (<#condition#>) {
-//                <#statements#>
-//            }
-//        }
-//
-//    }else{
-//        //女
-//
-//    }
-//}
+-(NSString *)getScore:(float)value{
+    int years = 2018 - [[model userInfo] getYears];
+    
+    if ([[[model userInfo] getSex] isEqualToString:@"男"]) {
+        //男
+        if (years<20) {
+            return @"0";
+        }else if(years <24){ //20-24
+            if (value<37) {
+                return @"1";
+            }else if(value<43.5){
+                return @"2";
+            }else if (value<49){
+                return @"3";
+            }else if (value<56){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <30){//25-29
+            if (value<38) {
+                return @"1";
+            }else if(value<45){
+                return @"2";
+            }else if (value<50){
+                return @"3";
+            }else if (value<57.6){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <35){
+            if (value<38) {
+                return @"1";
+            }else if(value<45){
+                return @"2";
+            }else if (value<50){
+                return @"3";
+            }else if (value<57.6){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <40){
+            if (value<37.2) {
+                return @"1";
+            }else if(value<44.4){
+                return @"2";
+            }else if (value<50.2){
+                return @"3";
+            }else if (value<57.7){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <45){
+            if (value<36.4) {
+                return @"1";
+            }else if(value<43.4){
+                return @"2";
+            }else if (value<49.6){
+                return @"3";
+            }else if (value<56.7){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <50){
+            if (value<35.4) {
+                return @"1";
+            }else if(value<42.4){
+                return @"2";
+            }else if (value<48.6){
+                return @"3";
+            }else if (value<55.7){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <55){
+            if (value<32.7) {
+                return @"1";
+            }else if(value<40.3){
+                return @"2";
+            }else if (value<46.3){
+                return @"3";
+            }else if (value<53.2){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <60){
+            if (value<31.4) {
+                return @"1";
+            }else if(value<38.3){
+                return @"2";
+            }else if (value<44){
+                return @"3";
+            }else if (value<50.2){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <65){
+            if (value<26.9) {
+                return @"1";
+            }else if(value<34.3){
+                return @"2";
+            }else if (value<40){
+                return @"3";
+            }else if (value<47.2){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else{
+            return @"0";
+        }
+        
+    }else{
+        //女
+        if (years<20) {
+            return @"0";
+        }else if(years <24){ //20-24
+            if (value<21.1) {
+                return @"1";
+            }else if(value<25.7){
+                return @"2";
+            }else if (value<29.8){
+                return @"3";
+            }else if (value<35.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <30){//25-29
+            if (value<21.6) {
+                return @"1";
+            }else if(value<26.2){
+                return @"2";
+            }else if (value<30.2){
+                return @"3";
+            }else if (value<35.3){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <35){
+            if (value<22.1) {
+                return @"1";
+            }else if(value<26.7){
+                return @"2";
+            }else if (value<30.8){
+                return @"3";
+            }else if (value<36.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <40){
+            if (value<22.1) {
+                return @"1";
+            }else if(value<26.7){
+                return @"2";
+            }else if (value<30.8){
+                return @"3";
+            }else if (value<36.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <45){
+            if (value<22.1) {
+                return @"1";
+            }else if(value<26.7){
+                return @"2";
+            }else if (value<30.8){
+                return @"3";
+            }else if (value<36.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <50){
+            if (value<21.1) {
+                return @"1";
+            }else if(value<26.0){
+                return @"2";
+            }else if (value<29.8){
+                return @"3";
+            }else if (value<35.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <55){
+            if (value<20.1) {
+                return @"1";
+            }else if(value<25.0){
+                return @"2";
+            }else if (value<28.8){
+                return @"3";
+            }else if (value<34.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <60){
+            if (value<19.1) {
+                return @"1";
+            }else if(value<24.0){
+                return @"2";
+            }else if (value<27.8){
+                return @"3";
+            }else if (value<33.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else if (years <65){
+            if (value<18.1) {
+                return @"1";
+            }else if(value<23.0){
+                return @"2";
+            }else if (value<26.8){
+                return @"3";
+            }else if (value<32.0){
+                return @"4";
+            }else {
+                return @"5";
+            }
+        }else{
+            return @"0";
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

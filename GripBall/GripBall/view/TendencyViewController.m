@@ -164,7 +164,7 @@
     self.tableViewTest.delegate = self;
     self.tableViewTest.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableViewTest setBackgroundColor:[UIColor redColor]];
-//    self.tableViewTest.transform = CGAffineTransformMakeRotation(M_PI / 2);
+    self.tableViewTest.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     [scrollContainer addSubview:self.tableViewTest];
     
     
@@ -230,7 +230,7 @@
 }
 
 -(void)addTestView:(UIScrollView *)container{
-    for (int i = 0; i < [[model getTestList] count];i++) {
+    for (int i = 0; i < [[model testList] count];i++) {
         UIView *viewBG = [[UIView alloc] initWithFrame:CGRectMake(39*i, 0, 40, 200)];
         [viewBG setBackgroundColor:[UIColor redColor]];
         [container addSubview:viewBG];
@@ -290,11 +290,11 @@
 #pragma mark - TableView Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.listData.count > 20) {
-        return 20;
-    }else{
-        return [self.listData count];
+    if (tableView == _tableViewTest) {
+        return [[model testList] count];
     }
+    return 0;
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -310,10 +310,9 @@
         cell = [[TendencyListCell alloc]initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:CIdentifier];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI/2);
     }
+    NSLog(@"%@",[model testList]);
     
-    NSLog(@"%@",[model getTestList]);
-    
-    [cell setTestValue:[[model getTestList] objectAtIndex:indexPath.row] withTag:_btnTestHand.tag];
+    [cell setTestValue:[[model testList] objectAtIndex:indexPath.row] withTag:_btnTestHand.tag];
 //    [cell.textLabel setText:@"zzz"];
     return cell;
 }

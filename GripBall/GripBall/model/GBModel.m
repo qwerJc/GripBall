@@ -47,14 +47,6 @@
 //    return arr;
 //}
 
--(NSMutableArray *)getTestList{
-    NSMutableArray *arr = [NSMutableArray array];
-    for (int i = 0; i<[_testList count]; i++) {
-        TestModel *model = [[TestModel alloc] initWithDic:[_testList objectAtIndex:i]];
-        [arr addObject:model];
-    }
-    return arr;
-}
 
 -(NSMutableArray *)getExplodeList{
     NSMutableArray *arr = [NSMutableArray array];

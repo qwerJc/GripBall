@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.908347"
+            timestampString = "545642016.286756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "505"
@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/AppDelegate.m"
-            timestampString = "545565291.310318"
+            timestampString = "545642016.286913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/AppDelegate.m"
-            timestampString = "545565291.310668"
+            timestampString = "545642016.287019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/AppDelegate.m"
-            timestampString = "545565291.31074"
+            timestampString = "545642016.287115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.909377"
+            timestampString = "545642016.287213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "280"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.910068"
+            timestampString = "545642016.287324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "602"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.910718"
+            timestampString = "545642016.287443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "791"
@@ -148,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.91119"
+            timestampString = "545642016.287551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "782"
@@ -180,44 +180,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.911788"
+            timestampString = "545642016.287733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "873"
             endingLineNumber = "873"
             landmarkName = "-getLastestRecordWithCompletion:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GripBall/view/TendencyViewController.m"
-            timestampString = "545638950.9122961"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GripBall/model/HTTPModel.m"
-            timestampString = "545638950.9123991"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "951"
-            endingLineNumber = "951"
-            landmarkName = "-getTendencyWithCompletion:error:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

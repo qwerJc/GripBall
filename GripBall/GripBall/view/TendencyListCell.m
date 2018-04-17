@@ -32,7 +32,7 @@
         self.lbldata = [[UILabel alloc] initWithFrame:CGRectMake(170 ,10.f, 30.f, 20.f)];
         [self.lbldata setTextColor:[UIColor colorWithRed:151.f/255.f green:151.f/255.f blue:151.f/255.f alpha:1]];
         [self.lbldata setFont:[UIFont fontWithName:@"ArialMT" size:12.f]];
-        self.lbldata.transform = CGAffineTransformMakeRotation(-M_PI/2);
+        self.lbldata.transform = CGAffineTransformMakeRotation(M_PI/2);
         [self.lbldata setTextAlignment:NSTextAlignmentCenter];
         [self.lbldata setBackgroundColor:[UIColor greenColor]];
         [self addSubview:self.lbldata];
@@ -54,16 +54,21 @@
 
 -(void)setTestValue:(NSDictionary *)data withTag:(NSInteger)tag{
 //    [self.valueBG setBackgroundColor:[UIColor grayColor]];
-    [self.lbldata setText:@"5/13"];
-    
-    NSLog(@"data %@:",data);
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+    NSDate *someDay = [fmt dateFromString:[data objectForKey:@"date"]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"M/dd"];
+    [self.lbldata setText:[formatter stringFromDate:someDay]];
     
     if (tag == 0) {
         int value = [[data objectForKey:@"lval"] intValue];
         float rate = value*1.f/120;
-        [self.valueBG setFrame:CGRectMake(200*(1-rate), 15, 200*rate, 15)];
+        [self.valueBG setFrame:CGRectMake(150*(1-rate), 15, 150*rate, 15)];
     }else{
         int value = [[data objectForKey:@"rval"] intValue];
+        float rate = value*1.f/120;
+        [self.valueBG setFrame:CGRectMake(150*(1-rate), 15, 150*rate, 15)];
     }
 }
 
