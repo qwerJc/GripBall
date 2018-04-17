@@ -19,4 +19,6 @@
 @interface TendencyListCell : UITableViewCell
 //tag 左右手标志
 -(void)setTestValue:(NSDictionary *)data withTag:(NSInteger)tag;
+-(void)setExplodeValue:(NSDictionary *)data withTag:(NSInteger)tag;
+-(void)setEnduranceValue:(NSDictionary *)data withTag:(NSInteger)tag;
 @end

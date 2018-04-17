@@ -163,6 +163,11 @@
     
 }
 -(void)clickBtnBackToMain{
+    if ([_delegate respondsToSelector:@selector(reGetMainList)]) {
+        // 如果协议响应了sendValue:方法
+        [_delegate reGetMainList]; // 通知执行协议方法
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

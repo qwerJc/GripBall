@@ -26,7 +26,15 @@
     [self.lblNumberValue setText:num];
     [self.lblAverageValue setText:ave];
     
-    [httpModel postPracticeRecordWithTimecost:time andCount:num andValue:ave Completion:^{
+    //此处时间向下取整，即2分59s算 2 min
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"HH:mm:ss";
+    NSDate *someDay = [fmt dateFromString:time];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"m"];
+    
+    [httpModel postPracticeRecordWithTimecost:[formatter stringFromDate:someDay] andCount:num andValue:ave Completion:^{
         NSLog(@"上传成功");
     } error:^(NSError *error, int num) {
         if (num == 2 ) {

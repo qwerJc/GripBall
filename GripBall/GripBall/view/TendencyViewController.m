@@ -22,6 +22,9 @@
 @property (strong, nonatomic)UILabel *lblEnduranceTitle;
 
 @property (strong, nonatomic)UITableView *tableViewTest;
+@property (strong, nonatomic)UITableView *tableViewExplode;
+@property (strong, nonatomic)UITableView *tableViewEndurance;
+
 
 @end
 
@@ -152,14 +155,8 @@
     [scrollContainer addSubview:imgBG];
     
     //测试模式 横向滚动条
-//    UIScrollView *scrollViewTest = [[UIScrollView alloc] initWithFrame:CGRectMake(45,50, SCREEN_WIDTH-80,200)];
-//    [scrollViewTest setBackgroundColor:[UIColor orangeColor]];
-//    scrollViewTest.contentSize = CGSizeMake(SCREEN_WIDTH*2, 200);
-//    [scrollViewTest setBackgroundColor:[UIColor redColor]];
-//    [scrollContainer addSubview:scrollViewTest];
-//    [self addTestView:scrollViewTest];
     
-    self.tableViewTest = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,-25,200,SCREEN_WIDTH-80)];
+    self.tableViewTest = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,-5,200,SCREEN_WIDTH-100)];
     self.tableViewTest.dataSource = self;
     self.tableViewTest.delegate = self;
     self.tableViewTest.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -197,6 +194,13 @@
     [imgBG2 setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
     [scrollContainer addSubview:imgBG2];
     
+    self.tableViewExplode = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,265,200,SCREEN_WIDTH-100)];
+    self.tableViewExplode.dataSource = self;
+    self.tableViewExplode.delegate = self;
+    self.tableViewExplode.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableViewExplode setBackgroundColor:[UIColor redColor]];
+    self.tableViewExplode.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    [scrollContainer addSubview:self.tableViewExplode];
     
     //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊［ 爆发力 ］＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
     UIImageView *imgvEnduranceBG = [[UIImageView alloc] initWithFrame:CGRectMake(45.f,540.f , 85.f, 30.f)];
@@ -229,13 +233,13 @@
     
 }
 
--(void)addTestView:(UIScrollView *)container{
-    for (int i = 0; i < [[model testList] count];i++) {
-        UIView *viewBG = [[UIView alloc] initWithFrame:CGRectMake(39*i, 0, 40, 200)];
-        [viewBG setBackgroundColor:[UIColor redColor]];
-        [container addSubview:viewBG];
-    }
-}
+//-(void)addTestView:(UIScrollView *)container{
+//    for (int i = 0; i < [[model testList] count];i++) {
+//        UIView *viewBG = [[UIView alloc] initWithFrame:CGRectMake(39*i, 0, 40, 200)];
+//        [viewBG setBackgroundColor:[UIColor redColor]];
+//        [container addSubview:viewBG];
+//    }
+//}
 
 
 -(void)onBtnTestHand:(UIButton *)btn{
@@ -292,9 +296,13 @@
 {
     if (tableView == _tableViewTest) {
         return [[model testList] count];
+    }else if(tableView == _tableViewExplode){
+        return [[model explodeList] count];
+    }else if (tableView == _tableViewEndurance){
+        return [[model enduranceList] count];
+    }else{
+        return 0;
     }
-    return 0;
-    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -310,10 +318,17 @@
         cell = [[TendencyListCell alloc]initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:CIdentifier];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI/2);
     }
-    NSLog(@"%@",[model testList]);
-    
-    [cell setTestValue:[[model testList] objectAtIndex:indexPath.row] withTag:_btnTestHand.tag];
-//    [cell.textLabel setText:@"zzz"];
+    if (tableView == _tableViewTest) {
+        
+        [cell setTestValue:[[model testList] objectAtIndex:indexPath.row] withTag:_btnTestHand.tag];
+        
+    }else if(tableView == _tableViewExplode){
+        
+        [cell setExplodeValue:[[model explodeList] objectAtIndex:indexPath.row] withTag:_btnExplodeHand.tag];
+        
+    }else if (tableView == _tableViewEndurance){
+        
+    }
     return cell;
 }
 

@@ -29,7 +29,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
     //-----------------[del]===================
 //    [self getVCode];
 //    [self regist];
@@ -39,17 +38,14 @@
 //    [self getAllUser];
 //    [self changeInfo];
     
-//    NSString *sDay = @"1930年01月06日";
-//    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-//    fmt.dateFormat = @"yyyy年MM月dd日";
-////    fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
-//    NSDate *someDay = [fmt dateFromString:sDay];
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    NSLog(@"%@",someDay);
 //    // 设置日期格式
-//    [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
-//    NSString *currentDateString = [formatter stringFromDate:someDay];
-//    NSLog(@"%@",currentDateString);
+//    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+//    fmt.dateFormat = @"HH:mm:ss";
+//    NSDate *someDay = [fmt dateFromString:@"00:02:59"];
+//    
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"m"];
+//    NSLog(@"time : %@",[formatter stringFromDate:someDay]);
 
 //    TendencyViewController *viewController = [[TendencyViewController alloc] init];
 //    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];

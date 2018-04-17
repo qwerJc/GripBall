@@ -1052,7 +1052,7 @@
 				TargetAttributes = {
 					322D187C1F78AF8700815118 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = X795N87KCK;
+						DevelopmentTeam = SR4ZEKCW75;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1417,11 +1417,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X795N87KCK;
+				DEVELOPMENT_TEAM = SR4ZEKCW75;
 				INFOPLIST_FILE = GripBall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-3070302.GripBall";
+				PRODUCT_BUNDLE_IDENTIFIER = "-3070302.GripBall1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1430,11 +1430,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X795N87KCK;
+				DEVELOPMENT_TEAM = SR4ZEKCW75;
 				INFOPLIST_FILE = GripBall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-3070302.GripBall";
+				PRODUCT_BUNDLE_IDENTIFIER = "-3070302.GripBall1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

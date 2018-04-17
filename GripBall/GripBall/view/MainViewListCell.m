@@ -76,13 +76,13 @@
         [self.lblPracticeTime setTextAlignment:NSTextAlignmentRight];
         [self.viewPractice addSubview:self.lblPracticeTime];
         
-        self.lblPracticeCount = [[UILabel alloc] initWithFrame:CGRectMake(0,42.f, 60.f, 20.f)];
+        self.lblPracticeCount = [[UILabel alloc] initWithFrame:CGRectMake(0,42.f, 55.f, 20.f)];
         [self.lblPracticeCount setTextColor:[UIColor colorWithRed:95.f/255.f green:96.f/255.f blue:98.f/255.f alpha:1]];
         [self.lblPracticeCount setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
         [self.lblPracticeCount setTextAlignment:NSTextAlignmentRight];
         [self.viewPractice addSubview:self.lblPracticeCount];
         
-        self.lblPrcaticeValue = [[UILabel alloc] initWithFrame:CGRectMake(70,42.f, 30.f, 20.f)];
+        self.lblPrcaticeValue = [[UILabel alloc] initWithFrame:CGRectMake(50,42.f, 50.f, 20.f)];
         [self.lblPrcaticeValue setTextColor:[UIColor colorWithRed:95.f/255.f green:96.f/255.f blue:98.f/255.f alpha:1]];
         [self.lblPrcaticeValue setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
         [self.lblPrcaticeValue setTextAlignment:NSTextAlignmentRight];
@@ -173,7 +173,7 @@
         [lblEnduranceLTitle setTextColor:[UIColor colorWithRed:95.f/255.f green:96.f/255.f blue:98.f/255.f alpha:1]];
         [lblEnduranceLTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
         [lblEnduranceLTitle setTextAlignment:NSTextAlignmentRight];
-        [lblEnduranceLTitle setText:@"左手成绩"];
+        [lblEnduranceLTitle setText:@"左手时间"];
         [self.viewEndurance addSubview:lblEnduranceLTitle];
         
         UILabel *lblEnduranceRTitle = [[UILabel alloc] initWithFrame:CGRectMake(0,42.f, 60.f, 20.f)];
@@ -181,7 +181,7 @@
         [lblEnduranceRTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
         [lblEnduranceRTitle setTextAlignment:NSTextAlignmentRight];
 //        [lblEnduranceRTitle setBackgroundColor:[UIColor redColor]];
-        [lblEnduranceRTitle setText:@"右手成绩"];
+        [lblEnduranceRTitle setText:@"右手时间"];
         [self.viewEndurance addSubview:lblEnduranceRTitle];
         
         self.lblEnduranceLTime = [[UILabel alloc] initWithFrame:CGRectMake(65,15.f, 55.f, 20.f)];

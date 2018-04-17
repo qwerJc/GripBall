@@ -237,7 +237,6 @@
                         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                             
                             self.viewControllerFinish = [[ExplodeFinishViewController alloc] init];
-                            [self.viewControllerFinish setLeftValue:_leftHandValue andRightValue:_strMaxValue];
                             [self.viewControllerFinish setLeftValue:_leftHandValue andLeftTime:_leftHandValueTime andRightValue:_strMaxValue andRightTime:_strMaxValueTime];
                             
                             [self.navigationController pushViewController:self.viewControllerFinish animated:YES];

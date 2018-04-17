@@ -48,21 +48,21 @@
 //}
 
 
--(NSMutableArray *)getExplodeList{
-    NSMutableArray *arr = [NSMutableArray array];
-    for (int i = 0; i<[_explodeList count]; i++) {
-        ExplodeModel *model = [[ExplodeModel alloc] initWithDic:[_explodeList objectAtIndex:i]];
-        [arr addObject:model];
-    }
-    return arr;
-}
-
--(NSMutableArray *)getEnduranceList{
-    NSMutableArray *arr = [NSMutableArray array];
-    for (int i = 0; i<[_enduranceList count]; i++) {
-        EnduranceModel *model = [[EnduranceModel alloc] initWithDic:[_enduranceList objectAtIndex:i]];
-        [arr addObject:model];
-    }
-    return arr;
-}
+//-(NSMutableArray *)getExplodeList{
+//    NSMutableArray *arr = [NSMutableArray array];
+//    for (int i = 0; i<[_explodeList count]; i++) {
+//        ExplodeModel *model = [[ExplodeModel alloc] initWithDic:[_explodeList objectAtIndex:i]];
+//        [arr addObject:model];
+//    }
+//    return arr;
+//}
+//
+//-(NSMutableArray *)getEnduranceList{
+//    NSMutableArray *arr = [NSMutableArray array];
+//    for (int i = 0; i<[_enduranceList count]; i++) {
+//        EnduranceModel *model = [[EnduranceModel alloc] initWithDic:[_enduranceList objectAtIndex:i]];
+//        [arr addObject:model];
+//    }
+//    return arr;
+//}
 @end

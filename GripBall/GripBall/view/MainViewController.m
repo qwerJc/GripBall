@@ -61,6 +61,7 @@
         self.viewControllerSearchRes.delegate = self;
         
         self.viewControllerConnectRes = [[ConnectResViewController alloc] init];
+        self.viewControllerSearchRes.delegate = self;
         
         self.arrPeripheralsList = [NSMutableArray array];
         
@@ -409,6 +410,10 @@
 -(void)reloadMainList{
     NSLog(@"刷新");
     [self.mainTableView reloadData];
+}
+
+-(void)reGetMainList{
+    NSLog(@"刷新");
 }
 
 #pragma mark - 选择模式后的Notification监听
