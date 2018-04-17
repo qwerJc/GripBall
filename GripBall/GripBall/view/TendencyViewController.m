@@ -21,6 +21,8 @@
 @property (strong, nonatomic)UILabel *lblExplodeTitle;
 @property (strong, nonatomic)UILabel *lblEnduranceTitle;
 
+@property (strong, nonatomic)UITableView *tableViewTest;
+
 @end
 
 @implementation TendencyViewController
@@ -29,7 +31,7 @@
     self = [super init];
     if (self) {
         
-        [self createUI2];
+        [self createUI];
         
         [self temGetDate];
 
@@ -157,13 +159,13 @@
 //    [scrollContainer addSubview:scrollViewTest];
 //    [self addTestView:scrollViewTest];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(45,50, SCREEN_WIDTH-80,200)];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [tableView setBackgroundColor:[UIColor redColor]];
-    tableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-    [scrollContainer addSubview:tableView];
+    self.tableViewTest = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,-25,200,SCREEN_WIDTH-80)];
+    self.tableViewTest.dataSource = self;
+    self.tableViewTest.delegate = self;
+    self.tableViewTest.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableViewTest setBackgroundColor:[UIColor redColor]];
+//    self.tableViewTest.transform = CGAffineTransformMakeRotation(M_PI / 2);
+    [scrollContainer addSubview:self.tableViewTest];
     
     
     //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊［ 爆发力 ］＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
@@ -296,7 +298,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 45;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -308,7 +310,10 @@
         cell = [[TendencyListCell alloc]initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:CIdentifier];
         cell.contentView.transform = CGAffineTransformMakeRotation(M_PI/2);
     }
-    [cell setvalue:nil withTag:nil];
+    
+    NSLog(@"%@",[model getTestList]);
+    
+    [cell setTestValue:[[model getTestList] objectAtIndex:indexPath.row] withTag:_btnTestHand.tag];
 //    [cell.textLabel setText:@"zzz"];
     return cell;
 }

@@ -947,6 +947,13 @@
              NSArray *arrExplode = [listDic objectForKey:@"explosive"];
              NSArray *arrEndutance = [listDic objectForKey:@"stamina"];
              
+             
+             [model setTestList:arrTest];
+             [model setExplodeList:arrExplode];
+             [model setEnduranceList:arrEndutance];
+             
+             NSLog(@"listDic:%@",listDic);
+             
              NSString *code = [NSString stringWithFormat:@"%@",[listDic objectForKey:@"code"]];
              if([code isEqualToString:@"1"]){
 

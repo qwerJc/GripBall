@@ -113,7 +113,6 @@
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewRowAction *action0 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        NSLog(@"点击了。。%ld",(long)indexPath.row);
         
         tableView.editing = NO;
         //删除数组，刷新列表
@@ -175,9 +174,38 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"name :%@ andSex: %@",[[_arrRoleList objectAtIndex:indexPath.row] getName],[[_arrRoleList objectAtIndex:indexPath.row] getSex]);
     
+    //切换用户
     [httpModel changeUserWithUid:[[[_arrRoleList objectAtIndex:indexPath.row] getUid] stringValue] andRid:[[[_arrRoleList objectAtIndex:indexPath.row] getRid] stringValue] Completion:^{
-        NSLog(@"成功:%@",[model userInfo]);
-        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
+        //切换用户成功后重新获取主页的列表数据
+        [httpModel getLastestRecordWithCompletion:^(NSArray *arr) {
+            [model setNewestListData:arr];
+            
+            if ([_delegate respondsToSelector:@selector(reloadMainList)]) {
+                // 如果协议响应了sendValue:方法
+                [_delegate reloadMainList]; // 通知执行协议方法
+            }
+            
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } error:^(NSError *error, int num) {
+                    if (num == 2 ) {
+                        self.alert = [[JCAlertLogin alloc] initWithTitle:@"账户不存在或密码错误" andDetailTitle:@"请重新输入"];
+                        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                        [rootWindow addSubview:self.alert];
+                    }else if(num == 3){
+                        self.alert = [[JCAlertLogin alloc] initWithTitle:@"未知错误" andDetailTitle:@"请联系后台人员"];
+                        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                        [rootWindow addSubview:self.alert];
+                    }else{
+                        self.alert = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+                        UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                        [rootWindow addSubview:self.alert];
+                    }
+        }];
+        
+        
     } error:^(NSError *error, int num) {
         if (num == 2 ) {
             self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"切换失败"];

@@ -28,7 +28,6 @@
         NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
         fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
         NSDate *someDay = [fmt dateFromString:sDay];
-        NSLog(@"someDay : %@", someDay);
         _birthday = someDay;
         
         _height = [dic objectForKey:@"height"];

@@ -44,6 +44,7 @@
 @property (assign, nonatomic) BOOL                      isReConnect;
 @property (assign, nonatomic) int                       choiceModelState;   //进入子View状态 ：－1为未选择；0为练习模式；1为测验模式；2为竞技－爆发力模式；3为竞技－耐力模式
 
+@property (strong, nonatomic) UITableView               *mainTableView;
 @end
 
 @implementation MainViewController
@@ -121,19 +122,17 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(21,12.f, 60.f, 20.f)];
     [label setTextColor:[UIColor colorWithRed:75.f/255.f green:76.f/255.f blue:78.f/255.f alpha:1]];
-//    [label setTextColor:[UIColor blackColor]];
     [label setText:@"使用记录"];
     [label setFont:[UIFont fontWithName:@"ArialMT" size:14.f]];
     [label setTextAlignment:NSTextAlignmentLeft];
     [imgViewBGTableView addSubview:label];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(42,295.f, SCREEN_WIDTH-82.f, SCREEN_HEIGHT-445)];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    [tableView setBackgroundColor:[UIColor redColor]];
-    [tableView setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:tableView];
+    self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(42,295.f, SCREEN_WIDTH-82.f, SCREEN_HEIGHT-445)];
+    self.mainTableView.dataSource = self;
+    self.mainTableView.delegate = self;
+    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.mainTableView setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:self.mainTableView];
     
     self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-90, 171, 46.f)];
     [self.btnStart setTitle:@"Start Test" forState:UIControlStateNormal];
@@ -350,6 +349,7 @@
 -(void)onBtnChangeUserAction{
     ShowAllUserViewController *viewControllerShow = [[ShowAllUserViewController alloc] init];
     viewControllerShow.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+    viewControllerShow.delegate = self;
     [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
@@ -360,15 +360,27 @@
         
         [self presentViewController:viewControllerShow animated:YES completion:nil];
     } error:^(NSError *error, int num) {
-        self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"请检查当前网络" andDetailTitle:@""];
+        self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
         UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
         [rootWindow addSubview:self.alertLogin];
     }];
 //    [self presentViewController:viewControllerShow animated:YES completion:nil];
 }
 -(void)onBtnShowTendency{
-    TendencyViewController *viewControllerTendency = [[TendencyViewController alloc] init];
-    [self.navigationController pushViewController:viewControllerTendency animated:YES];
+    [httpModel getTendencyWithCompletion:^(NSArray *testArr, NSArray *explodeArr, NSArray *enduranceArr) {
+        TendencyViewController *viewControllerTendency = [[TendencyViewController alloc] init];
+        [self.navigationController pushViewController:viewControllerTendency animated:YES];
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"获取趋势数据失败"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }else{
+            self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }
+    }];
 }
 -(void)clickBtnStart
 {
@@ -392,6 +404,11 @@
 //重新搜索
 -(void)reSearch{
     [self clickBtnStart];
+}
+#pragma mark - 刷新list列表
+-(void)reloadMainList{
+    NSLog(@"刷新");
+    [self.mainTableView reloadData];
 }
 
 #pragma mark - 选择模式后的Notification监听
