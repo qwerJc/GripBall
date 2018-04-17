@@ -33,7 +33,8 @@
 
 @property (assign, nonatomic) int        practiceNumber;      //练习次数
 @property (assign, nonatomic) float      maxValue;          //三次中最大比值
-@property (assign, nonatomic) NSString  *strMaxValue;
+@property (strong, nonatomic) NSString  *strMaxValue;
+@property (strong, nonatomic) NSString  *strMaxValueTime;
 
 @end
 
@@ -218,7 +219,8 @@
                     //将大的比值结果赋给maxValue
                     if (nowValue > _maxValue) {
                         _maxValue = nowValue;
-                        _strMaxValue = [NSString stringWithFormat:@"%d/%d",(int)self.midValue,(int)diffTime];
+                        _strMaxValue = [NSString stringWithFormat:@"%d",(int)self.midValue];
+                        _strMaxValueTime = [NSString stringWithFormat:@"%d",(int)diffTime];
                     }
                     
                     if (self.practiceNumber == 3) {
@@ -230,7 +232,7 @@
                         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                             
                             self.viewControllerRHand = [[ExplodeRHandViewController alloc] init];
-                            [self.viewControllerRHand setLeftHandValue:_strMaxValue];
+                            [self.viewControllerRHand setLeftHandValue:_strMaxValue andTime:_strMaxValueTime];
                             [self.navigationController pushViewController:self.viewControllerRHand animated:YES];
                         });
                     }else{

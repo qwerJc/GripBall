@@ -33,9 +33,12 @@
 
 @property (assign, nonatomic) int        practiceNumber;      //练习次数
 @property (assign, nonatomic) float      maxValue;          //最大比值
-@property (assign, nonatomic) NSString  *strMaxValue;
+
+@property (strong, nonatomic) NSString  *strMaxValue;
+@property (strong, nonatomic) NSString  *strMaxValueTime;
 
 @property (strong, nonatomic) NSString *leftHandValue;
+@property (strong, nonatomic) NSString *leftHandValueTime;
 @end
 
 @implementation ExplodeTestingRHandViewController
@@ -94,8 +97,9 @@
     
 }
 
--(void)setLeftHandValue:(NSString *)value{
+-(void)setLeftHandValue:(NSString *)value andTime:(NSString *)time{
     _leftHandValue = value;
+    _leftHandValueTime = time;
 }
 
 #pragma mark - Btn Delegate
@@ -220,7 +224,8 @@
                     //将大的比值结果赋给maxValue
                     if (nowValue > _maxValue) {
                         _maxValue = nowValue;
-                        _strMaxValue = [NSString stringWithFormat:@"%d/%d",(int)self.midValue,(int)diffTime];
+                        _strMaxValue = [NSString stringWithFormat:@"%d",(int)self.midValue];
+                        _strMaxValueTime = [NSString stringWithFormat:@"%d",(int)diffTime];
                     }
                     
                     if (self.practiceNumber == 3) {
@@ -233,6 +238,8 @@
                             
                             self.viewControllerFinish = [[ExplodeFinishViewController alloc] init];
                             [self.viewControllerFinish setLeftValue:_leftHandValue andRightValue:_strMaxValue];
+                            [self.viewControllerFinish setLeftValue:_leftHandValue andLeftTime:_leftHandValueTime andRightValue:_strMaxValue andRightTime:_strMaxValueTime];
+                            
                             [self.navigationController pushViewController:self.viewControllerFinish animated:YES];
                         });
                     }else{

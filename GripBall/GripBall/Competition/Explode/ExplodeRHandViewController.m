@@ -14,6 +14,7 @@
 @property (strong, nonatomic)ExplodeTestingRHandViewController *viewControllerTesting;
 
 @property (strong, nonatomic) NSString                     *leftHandValue;
+@property (strong, nonatomic) NSString                     *leftHandValueTime;
 @end
 
 @implementation ExplodeRHandViewController
@@ -97,13 +98,14 @@
     [self.view addSubview:lblTPrepareText2];
 }
 
--(void)setLeftHandValue:(NSString *)value{
+-(void)setLeftHandValue:(NSString *)value andTime:(NSString *)time{
     _leftHandValue = value;
+    _leftHandValueTime = time;
 }
 #pragma mark - Btn Delegate
 -(void)clickBtnStart{
     self.viewControllerTesting = [[ExplodeTestingRHandViewController alloc] init];
-    [self.viewControllerTesting setLeftHandValue:_leftHandValue];
+    [self.viewControllerTesting setLeftHandValue:_leftHandValue andTime:_leftHandValueTime];
     [self.navigationController pushViewController:self.viewControllerTesting animated:YES];
 }
 -(void)clickBtnBack{

@@ -115,9 +115,10 @@
     [self.view addSubview:btnReTest];
     
 }
--(void)setLeftValue:(NSString *)lvalue andRightValue:(NSString *)rValue{
-    [self.lblLHandScore setText:lvalue];
-    [self.lblRHandScore setText:rValue];
+
+-(void)setLeftValue:(NSString *)lValue andLeftTime:(NSString *)lTime andRightValue:(NSString *)rValue andRightTime:(NSString *)RTime{
+    [self.lblLHandScore setText:[NSString stringWithFormat:@"%@/%@",lValue,lTime]];
+    [self.lblRHandScore setText:[NSString stringWithFormat:@"%@/%@",lValue,lTime]];
 }
 #pragma mark - Btn Delegate
 -(void)clickBtnList{

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ExplodeRHandViewController : UIViewController
--(void)setLeftHandValue:(NSString *)value;
+-(void)setLeftHandValue:(NSString *)value andTime:(NSString *)time;
 @end
