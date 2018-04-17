@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TestFinishViewController : UIViewController
--(void)setLeftStrength:(float)sValue;
--(void)setRightStrength:(float)sVlue;
+-(void)setLeftValue:(float)lValue andRightValue:(float)rValue;
 @end

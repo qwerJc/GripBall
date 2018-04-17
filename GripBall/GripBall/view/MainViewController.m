@@ -374,11 +374,11 @@
         if (num == 2 ) {
             self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"获取趋势数据失败"];
             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-            [rootWindow addSubview:self.alert];
+            [rootWindow addSubview:self.alertLogin];
         }else{
             self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
             UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
-            [rootWindow addSubview:self.alert];
+            [rootWindow addSubview:self.alertLogin];
         }
     }];
 }

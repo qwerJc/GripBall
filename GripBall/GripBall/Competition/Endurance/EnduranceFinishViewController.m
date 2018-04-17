@@ -10,12 +10,15 @@
 #import "CompetitionListViewController.h"
 #import "ExplodeStartViewController.h"
 #import "ConnectResViewController.h"
+#import "JCAlertLogin.h"
 
 @interface EnduranceFinishViewController ()
 @property (strong, nonatomic) CompetitionListViewController *viewControllerList;
 
 @property (strong, nonatomic) UILabel *lblLHandScore;
 @property (strong, nonatomic) UILabel *lblRHandScore;
+
+@property (strong, nonatomic) JCAlertLogin              *alertLogin;
 @end
 
 @implementation EnduranceFinishViewController
@@ -118,6 +121,24 @@
 -(void)setLTime:(NSString *)lTime andRTime:(NSString *)rTime{
     [self.lblLHandScore setText:lTime];
     [self.lblRHandScore setText:rTime];
+    
+    [httpModel postEnduranceWithLeftHandValue:@"0"
+                          andLeftHandCostTime:lTime
+                            andRightHandValue:@"0"
+                         andRightHandCostTime:rTime
+                                   Completion:^{
+                                       NSLog(@"上传成功");
+                                   } error:^(NSError *error, int num) {
+                                       if (num == 2 ) {
+                                           self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"获取趋势数据失败"];
+                                           UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                           [rootWindow addSubview:self.alertLogin];
+                                       }else{
+                                           self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+                                           UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                           [rootWindow addSubview:self.alertLogin];
+                                       }
+                                   }];
 }
 #pragma mark - Btn Delegate
 -(void)clickBtnList{

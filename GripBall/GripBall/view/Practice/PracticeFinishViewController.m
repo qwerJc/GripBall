@@ -9,11 +9,14 @@
 #import "PracticeFinishViewController.h"
 #import "ModelLocator.h"
 #import "ConnectResViewController.h"
+#import "JCAlertLogin.h"
 
 @interface PracticeFinishViewController ()
 @property (strong, nonatomic)UILabel *lblTimeValue;
 @property (strong, nonatomic)UILabel *lblNumberValue;
 @property (strong, nonatomic)UILabel *lblAverageValue;
+
+@property (strong, nonatomic) JCAlertLogin              *alertLogin;
 @end
 
 @implementation PracticeFinishViewController
@@ -22,6 +25,20 @@
     [self.lblTimeValue setText:time];
     [self.lblNumberValue setText:num];
     [self.lblAverageValue setText:ave];
+    
+    [httpModel postPracticeRecordWithTimecost:time andCount:num andValue:ave Completion:^{
+        NSLog(@"上传成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"获取趋势数据失败"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alertLogin];
+        }else{
+            self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alertLogin];
+        }
+    }];
 }
 
 - (instancetype)init

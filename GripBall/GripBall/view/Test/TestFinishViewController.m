@@ -10,12 +10,15 @@
 #import "ModelLocator.h"
 #import "TestStartViewController.h"
 #import "ConnectResViewController.h"
+#import "JCAlertLogin.h"
 
 @interface TestFinishViewController ()
 @property (strong, nonatomic) UILabel *lblLStrength;
 @property (strong, nonatomic) UILabel *lblLScore;
 @property (strong, nonatomic) UILabel *lblRStrength;
 @property (strong, nonatomic) UILabel *lblRScore;
+
+@property (strong, nonatomic) JCAlertLogin              *alertLogin;
 @end
 
 @implementation TestFinishViewController
@@ -119,16 +122,27 @@
     [btnReTest addTarget:self action:@selector(clickBtnReTest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnReTest];
 }
--(void)setLeftStrength:(float)sValue{
-    [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",sValue]];
-    //设置评分
-    [self.lblLScore setText:[self getScore:sValue]];
-}
--(void)setRightStrength:(float)sVlue{
-    [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",sVlue]];
+
+-(void)setLeftValue:(float)lValue andRightValue:(float)rValue{
+    [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",lValue]];
+    [self.lblLScore setText:[self getScore:lValue]];
     
-    //设置评分
-    [self.lblRScore setText:[self getScore:sVlue]];
+    [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",rValue]];
+    [self.lblRScore setText:[self getScore:rValue]];
+    
+    [httpModel postTestRecordWithLeftHandValue:[NSString stringWithFormat:@"%0.1f",lValue] andLeftHandScore:[self getScore:lValue] andRightHandValue:[NSString stringWithFormat:@"%0.1f",rValue] andRightHandScore:[self getScore:rValue] Completion:^{
+        NSLog(@"上传成功");
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"获取趋势数据失败"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alertLogin];
+        }else{
+            self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alertLogin];
+        }
+    }];
 }
 
 -(NSString *)getScore:(float)value{

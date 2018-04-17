@@ -10,12 +10,15 @@
 #import "CompetitionListViewController.h"
 #import "ExplodeStartViewController.h"
 #import "ConnectResViewController.h"
+#import "JCAlertLogin.h"
 
 @interface ExplodeFinishViewController ()
 @property (strong, nonatomic) CompetitionListViewController *viewControllerList;
 
 @property (strong, nonatomic) UILabel *lblLHandScore;
 @property (strong, nonatomic) UILabel *lblRHandScore;
+
+@property (strong, nonatomic) JCAlertLogin              *alertLogin;
 @end
 
 @implementation ExplodeFinishViewController
@@ -119,6 +122,25 @@
 -(void)setLeftValue:(NSString *)lValue andLeftTime:(NSString *)lTime andRightValue:(NSString *)rValue andRightTime:(NSString *)RTime{
     [self.lblLHandScore setText:[NSString stringWithFormat:@"%@/%@",lValue,lTime]];
     [self.lblRHandScore setText:[NSString stringWithFormat:@"%@/%@",lValue,lTime]];
+    
+    [httpModel postExplodeWithLeftHandValue:lValue
+                        andLeftHandCostTime:lTime
+                          andRightHandValue:rValue
+                       andRightHandCostTime:RTime
+                                 Completion:^{
+                                     NSLog(@"上传成功");
+                                 }
+                                      error:^(NSError *error, int num) {
+                                          if (num == 2 ) {
+                                              self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"获取趋势数据失败"];
+                                              UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                              [rootWindow addSubview:self.alertLogin];
+                                          }else{
+                                              self.alertLogin = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+                                              UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+                                              [rootWindow addSubview:self.alertLogin];
+                                          }
+                                      }];
 }
 #pragma mark - Btn Delegate
 -(void)clickBtnList{
