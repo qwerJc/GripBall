@@ -16,6 +16,8 @@
 
 #import "TendencyViewController.h"
 
+#import "ConnectResViewController.h"
+
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) LoginViewController *viewController;
@@ -47,16 +49,21 @@
 //    [formatter setDateFormat:@"m"];
 //    NSLog(@"time : %@",[formatter stringFromDate:someDay]);
 
+    ConnectResViewController *viewController = [[ConnectResViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationController.navigationBar.hidden = YES;
+    
 //    TendencyViewController *viewController = [[TendencyViewController alloc] init];
 //    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
 //    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 //    self.navigationController.navigationBar.hidden = YES;
     //=========================================
     
-    self.viewController = [[LoginViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    self.navigationController.navigationBar.hidden = YES;
+//    self.viewController = [[LoginViewController alloc] init];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    self.navigationController.navigationBar.hidden = YES;
     
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

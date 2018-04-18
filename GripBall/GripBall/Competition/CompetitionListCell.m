@@ -38,13 +38,13 @@
         [self.lblName setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:self.lblName];
         
-        self.lblScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+30,15.f, 50.f, 20.f)];
+        self.lblScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+15,15.f, 80.f, 20.f)];
         [self.lblScore setTextColor:[UIColor colorWithRed:82.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
         [self.lblScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
         [self.lblScore setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:self.lblScore];
         
-        self.lblHand = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+105,15.f, 35.f, 20.f)];
+        self.lblHand = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+115,15.f, 35.f, 20.f)];
         [self.lblHand setTextColor:[UIColor colorWithRed:82.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
         [self.lblHand setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
         [self.lblHand setTextAlignment:NSTextAlignmentLeft];

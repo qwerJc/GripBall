@@ -11,4 +11,6 @@
 
 @interface CompetitionListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 -(void)setTitle:(NSString *)title;
+-(void)reloadExplodeList;
+-(void)reloadEnduranceList;
 @end

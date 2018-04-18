@@ -8,10 +8,14 @@
 
 #import "CompetitionListViewController.h"
 #import "CompetitionListCell.h"
+#import "JCAlertLogin.h"
 
 @interface CompetitionListViewController ()
 @property (strong, nonatomic) NSArray *listData;
 @property (strong, nonatomic) UILabel *lblTitle;
+@property (strong, nonatomic) UITableView *tableView;
+
+@property (strong, nonatomic) JCAlertLogin       *alert;
 @end
 
 @implementation CompetitionListViewController
@@ -44,7 +48,7 @@
     NSDictionary *dic13 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
     NSDictionary *dic14 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
     NSDictionary *dic15 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-    self.listData = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9,dic10,dic11,dic12,dic13,dic14,dic15,nil];
+//    self.listData = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9,dic10,dic11,dic12,dic13,dic14,dic15,nil];
 }
 
 -(void)createUI
@@ -83,30 +87,63 @@
     [lbllistTitle2 setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lbllistTitle2];
     
-    UILabel *lbllistTitle3 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+35,230.f, 40.f, 20.f)];
+    UILabel *lbllistTitle3 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+15,230.f, 80.f, 20.f)];
     [lbllistTitle3 setText:@"成绩"];
     [lbllistTitle3 setTextColor:[UIColor colorWithRed:173.f/255.f green:173.f/255.f blue:173.f/255.f alpha:1]];
     [lbllistTitle3 setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-    [lbllistTitle3 setTextAlignment:NSTextAlignmentLeft];
+    [lbllistTitle3 setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:lbllistTitle3];
     
-    UILabel *lbllistTitle4 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+105,230.f, 35.f, 20.f)];
+    UILabel *lbllistTitle4 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+115,230.f, 35.f, 20.f)];
     [lbllistTitle4 setText:@"手"];
     [lbllistTitle4 setTextColor:[UIColor colorWithRed:173.f/255.f green:173.f/255.f blue:173.f/255.f alpha:1]];
     [lbllistTitle4 setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
     [lbllistTitle4 setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lbllistTitle4];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 250, SCREEN_WIDTH, SCREEN_HEIGHT-275-25)];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [tableView setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:tableView];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 250, SCREEN_WIDTH, SCREEN_HEIGHT-275-25)];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:self.tableView];
 }
 
 -(void)setTitle:(NSString *)title{
     [self.lblTitle setText:title];
+}
+-(void)reloadExplodeList{
+    [httpModel getExplodeListWithCompletion:^(NSArray *arr) {
+        self.listData = [arr copy];
+        [self.tableView reloadData];
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"删除失败"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }else{
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }
+    }];
+}
+
+-(void)reloadEnduranceList{
+    [httpModel getEnduranceListWithCompletion:^(NSArray *arr) {
+        self.listData = [arr copy];
+        [self.tableView reloadData];
+    } error:^(NSError *error, int num) {
+        if (num == 2 ) {
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"删除失败"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }else{
+            self.alert = [[JCAlertLogin alloc] initWithTitle:@"" andDetailTitle:@"请检查当前网络"];
+            UIWindow *rootWindow = [UIApplication sharedApplication].keyWindow;
+            [rootWindow addSubview:self.alert];
+        }
+    }];
 }
 #pragma mark - Btn Delegate
 -(void)clickBtnBack{
@@ -135,10 +172,36 @@
     if (cell == nil) {
         cell = [[CompetitionListCell alloc]initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:CIdentifier];
     }
-    [cell setNum:[NSString stringWithFormat:@"%ld",indexPath.row]
-         andName:[self.listData[indexPath.row] objectForKey:@"name"]
-        andScore:[self.listData[indexPath.row] objectForKey:@"score"]
-         andHand:[self.listData[indexPath.row] objectForKey:@"hand"]];
+    
+    if ([_lblTitle.text isEqualToString:@"爆发力竞技排行榜"]) {
+        NSString *strHand;
+        if ([[self.listData[indexPath.row] objectForKey:@"flag"] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            strHand = @"左";
+        }else{
+            strHand = @"右";
+        }
+        
+        NSString *strScore = [NSString stringWithFormat:@"%@/%@",[self.listData[indexPath.row] objectForKey:@"val"],[self.listData[indexPath.row] objectForKey:@"timecost"]];
+        
+        [cell setNum:[NSString stringWithFormat:@"%ld",indexPath.row]
+             andName:[self.listData[indexPath.row] objectForKey:@"name"]
+            andScore:strScore
+             andHand:strHand];
+    }else{
+        NSString *strHand;
+        if ([[self.listData[indexPath.row] objectForKey:@"flag"] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            strHand = @"左";
+        }else{
+            strHand = @"右";
+        }
+
+        [cell setNum:[NSString stringWithFormat:@"%ld",indexPath.row]
+             andName:[self.listData[indexPath.row] objectForKey:@"name"]
+            andScore:[[self.listData[indexPath.row] objectForKey:@"duration"] stringValue]
+             andHand:strHand];
+    }
+    
+    
     
     cell.backgroundColor = [UIColor clearColor];
     return cell;
