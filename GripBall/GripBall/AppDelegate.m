@@ -32,38 +32,13 @@
     // Override point for customization after application launch.
     
     //-----------------[del]===================
-//    [self getVCode];
-//    [self regist];
-//    [self login];
-//    [self changeInfo];
-//    [model setUid:[NSNumber numberWithInt:11]];
-//    [self getAllUser];
-//    [self changeInfo];
-    
-//    // 设置日期格式
-//    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-//    fmt.dateFormat = @"HH:mm:ss";
-//    NSDate *someDay = [fmt dateFromString:@"00:02:59"];
-//    
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"m"];
-//    NSLog(@"time : %@",[formatter stringFromDate:someDay]);
 
-    ConnectResViewController *viewController = [[ConnectResViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    self.navigationController.navigationBar.hidden = YES;
-    
-//    TendencyViewController *viewController = [[TendencyViewController alloc] init];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-//    self.navigationController.navigationBar.hidden = YES;
     //=========================================
     
-//    self.viewController = [[LoginViewController alloc] init];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-//    self.navigationController.navigationBar.hidden = YES;
+    self.viewController = [[LoginViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationController.navigationBar.hidden = YES;
     
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

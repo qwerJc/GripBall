@@ -145,6 +145,7 @@
 #pragma mark - Btn Delegate
 -(void)clickBtnList{
     [self.viewControllerList setTitle:@"爆发力竞技排行榜"];
+    [self.viewControllerList reloadExplodeList];
     [self.navigationController pushViewController:self.viewControllerList animated:YES];
 }
 -(void)clickBtnEnd{

@@ -143,6 +143,7 @@
 #pragma mark - Btn Delegate
 -(void)clickBtnList{
     [self.viewControllerList setTitle:@"耐力竞技排行榜"];
+    [self.viewControllerList reloadEnduranceList];
     [self.navigationController pushViewController:self.viewControllerList animated:YES];
 }
 -(void)clickBtnEnd{

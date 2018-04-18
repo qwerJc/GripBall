@@ -161,8 +161,7 @@
     
     if (value >0&&self.comWillStart) {
         NSLog(@"开始测力");
-        NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
-        _startTime = [[NSNumber numberWithDouble:nowtime] longLongValue];
+
         
         _maxValue = value;
         
@@ -171,6 +170,9 @@
         if (value>_maxValue) {
             NSLog(@"更新最大值为:%f",value);
             _maxValue = value;
+            
+            NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
+            _startTime = [[NSNumber numberWithDouble:nowtime] longLongValue];
         }else{
             if (_maxValue > value*1.4) {
                 self.practiceNumber ++;

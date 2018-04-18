@@ -115,11 +115,60 @@
         
         [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
     }else{
-        int value = [[data objectForKey:@"rval"] floatValue];
-        float rate = value*1.f/120;
-        [self.valueBG setFrame:CGRectMake(150*rate, 15, 130*(1-rate), 15)];
+        float lval = [[data objectForKey:@"rval"] floatValue];
+        float lcost = [[data objectForKey:@"rcost"] floatValue];
+        
+        if (lcost<1) {
+            lcost = 1;
+        }
+        
+        float rate = lval / lcost;
+        
+        [self.valueBG setFrame:CGRectMake(30, 15, rate, 15)];
+        
+        [self.lblvalue setFrame:CGRectMake(rate+35, 0, 20, 45)];
+        [self.lblvalue setText:[NSString stringWithFormat:@"%@/%@",[data objectForKey:@"rval"],[data objectForKey:@"rcost"]]];
+        
+        [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
     }
+}
 
+-(void)setEnduranceValue:(NSDictionary *)data withTag:(NSInteger)tag{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+    NSDate *someDay = [fmt dateFromString:[data objectForKey:@"date"]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"M/dd"];
+    
+    [self.lbldata setText:[formatter stringFromDate:someDay]];
+    
+    if (tag == 0) {
+        float lval = [[data objectForKey:@"lval"] floatValue];
+
+        if (lval >240) {
+            lval = 240;
+        }
+        
+        [self.valueBG setFrame:CGRectMake(30, 15, lval/2, 15)];
+        
+        [self.lblvalue setFrame:CGRectMake(lval/2+35, 0, 20, 45)];
+        [self.lblvalue setText:[NSString stringWithFormat:@"%@",[data objectForKey:@"lval"]]];
+        
+        [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
+    }else{
+        float lval = [[data objectForKey:@"rval"] floatValue];
+        
+        if (lval >240) {
+            lval = 240;
+        }
+        
+        [self.valueBG setFrame:CGRectMake(30, 15, lval/2, 15)];
+        
+        [self.lblvalue setFrame:CGRectMake(lval/2+35, 0, 20, 45)];
+        [self.lblvalue setText:[NSString stringWithFormat:@"%@",[data objectForKey:@"rval"]]];
+        
+        [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
+    }
 }
 
 - (void)awakeFromNib {

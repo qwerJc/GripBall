@@ -36,7 +36,7 @@
         
         [self createUI];
         
-        [self temGetDate];
+//        [self temGetDate];
 
     }
     return self;
@@ -70,36 +70,9 @@
 //    self.listData = [model getTestList];
 }
 
--(void)createUI2{
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-    //上下滚动条
-    UIScrollView *scrollContainer = [[UIScrollView alloc] initWithFrame:CGRectMake(0,100, SCREEN_WIDTH, SCREEN_HEIGHT-150)];
-    [scrollContainer setBackgroundColor:[UIColor clearColor]];
-    scrollContainer.contentSize = CGSizeMake(SCREEN_WIDTH, 810);
-    [self.view addSubview:scrollContainer];
-    
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,50,200,SCREEN_WIDTH-80)];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [tableView setBackgroundColor:[UIColor redColor]];
-    tableView.transform = CGAffineTransformMakeRotation(M_PI / 2);
-    [scrollContainer addSubview:tableView];
-//    40, 320,SCREEN_WIDTH-80, 200
-    
-    UITableView *tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,320,200,SCREEN_WIDTH-80)];
-    tableView2.dataSource = self;
-    tableView2.delegate = self;
-    tableView2.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [tableView2 setBackgroundColor:[UIColor redColor]];
-    tableView2.transform = CGAffineTransformMakeRotation(M_PI / 2);
-    [scrollContainer addSubview:tableView2];
-}
-
 -(void)createUI
 {
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor blackColor]];
     
     //背景图片
     UIImageView *imgVBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
@@ -147,7 +120,6 @@
     [_lblTestTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
 //    [_lblTestTitle setBackgroundColor:[UIColor redColor]];
     [_lblTestTitle setTextAlignment:NSTextAlignmentCenter];
-    
     [scrollContainer addSubview:_lblTestTitle];
     
     UIImageView *imgBG = [[UIImageView alloc] initWithFrame:CGRectMake(40, 50,SCREEN_WIDTH-80, 200)];
@@ -231,6 +203,14 @@
     [imgBG3 setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
     [scrollContainer addSubview:imgBG3];
     
+    self.tableViewEndurance = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,545,200,SCREEN_WIDTH-100)];
+    self.tableViewEndurance.dataSource = self;
+    self.tableViewEndurance.delegate = self;
+    self.tableViewEndurance.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableViewEndurance setBackgroundColor:[UIColor greenColor]];
+    self.tableViewEndurance.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+    [scrollContainer addSubview:self.tableViewEndurance];
+    
 }
 
 //-(void)addTestView:(UIScrollView *)container{
@@ -240,7 +220,11 @@
 //        [container addSubview:viewBG];
 //    }
 //}
+#pragma mark - Btn Delegate
 
+-(void)clickBtnBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)onBtnTestHand:(UIButton *)btn{
     if (btn.tag == 0) {
@@ -256,7 +240,7 @@
         [_lblTestTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
         [_lblTestTitle setText:@"左"];
     }
-    NSLog(@"%ld",(long)btn.tag);
+    [_tableViewTest reloadData];
 }
 
 -(void)onBtnExplodeHand:(UIButton *)btn{
@@ -264,31 +248,32 @@
         [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Rhand"] forState:UIControlStateNormal];
         btn.tag = 1;
         
-        [_lblExplodeTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 0.f, 23, 25)];
+        [_lblExplodeTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 270.f, 23, 25)];
         [_lblExplodeTitle setText:@"右"];
     }else{
         [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
         btn.tag = 0;
         
-        [_lblExplodeTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
+        [_lblExplodeTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 270.f, 23, 25)];
         [_lblExplodeTitle setText:@"左"];
     }
+    [_tableViewExplode reloadData];
 }
 -(void)onBtnEnduranceHand:(UIButton *)btn{
     if (btn.tag == 0) {
         [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Rhand"] forState:UIControlStateNormal];
         btn.tag = 1;
         
-        [_lblEnduranceTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 0.f, 23, 25)];
+        [_lblEnduranceTitle setFrame:CGRectMake(SCREEN_WIDTH - 70, 540.f, 23, 25)];
         [_lblEnduranceTitle setText:@"右"];
     }else{
         [btn setBackgroundImage:[UIImage imageNamed:@"Change_state_Lhand"] forState:UIControlStateNormal];
         btn.tag = 0;
         
-        [_lblEnduranceTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 0.f, 23, 25)];
+        [_lblEnduranceTitle setFrame:CGRectMake(SCREEN_WIDTH - 88, 540.f, 23, 25)];
         [_lblEnduranceTitle setText:@"左"];
     }
-    NSLog(@"%ld",(long)btn.tag);
+    [_tableViewEndurance reloadData];
 }
 
 #pragma mark - TableView Delegate
@@ -328,6 +313,7 @@
         
     }else if (tableView == _tableViewEndurance){
         
+        [cell setEnduranceValue:[[model enduranceList] objectAtIndex:indexPath.row] withTag:_btnExplodeHand.tag];
     }
     return cell;
 }
