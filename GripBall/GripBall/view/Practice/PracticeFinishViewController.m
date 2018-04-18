@@ -60,7 +60,8 @@
 -(void)createUI
 {
     // BGImage
-    UIImageView *imgVBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgVBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.view addSubview:imgVBG];
     
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 50.f,115.f, 100.f, 25.f)];

@@ -46,7 +46,8 @@
     [self.viewConnectSucc setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:self.viewConnectSucc];
     
-    UIImageView *imgViewCSBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgViewCSBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgViewCSBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewConnectSucc addSubview:imgViewCSBG];
     
     UILabel *lblTCSTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-48.f, 100.f, 96.f, 25.f)];
@@ -79,7 +80,8 @@
     [self.viewChoice setAlpha:0];
     [self.view addSubview:self.viewChoice];
     
-    UIImageView *imageViewChoiceBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imageViewChoiceBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imageViewChoiceBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewChoice addSubview:imageViewChoiceBG];
     
     UILabel *lblChoiceTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-48.f, 90.f, 96.f, 25.f)];

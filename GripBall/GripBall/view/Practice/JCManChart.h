@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface JCManChart : UIView
--(void)addLine:(int)endPointY;
+-(void)addLine:(float)endPointY;
 -(void)FinishTest;
 @end

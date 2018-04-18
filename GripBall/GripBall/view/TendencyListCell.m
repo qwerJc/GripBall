@@ -36,7 +36,7 @@
         [self.lbldata setFont:[UIFont fontWithName:@"ArialMT" size:12.f]];
         self.lbldata.transform = CGAffineTransformMakeRotation(M_PI/2);
         [self.lbldata setTextAlignment:NSTextAlignmentCenter];
-        [self.lbldata setBackgroundColor:[UIColor greenColor]];
+//        [self.lbldata setBackgroundColor:[UIColor greenColor]];
         [self addSubview:self.lbldata];
 
         self.lblvalue = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+30,15.f, 30.f, 20.f)];
@@ -44,14 +44,9 @@
         [self.lblvalue setFont:[UIFont fontWithName:@"ArialMT" size:12.f]];
         [self.lblvalue setTextAlignment:NSTextAlignmentCenter];
         self.lblvalue.transform = CGAffineTransformMakeRotation(M_PI/2);
-        [self.lblvalue setBackgroundColor:[UIColor greenColor]];
+//        [self.lblvalue setBackgroundColor:[UIColor greenColor]];
         [self addSubview:self.lblvalue];
-//
-//        self.lblHand = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+105,15.f, 35.f, 20.f)];
-//        [self.lblHand setTextColor:[UIColor colorWithRed:82.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
-//        [self.lblHand setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-//        [self.lblHand setTextAlignment:NSTextAlignmentLeft];
-//        [self addSubview:self.lblHand];
+
     }
     return self;
 }
@@ -70,9 +65,9 @@
         //range : 0-120
         float value = [[data objectForKey:@"lval"] floatValue];
         //30 bottom
-        [self.valueBG setFrame:CGRectMake(30, 15, value, 15)];
+        [self.valueBG setFrame:CGRectMake(30, 15, value/10, 15)];
         
-        [self.lblvalue setFrame:CGRectMake(value+35, 0, 20, 45)];
+        [self.lblvalue setFrame:CGRectMake(value/10+35, 0, 20, 45)];
         [self.lblvalue setText:[NSString stringWithFormat:@"%@",[data objectForKey:@"lval"]]];
         
         [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
@@ -80,9 +75,9 @@
         
         float value = [[data objectForKey:@"rval"] floatValue];
         //30 bottom
-        [self.valueBG setFrame:CGRectMake(30, 15, value, 15)];
+        [self.valueBG setFrame:CGRectMake(30, 15, value/10, 15)];
         
-        [self.lblvalue setFrame:CGRectMake(value+35, 0, 20, 45)];
+        [self.lblvalue setFrame:CGRectMake(value/10+35, 0, 20, 45)];
         [self.lblvalue setText:[NSString stringWithFormat:@"%@",[data objectForKey:@"rval"]]];
         
         [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
@@ -102,15 +97,15 @@
         float lval = [[data objectForKey:@"lval"] floatValue];
         float lcost = [[data objectForKey:@"lcost"] floatValue];
         
-        if (lcost<1) {
-            lcost = 1;
+        float res = lval / lcost;
+        if (res>1500) {
+            res =1500;
         }
+        float height = res/1500*120;
         
-        float rate = lval / lcost;
+        [self.valueBG setFrame:CGRectMake(30, 15, height, 15)];
         
-        [self.valueBG setFrame:CGRectMake(30, 15, rate, 15)];
-        
-        [self.lblvalue setFrame:CGRectMake(rate+35, 0, 20, 45)];
+        [self.lblvalue setFrame:CGRectMake(height+35, 0, 20, 45)];
         [self.lblvalue setText:[NSString stringWithFormat:@"%@/%@",[data objectForKey:@"lval"],[data objectForKey:@"lcost"]]];
         
         [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];
@@ -118,15 +113,15 @@
         float lval = [[data objectForKey:@"rval"] floatValue];
         float lcost = [[data objectForKey:@"rcost"] floatValue];
         
-        if (lcost<1) {
-            lcost = 1;
+        float res = lval / lcost;
+        if (res>1500) {
+            res =1500;
         }
+        float height = res/1500*120;
         
-        float rate = lval / lcost;
+        [self.valueBG setFrame:CGRectMake(30, 15, height, 15)];
         
-        [self.valueBG setFrame:CGRectMake(30, 15, rate, 15)];
-        
-        [self.lblvalue setFrame:CGRectMake(rate+35, 0, 20, 45)];
+        [self.lblvalue setFrame:CGRectMake(height+35, 0, 20, 45)];
         [self.lblvalue setText:[NSString stringWithFormat:@"%@/%@",[data objectForKey:@"rval"],[data objectForKey:@"rcost"]]];
         
         [self.lbldata setFrame:CGRectMake(10 ,0.f, 20.f, 45)];

@@ -57,11 +57,11 @@
     [lblLStrengthTitle setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblLStrengthTitle];
     
-    self.lblLStrength = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,205.f, 80.f, 25.f)];
+    self.lblLStrength = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-125.f,205.f, 80.f, 25.f)];
     [self.lblLStrength setText:@"0"];
     [self.lblLStrength setTextColor:[UIColor colorWithRed:85.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
     [self.lblLStrength setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-    [self.lblLStrength setTextAlignment:NSTextAlignmentLeft];
+    [self.lblLStrength setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:self.lblLStrength];
     
     UILabel *lblLScoreTitle = [[UILabel alloc] initWithFrame:CGRectMake(80.f,270.f, 80.f, 25.f)];
@@ -71,11 +71,11 @@
     [lblLScoreTitle setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblLScoreTitle];
     
-    self.lblLScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,270.f, 80.f, 25.f)];
+    self.lblLScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-125.f,270.f, 80.f, 25.f)];
     [self.lblLScore setText:@"0"];
     [self.lblLScore setTextColor:[UIColor colorWithRed:179.f/255.f green:74.f/255.f blue:74.f/255.f alpha:1]];
     [self.lblLScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-    [self.lblLScore setTextAlignment:NSTextAlignmentLeft];
+    [self.lblLScore setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:self.lblLScore];
     
     UILabel *lblRStrengthTitle = [[UILabel alloc] initWithFrame:CGRectMake(80.f,335.f, 80.f, 25.f)];
@@ -85,11 +85,11 @@
     [lblRStrengthTitle setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblRStrengthTitle];
     
-    self.lblRStrength = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,335.f, 80.f, 25.f)];
+    self.lblRStrength = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-125.f,335.f, 80.f, 25.f)];
     [self.lblRStrength setText:@"0"];
     [self.lblRStrength setTextColor:[UIColor colorWithRed:85.f/255.f green:125.f/255.f blue:188.f/255.f alpha:1]];
     [self.lblRStrength setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-    [self.lblRStrength setTextAlignment:NSTextAlignmentLeft];
+    [self.lblRStrength setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:self.lblRStrength];
     
     UILabel *lblRScoreTitle = [[UILabel alloc] initWithFrame:CGRectMake(80.f,400.f, 80.f, 25.f)];
@@ -99,11 +99,11 @@
     [lblRScoreTitle setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblRScoreTitle];
     
-    self.lblRScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-105.f,400.f, 80.f, 25.f)];
+    self.lblRScore = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-125.f,400.f, 80.f, 25.f)];
     [self.lblRScore setText:@"0"];
     [self.lblRScore setTextColor:[UIColor colorWithRed:179.f/255.f green:74.f/255.f blue:74.f/255.f alpha:1]];
     [self.lblRScore setFont:[UIFont fontWithName:@"ArialMT" size:18.f]];
-    [self.lblRScore setTextAlignment:NSTextAlignmentLeft];
+    [self.lblRScore setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:self.lblRScore];
     
     UIButton *btnEnd = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-200.f, 171, 46.f)];
@@ -124,13 +124,14 @@
 }
 
 -(void)setLeftValue:(float)lValue andRightValue:(float)rValue{
-    [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",lValue]];
     [self.lblLScore setText:[self getScore:lValue]];
-    
-    [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",rValue]];
+    [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",rValue*10]];
+
     [self.lblRScore setText:[self getScore:rValue]];
+    [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",rValue*10]];
     
-    [httpModel postTestRecordWithLeftHandValue:[NSString stringWithFormat:@"%0.1f",lValue] andLeftHandScore:[self getScore:lValue] andRightHandValue:[NSString stringWithFormat:@"%0.1f",rValue] andRightHandScore:[self getScore:rValue] Completion:^{
+    
+    [httpModel postTestRecordWithLeftHandValue:self.lblLStrength.text andLeftHandScore:[self getScore:lValue] andRightHandValue:self.lblRStrength.text andRightHandScore:[self getScore:rValue] Completion:^{
         NSLog(@"上传成功");
     } error:^(NSError *error, int num) {
         if (num == 2 ) {

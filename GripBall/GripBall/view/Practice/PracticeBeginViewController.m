@@ -62,7 +62,8 @@
     [self.viewPrepare setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:self.viewPrepare];
     // BGImage
-    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgVPrepareBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVPrepareBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewPrepare addSubview:imgVPrepareBG];
     
     UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(45.f, 62.f, 40.f, 40.f)];
@@ -125,7 +126,8 @@
     [self.viewStart setAlpha:0];
     [self.view addSubview:self.viewStart];
     
-    UIImageView *imgVStartBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgVStartBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgVStartBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewStart addSubview:imgVStartBG];
     
     UILabel *lblStartTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 43.f,70.f, 86.f, 25.f)];
@@ -236,7 +238,7 @@
 -(void)showResVC{
     int aveValue = self.sumValue / self.practiceNumber;
     
-    [self.viewControllerPracticeFinish setTime:self.lblStartTime.text andNum: [NSString stringWithFormat:@"%d",self.practiceNumber] andAve:[NSString stringWithFormat:@"%d",aveValue]];
+    [self.viewControllerPracticeFinish setTime:self.lblStartTime.text andNum: [NSString stringWithFormat:@"%d",self.practiceNumber] andAve:[NSString stringWithFormat:@"%d",aveValue*10]];
     [self.navigationController pushViewController:self.viewControllerPracticeFinish animated:YES];
     [self.alert removeFromSuperview];
 }
@@ -251,7 +253,7 @@
 
 -(void)getBTData:(NSNotification *)noti{
     NSLog(@"练习 %@",noti.object);
-    int value = [noti.object intValue];
+    float value = [noti.object floatValue];
     
     //判断， 如果value ＝＝ end的值 跳过
     if (self.startValue<0) {

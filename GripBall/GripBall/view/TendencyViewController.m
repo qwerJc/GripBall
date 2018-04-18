@@ -42,34 +42,6 @@
     return self;
 }
 
--(void)temGetDate{
-//    date = "Fri, 13 Apr 2018 10:17:37 GMT";
-//    id = 4;
-//    meanvalue = 1;
-//    mode = practice;
-//    timecost = 1;
-//    times = 1;
-    
-//    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"meanvalue", @"practice",@"mode", @"1", @"timecost", @"1",@"times", nil];
-    
-    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
-    
-    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"10", @"lval", @"15", @"rval",nil];
-    NSDictionary *dic3 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"20", @"lval", @"15", @"rval",nil];
-    NSDictionary *dic4 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"30", @"lval", @"15", @"rval",nil];
-    
-    NSDictionary *dic5 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"40", @"lval", @"15", @"rval",nil];
-    NSDictionary *dic6 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
-    NSDictionary *dic7 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
-    
-    NSDictionary *dic8 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
-    NSDictionary *dic9 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Tue, 10 Apr 2018 15:42:16 GMT", @"date", @"100", @"lval", @"15", @"rval",nil];
-    self.listData = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9,nil];
-    
-    
-//    self.listData = [model getTestList];
-}
-
 -(void)createUI
 {
     [self.view setBackgroundColor:[UIColor blackColor]];
@@ -118,7 +90,7 @@
     [_lblTestTitle setText:@"左"];
     [_lblTestTitle setTextColor:[UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1]];
     [_lblTestTitle setFont:[UIFont fontWithName:@"ArialMT" size:13.f]];
-//    [_lblTestTitle setBackgroundColor:[UIColor redColor]];
+    [_lblTestTitle setBackgroundColor:[UIColor clearColor]];
     [_lblTestTitle setTextAlignment:NSTextAlignmentCenter];
     [scrollContainer addSubview:_lblTestTitle];
     
@@ -128,11 +100,18 @@
     
     //测试模式 横向滚动条
     
-    self.tableViewTest = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,-5,200,SCREEN_WIDTH-100)];
+    float height;
+    if (SCREEN_HEIGHT < 700) {
+        height = 10;
+    }else{
+        height = -5;
+    }
+    
+    self.tableViewTest = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,height,200,SCREEN_WIDTH-100)];
     self.tableViewTest.dataSource = self;
     self.tableViewTest.delegate = self;
     self.tableViewTest.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableViewTest setBackgroundColor:[UIColor redColor]];
+    [self.tableViewTest setBackgroundColor:[UIColor clearColor]];
     self.tableViewTest.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     [scrollContainer addSubview:self.tableViewTest];
     
@@ -166,11 +145,11 @@
     [imgBG2 setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
     [scrollContainer addSubview:imgBG2];
     
-    self.tableViewExplode = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,265,200,SCREEN_WIDTH-100)];
+    self.tableViewExplode = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,270+height,200,SCREEN_WIDTH-100)];
     self.tableViewExplode.dataSource = self;
     self.tableViewExplode.delegate = self;
     self.tableViewExplode.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableViewExplode setBackgroundColor:[UIColor redColor]];
+    [self.tableViewExplode setBackgroundColor:[UIColor clearColor]];
     self.tableViewExplode.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     [scrollContainer addSubview:self.tableViewExplode];
     
@@ -203,11 +182,11 @@
     [imgBG3 setImage:[UIImage imageNamed:@"chartBG@2x.png"]];
     [scrollContainer addSubview:imgBG3];
     
-    self.tableViewEndurance = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,545,200,SCREEN_WIDTH-100)];
+    self.tableViewEndurance = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100,540+height,200,SCREEN_WIDTH-100)];
     self.tableViewEndurance.dataSource = self;
     self.tableViewEndurance.delegate = self;
     self.tableViewEndurance.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableViewEndurance setBackgroundColor:[UIColor greenColor]];
+    [self.tableViewEndurance setBackgroundColor:[UIColor clearColor]];
     self.tableViewEndurance.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     [scrollContainer addSubview:self.tableViewEndurance];
     

@@ -45,7 +45,8 @@
     [self.viewSearch setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:self.viewSearch];
     // BGImage
-    UIImageView *imgViewBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *imgViewBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [imgViewBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewSearch addSubview:imgViewBG];
     // Roll Icon
     self.imgViewRoll = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-80.f, 177.f, 160.f, 160.f)];
@@ -103,7 +104,8 @@
     [self.view addSubview:self.viewSearchFail];
     
     // BGImage
-    UIImageView *searchFailBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connect_background"]];
+    UIImageView *searchFailBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [searchFailBG setImage:[UIImage imageNamed:@"connect_background"]];
     [self.viewSearchFail addSubview:searchFailBG];
     
     UILabel *lblSearchFailitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-48.f, 100.f, 96.f, 25.f)];

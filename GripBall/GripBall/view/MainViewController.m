@@ -61,7 +61,7 @@
         self.viewControllerSearchRes.delegate = self;
         
         self.viewControllerConnectRes = [[ConnectResViewController alloc] init];
-        self.viewControllerSearchRes.delegate = self;
+        self.viewControllerConnectRes.delegate = self;
         
         self.arrPeripheralsList = [NSMutableArray array];
         
@@ -136,7 +136,7 @@
     [self.view addSubview:self.mainTableView];
     
     self.btnStart = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-85.5f, SCREEN_HEIGHT-90, 171, 46.f)];
-    [self.btnStart setTitle:@"Start Test" forState:UIControlStateNormal];
+    [self.btnStart setTitle:@"开始测试" forState:UIControlStateNormal];
     [self.btnStart setBackgroundImage:[UIImage imageNamed:@"connect_btn_blue"] forState:UIControlStateNormal];
     [self.btnStart setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.btnStart addTarget:self action:@selector(clickBtnStart) forControlEvents:UIControlEventTouchUpInside];
@@ -354,7 +354,6 @@
     [self setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
     [httpModel getUserListWithCompletion:^(NSArray *arr) {
-//        NSLog(@"获取列表成功");
         [model setAllUserList:arr];
         
         [viewControllerShow setRoleList:[model getElseUserList:[[model userInfo] getRid]]];
@@ -368,6 +367,7 @@
 //    [self presentViewController:viewControllerShow animated:YES completion:nil];
 }
 -(void)onBtnShowTendency{
+    
     [httpModel getTendencyWithCompletion:^(NSArray *testArr, NSArray *explodeArr, NSArray *enduranceArr) {
         TendencyViewController *viewControllerTendency = [[TendencyViewController alloc] init];
         [self.navigationController pushViewController:viewControllerTendency animated:YES];
@@ -413,7 +413,15 @@
 }
 
 -(void)reGetMainList{
-    NSLog(@"刷新");
+    //获取最近测试数据列表
+    [httpModel getLastestRecordWithCompletion:^(NSArray *arr) {
+        NSLog(@"获取最新数据成功");
+        [model setNewestListData:arr];
+        
+        NSLog(@"刷新");
+        [self.mainTableView reloadData];
+    } error:nil];
+   
 }
 
 #pragma mark - 选择模式后的Notification监听

@@ -43,7 +43,7 @@
     return self;
 }
 
--(void)addLine:(int)endPointY{
+-(void)addLine:(float)endPointY{
     _valueNum++;
     
     //判断超过最大值及低于最小值
@@ -59,12 +59,15 @@
     //设置上方数值
     UILabel *lblChartValue;
     if (endPointY>Chart_Height/2) {
-        lblChartValue = [[UILabel alloc] initWithFrame:CGRectMake(self.pointEnd.x-5, self.pointEnd.y-15, 25, 10)];
+        lblChartValue = [[UILabel alloc] initWithFrame:CGRectMake(self.pointEnd.x-5, self.pointEnd.y-15, 35, 10)];
     }else{
-        lblChartValue = [[UILabel alloc] initWithFrame:CGRectMake(self.pointEnd.x-5, self.pointEnd.y+5, 25, 10)];
+        lblChartValue = [[UILabel alloc] initWithFrame:CGRectMake(self.pointEnd.x-5, self.pointEnd.y+5, 35, 10)];
     }
+    
+    int intValue = (Chart_Height - endPointY)*10;
+    
     [lblChartValue setTextColor:[UIColor colorWithRed:180.f/255.f green:180.f/255.f blue:180.f/255.f alpha:1]];
-    [lblChartValue setText: [NSString stringWithFormat:@"%d",Chart_Height - endPointY]];
+    [lblChartValue setText: [NSString stringWithFormat:@"%d",intValue]];
     [lblChartValue setFont:[UIFont fontWithName:@"ArialMT" size:12.f]];
     [self.scrollView addSubview:lblChartValue];
     [lblChartValue setAlpha:0.f];

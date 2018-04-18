@@ -208,19 +208,17 @@
                     NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*10;
                     long long nowTimeStamp = [[NSNumber numberWithDouble:nowtime] longLongValue];
                     float diffTime = (nowTimeStamp - _startTime)/10;
-                    if (diffTime < 0.11) {
-                        diffTime = 0.1;
-                    }
+
                     //此次的比值结果
                     float nowValue = self.midValue /diffTime;
                     
-                    NSLog(@"%d此次比值%@",self.practiceNumber,[NSString stringWithFormat:@"%d/%d",(int)self.midValue,(int)diffTime]);
+//                    NSLog(@"%d此次比值%@",self.practiceNumber,[NSString stringWithFormat:@"%d/%d",(int)self.midValue,(int)diffTime]);
                     
                     //将大的比值结果赋给maxValue
                     if (nowValue > _maxValue) {
                         _maxValue = nowValue;
-                        _strMaxValue = [NSString stringWithFormat:@"%d",(int)self.midValue];
-                        _strMaxValueTime = [NSString stringWithFormat:@"%d",(int)diffTime];
+                        _strMaxValue = [NSString stringWithFormat:@"%.f",self.midValue*10];
+                        _strMaxValueTime = [NSString stringWithFormat:@"%.1f",(float)diffTime];
                     }
                     
                     if (self.practiceNumber == 3) {

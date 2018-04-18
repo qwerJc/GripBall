@@ -24,32 +24,12 @@
 {
     self = [super init];
     if (self) {
-        [self temGetDate];
         
         [self createUI];
     }
     return self;
 }
 
-//临时模拟数据
--(void)temGetDate{
-    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"张三", @"name", @"40/5", @"score", @"左", @"hand", nil];
-    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"五湖四海", @"name", @"50/4", @"score", @"左", @"hand",nil];
-    NSDictionary *dic3 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-    NSDictionary *dic4 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-    NSDictionary *dic5 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
-    NSDictionary *dic6 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-    NSDictionary *dic7 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-    NSDictionary *dic8 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
-    NSDictionary *dic9 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-    NSDictionary *dic10 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-    NSDictionary *dic11 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
-    NSDictionary *dic12 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-    NSDictionary *dic13 = [[NSDictionary alloc] initWithObjectsAndKeys:@"zhangsan", @"name", @"40/5", @"score", @"左", @"hand", nil];
-    NSDictionary *dic14 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Wang", @"name", @"50/4", @"score", @"左", @"hand",nil];
-    NSDictionary *dic15 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Liu", @"name", @"50/4", @"score", @"右", @"hand",nil];
-//    self.listData = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9,dic10,dic11,dic12,dic13,dic14,dic15,nil];
-}
 
 -(void)createUI
 {
