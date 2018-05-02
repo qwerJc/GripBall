@@ -14,9 +14,9 @@
 #import "PracticeBeginViewController.h"
 #import "ModelLocator.h"
 
-#import "TendencyViewController.h"
-
 #import "ConnectResViewController.h"
+#import "LoginInformationViewController.h"
+
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController *navigationController;
@@ -33,6 +33,8 @@
     
     //-----------------[del]===================
 
+//    LoginInformationViewController *infoVC = [[LoginInformationViewController alloc] init];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:infoVC];
     //=========================================
     
     self.viewController = [[LoginViewController alloc] init];

@@ -40,7 +40,7 @@
     [self.view addSubview:imgVPrepareBG];
     
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 50.f,115.f, 100.f, 25.f)];
-    [lblTitle setText:@"练习结果"];
+    [lblTitle setText:@"测验结果"];
     [lblTitle setTextColor:[UIColor colorWithRed:217.f/255.f green:217.f/255.f blue:217.f/255.f alpha:1]];
     [lblTitle setFont:[UIFont fontWithName:@"ArialMT" size:24.f]];
     [lblTitle setTextAlignment:NSTextAlignmentCenter];
@@ -125,10 +125,10 @@
 
 -(void)setLeftValue:(float)lValue andRightValue:(float)rValue{
     [self.lblLScore setText:[self getScore:lValue]];
-    [self.lblLStrength setText:[NSString stringWithFormat:@"%0.1f",rValue*10]];
+    [self.lblLStrength setText:[NSString stringWithFormat:@"%.f",rValue*10]];
 
     [self.lblRScore setText:[self getScore:rValue]];
-    [self.lblRStrength setText:[NSString stringWithFormat:@"%0.1f",rValue*10]];
+    [self.lblRStrength setText:[NSString stringWithFormat:@"%.f",rValue*10]];
     
     
     [httpModel postTestRecordWithLeftHandValue:self.lblLStrength.text andLeftHandScore:[self getScore:lValue] andRightHandValue:self.lblRStrength.text andRightHandScore:[self getScore:rValue] Completion:^{

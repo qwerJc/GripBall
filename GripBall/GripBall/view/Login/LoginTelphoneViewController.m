@@ -76,7 +76,7 @@
     [btnGetVCode setTitle:@"获取验证码" forState:UIControlStateNormal];
     [btnGetVCode setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
     [btnGetVCode addTarget:self
-                       action:@selector(onBtnGetVCode)
+                    action:@selector(onBtnGetVCode:)
              forControlEvents:UIControlEventTouchUpInside];
     [btnGetVCode.titleLabel setFont:[UIFont fontWithName:@"ArialMT" size:15.f]];
     [self.view addSubview:btnGetVCode];
@@ -113,7 +113,8 @@
 }
 
 #pragma mark - btnEvent
--(void)onBtnGetVCode{
+-(void)onBtnGetVCode:(UIButton *)btn{
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [httpModel getVcodeWithTelNum:self.txvTel.text Completion:^{
         NSLog(@"成功");
     } error:^(NSError *error, int num) {
@@ -134,6 +135,9 @@
             NSLog(@"请检查当前网络");
         }
     }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [btn setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
+    });
 }
 -(void)onBtnSignUP
 {//

@@ -25,6 +25,8 @@ UINavigationControllerDelegate
 @property (strong, nonatomic) NSString *passWord;
 @property (strong, nonatomic) UILabel     *tel;
 @property (strong, nonatomic) UITextField *txfName;
+@property (strong, nonatomic) UITextField *txfHeight;
+@property (strong, nonatomic) UITextField *txfWeight;
 
 @property (strong, nonatomic) UIImage     *imgHead;//留备份以便上传至服务器
 
@@ -37,8 +39,7 @@ UINavigationControllerDelegate
 @property (strong, nonatomic) UIButton     *btnHeadPic;
 @property (strong, nonatomic) UIButton     *btnSex;
 @property (strong, nonatomic) UIButton     *btnBirth;
-@property (strong, nonatomic) UIButton     *btnHeight;
-@property (strong, nonatomic) UIButton     *btnWeight;
+
 
 @property (strong, nonatomic) NSArray             *arrSex;
 @property (strong, nonatomic) NSMutableArray      *arrYear;
@@ -227,18 +228,33 @@ UINavigationControllerDelegate
     [lblHeight setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblHeight];
     
-    _btnHeight = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-130.f, 465.f, 70.f, 20.f)];
-    [_btnHeight setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
-    [_btnHeight.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15.f]];
-    [_btnHeight addTarget:self
-                  action:@selector(onBtnHeight)
-        forControlEvents:UIControlEventTouchUpInside];
-    [_btnHeight.titleLabel setTextAlignment:NSTextAlignmentRight];
-    [self.view addSubview:_btnHeight];
+    _txfHeight = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-195.f, 465.f, 120.f, 20.f)];
+    [_txfHeight setPlaceholder:@"请输入身高"];
+    _txfHeight.textColor = [UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1];
+    _txfHeight.font = [UIFont fontWithName:@"Arial" size:15.0f];
+    _txfHeight.keyboardType = UIKeyboardTypeNumberPad;
+    [_txfHeight setTextAlignment:NSTextAlignmentRight];
+    [self.view addSubview:_txfHeight];
     
-    UIImageView *triangleHeight = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 471, 8, 8)];
-    [triangleHeight setImage:[UIImage imageNamed:@"Login_icon_Triangle"]];
-    [self.view addSubview:triangleHeight];
+//    _btnHeight = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-130.f, 465.f, 70.f, 20.f)];
+//    [_btnHeight setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
+//    [_btnHeight.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15.f]];
+//    [_btnHeight addTarget:self
+//                  action:@selector(onBtnHeight)
+//        forControlEvents:UIControlEventTouchUpInside];
+//    [_btnHeight.titleLabel setTextAlignment:NSTextAlignmentRight];
+//    [self.view addSubview:_btnHeight];
+    
+    UILabel *lblHeightUnit = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 465, 30, 20)];
+    lblHeightUnit.text = @"cm";
+    [lblHeightUnit setTextColor:[UIColor grayColor]];
+    [lblHeightUnit setFont:[UIFont fontWithName:@"ArialMT" size:15.f]];
+    [lblHeightUnit setTextAlignment:NSTextAlignmentLeft];
+    [self.view addSubview:lblHeightUnit];
+    
+//    UIImageView *triangleHeight = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 471, 8, 8)];
+//    [triangleHeight setImage:[UIImage imageNamed:@"Login_icon_Triangle"]];
+//    [self.view addSubview:triangleHeight];
     
     UIView *viewLine4 = [[UIView alloc] initWithFrame:CGRectMake(70, 491,SCREEN_WIDTH-140, 1)];
     [viewLine4 setBackgroundColor:[UIColor colorWithRed:179.f/255.f green:179.f/255.f blue:179.f/255.f alpha:1]];
@@ -252,18 +268,32 @@ UINavigationControllerDelegate
     [lblWeight setTextAlignment:NSTextAlignmentLeft];
     [self.view addSubview:lblWeight];
     
-    _btnWeight = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-130.f, 510.f, 70.f, 20.f)];
-    [_btnWeight setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
-    [_btnWeight.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15.f]];
-    [_btnWeight addTarget:self
-                   action:@selector(onBtnWeight)
-         forControlEvents:UIControlEventTouchUpInside];
-    [_btnWeight.titleLabel setTextAlignment:NSTextAlignmentRight];
-    [self.view addSubview:_btnWeight];
+    _txfWeight = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-195.f, 510.f, 120.f, 20.f)];
+    [_txfWeight setPlaceholder:@"请输入体重"];
+    _txfWeight.textColor = [UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1];
+    _txfWeight.font = [UIFont fontWithName:@"Arial" size:15.0f];
+    _txfWeight.keyboardType = UIKeyboardTypeNumberPad;
+    [_txfWeight setTextAlignment:NSTextAlignmentRight];
+    [self.view addSubview:_txfWeight];
     
-    UIImageView *triangleWeight = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 516, 8, 8)];
-    [triangleWeight setImage:[UIImage imageNamed:@"Login_icon_Triangle"]];
-    [self.view addSubview:triangleWeight];
+    UILabel *lblWeightUnit = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 510, 30, 20)];
+    lblWeightUnit.text = @"kg";
+    [lblWeightUnit setTextColor:[UIColor grayColor]];
+    [lblWeightUnit setFont:[UIFont fontWithName:@"ArialMT" size:15.f]];
+    [lblWeightUnit setTextAlignment:NSTextAlignmentLeft];
+    [self.view addSubview:lblWeightUnit];
+//    _btnWeight = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-130.f, 510.f, 70.f, 20.f)];
+//    [_btnWeight setTitleColor:[UIColor colorWithRed:135.f/255.f green:175.f/255.f blue:242.f/255.f alpha:1] forState:UIControlStateNormal];
+//    [_btnWeight.titleLabel setFont:[UIFont fontWithName:@"Arial" size:15.f]];
+//    [_btnWeight addTarget:self
+//                   action:@selector(onBtnWeight)
+//         forControlEvents:UIControlEventTouchUpInside];
+//    [_btnWeight.titleLabel setTextAlignment:NSTextAlignmentRight];
+//    [self.view addSubview:_btnWeight];
+//
+//    UIImageView *triangleWeight = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 516, 8, 8)];
+//    [triangleWeight setImage:[UIImage imageNamed:@"Login_icon_Triangle"]];
+//    [self.view addSubview:triangleWeight];
     
     UIView *viewLine5 = [[UIView alloc] initWithFrame:CGRectMake(70, 536,SCREEN_WIDTH-140, 1)];
     [viewLine5 setBackgroundColor:[UIColor colorWithRed:179.f/255.f green:179.f/255.f blue:179.f/255.f alpha:1]];
@@ -325,13 +355,15 @@ UINavigationControllerDelegate
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     NSLog(@"touch@");
     [_txfName resignFirstResponder];
+    [_txfHeight resignFirstResponder];
+    [_txfWeight resignFirstResponder];
     
     [_pickerSex setHidden:YES];
     [_pickerBirth setHidden:YES];
     [_pickerHeight setHidden:YES];
     [_pickerWeight setHidden:YES];
     
-    if (_txfName.text.length>0 && _btnSex.titleLabel.text.length>0 && _btnBirth.titleLabel.text.length>0 && _btnHeight.titleLabel.text.length>0 && _btnWeight.titleLabel.text.length>0) {
+    if (_txfName.text.length>0 && _btnSex.titleLabel.text.length>0 && _btnBirth.titleLabel.text.length>0 && _txfHeight.text.length>0 && _txfWeight.text.length>0) {
         [_btnFinish setHidden:NO];
     }else{
         [_btnFinish setHidden:YES];
@@ -406,9 +438,9 @@ UINavigationControllerDelegate
         [self.pickerBirth reloadComponent:2];
         [_btnBirth setTitle:[_strYear stringByAppendingFormat:@"年%@月%@日",_strMonth,_strDay] forState:UIControlStateNormal];
     }else if (pickerView == self.pickerHeight){
-        [_btnHeight setTitle:[_arrHeight objectAtIndex:row] forState:UIControlStateNormal];
+//        [_btnHeight setTitle:[_arrHeight objectAtIndex:row] forState:UIControlStateNormal];
     }else if (pickerView == self.pickerWeight){
-        [_btnWeight setTitle:[_arrWidth objectAtIndex:row] forState:UIControlStateNormal];
+//        [_btnWeight setTitle:[_arrWidth objectAtIndex:row] forState:UIControlStateNormal];
     }
 }
 
@@ -520,8 +552,8 @@ UINavigationControllerDelegate
                          andName:_txfName.text
                           andSex:_btnSex.titleLabel.text
                      andBirthday:_btnBirth.titleLabel.text
-                       andHeight:_btnHeight.titleLabel.text
-                       andWeight:_btnWeight.titleLabel.text
+                       andHeight:_txfHeight.text
+                       andWeight:_txfWeight.text
                       Completion:^{
                           NSLog(@"成功");
                           NSArray *controllers = self.navigationController.viewControllers;
@@ -591,15 +623,7 @@ UINavigationControllerDelegate
     [_pickerBirth setHidden:NO];
 
 }
--(void)onBtnHeight{
-    [_btnHeight setTitle:@"1" forState:UIControlStateNormal];
-    [_pickerHeight setHidden:NO];
 
-}
--(void)onBtnWeight{
-    [_btnWeight setTitle:@"1" forState:UIControlStateNormal];
-    [_pickerWeight setHidden:NO];
-}
 -(void)onAlertBtnAlbum{
     _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     

@@ -121,7 +121,7 @@
 
 -(void)setLeftValue:(NSString *)lValue andLeftTime:(NSString *)lTime andRightValue:(NSString *)rValue andRightTime:(NSString *)RTime{
     [self.lblLHandScore setText:[NSString stringWithFormat:@"%@/%@",lValue,lTime]];
-    [self.lblRHandScore setText:[NSString stringWithFormat:@"%@/%@",lValue,lTime]];
+    [self.lblRHandScore setText:[NSString stringWithFormat:@"%@/%@",rValue,RTime]];
     
     [httpModel postExplodeWithLeftHandValue:lValue
                         andLeftHandCostTime:lTime
