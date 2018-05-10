@@ -125,7 +125,7 @@
 
 -(void)setLeftValue:(float)lValue andRightValue:(float)rValue{
     [self.lblLScore setText:[self getScore:lValue]];
-    [self.lblLStrength setText:[NSString stringWithFormat:@"%.f",rValue*10]];
+    [self.lblLStrength setText:[NSString stringWithFormat:@"%.f",lValue*10]];
 
     [self.lblRScore setText:[self getScore:rValue]];
     [self.lblRStrength setText:[NSString stringWithFormat:@"%.f",rValue*10]];

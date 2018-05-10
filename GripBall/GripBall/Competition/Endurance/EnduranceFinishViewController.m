@@ -8,7 +8,7 @@
 
 #import "EnduranceFinishViewController.h"
 #import "CompetitionListViewController.h"
-#import "ExplodeStartViewController.h"
+#import "EnduranceStartViewController.h"
 #import "ConnectResViewController.h"
 #import "JCAlertLogin.h"
 
@@ -157,7 +157,7 @@
 -(void)clickBtnReTest{
     NSArray *controllers = self.navigationController.viewControllers;
     for ( id viewController in controllers) {
-        if ([viewController isKindOfClass:[ExplodeStartViewController class]]) {
+        if ([viewController isKindOfClass:[EnduranceStartViewController class]]) {
             [self.navigationController popToViewController:viewController animated:YES];
         }
     }
